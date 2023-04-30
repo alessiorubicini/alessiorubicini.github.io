@@ -6,6 +6,10 @@
   url: /devprojects/
   external: false
 
+- title: filmmaking
+  url: /filmmaking/
+  external: false
+
 - title: blog
   url: /blog/
   external: false
