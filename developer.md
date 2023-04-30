@@ -6,7 +6,7 @@ excerpt: All post.
 comments: false
 ---
 
-> “Creativity is intelligence having Fun.” - Albert Einstein
+> “Creativity is intelligence having fun.” - Albert Einstein
 
 The whole world depends on apps today. Every line of code we write feeds and drives the daily lives of millions of people in different ways. That's why I love developing apps: because they are the fuel of our digital life.
 

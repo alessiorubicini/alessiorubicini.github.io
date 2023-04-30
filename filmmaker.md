@@ -19,5 +19,8 @@ Sometimes I also shoot the stories I write, as you can see below.
 A web series for the University of Camerino 2022/23 communication campaign which tells new students about life within the university. Project realized as part of the Communication and Digital Marketing course of prof. Ugo Esposito.
 
 ### [📹 iPhone 11 Cinematic: Rocca dei Borgia](https://www.youtube.com/watch?v=nlZNdY7Bsfs)
+A short cinematic video shot with my iPhone 11 at Rocca dei Borgia, in Camerino (Italy).
 
 ### [📹 iPhone 11 Cinematic: Marina di Porto San Giorgio](https://www.youtube.com/watch?v=HQ8STSCV0KM)
+A short cinematic video shot with my iPhone 11 at Porto San Giorgio (Italy).
+
