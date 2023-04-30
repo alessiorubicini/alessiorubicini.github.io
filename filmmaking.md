@@ -6,7 +6,7 @@ excerpt: All post.
 comments: false
 ---
 
-> I love creating stories with the power of words  and telling them with the power of a camera.
+> "I love creating stories with the power of words  and telling them with the power of a camera." - Myself
 
 In my free time, I enjoy writing screenplays for feature-length movies and short films. Screenwriting it's like a journal for my thoughts. It allows me to tell stories in a pure way that centers on the story itself and to share the crazy, beautiful things that flow through my mind on a daily basis. 
 
