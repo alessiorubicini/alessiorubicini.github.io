@@ -22,7 +22,7 @@ author:
   avatar: /assets/img/AleMemoji.png # change with your own avatar
 
 # URL settings
-url: "https://klise.now.sh" #
+url: "https://alessiorubicini.github.io" #
 baseurl:
 permalink: /:title/
 google_analytics: # leave it blank if not wish
@@ -62,7 +62,6 @@ jekyll_compose:
 number_of_posts: 3
 
 # Build settings
-# theme: klise
 sass:
   style: compressed
 
