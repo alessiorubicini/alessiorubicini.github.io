@@ -182,8 +182,8 @@
 
 // Author
 .author {
-  margin-top: 3.2rem;
-  margin-bottom: 2.8rem;
+  margin-top: 3.0rem;
+  margin-bottom: 2.2rem;
   text-align: center;
 
   @include media-query($on-mobile) {
@@ -206,28 +206,23 @@
     font-size: 1.8em;
     margin-bottom: 2px;
   }
-  .author-bio::first-line {
-	font-size: 1.3em;
-    margin-bottom: 2px;
-	font-weight: 500;
-  }
   .author-bio {
     margin: 0 auto;
-    opacity: 0.9;
-    max-width: 393px;
+    opacity: 1.0;
+    max-width: 523px;
     line-height: 1.688;
   }
 }
 
 .contacts {
 	margin-top: 0px;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 	text-decoration: none;
 	text-align: center;
 }
 .contacts a {
 	padding: 20px;
-	font-size: 2.5em;
+	font-size: 2.3em;
 	transition: 0.4s all;
 }
 .contacts a:hover {
@@ -235,10 +230,25 @@
 	transition: 0.3s all;
 }
 
+.container-box {
+    display: block;
+    max-width: 500px;
+    margin-bottom: 0px;
+    padding: 10px 10px 10px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: #fcfcfc;
+    text-decoration: none;
+	
+}
+
 // Content
 .posts-item-note {
   font-size: $base-font-size;
   font-weight: 700;
+  margin-top: 20px;
   margin-bottom: 5px;
   color: $black;
 }
@@ -257,8 +267,8 @@
   .post-item-date {
     min-width: 96px;
     //color: $black;
-	color: #9747ff;
-    font-weight: 700;
+	color: black;
+    font-weight: 500;
     padding-right: 10px;
 
     @include media-query($on-mobile) {
@@ -276,10 +286,12 @@
 
     a {
       color: $text-base-color;
+	  color: #9747ff;
 
       &:hover,
       &focus {
         color: $black;
+		color: #9747ff;
 		font-weight: bold;
       }
     }

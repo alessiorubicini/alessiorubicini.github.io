@@ -8,7 +8,9 @@ comments: false
 
 > “Creativity is intelligence having Fun.” - Albert Einstein
 
-As a indie developer, I'm constantly looking for ideas for personal projects to work on in my free time and where I can put myself on the line to improve my skills or learn new ones. 
+The whole world depends on apps today. Every line of code we write feeds and drives the daily lives of millions of people in different ways. That's why I love developing apps: because they are the fuel of our digital life.
+
+As an indie developer, I'm always looking for ideas and inspiration to create new apps and software solutions that can help both people and developers like me.
 
 ### [🏝️ Island Alerts for SwiftUI](https://github.com/alessiorubicini/IslandAlertsForSwiftUI)
 A Swift package that provides a variety of SwiftUI alerts that integrate seamlessly with Dynamic Island and the old Notch.
