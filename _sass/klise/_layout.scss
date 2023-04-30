@@ -182,8 +182,8 @@
 
 // Author
 .author {
-  margin-top: 3.3rem;
-  margin-bottom: 3.2rem;
+  margin-top: 3.2rem;
+  margin-bottom: 2.8rem;
   text-align: center;
 
   @include media-query($on-mobile) {
@@ -217,6 +217,22 @@
     max-width: 393px;
     line-height: 1.688;
   }
+}
+
+.contacts {
+	margin-top: 0px;
+	margin-bottom: 10px;
+	text-decoration: none;
+	text-align: center;
+}
+.contacts a {
+	padding: 20px;
+	font-size: 2.5em;
+	transition: 0.4s all;
+}
+.contacts a:hover {
+	color: #9747ff;
+	transition: 0.3s all;
 }
 
 // Content
