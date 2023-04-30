@@ -33,14 +33,18 @@ layout: compress
     <main class="page-content" aria-label="Content">
       <article itemscope itemtype="https://schema.org/BlogPosting">
 
+
         <header class="header">
           {% if page.tags and page.tags != empty %}
+		  <a class="goback" href="{{ site.url }}/blog">
+			<i class="bi bi-arrow-left"></i>
+		  </a>
           <div class="tags">
             {% assign tags = page.tags %}
             <span itemprop="keywords">
               {% for tag in tags %}
               <a class="tag"
-                href="/tags/#{{tag | downcase | slugify}}">{{tag | upcase }}</a>{% unless forloop.last %},{% endunless %}
+                href="/tags/#{{tag | downcase | slugify}}">#{{tag | upcase }}</a>{% unless forloop.last %},{% endunless %}
               {% endfor %}
             </span>
           </div>
@@ -61,6 +65,7 @@ layout: compress
             <span hidden itemprop="image">{{ page.image }}</span>
             <span hidden itemprop="mainEntityOfPage">{{ page.excerpt }}</span>
           </div>
+		  
           {% endif %}
         </header>
 

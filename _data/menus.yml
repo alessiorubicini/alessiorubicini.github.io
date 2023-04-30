@@ -1,4 +1,4 @@
-- title: home
+- title: "@alessiorubicini"
   url: /
   external: false
 
@@ -6,8 +6,8 @@
   url: /developer/
   external: false
 
-- title: filmmaking
-  url: /filmmaking/
+- title: filmmaker
+  url: /filmmaker/
   external: false
 
 - title: blog

@@ -87,6 +87,12 @@ body[data-theme="dark"] {
     }
   }
 
+  .goback i {
+	font-size: 1.7em;
+	font-weight: 600;
+	color: $white;
+	}
+
   // Link
   a {
     color: inherit;
