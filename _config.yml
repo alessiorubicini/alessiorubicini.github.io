@@ -10,9 +10,9 @@ mode: light # default theme "dark" | "light"
 
 # Profile settings
 author:
-  name: Alessio Rubicini <br>
-        Student. Indie iOS developer. Screenwriter. # author name
+  name: Alessio Rubicini # author name
   bio: >- # tell to the world
+    Student. Indie iOS developer. Screenwriter.<br>
     I study computer science for digital communication at University of Camerino.
     I aspire to become an iOS developer to create apps that help other people and positively impact their lives and the world. 
   username: alessiorubicini # general username

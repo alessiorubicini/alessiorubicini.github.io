@@ -202,15 +202,15 @@
     opacity: 1;
   }
 
-  .author-name::first-line {
+  .author-name {
     font-size: 1.8em;
     margin-bottom: 2px;
   }
-  .author-name {
-    font-size: 1.3em;
+  .author-bio::first-line {
+	font-size: 1.3em;
     margin-bottom: 2px;
+	font-weight: 500;
   }
-
   .author-bio {
     margin: 0 auto;
     opacity: 0.9;
