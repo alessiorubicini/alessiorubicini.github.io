@@ -118,7 +118,7 @@
 
   > p {
     margin: 0;
-    padding-top: $spacing-full - 15;
+    padding-top: $spacing-full - 20;
     padding-bottom: $spacing-full - 15;
   }
 
@@ -147,7 +147,7 @@
   h6 {
     color: $black;
     font-weight: $bold-weight;
-    margin-top: $spacing-full;
+    margin-top: $spacing-full - 5;
     margin-bottom: 0;
 
     &:hover {
