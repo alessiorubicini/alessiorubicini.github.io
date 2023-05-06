@@ -58,7 +58,7 @@ As a project of the Communication and Digital Marketing university exam, some of
 	High school final exam • May 2021
 </div>
 <center>
-	<img class="journey-img" src="/assets/img/projects/gamezen.png" >
+	<img class="journey-img" src="/assets/img/projects/GameZen.png" >
 </center>
 As part of my high school final exam project, I built an iOS application for a board game e-commerce store. In addition to the iOS app, the project includes the design and implementation of the server-side database and the APIs for interacting with it. For more details, check out the [GitHub repository](https://github.com/alessiorubicini/GameZen-iOS) and the [project paper](https://drive.google.com/file/d/197nPT6MwFeuIL1SBIBO4gKgBvfjlFrwj/view?usp=sharing).
 
