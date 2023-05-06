@@ -33,3 +33,4 @@ A native speech to text iOS app to help deaf people save information from the ou
 
 ### [🔍 SFSymbols Picker for SwiftUI](https://github.com/alessiorubicini/SFSymbolsPickerForSwiftUI)
 A simple and powerful SwiftUI picker that let you pick Apple's SFSymbols inside your iOS app with an easy binding.
+

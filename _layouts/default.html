@@ -10,6 +10,7 @@ layout: compress
   <script>
     const body = document.body;
     const data = body.getAttribute("data-theme");
+	console.log(data);
 
     const initTheme = (state) => {
       if (state === "dark") {
@@ -34,5 +35,8 @@ layout: compress
     </main>
     {% include footer.html %}
   </div>
+
+
+
 </body>
 </html>

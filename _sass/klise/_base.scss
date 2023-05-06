@@ -275,12 +275,12 @@ blockquote {
 // Wrapper
 .wrapper {
   max-width: -webkit-calc(#{$narrow-size} - (#{$spacing-full} * 2));
-  max-width: calc(#{$narrow-size} - (#{$spacing-full} * 2));
+  max-width: calc(#{$narrow-size} - (#{$spacing-full} * 2)) !important;
   position: relative;
   margin-right: auto;
   margin-left: auto;
-  padding-right: $spacing-full;
-  padding-left: $spacing-full;
+  padding-right: $spacing-full !important;
+  padding-left: $spacing-full !important;
   @extend %clearfix;
 
   @include media-query($on-mobile) {
@@ -365,4 +365,36 @@ mark,
       border: 0;
     }
   }
+}
+
+.heading {
+	position: relative;
+	display: inline-block;
+	padding: 20px;
+	background-color: #f1f1f1;
+	background-color: #f1f1f1;
+	
+	font-size: 24px;
+	font-weight: bold;
+	color: #333;
+	margin: 30px;
+}
+  
+.heading::before {
+	content: "";
+	position: absolute;
+	bottom: -10px;
+	left: -30px;
+	width: 100%;
+	height: 100%;
+	background-color: #9747ff;
+	background-color: $black;
+	transform: translate(10px, 10px);
+	z-index: -1;
+}
+
+.journey-img {
+	margin: 25px 0px 20px 0px;
+	width: 90%;
+	border-radius: 10px;
 }

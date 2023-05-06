@@ -11,11 +11,11 @@ For privacy reasons full PDF version of my curriculum vitae is not publicly avai
 ## Education
 
 **Bachelor degree**<br>
-*University of Camerino* [20/09/2021 – **Current** ]<br>
+*University of Camerino* [20/09/2021 – **Current**]<br>
 Field of study: Computer Science for digital communication<br>
 
 **High school diploma**<br>
-*I.T.T. “G. & M. Montani”*  [14/09/2016 – 17/06/2021 ]<br>
+*I.T.T. “G. & M. Montani”*  [14/09/2016 – 17/06/2021]<br>
 Field of study: Computer Science<br>
 Final mark: 100/100 – EQF level: 4 - Number of credits: 55<br>
 Thesis: [iOS development: the iOS system and the creation of an app](https://drive.google.com/file/d/197nPT6MwFeuIL1SBIBO4gKgBvfjlFrwj/view?usp=sharing)

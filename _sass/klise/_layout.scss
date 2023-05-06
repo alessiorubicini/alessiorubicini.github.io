@@ -1,5 +1,5 @@
 // Navbar
-.navbar {
+.jekyll-navbar {
   height: auto;
   max-width: calc(#{$wide-size} - (#{$spacing-full} * 2));
   max-width: -webkit-calc(#{$wide-size} - (#{$spacing-full} * 2));
@@ -244,6 +244,16 @@
 	
 }
 
+.skill {
+	padding: 10px;
+	margin: 10px;
+	border-radius: 15px;
+	border: solid $smoke 3px;
+	background-color: $ice;
+	text-align: center;
+	font-weight: 600;
+}
+
 // Content
 .posts-item-note {
   font-size: $base-font-size;
@@ -416,3 +426,4 @@
     background-color: rgba(128, 128, 128, 0.1);
   }
 }
+

@@ -2,6 +2,10 @@
   url: /
   external: false
 
+- title: journey
+  url: /journey/
+  external: false
+
 - title: developer
   url: /developer/
   external: false
@@ -14,9 +18,7 @@
   url: /blog/
   external: false
 
-- title: CV
-  url: /CV/
-  external: false
+
 
 # Example:
 # - title: github
