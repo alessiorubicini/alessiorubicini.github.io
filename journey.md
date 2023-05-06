@@ -9,7 +9,7 @@ comments: false
 
 ### app to help zero-km local commerce in Central Italy
 <div class="post-meta">
-	User eXperience Design • University • March 2023
+	User eXperience Design • March 2023
 </div>
 <center>
 	<img class="journey-img" src="/assets/img/projects/uxdesign-project.png" >
@@ -18,22 +18,22 @@ As part of the User eXperience Design exam project, I designed an application th
 
 ### new social media campaign for Too Good To Go
 <div class="post-meta">
-	Social Media Management • University • February 2023
+	Social Media Management • February 2023
 </div>
 <center>
 	<img class="journey-img" src="/assets/img/projects/toogoodtogo.png" >
 </center>
-As part of the Social Media Management exam project, some of my colleagues and I created a new social media campaign for the Too Good To Go service. In particular, we both valued existing features, such as donations to charities like *Croce Rossa Italiana*, and introduced new tools such as a chatbot called *Goody* integrated in the Too Good Too Go mobile app and a green tick called *Checky* to indicate the absence or presence of allergens. For more details, [check here](https://drive.google.com/file/d/1prKsP5iJqQY0jD8X5gj3aYdAA7McYly4/view?usp=sharing).
+As part of the Social Media Management university exam project, some of my colleagues and I created a new social media campaign for the Too Good To Go service. In particular, we both valued existing features, such as donations to charities like *Croce Rossa Italiana*, and introduced new tools such as a chatbot called *Goody* integrated in the Too Good Too Go mobile app and a green tick called *Checky* to indicate the absence or presence of allergens. For more details, [check here](https://drive.google.com/file/d/1prKsP5iJqQY0jD8X5gj3aYdAA7McYly4/view?usp=sharing).
 
 
 ### research about mobile forensics on iOS & Android
 <div class="post-meta">
-	Internet, Networks & Security • University • January 2023
+	Internet, Networks & Security • January 2023
 </div>
 <center>
 	<img class="journey-img" src="/assets/img/projects/mobile-forensics.png" >
 </center>
-As part of my Internet, Networks and Security exam, I did a little research on forensic analysis of iOS and Android mobile devices. In particular, I had the opportunity to study the internal organization of the two systems and explore, using some official and unofficial tools, the extraction of various types of data from the devices.
+As part of my Internet, Networks and Security university exam, I did a little research on forensic analysis of iOS and Android mobile devices. In particular, I had the opportunity to study the internal organization of the two systems and explore, using some official and unofficial tools, the extraction of various types of data from the devices.
 
 ### various Swift packages
 <div class="post-meta">
@@ -46,16 +46,16 @@ During the summer breaks, I dedicate my free time to developing apps for Apple p
 
 ### web series for the University of Camerino
 <div class="post-meta">
-	Communication & Digital Marketing • University • June 2022
+	Communication & Digital Marketing • June 2022
 </div>
 <center>
 	<iframe class="journey-img" width="560" height="315" src="https://www.youtube.com/embed/myKA8V3yd8s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </center>
-As a project of the Communication and Digital Marketing exam, some of my colleagues and I created a web series for our university's communication campaign. The realization, which I supervised as screenwriter and director, included a process of brainstorming, research, context and target analysis, planning and creativity with all the appropriate tools such as benchmarks, briefs and rationales. The final product is available on UNICAM's Youtube channel and season two is currently in the works.
+As a project of the Communication and Digital Marketing university exam, some of my colleagues and I created a web series for our university's communication campaign. The realization, which I supervised as screenwriter and director, included a process of brainstorming, research, context and target analysis, planning and creativity with all the appropriate tools such as benchmarks, briefs and rationales. The final product is available on UNICAM's Youtube channel and season two is currently in the works.
 
 ### iOS app for board game e-commerce
 <div class="post-meta">
-	Final exam project • High school • May 2021
+	High school final exam • May 2021
 </div>
 <center>
 	<img class="journey-img" src="/assets/img/projects/gamezen.png" >
@@ -64,7 +64,7 @@ As part of my high school final exam project, I built an iOS application for a b
 
 ### cloud storage web service
 <div class="post-meta">
-	School/work alternation • High school • Februrary 2020
+	School/work alternation • Februrary 2020
 </div>
 <center>
 	<img class="journey-img" src="/assets/img/projects/antonserver.png" >
