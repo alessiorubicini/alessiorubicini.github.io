@@ -3,6 +3,11 @@ layout: default
 home: true
 ---
 
+
+<center style="margin: 40px 0px 20px 0px;">
+	<p>Interested in my work? Check out my <strong><a href="/CV">curriculum vitae</a></strong>.</p>
+</center>
+
 <div class="contacts" >
 	<a href="https://github.com/alessiorubicini" target="_blank"><i class="bi bi-github"></i></a>
 	<a href="mailto:alessiorubicini16@icloud.com" target="_blank"><i class="bi bi-envelope-fill"></i></a>
@@ -10,31 +15,7 @@ home: true
 	<a href="https://www.linkedin.com/in/alessiorubicini/" target="_blank"><i class="bi bi-linkedin"></i></a>
 </div>
 
-<center style="margin-top: 40px;">
-	<h3>Interested in my work? Check out my <a href="/CV" style="color: #5751FF;">curriculum vitae</a>.</h3>
-</center>
 
-
-
-
-<!--<div>
-	<div class="row">
-		<div class="col-sm-6">
-			<div class="skill"><p>Software Dev 💻</p></div>
-		</div>
-		<div class="col-sm-6">
-			<div class="skill"><p>iOS Dev 👨🏻‍💻</p></div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-sm-6">
-			<div class="skill"><p>Graphic Design 🎨</p></div>
-		</div>
-		<div class="col-sm-6">
-			<div class="skill"><p>Videomaking 🎥</p></div>
-		</div>
-	</div>
-</div>-->
 
 <!--<center>
 	<div class="container-box">
@@ -43,7 +24,7 @@ home: true
 	</div>
 </center>-->
 
-<h2 class="posts-item-note" aria-label="Recent Posts">Recent Posts</h2>
+<h2 class="posts-item-note" aria-label="Recent Posts">Recent blog posts</h2>
 {%- for post in site.posts limit: site.number_of_posts -%}
 <article class="post-item">
   <span class="post-item-date">{{ post.date | date: "%b %d, %Y" }}</span>
