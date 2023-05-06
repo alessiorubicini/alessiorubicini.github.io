@@ -7,7 +7,7 @@ comments: false
 ---
 
 
-### app to help local commerce in Centre Italy
+### app to help zero-km local commerce in Central Italy
 <div class="post-meta">
 	User eXperience Design • University • March 2023
 </div>
