@@ -92,6 +92,9 @@ body[data-theme="dark"] {
 	font-weight: 600;
 	color: $white;
 	}
+	.goback i:hover {
+		color: $dark-text-link-blue;
+	}
 
   // Link
   a {

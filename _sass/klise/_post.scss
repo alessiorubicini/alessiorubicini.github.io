@@ -43,10 +43,20 @@
   }
 }
 
-.goback i {
-	font-size: 1.7em;
+.goback {
+	transition: all 0.2s ease-in-out;
+	i {
+		font-size: 1.8em;
 	font-weight: 600;
 	color: $black;
+	transition: all 0.2s ease-in-out;
+	}
+}
+.goback:hover {
+	transform: translate(-20px);
+	i {
+		color: $text-link-blue;
+	}
 }
 
 // Post meta
