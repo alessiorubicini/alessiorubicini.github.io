@@ -26,15 +26,6 @@ As part of the User eXperience Design exam project, I designed an application th
 As part of the Social Media Management university exam project, some of my colleagues and I created a new social media campaign for the Too Good To Go service. In particular, we both valued existing features, such as donations to charities like *Croce Rossa Italiana*, and introduced new tools such as a chatbot called *Goody* integrated in the Too Good Too Go mobile app and a green tick called *Checky* to indicate the absence or presence of allergens. For more details, [check here](https://drive.google.com/file/d/1prKsP5iJqQY0jD8X5gj3aYdAA7McYly4/view?usp=sharing).
 
 
-### research about mobile forensics on iOS & Android
-<div class="post-meta">
-	Internet, Networks & Security • January 2023
-</div>
-<center>
-	<img class="journey-img" src="/assets/img/projects/mobile-forensics.png" >
-</center>
-As part of my Internet, Networks and Security university exam, I did a little research on forensic analysis of iOS and Android mobile devices. In particular, I had the opportunity to study the internal organization of the two systems and explore, using some official and unofficial tools, the extraction of various types of data from the devices.
-
 ### various Swift packages
 <div class="post-meta">
 	Indie iOS development • September 2022
