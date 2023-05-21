@@ -7,7 +7,7 @@ comments: false
 ---
 
 
-### app to help zero-km local commerce in Central Italy
+### ux design of an app to help local commerce
 <div class="post-meta">
 	User eXperience Design • March 2023
 </div>
