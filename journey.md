@@ -6,6 +6,24 @@ excerpt: All post.
 comments: false
 ---
 
+### ontology-based Java app for exoplanet cataloging and classification
+<div class="post-meta">
+	Knowledge Modeling and Management • June 2023
+</div>
+<center>
+	<img class="journey-img" src="/assets/img/projects/exoplanet-cataloguer.png" >
+</center>
+As part of the Knowledge Modeling and Management (advanced programming) exam project, I developed a Java application that allows astronomy researchers to maintain their own catalog of exoplanets, helping them in their cataloguing and classification. The application relies on a OWL ontology that describes the domain of exoplanet study and research and allows inference of new information such as the classification of planets and their potential habitability. For more details check out the [GitHub repository](https://github.com/alessiorubicini/ExoplanetCataloguer).
+
+### cultural heritage graphic design project for Camerino
+<div class="post-meta">
+	Graphic for digital communication • June 2023
+</div>
+<center>
+	<img class="journey-img" src="/assets/img/projects/backtocamerino.png" >
+</center>
+As graphic for digital communication exam project, my colleagues and I developed a cultural heritage visual campaign which aims to valorize the Camerino territory by showing life, art and tradition of the town. The project includes the realization of the visual design with social posts, gadgets and other artifacts like brochures, design and development of a website and creation of a virtual tour and a virtual museum.
+
 
 ### ux design of an app to help local commerce
 <div class="post-meta">
@@ -23,10 +41,10 @@ As part of the User eXperience Design exam project, I designed an application th
 <center>
 	<img class="journey-img" src="/assets/img/projects/toogoodtogo.png" >
 </center>
-As part of the Social Media Management university exam project, some of my colleagues and I created a new social media campaign for the Too Good To Go service. In particular, we both valued existing features, such as donations to charities like *Croce Rossa Italiana*, and introduced new tools such as a chatbot called *Goody* integrated in the Too Good Too Go mobile app and a green tick called *Checky* to indicate the absence or presence of allergens. For more details, [check here](https://drive.google.com/file/d/1prKsP5iJqQY0jD8X5gj3aYdAA7McYly4/view?usp=sharing).
+As part of the Social Media Management university exam project, my colleagues and I created a new social media campaign for the Too Good To Go service. In particular, we both valued existing features, such as donations to charities like *Croce Rossa Italiana*, and introduced new tools such as a chatbot called *Goody* integrated in the Too Good Too Go mobile app and a green tick called *Checky* to indicate the absence or presence of allergens.
 
 
-### various Swift packages
+### Swift packages
 <div class="post-meta">
 	Indie iOS development • September 2022
 </div>
