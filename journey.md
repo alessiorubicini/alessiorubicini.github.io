@@ -6,14 +6,24 @@ excerpt: All post.
 comments: false
 ---
 
-### ontology-based Java app for exoplanet cataloging and classification
+### [mars rovers spatial computing app for Apple Vision](https://github.com/alessiorubicini/MarsRoversAppleVision)
+<div class="post-meta">
+	Apple Vision app • June 2023
+</div>
+<center>
+	<img class="journey-img" src="/assets/img/projects/marsrovervision.gif" >
+</center>
+A small spatial computing application developed for Apple Vision with SwiftUI and RealityKit.
+
+
+### [ontology-based Java app for exoplanet cataloging and classification](https://github.com/alessiorubicini/ExoplanetCataloguer)
 <div class="post-meta">
 	Knowledge Modeling and Management • June 2023
 </div>
 <center>
 	<img class="journey-img" src="/assets/img/projects/exoplanet-cataloguer.png" >
 </center>
-As part of the Knowledge Modeling and Management (advanced programming) exam project, I developed a Java application that allows astronomy researchers to maintain their own catalog of exoplanets, helping them in their cataloguing and classification. The application relies on a OWL ontology that describes the domain of exoplanet study and research and allows inference of new information such as the classification of planets and their potential habitability. For more details check out the [GitHub repository](https://github.com/alessiorubicini/ExoplanetCataloguer).
+As part of the Knowledge Modeling and Management (advanced programming) exam project, I developed a Java application that allows astronomy researchers to maintain their own catalog of exoplanets, helping them in their cataloguing and classification. The application relies on a OWL ontology that describes the domain of exoplanet study and research and allows inference of new information such as the classification of planets and their potential habitability.
 
 ### cultural heritage graphic design project for Camerino
 <div class="post-meta">
@@ -25,14 +35,14 @@ As part of the Knowledge Modeling and Management (advanced programming) exam pro
 As graphic for digital communication exam project, my colleagues and I developed a cultural heritage visual campaign which aims to valorize the Camerino territory by showing life, art and tradition of the town. The project includes the realization of the visual design with social posts, gadgets and other artifacts like brochures, design and development of a website and creation of a virtual tour and a virtual museum.
 
 
-### ux design of an app to help local commerce
+### [ux design of an app to help local commerce](https://drive.google.com/file/d/1kf2Jsxkzu-E2cXPoRBz00-9vyakDpXzN/view?usp=sharing)
 <div class="post-meta">
 	User eXperience Design • March 2023
 </div>
 <center>
 	<img class="journey-img" src="/assets/img/projects/uxdesign-project.png" >
 </center>
-As part of the User eXperience Design exam project, I designed an application that allows local merchants, especially those affected by natural disasters such as the Central Italy earthquake, to advertise their business and products, and consumers to discover these realities and buy offered products with awareness. The design process included the use of typical UX Design tools and techniques such as Lean Canvas, SMART goals, personas and user stories. For more details, check out the [full project paper](https://drive.google.com/file/d/1kf2Jsxkzu-E2cXPoRBz00-9vyakDpXzN/view?usp=sharing).
+As part of the User eXperience Design exam project, I designed an application that allows local merchants, especially those affected by natural disasters such as the Central Italy earthquake, to advertise their business and products, and consumers to discover these realities and buy offered products with awareness. The design process included the use of typical UX Design tools and techniques such as Lean Canvas, SMART goals, personas and user stories.
 
 ### new social media campaign for Too Good To Go
 <div class="post-meta">
@@ -62,14 +72,14 @@ During the summer breaks, I dedicate my free time to developing apps for Apple p
 </center>
 As a project of the Communication and Digital Marketing university exam, some of my colleagues and I created a web series for our university's communication campaign. The realization, which I supervised as screenwriter and director, included a process of brainstorming, research, context and target analysis, planning and creativity with all the appropriate tools such as benchmarks, briefs and rationales. The final product is available on UNICAM's Youtube channel and season two is currently in the works.
 
-### iOS app for board game e-commerce
+### [iOS app for board game e-commerce](https://github.com/alessiorubicini/GameZen-iOS)
 <div class="post-meta">
 	High school final exam • May 2021
 </div>
 <center>
 	<img class="journey-img" src="/assets/img/projects/GameZen.png" >
 </center>
-As part of my high school final exam project, I built an iOS application for a board game e-commerce store. In addition to the iOS app, the project includes the design and implementation of the server-side database and the APIs for interacting with it. For more details, check out the [GitHub repository](https://github.com/alessiorubicini/GameZen-iOS) and the [project paper](https://drive.google.com/file/d/197nPT6MwFeuIL1SBIBO4gKgBvfjlFrwj/view?usp=sharing).
+As part of my high school final exam project, I built an iOS application for a board game e-commerce store. In addition to the iOS app, the project includes the design and implementation of the server-side database and the APIs for interacting with it.
 
 ### cloud storage web service
 <div class="post-meta">
