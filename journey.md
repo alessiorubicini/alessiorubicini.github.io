@@ -11,7 +11,7 @@ comments: false
 	Apple Vision app • June 2023
 </div>
 <center>
-	<img class="journey-img" src="/assets/img/projects/marsrovervision.gif" >
+	<img class="journey-img" src="/assets/img/projects/marsrovervision.png" >
 </center>
 A small spatial computing application developed for Apple Vision with SwiftUI and RealityKit.
 
