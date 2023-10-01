@@ -18,7 +18,7 @@ As an indie developer, I'm always looking for ideas and inspiration to create ne
 <div class="post-meta">
 	iOS app • Currently in development
 </div>
-A powerful and simple app to help people maintain control over their busy lives by focusing on their life commitments. The app organizes daily life into key areas and monitors balance across them, providing alerts when one is being neglected. By focusing on commitments and providing a comprehensive overview, Commit empowers people to maintain control and achieve a better balance in their lives.
+An app that organizes daily life into key areas and monitors the balance between them, providing alerts when one is neglected, thus helping people gain control over their busy lives and achieve better balance.
 
 ### [🏝️ Island Alerts for SwiftUI](https://github.com/alessiorubicini/IslandAlertsForSwiftUI)
 <div class="post-meta">

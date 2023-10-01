@@ -15,7 +15,7 @@ I love watching movies. And I love making them just as much. Don't get me wrong,
 
 ### 🎥 Dammi un pretesto
 <div class="post-meta">
-	Music Video • Director & Video editor • July 2023
+	Music Video • Director & Video Editor • July 2023
 </div>
 <center>
 	<iframe class="journey-img" width="560" height="315" src="https://www.youtube.com/embed/0JDPV7OgUEw?si=XOBK0t2AxpNYwgZa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
