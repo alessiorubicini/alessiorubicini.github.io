@@ -13,19 +13,10 @@ I love watching movies. And I love making them just as much. Don't get me wrong,
 	<a href="https://www.behance.net/alessiorubicini" target="_blank"><i class="bi bi-behance"></i></a>
 </div>
 
-
-### 🎥 The Mannequin
-<div class="post-meta">
-	Short film • July 2023 • Coming out soon!
-</div>
-Be careful about your anxiety embodying real world objects.
-
-### 📄 The tic-tac of life
-<div class="post-meta">
-	Short film screenplay • March 2023
-</div>
-A chance meeting with a wise little boy is destined to change the life view of an old watchmaker with great powers forever.
- ([read the screenplay](https://drive.google.com/file/d/1z9-6dQDX32WxyoXzf4qjVa9YkK3fpouB/view?usp=sharing))
+### 📹 *Dammi un pretesto* Music Video
+<center>
+	<iframe class="journey-img" width="560" height="315" src="https://www.youtube.com/embed/0JDPV7OgUEw?si=XOBK0t2AxpNYwgZa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</center>
 
 ### 🎥 Vita secondo Unicam
 <div class="post-meta">
