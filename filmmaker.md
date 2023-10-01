@@ -13,14 +13,17 @@ I love watching movies. And I love making them just as much. Don't get me wrong,
 	<a href="https://www.behance.net/alessiorubicini" target="_blank"><i class="bi bi-behance"></i></a>
 </div>
 
-### 📹 *Dammi un pretesto* Music Video
+### 🎥 Dammi un pretesto
+<div class="post-meta">
+	Music Video • Director & Video editor • July 2023
+</div>
 <center>
 	<iframe class="journey-img" width="560" height="315" src="https://www.youtube.com/embed/0JDPV7OgUEw?si=XOBK0t2AxpNYwgZa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </center>
 
 ### 🎥 Vita secondo Unicam
 <div class="post-meta">
-	Web series • June 2022
+	Web series • Writer & Director • June 2022
 </div>
 <center>
 	<iframe class="journey-img" width="560" height="315" src="https://www.youtube.com/embed/myKA8V3yd8s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
