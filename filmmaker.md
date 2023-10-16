@@ -6,7 +6,9 @@ excerpt: All post.
 comments: false
 ---
 
-I love watching movies. And I love making them just as much. Don't get me wrong, I haven't done any feature films (yet). But I love telling stories visually. Write them on paper and narrate them with a camera. It doesn't matter if it's a short film, a movie or a music video. As long as there's a story underneath and a camera above, I'm in.
+> "Filmmaking is a chance to live many lifetimes." - Robert Altman
+
+I love watching movies. And I love writing and making them just as much. Don't get me wrong, I haven't done any feature films (yet). But I love telling stories visually. Write them on paper and narrate them with a camera. It doesn't matter if it's a short film, a movie or a music video. As long as there's a story underneath and a camera above, I'm in.
 
 <div class="contacts" style="margin-top: 10px;">
 	<a href="https://www.youtube.com/@alessiorubicini" target="_blank"><i class="bi bi-youtube"></i></a>
