@@ -10,11 +10,14 @@ comments: false
 
 The whole world depends on apps today. Every line of code we write feeds and drives the daily lives of millions of people in different ways. That's why I love developing apps: because they are the fuel of our digital life. As an indie developer, I'm always looking for ideas and inspiration to create new apps and software solutions that can help both people and developers like me.
 
-### 💪🏻 Commit
+### [ontology-based app for exoplanet cataloging and classification](https://github.com/alessiorubicini/ExoplanetCataloguer)
 <div class="post-meta">
-	iOS app • Currently in development
+	Knowledge Modeling and Management • June 2023
 </div>
-An app that organizes daily life into key areas and monitors the balance between them, providing alerts when one is neglected, thus helping people gain control over their busy lives and achieve better balance.
+<center>
+	<img class="journey-img" src="/assets/img/projects/exoplanet-cataloguer.png" >
+</center>
+As part of the Knowledge Modeling and Management (advanced programming) exam, I developed a Java application that allows astronomy researchers to maintain their own catalog of exoplanets, helping them in their cataloguing and classification. The application relies on a OWL ontology that describes the domain of exoplanet study and research and allows inference of new information such as the classification of planets and their potential habitability.
 
 ### [🏝️ Island Alerts for SwiftUI](https://github.com/alessiorubicini/IslandAlertsForSwiftUI)
 <div class="post-meta">

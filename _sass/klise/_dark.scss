@@ -173,11 +173,12 @@ body[data-theme="dark"] {
     }
     .post-item-title {
       a {
-        color: $dark-text-base-color;
+        color: $dark-text-link-blue;
 
         &:hover,
         &focus {
-          color: $dark-white;
+          color: $dark-text-link-blue-active;
+		  font-weight: bold;
         }
       }
     }

@@ -294,13 +294,11 @@
     letter-spacing: 0.1px;
 
     a {
-      color: $text-base-color;
-	  color: #9747ff;
+      color: $text-link-blue;
 
       &:hover,
       &focus {
-        color: $black;
-		color: #9747ff;
+        color: $text-link-blue-active;
 		font-weight: bold;
       }
     }
