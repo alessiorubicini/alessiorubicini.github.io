@@ -57,7 +57,7 @@ A Swift package for SwiftUI developers that provides a variety of UI alerts that
 	Swift package • January 2022
 </div>
 <center>
-	<img class="journey-img" src="/assets/img/projects/SFSymbolsPickerForSwiftUI.png" >
+	<img class="journey-img" src="/assets/img/projects/SFSymbolsPicker.png" >
 </center>
 
 
