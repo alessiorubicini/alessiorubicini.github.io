@@ -10,14 +10,6 @@ comments: false
 
 The whole world depends on apps today. Every line of code we write feeds and drives the daily lives of millions of people in different ways. That's why I love developing apps: because they are the fuel of our digital life. As an indie developer, I'm always looking for ideas and inspiration to create new apps and software solutions that can help both people and developers like me.
 
-### [ontology-based app for exoplanet cataloging and classification](https://github.com/alessiorubicini/ExoplanetCataloguer)
-<div class="post-meta">
-	Knowledge Modeling and Management • June 2023
-</div>
-<center>
-	<img class="journey-img" src="/assets/img/projects/exoplanet-cataloguer.png" >
-</center>
-As part of the Knowledge Modeling and Management (advanced programming) exam, I developed a Java application that allows astronomy researchers to maintain their own catalog of exoplanets, helping them in their cataloguing and classification. The application relies on a OWL ontology that describes the domain of exoplanet study and research and allows inference of new information such as the classification of planets and their potential habitability.
 
 ### [🏝️ Island Alerts for SwiftUI](https://github.com/alessiorubicini/IslandAlertsForSwiftUI)
 <div class="post-meta">
@@ -28,31 +20,7 @@ As part of the Knowledge Modeling and Management (advanced programming) exam, I 
 </center>
 A Swift package for SwiftUI developers that provides a variety of UI alerts that integrate seamlessly with Dynamic Island on iPhone 14 Pro and the old Notch on other models.
 
-### [🗺️ BeCareful](https://github.com/alessiorubicini/BeCareful-iOS)
-<div class="post-meta">
-	iOS app • September 2022
-</div>
-<center>
-	<img class="journey-img" src="/assets/img/projects/BeCareful.png" >
-</center>
-
-### 👩🏻‍🎓 Youni
-<div class="post-meta">
-	iOS app • September 2022
-</div>
-<center>
-	<img class="journey-img" src="/assets/img/projects/Youni.png" >
-</center>
-
-### [🗣️ TScribe - Speech to text](https://github.com/alessiorubicini/TScribe-iOS)
-<div class="post-meta">
-	iOS app • August 2022
-</div>
-<center>
-	<img class="journey-img" src="/assets/img/projects/TScribe.jpg" >
-</center>
-
-### [🔍 SFSymbols Picker for SwiftUI](https://github.com/alessiorubicini/SFSymbolsPickerForSwiftUI)
+### [🔍 SF Symbols Picker for SwiftUI](https://github.com/alessiorubicini/SFSymbolsPickerForSwiftUI)
 <div class="post-meta">
 	Swift package • January 2022
 </div>
@@ -76,7 +44,42 @@ A Swift package for SwiftUI developers that provides a variety of UI alerts that
 <center>
 	<img class="journey-img" src="/assets/img/projects/GameZen.png" >
 </center>
-An iOS client-side app for a board game e-commerce. The app allows a complete customer-seller interaction with registration, catalog consultation, purchase and order tracking. Technologies used include Swift, MySQL and PHP.
+An iOS client-side app for a board game e-commerce. The app allows a complete customer-seller interaction with registration, catalog consultation, purchase and order tracking.
+
+### [🗺️ BeCareful](https://github.com/alessiorubicini/BeCareful-iOS)
+<div class="post-meta">
+	iOS app • September 2022
+</div>
+<center>
+	<img class="journey-img" src="/assets/img/projects/BeCareful.png" >
+</center>
+
+### [ontology-based app for exoplanet cataloging and classification](https://github.com/alessiorubicini/ExoplanetCataloguer)
+<div class="post-meta">
+	Knowledge Modeling and Management • June 2023
+</div>
+<center>
+	<img class="journey-img" src="/assets/img/projects/exoplanet-cataloguer.png" >
+</center>
+As part of the Knowledge Modeling and Management (advanced programming) exam, I developed a Java application that allows astronomy researchers to maintain their own catalog of exoplanets, helping them in their cataloguing and classification. The application relies on a OWL ontology that describes the domain of exoplanet study and research and allows inference of new information such as the classification of planets and their potential habitability.
+
+### 👩🏻‍🎓 Youni
+<div class="post-meta">
+	iOS app • September 2022
+</div>
+<center>
+	<img class="journey-img" src="/assets/img/projects/Youni.png" >
+</center>
+
+### [🗣️ TScribe - Speech to text](https://github.com/alessiorubicini/TScribe-iOS)
+<div class="post-meta">
+	iOS app • August 2022
+</div>
+<center>
+	<img class="journey-img" src="/assets/img/projects/TScribe.jpg" >
+</center>
+
+
 
 ### Covid-19 web tracker for Italy
 <div class="post-meta">

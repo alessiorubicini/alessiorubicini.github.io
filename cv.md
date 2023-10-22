@@ -6,7 +6,7 @@ excerpt: All post.
 comments: false
 ---
 
-For privacy reasons full PDF version of my curriculum vitae is not publicly available here. [Contact me]({{site.url}}) to request a copy.
+For privacy reasons full PDF version of my curriculum vitae is not publicly available here. [Contact me](mailto:alessiorubicini16@icloud.com) to request a copy.
 
 ## Education
 
