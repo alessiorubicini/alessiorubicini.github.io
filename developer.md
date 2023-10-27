@@ -56,7 +56,7 @@ An iOS client-side app for a board game e-commerce. The app allows a complete cu
 
 ### [ontology-based app for exoplanet cataloging and classification](https://github.com/alessiorubicini/ExoplanetCataloguer)
 <div class="post-meta">
-	Knowledge Modeling and Management • June 2023
+	Java desktop app • University project • June 2023
 </div>
 <center>
 	<img class="journey-img" src="/assets/img/projects/exoplanet-cataloguer.png" >
