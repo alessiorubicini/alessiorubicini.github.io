@@ -10,6 +10,14 @@ comments: false
 
 The whole world depends on apps today. Every line of code we write feeds and drives the daily lives of millions of people in different ways. That's why I love developing apps: because they are the fuel of our digital life. As an indie developer, I'm always looking for ideas and inspiration to create new apps and software solutions that can help both people and developers like me.
 
+### [✏️ Pencil Drawer for SwiftUI](https://github.com/alessiorubicini/PencilDrawerForSwiftUI)
+<div class="post-meta">
+	Swift package • October 2023
+</div>
+<center>
+	<img class="journey-img" src="/assets/img/projects/PencilDrawerForSwiftUI.png" >
+</center>
+
 
 ### [🏝️ Island Alerts for SwiftUI](https://github.com/alessiorubicini/IslandAlertsForSwiftUI)
 <div class="post-meta">
