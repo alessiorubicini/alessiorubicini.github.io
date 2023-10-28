@@ -1,7 +1,7 @@
 # Site settings
 title: Alessio Rubicini # site title
 description: >- # site description
-    Alessio Rubicin's personal website
+    Alessio Rubicini's website
 lang: en-US # default lang
 timezone: Europe/Rome # set your timezone
 image: assets/img/alessio.jpeg # This image used for Open Graph more info https://ogp.me/
