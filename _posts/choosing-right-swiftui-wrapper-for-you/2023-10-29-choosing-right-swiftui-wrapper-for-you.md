@@ -14,7 +14,6 @@ The basic premise of any declarative UI framework like SwiftUI is that the view 
 
 The Single Source of Truth (SSoT) principle is a concept used to ensure that everyone in an organization bases business decisions on the same data. If we apply it to app development, SSoT is all about maintaining a single, authoritative source of data for your user interface. It ensures that the software we design is reliant on the correct and up-to-date information.
 
-
 <center style="padding: 20px">
 	<img style="text-align: center" src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExYXNyYzJmcDlxbHdyYWJnZ3dyNnppbXA3emJueXJjaTl0cnNvaHBtbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3o6UAYi7H2sZf94cgw/giphy.gif">
 </center>
@@ -225,6 +224,8 @@ While both annotations may seem similar in the sense that they allow you to mana
 
 ### @EnvironmentObject is so cool and easy to use! What about using it all the time?
 While `@EnvironmentObject` is a powerful and convenient tool for sharing data across views in SwiftUI, there are situations where it might not be the best choice or might not be necessary.
+
+![Bill Gates' meme](/assets/img/posts/choosing-right-swiftui-wrapper-for-you/bill-gates-meme.jpg)
 
 1. **Limited Data Sharing**: If your data is only needed within a single view or a few closely related views, using `@State` or `@Binding` within those views might be simpler and more appropriate.
 2. **Complex Data Dependencies**: If the data you’re sharing has complex dependencies and you need fine-grained control over updates and data loading, it might be more appropriate to use a combination of `@StateObject` and `@ObservedObject` or fetch data on-demand rather than relying on an environment object.
