@@ -11,8 +11,8 @@
   external: false
 
 - title: blog
-  url: /blog/
-  external: false
+  url: https://alessiorubicini.medium.com
+  external: true
 
 
 
