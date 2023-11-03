@@ -12,7 +12,7 @@ The whole world depends on apps today. Every line of code we write feeds and dri
 
 ### [✏️ Pencil Drawer for SwiftUI](https://github.com/alessiorubicini/PencilDrawerForSwiftUI)
 <div class="post-meta">
-	Swift package • October 2023
+	Swift package
 </div>
 <center>
 	<img class="journey-img" src="/assets/img/projects/PencilDrawerForSwiftUI.png" >
@@ -21,7 +21,7 @@ The whole world depends on apps today. Every line of code we write feeds and dri
 
 ### [🏝️ Island Alerts for SwiftUI](https://github.com/alessiorubicini/IslandAlertsForSwiftUI)
 <div class="post-meta">
-	Swift package • September 2022
+	Swift package
 </div>
 <center>
 	<img class="journey-img" src="/assets/img/projects/IslandAlertsForSwiftUI.png" >
@@ -30,7 +30,7 @@ A Swift package for SwiftUI developers that provides a variety of UI alerts that
 
 ### [🔍 SF Symbols Picker for SwiftUI](https://github.com/alessiorubicini/SFSymbolsPickerForSwiftUI)
 <div class="post-meta">
-	Swift package • January 2022
+	Swift package
 </div>
 <center>
 	<img class="journey-img" src="/assets/img/projects/SFSymbolsPicker.png" >
@@ -39,7 +39,7 @@ A Swift package for SwiftUI developers that provides a variety of UI alerts that
 
 ### [📍 Location Picker for SwiftUI](https://github.com/alessiorubicini/LocationPickerForSwiftUI)
 <div class="post-meta">
-	Swift package • August 2021
+	Swift package
 </div>
 <center>
 	<img class="journey-img" src="/assets/img/projects/LocationPickerForSwiftUI.png" >
@@ -47,7 +47,7 @@ A Swift package for SwiftUI developers that provides a variety of UI alerts that
 
 ### [🛒 GameZen](https://github.com/alessiorubicini/GameZen-iOS)
 <div class="post-meta">
-	iOS app • May 2021
+	iOS app • School Project
 </div>
 <center>
 	<img class="journey-img" src="/assets/img/projects/GameZen.png" >
@@ -56,7 +56,7 @@ An iOS client-side app for a board game e-commerce. The app allows a complete cu
 
 ### [🗺️ BeCareful](https://github.com/alessiorubicini/BeCareful-iOS)
 <div class="post-meta">
-	iOS app • September 2022
+	iOS app • Side Project
 </div>
 <center>
 	<img class="journey-img" src="/assets/img/projects/BeCareful.png" >
@@ -64,7 +64,7 @@ An iOS client-side app for a board game e-commerce. The app allows a complete cu
 
 ### [ontology-based app for exoplanet cataloging and classification](https://github.com/alessiorubicini/ExoplanetCataloguer)
 <div class="post-meta">
-	Java desktop app • University project • June 2023
+	Java desktop app • University project 
 </div>
 <center>
 	<img class="journey-img" src="/assets/img/projects/exoplanet-cataloguer.png" >
@@ -73,7 +73,7 @@ As part of the Knowledge Modeling and Management (advanced programming) exam, I 
 
 ### 👩🏻‍🎓 Youni
 <div class="post-meta">
-	iOS app • September 2022
+	iOS app • Side Project 
 </div>
 <center>
 	<img class="journey-img" src="/assets/img/projects/Youni.png" >
@@ -81,7 +81,7 @@ As part of the Knowledge Modeling and Management (advanced programming) exam, I 
 
 ### [🗣️ TScribe - Speech to text](https://github.com/alessiorubicini/TScribe-iOS)
 <div class="post-meta">
-	iOS app • August 2022
+	iOS app • Side Project
 </div>
 <center>
 	<img class="journey-img" src="/assets/img/projects/TScribe.jpg" >

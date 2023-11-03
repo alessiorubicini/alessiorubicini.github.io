@@ -17,21 +17,33 @@ I love watching movies. And I love writing and making them just as much. Don't g
 
 ### 🎥 Dammi un pretesto
 <div class="post-meta">
-	Music Video • Director & Video Editor • July 2023
+	Music Video • Director & Video Editor
 </div>
 <center>
 	<iframe class="journey-img" width="560" height="315" src="https://www.youtube.com/embed/0JDPV7OgUEw?si=XOBK0t2AxpNYwgZa" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </center>
 
+### 🎥 Psycho
+<div class="post-meta">
+	Music Video • Director & Video Editor
+</div>
+<center>
+	<iframe class="journey-img" width="560" height="315" src="https://www.youtube.com/embed/7H1vmQ1i6G4?si=21bmQoFadHH1aKC3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</center>
+
 ### 🎥 Vita secondo Unicam
 <div class="post-meta">
-	Web series • Writer & Director • June 2022
+	Web series • Writer & Director
 </div>
 <center>
 	<iframe class="journey-img" width="560" height="315" src="https://www.youtube.com/embed/myKA8V3yd8s" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 </center>
 A web series for the University of Camerino 2022/23 communication campaign which tells new students about life within the university. Project realized as part of the Communication and Digital Marketing course prof. Ugo Esposito.
 
+### 📹 Sea Sunrise Photography
+<center>
+	<iframe class="journey-img" width="560" height="315" src="https://www.youtube.com/embed/Yl8tUBqQJYY?si=sMRmziWYxrE3UvoU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</center>
 
 ### 📹 iPhone 11 Cinematic: Rocca dei Borgia
 <center>
