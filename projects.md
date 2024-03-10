@@ -12,7 +12,7 @@ The whole world depends on apps today. Every line of code we write feeds and dri
 
 ### [🔍 SF Symbols Picker for SwiftUI](https://github.com/alessiorubicini/SFSymbolsPickerForSwiftUI)
 <div class="post-meta">
-	Swift package
+	Swift package • Side Project
 </div>
 <center>
 	<img class="journey-img" src="/assets/img/projects/SFSymbolsPicker.png" >
@@ -20,7 +20,7 @@ The whole world depends on apps today. Every line of code we write feeds and dri
 
 ### [🏝️ Island Alerts for SwiftUI](https://github.com/alessiorubicini/IslandAlertsForSwiftUI)
 <div class="post-meta">
-	Swift package
+	Swift package • Side Project
 </div>
 <center>
 	<img class="journey-img" src="/assets/img/projects/IslandAlertsForSwiftUI.png" >
@@ -29,7 +29,7 @@ A Swift package for SwiftUI developers that provides a variety of UI alerts that
 
 ### [📍 Location Picker for SwiftUI](https://github.com/alessiorubicini/LocationPickerForSwiftUI)
 <div class="post-meta">
-	Swift package
+	Swift package • Side Project
 </div>
 <center>
 	<img class="journey-img" src="/assets/img/projects/LocationPickerForSwiftUI.png" >
@@ -37,7 +37,7 @@ A Swift package for SwiftUI developers that provides a variety of UI alerts that
 
 ### [✏️ Pencil Drawer for SwiftUI](https://github.com/alessiorubicini/PencilDrawerForSwiftUI)
 <div class="post-meta">
-	Swift package
+	Swift package • Side Project
 </div>
 <center>
 	<img class="journey-img" src="/assets/img/projects/PencilDrawerForSwiftUI.png" >
@@ -59,29 +59,3 @@ An iOS client-side app for a board game e-commerce. The app allows a complete cu
 <center>
 	<img class="journey-img" src="/assets/img/projects/BeCareful.png" >
 </center>
-
-### 👩🏻‍🎓 Youni
-<div class="post-meta">
-	iOS app • Side Project 
-</div>
-<center>
-	<img class="journey-img" src="/assets/img/projects/Youni.png" >
-</center>
-
-### [🗣️ TScribe - Speech to text](https://github.com/alessiorubicini/TScribe-iOS)
-<div class="post-meta">
-	iOS app • Side Project
-</div>
-<center>
-	<img class="journey-img" src="/assets/img/projects/TScribe.jpg" >
-</center>
-
-
-### Covid-19 web tracker for Italy
-<div class="post-meta">
-	Website • April 2021
-</div>
-<center>
-	<img class="journey-img" src="/assets/img/projects/COVID-IT-website.png" >
-</center>
-During the quarantine period I studied some online web development and decided to put into practice the acquired skills by developing a website to track the progress of the Covid-19 epidemic in Italy. The website makes use of the official data of the Italian Government from GitHub.
