@@ -21,19 +21,19 @@ Final mark: 100/100 – EQF level: 4 - Number of credits: 55<br>
 Thesis: [iOS development: the iOS system and the creation of an app](https://drive.google.com/file/d/197nPT6MwFeuIL1SBIBO4gKgBvfjlFrwj/view?usp=sharing)
 
 ## Digital Skills
-- **iOS development** (beginner): Swift, SwiftUI
-- **Programming**: Java, Python, C
-- **Web development**: HTML, CSS, JavaScript, PHP, SQL
-- **Other**: LaTeX, Git (beginner), Linux, macOS, Windows, 
-- **Videomaking** (beginner): Adobe Premiere Pro, Final Cut Pro
-- **Graphic design** (beginner): Adobe Photoshop, Adobe Illustrator, Figma
+- **iOS development**: Swift, SwiftUI
+- **Web development**: Node.js, Angular, MySQL, PHP, Springboot
+- **Programming**: Java, Python, C, C#
+- **Other**: LaTeX, Git, Linux, macOS, Windows
+- **Videomaking**: Final Cut Pro, Adobe Premiere Pro
+- **Graphic design**: Figma, Adobe Photoshop, Adobe Illustrator
 
 ## Language Skills
 - **Native language**: Italian
 - **Other languages**: English B2 (*First Cambridge certificate*)
 
 ## Conferences, seminars & courses
-
+I attended the following seminars:
 | **Seminar / Course**                            | **From**       | **To**         |
 |-------------------------------------------------|----------------|----------------|
 | Raspberry programming (PON I.T.T. Montani 2019) | April, 2019    | June, 2019     |
