@@ -11,11 +11,11 @@ For privacy reasons full PDF version of my curriculum vitae is not publicly avai
 ## Education
 
 **Bachelor degree**<br>
-University of Camerino [September 2021 – Current]<br>
+University of Camerino <u>[September 2021 – Current]</u><br>
 Field of study: Computer Science for digital communication<br>
 
 **High school diploma**<br>
-I.T.T. “G. & M. Montani”  [September 2016 – June 2021]<br>
+I.T.T. “G. & M. Montani”  <u>[September 2016 – June 2021]</u><br>
 Field of study: Computer Science<br>
 Final mark: 100/100 – EQF level: 4 - Number of credits: 55<br>
 Thesis: [iOS development: the iOS system and the creation of an app](https://drive.google.com/file/d/197nPT6MwFeuIL1SBIBO4gKgBvfjlFrwj/view?usp=sharing)
@@ -32,13 +32,6 @@ Thesis: [iOS development: the iOS system and the creation of an app](https://dri
 - **Native language**: Italian
 - **Other languages**: English B2 (*First Cambridge certificate*)
 
-## Conferences, seminars & courses
-I attended the following seminars:
-| **Seminar / Course**                            | **From**       | **To**         |
-|-------------------------------------------------|----------------|----------------|
-| Raspberry programming (PON I.T.T. Montani 2019) | April, 2019    | June, 2019     |
-| Una guida al MITI (PON I.T.T. Montani 2019)     | November, 2019 | December, 2019 |
-| VideoMaking course (PON I.T.T. Montani 2020)    | April, 2020    | June, 2020     |
 
 ## Communication & interpersonal skills
 **Teamwork** During my studies I worked several times in teams on various projects with my colleagues. In most cases, I also took on the role of project manager.
