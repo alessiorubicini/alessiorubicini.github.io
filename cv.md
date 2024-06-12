@@ -6,13 +6,13 @@ excerpt: All post.
 comments: false
 ---
 
-For privacy reasons full PDF version of my curriculum vitae is not publicly available here. [Contact me](mailto:alessiorubicini16@icloud.com) to request a copy.
+For privacy reasons full PDF version of my curriculum vitae is not publicly available here. Feel free to [contact me](mailto:alessiorubicini16@icloud.com) to request a copy.
 
 ## Work Experience
 
 **iOS developer**<br>
 [AppLoad](https://appload.studio/) · Stage<br>
-March 2024 - May 2024 · 3 months <br>
+March 2024 - May 2024<br>
 
 ## Education
 
@@ -20,16 +20,17 @@ March 2024 - May 2024 · 3 months <br>
 [University of Camerino](https://www.unicam.it/)<br>
 September 2021 – Current<br>
 Field of study: Computer Science for Digital Communication<br>
+Thesis: *Design and implementation of a binary sessions library in the Swift language*
 
 **High school diploma**<br>
 [I.T.T. “G. & M. Montani”](https://www.istitutomontani.edu.it/web/)<br>
 September 2016 – June 2021<br>
 Field of study: Computer Science<br>
 Final mark: 100/100<br>
-Thesis: [iOS development: the iOS system and the creation of an app](https://drive.google.com/file/d/197nPT6MwFeuIL1SBIBO4gKgBvfjlFrwj/view?usp=sharing)
+Thesis: *[iOS development: the iOS system and the creation of an app](/assets/docs/Sviluppo%20iOS.pdf)*
 
 ## Digital Skills
-- **iOS development**: Swift, SwiftUI
+- **iOS development**: Swift, SwiftUI, UIKit
 - **Web development**: Node.js, Angular, MySQL, PHP, Springboot
 - **Programming**: Java, Python, C, C#
 - **Other**: LaTeX, Git, Linux, macOS, Windows

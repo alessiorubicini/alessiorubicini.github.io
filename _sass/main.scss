@@ -14,8 +14,8 @@ $bold-weight: 700;
 
 //Light Colors
 $text-base-color: #434648;
-$text-link-blue: #5751FF;
-$text-link-blue-active: #0036c7;
+$text-link-blue: #F84C2C;
+$text-link-blue-active: #d23d23;
 $light-blue: #BBBCFF;
 $ice: #E9EFFF;
 
@@ -50,6 +50,13 @@ $on-tablet: 769px;
 $on-desktop: 1024px;
 $on-widescreen: 1152px;
 
+
+a:hover {
+    color: #d23d23 !important;
+}
+
+
+
 @mixin media-query($device) {
   @media screen and (max-width: $device) {
     @content;
@@ -63,3 +70,4 @@ $on-widescreen: 1152px;
 // Import sass files
 @import "klise/fonts", "klise/base", "klise/layout", "klise/post",
   "klise/miscellaneous", "klise/syntax", "klise/dark";
+

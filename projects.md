@@ -6,9 +6,15 @@ excerpt: All post.
 comments: false
 ---
 
-> “Creativity is intelligence having fun.” - Albert Einstein
+> “Creativity is intelligence having fun.” ~ Albert Einstein
 
-The whole world depends on apps today. Every line of code we write feeds and drives the daily lives of millions of people in different ways. That's why I love developing apps: because they are the fuel of our digital life. As an indie developer, I'm always looking for ideas and inspiration to create new apps and software solutions that can help both people and developers like me.
+
+
+### [🐦‍🔥 Swift Sessions](https://github.com/alessiorubicini/SwiftSessions)
+<div class="post-meta">
+	Swift package • Bachelor’s degree thesis project
+</div>
+A comprehensive Swift package that implements binary session types, providing a robust framework for ensuring safe and structured communication in concurrent systems.
 
 ### [🔍 SF Symbols Picker for SwiftUI](https://github.com/alessiorubicini/SFSymbolsPickerForSwiftUI)
 <div class="post-meta">
