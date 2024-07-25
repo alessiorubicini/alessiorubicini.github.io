@@ -12,8 +12,7 @@ mode: light # default theme "dark" | "light"
 author:
   name: Alessio Rubicini # author name
   bio: >- # tell to the world
-    I study computer science for digital communication at the University of Camerino.
-    I aspire to become an app developer to create apps that help other people and positively impact the whole world.
+    I study computer science at the University of Camerino and I aspire to become an app developer to create apps that help other people and positively impact the whole world.
     I'm interested in app development for Apple platforms with the Swift language, but I always love experimenting with new technologies, environments and tools.
   username: alessiorubicini # general username
   github: alessiorubicini # github username

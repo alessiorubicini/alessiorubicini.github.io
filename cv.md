@@ -12,14 +12,15 @@ For privacy reasons full PDF version of my curriculum vitae is not publicly avai
 
 **iOS developer**<br>
 [AppLoad](https://appload.studio/) · Stage<br>
-March 2024 - May 2024<br>
+March 2024 – May 2024<br>
 
 ## Education
 
 **Bachelor degree**<br>
 [University of Camerino](https://www.unicam.it/)<br>
-September 2021 – Current<br>
+September 2021 – July 2024<br>
 Field of study: Computer Science for Digital Communication<br>
+Final mark: 109/110<br>
 Thesis: *Design and implementation of a binary sessions library in the Swift language*
 
 **High school diploma**<br>
