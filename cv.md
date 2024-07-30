@@ -16,12 +16,17 @@ March 2024 – May 2024<br>
 
 ## Education
 
+**Master degree**<br>
+[University of Camerino](https://www.unicam.it/)<br>
+September 2024 – Current<br>
+Field of Study: Computer Science, Software Development & Tecnologies 
+
 **Bachelor degree**<br>
 [University of Camerino](https://www.unicam.it/)<br>
 September 2021 – July 2024<br>
 Field of study: Computer Science for Digital Communication<br>
 Final mark: 109/110<br>
-Thesis: *Design and implementation of a binary sessions library in the Swift language*
+Thesis: *[Design and implementation of a binary sessions library in the Swift language](/assets/docs/Tesi_Alessio_Rubicini.pdf)*
 
 **High school diploma**<br>
 [I.T.T. “G. & M. Montani”](https://www.istitutomontani.edu.it/web/)<br>
