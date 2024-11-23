@@ -424,3 +424,42 @@
   }
 }
 
+.screenplay-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	margin-top: 20px;
+}
+.screenplay-item {
+	display: flex;
+	background: #fff;
+	border: 1px solid #ddd;
+	border-radius: 8px;
+	overflow: hidden;
+	margin-bottom: 20px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.screenplay-item img {
+	width: 200px;
+	height: auto;
+	object-fit: cover;
+	border-right: 1px solid #ddd;
+	
+}
+.screenplay-details {
+	padding: 15px;
+	flex: 1;
+}
+.screenplay-title {
+	font-size: 1.5em;
+	margin: 0 0 10px;
+}
+.screenplay-subtitle {
+	font-size: 1em;
+	color: #777;
+	margin: 0 0 15px;
+}
+.screenplay-plot {
+	font-size: 1em;
+	line-height: 1.6;
+}
