@@ -14,7 +14,9 @@ comments: false
 <div class="post-meta">
 	Swift package • Bachelor’s degree thesis project
 </div>
-A comprehensive Swift package that implements binary session types, providing a robust framework for ensuring safe and structured communication in concurrent systems.
+A comprehensive Swift package that implements binary session types, providing a robust framework for ensuring safe and structured communication in concurrent systems. <br>
+🎧 Cited on [Episode #46](https://swiftpackageindexing.transistor.fm/episodes/46-a-concept-born-and-explored-in-recent-decades) of the Swift Package Indexing podcast.
+
 
 ### [🔍 SF Symbols Picker for SwiftUI](https://github.com/alessiorubicini/SFSymbolsPickerForSwiftUI)
 <div class="post-meta">
