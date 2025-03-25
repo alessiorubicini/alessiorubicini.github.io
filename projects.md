@@ -8,7 +8,7 @@ comments: false
 
 > “Creativity is intelligence having fun.” ~ Albert Einstein
 
-### [📑 Screenplay Genie](https://github.com/alessiorubicini/SwiftSessions)
+### [📑 Screenplay Genie](https://github.com/alessiorubicini/Screenplay-Genie)
 <div class="post-meta">
 	iPad Application • Submission for Apple's Swift Student Challenge 2025
 </div>
