@@ -45,7 +45,7 @@ Thesis: *[iOS development: the iOS system and the creation of an app](/assets/do
 
 ## Language Skills
 - **Native language**: Italian
-- **Other languages**: English B2 (*First Cambridge certificate*)
+- **Other languages**: English B2 (First Cambridge certificate)
 
 
 ## Communication & interpersonal skills

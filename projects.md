@@ -8,11 +8,15 @@ comments: false
 
 > “Creativity is intelligence having fun.” ~ Albert Einstein
 
-
+### [📑 Screenplay Genie](https://github.com/alessiorubicini/SwiftSessions)
+<div class="post-meta">
+	iPad Application • Submission for Apple's Swift Student Challenge 2025
+</div>
+An educational iOS app designed to teach users the fundamentals of screenwriting. It features interactive lessons, live previews of scripts in proper screenplay format, and a free writing playground with support for Fountain Markdown.
 
 ### [🐦‍🔥 Swift Sessions](https://github.com/alessiorubicini/SwiftSessions)
 <div class="post-meta">
-	Swift package • Bachelor’s degree thesis project
+	Swift Package • Bachelor’s Degree Thesis Project
 </div>
 A comprehensive Swift package that implements binary session types, providing a robust framework for ensuring safe and structured communication in concurrent systems. <br>
 🎧 Cited on [Episode #46](https://swiftpackageindexing.transistor.fm/episodes/46-a-concept-born-and-explored-in-recent-decades) of the Swift Package Indexing podcast.
@@ -20,50 +24,32 @@ A comprehensive Swift package that implements binary session types, providing a 
 
 ### [🔍 SF Symbols Picker for SwiftUI](https://github.com/alessiorubicini/SFSymbolsPickerForSwiftUI)
 <div class="post-meta">
-	Swift package • Side Project
+	Swift Package • Side Project • #ForSwiftUI Series
 </div>
-<center>
-	<img class="journey-img" src="/assets/img/projects/SFSymbolsPicker.png" >
-</center>
+A SwiftUI package that provides an easy-to-use picker for selecting SF Symbols in iOS and macOS apps. It supports seamless symbol selection with binding integration and customization options.
+
 
 ### [🏝️ Island Alerts for SwiftUI](https://github.com/alessiorubicini/IslandAlertsForSwiftUI)
 <div class="post-meta">
-	Swift package • Side Project
+	Swift Package • Side Project • #ForSwiftUI Series
 </div>
-<center>
-	<img class="journey-img" src="/assets/img/projects/IslandAlertsForSwiftUI.png" >
-</center>
-A Swift package for SwiftUI developers that provides a variety of UI alerts that integrate seamlessly with Dynamic Island on iPhone 14 Pro and the old Notch on other models.
+A SwiftUI package offering various alert styles designed to integrate smoothly with the iPhone’s Dynamic Island and Notch. It provides customizable alerts like large, medium, and square sizes for Dynamic Island, and similar options for the Notch
 
 ### [📍 Location Picker for SwiftUI](https://github.com/alessiorubicini/LocationPickerForSwiftUI)
 <div class="post-meta">
-	Swift package • Side Project
+	Swift Package • Side Project  • #ForSwiftUI Series
 </div>
-<center>
-	<img class="journey-img" src="/assets/img/projects/LocationPickerForSwiftUI.png" >
-</center>
+A SwiftUI package providing an interactive view for selecting geographic coordinates. It allows users to select a location on a map, with real-time coordinate display and easy integration via SwiftUI bindings.
+
 
 ### [✏️ Pencil Drawer for SwiftUI](https://github.com/alessiorubicini/PencilDrawerForSwiftUI)
 <div class="post-meta">
-	Swift package • Side Project
+	Swift Package • Side Project  • #ForSwiftUI Series
 </div>
-<center>
-	<img class="journey-img" src="/assets/img/projects/PencilDrawerForSwiftUI.png" >
-</center>
+A SwiftUI package enabling users to draw within apps using a simple interface. It simplifies the integration of PencilKit by using SwiftUI’s binding system to handle drawing data.
 
 ### [🛒 GameZen](https://github.com/alessiorubicini/GameZen-iOS)
 <div class="post-meta">
-	iOS app • School Project
+	iOS Application • High School Exam Project
 </div>
-<center>
-	<img class="journey-img" src="/assets/img/projects/GameZen.png" >
-</center>
-An iOS client-side app for a board game e-commerce. The app allows a complete customer-seller interaction with registration, catalog consultation, purchase and order tracking.
-
-### [🗺️ BeCareful](https://github.com/alessiorubicini/BeCareful-iOS)
-<div class="post-meta">
-	iOS app • Side Project
-</div>
-<center>
-	<img class="journey-img" src="/assets/img/projects/BeCareful.png" >
-</center>
+An iOS client-side app for a board game e-commerce store. The app allows a complete customer-seller interaction with registration, catalog consultation, purchase and order tracking. Created as project for my high school final exam.
