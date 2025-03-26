@@ -6,6 +6,10 @@
   url: /projects/
   external: false
 
+- title: cv
+  url: /CV/
+  external: false
+
 - title: blog
   url: https://alessiorubicini.medium.com
   external: true
