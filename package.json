@@ -4,13 +4,13 @@
   "private": true,
   "homepage": "https://alessiorubicini.github.io/",
   "repository": {
-  	"type": "git",
-  	"url": "git+https://github.com/alessiorubicini/alessiorubicini.github.io"
+    "type": "git",
+    "url": "git+https://github.com/alessiorubicini/alessiorubicini.github.io"
   },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-	"postbuild": "touch out/.nojekyll",
+    "postbuild": "touch out/.nojekyll",
     "start": "next start",
     "lint": "next lint",
     "deploy": "next build && next export && gh-pages -d out"
@@ -55,6 +55,7 @@
     "next": "15.1.0",
     "next-themes": "latest",
     "react": "^19",
+    "react-day-picker": "^9.6.3",
     "react-dom": "^19",
     "react-hook-form": "^7.54.1",
     "react-resizable-panels": "^2.1.7",
