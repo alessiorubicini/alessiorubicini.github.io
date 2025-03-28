@@ -36,3 +36,4 @@ jobs:
           branch: main
           folder: out
           clean: true
+          dotfiles: true
