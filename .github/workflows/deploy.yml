@@ -24,8 +24,8 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Build and Export Next.js App
-        run: npm run export
+      - name: Build Next.js App
+        run: npm run build
       
       - name: Add .nojekyll file
         run: touch out/.nojekyll
