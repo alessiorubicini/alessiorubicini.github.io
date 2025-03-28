@@ -25,9 +25,7 @@ const nextConfig = {
 	},
 	reactStrictMode: true,
 	output: 'export',
-	distDir: 'out',
 	basePath: '',
-	//assetPrefix: '/',
 }
 
 mergeConfig(nextConfig, userConfig)
