@@ -23,10 +23,11 @@ const nextConfig = {
 		parallelServerBuildTraces: true,
 		parallelServerCompiles: true,
 	},
+	reactStrictMode: true,
 	output: 'export',
 	distDir: 'out',
-	basePath: '',
-	assetPrefix: '/',
+	basePath: '/',
+	//assetPrefix: '/',
 }
 
 mergeConfig(nextConfig, userConfig)
