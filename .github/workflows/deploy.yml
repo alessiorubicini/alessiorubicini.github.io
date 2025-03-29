@@ -36,7 +36,10 @@ jobs:
       - name: Build with Next.js 🏗️
         run: npx next build
 
-      - name: Debug output directory
+      - name: Generate sitemap 🗺️
+        run: npx next-sitemap
+
+      - name: Debug output directory 📂
         run: ls -la
 
       - name: Upload artifact 📡

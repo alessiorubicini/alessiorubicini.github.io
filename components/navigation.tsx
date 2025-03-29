@@ -32,6 +32,11 @@ export function Navigation() {
       label: "resume",
       active: pathname === "/cv/",
     },
+	{
+		href: "/not-work",
+		label: "not work",
+		active: pathname === "/not-work/" || pathname.startsWith("/not-work/"),
+	},
     {
       href: "https://alessiorubicini.medium.com/",
       label: "blog",

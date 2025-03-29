@@ -1,0 +1,44 @@
+[
+	{
+	  "title": "I'm reading...",
+	  "description": "\"Finders Keepers\" by Stephen King. A thrilling story about a teenage boy who discovers a hidden stash of money and notebooks stolen decades earlier from a murdered author, only to attract the attention of the author’s obsessed killer, who wants his treasure back. Continuing with the Hodges trilogy... ",
+	  "image": "https://m.media-amazon.com/images/I/81kL+XBSbHL._AC_UF1000,1000_QL80_.jpg",
+	  "alt": "Finders Keepers book cover",
+	  "icon": "BookOpen"
+	},
+	{
+	  "title": "Next I'll watch...",
+	  "description": "\"The Fall of the House of Usher\". A chilling and modern reimagining of Edgar Allan Poe's classic tale, blending horror and family drama.",
+	  "image": "https://m.media-amazon.com/images/M/MV5BY2RiMjhkMzYtOWFmYS00YmRkLWIxYmYtN2FmZDEwODllYzA3XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg",
+	  "alt": "The Fall of the House of Usher TV show",
+	  "icon": "Tv"
+	},
+	{
+	  "title": "Last movie I watched...",
+	  "description": "Sorry, I'm a movie enthusiast! I just watch too many movies to keep this page up-to-date. Check out my Letterboxd profile to see my ratings, reviews, and watchlist!",
+	  "image": "https://play-lh.googleusercontent.com/PFcm5Ne2otuXxkCNgql_XtpHjYrlhIGGQRFaz9XLFg2wikmMP5YCv_OsvFe1PLDAvGg",
+	  "alt": "Letterboxd icon",
+	  "icon": "Film"
+	},
+	{
+	  "title": "I'm listening to...",
+	  "description": "Pretty much all Noah Kahan's songs. Heartfelt songs blending folk and indie sounds, capturing the essence of change and nostalgia. Also, Noah Kahan is from Vermont, New England, and he shares somes places, themes and atmospheres with my favorite author, Stephen King.",
+	  "image": "https://m.media-amazon.com/images/I/91h7jAG+f9L.jpg",
+	  "alt": "Stick Season album artwork",
+	  "icon": "MusicIcon"
+	},
+	{
+		"title": "I'm writing...",
+		"description": "A short folk horror story set in the countrysides around my hometown where local farmers hide an horrible secret and terrible things happen during the night. The story evolves around Dario, a young man who inherits one of these lands by his father and must compare the demons of his past. I'm also working on an horror screenplay based upon the game Mafia / Lupus in Fabula.",
+		"image": "https://png.pngtree.com/thumb_back/fh260/background/20220419/pngtree-a-twisted-spanish-chestnut-tree-eerie-folk-horror-silhouette-photo-image_45301042.jpg",
+		"alt": "Conceptual image of memory transfer",
+		"icon": "PenTool"
+	  },
+	{
+	  "title": "Last game I played...",
+	  "description": "\"Spider-Man Miles Morales\". A thrilling action-adventure game where you swing through New York City as Miles Morales, battling new threats and discovering your powers. I particularly enjoyed the Christmas atmosphere, with a snowy New York City, and the new powers of Miles Morales. Perfect game to play during the holidays.",
+	  "image": "https://image.api.playstation.com/vulcan/ap/rnd/202008/1020/PRfYtTZQsuj3ALrBXGL8MjAH.jpg",
+	  "alt": "Rocket League gameplay",
+	  "icon": "Gamepad2"
+	}
+  ]
