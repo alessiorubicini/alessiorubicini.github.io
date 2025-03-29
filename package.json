@@ -9,11 +9,12 @@
   },
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next-sitemap",
     "postbuild": "touch out/.nojekyll",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "next build && next export && gh-pages -d out"
+    "deploy": "next build && next export && gh-pages -d out",
+	"sitemap": "next-sitemap"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",
@@ -53,6 +54,7 @@
     "input-otp": "1.4.1",
     "lucide-react": "^0.454.0",
     "next": "15.1.0",
+    "next-sitemap": "^4.2.3",
     "next-themes": "latest",
     "react": "^19",
     "react-day-picker": "^9.6.3",

@@ -25,12 +25,12 @@ export function Navigation() {
     {
       href: "/projects",
       label: "projects",
-      active: pathname === "/projects",
+      active: pathname === "/projects/",
     },
     {
       href: "/cv",
       label: "resume",
-      active: pathname === "/cv",
+      active: pathname === "/cv/",
     },
     {
       href: "https://alessiorubicini.medium.com/",
