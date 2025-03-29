@@ -25,7 +25,7 @@ export default function RootLayout({
 	<head>
         
         
-        <link rel="icon" type="image/png" href="/alememoji.png" />
+        <link rel="icon" type="image/png" href="/assets/images/alememoji.png" />
         
       </head>
 

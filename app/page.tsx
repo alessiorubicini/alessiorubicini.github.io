@@ -22,7 +22,7 @@ export default function Home() {
       <div className="flex flex-col items-center text-center">
         <div className="relative w-32 h-32 mb-8 overflow-hidden rounded-full border-4 border-background bg-background/50 backdrop-blur supports-[backdrop-filter]:bg-background/50">
           <Image
-            src="/alessio.jpeg"
+            src="/assets/images/alessio.jpeg"
             alt="Profile picture"
             fill
             className="object-cover"

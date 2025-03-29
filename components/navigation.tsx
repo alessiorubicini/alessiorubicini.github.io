@@ -19,22 +19,22 @@ export function Navigation() {
   const routes = [
     {
       href: "/",
-      label: "Home",
+      label: "me",
       active: pathname === "/",
     },
     {
       href: "/projects",
-      label: "Projects",
+      label: "projects",
       active: pathname === "/projects",
     },
     {
       href: "/cv",
-      label: "Resume",
+      label: "resume",
       active: pathname === "/cv",
     },
     {
       href: "https://alessiorubicini.medium.com/",
-      label: "Blog",
+      label: "blog",
       active: false,
       external: true,
     },

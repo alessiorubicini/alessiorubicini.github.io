@@ -33,7 +33,7 @@ export default function CVPage() {
 			className="rounded-full" 
 			onClick={() => {
 			  const link = document.createElement("a");
-			  link.href = "/CV[ENG]-AlessioRubicini-Feb2025.pdf";
+			  link.href = "/assets/docs/CV[ENG]-AlessioRubicini-Mar2025.pdf";
 			  link.download = "CV[ENG]-AlessioRubicini-Feb2025";
 			  link.click();
 			}}
@@ -88,7 +88,7 @@ export default function CVPage() {
                   <div className="flex items-center gap-2 mt-1">
                     <p className="font-medium">Thesis:</p>
                     <Link
-                      href="/Tesi_Alessio_Rubicini.pdf"
+                      href="/assets/docs/Tesi_Alessio_Rubicini.pdf"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center text-sm font-medium text-primary hover:underline"
@@ -115,7 +115,7 @@ export default function CVPage() {
                   <div className="flex items-center gap-2 mt-1">
                     <p className="font-medium">Thesis:</p>
                     <Link
-                      href="/Sviluppo%20iOS.pdf"
+                      href="/assets/docs/Sviluppo%20iOS.pdf"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center text-sm font-medium text-primary hover:underline"
