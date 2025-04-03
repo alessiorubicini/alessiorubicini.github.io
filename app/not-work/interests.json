@@ -1,9 +1,9 @@
 [
 	{
 	  "title": "I'm reading...",
-	  "description": "\"Finders Keepers\" by Stephen King. A thrilling story about a teenage boy who discovers a hidden stash of money and notebooks stolen decades earlier from a murdered author, only to attract the attention of the author’s obsessed killer, who wants his treasure back. Continuing with the Hodges trilogy... ",
-	  "image": "https://m.media-amazon.com/images/I/81kL+XBSbHL._AC_UF1000,1000_QL80_.jpg",
-	  "alt": "Finders Keepers book cover",
+	  "description": "\"End of Watch\" by Stephen King. The story follows retired detective Bill Hodges as he investigates a series of mysterious deaths linked to a case from his past—the mass murderer Brady Hartsfield, also known as the “Mercedes Killer.” Though Brady has been in a vegetative state for years, strange occurrences suggest he may have found a terrifying new way to influence the world around him. ",
+	  "image": "https://m.media-amazon.com/images/I/919dMz8lFXL._AC_UF1000,1000_QL80_.jpg",
+	  "alt": "End of Watch book cover",
 	  "icon": "BookOpen"
 	},
 	{
@@ -15,7 +15,7 @@
 	},
 	{
 	  "title": "Last movie I watched...",
-	  "description": "Sorry, I'm a movie enthusiast! I just watch too many movies to keep this page up-to-date. Check out my Letterboxd profile to see my ratings, reviews, and watchlist!",
+	  "description": "Sorry, I just watch too many movies to keep this page up-to-date! Check out my Letterboxd profile to see my ratings, reviews, and watchlist!",
 	  "image": "https://play-lh.googleusercontent.com/PFcm5Ne2otuXxkCNgql_XtpHjYrlhIGGQRFaz9XLFg2wikmMP5YCv_OsvFe1PLDAvGg",
 	  "alt": "Letterboxd icon",
 	  "icon": "Film"

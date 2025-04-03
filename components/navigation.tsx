@@ -43,6 +43,12 @@ export function Navigation() {
       active: false,
       external: true,
     },
+	{
+		"href": "https://buymeacoffee.com/alessiorubicini",
+		label: "☕️",
+		active: false,
+		external: true,
+	}
   ]
 
   return (
