@@ -1,0 +1,393 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <link rel="icon" href="/img/favicon.png" type="image/png">
+
+    <title>My Mission - Alessio Rubicini</title>
+    <meta content="Alessio Rubicini's Mission" property="og:site_name">
+    <meta content="Alessio Rubicini's mission to create purposeful art through thoughtful product design." name="description">
+    <meta content="website" property="og:type">
+    <meta name="author" content="Alessio Rubicini"/>
+
+    <link rel="canonical" href="https://alessiorubicini.github.io/mission"/>
+    <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --fontSize: 14.5px;
+  --secondaryFontSize: 13px;
+  --lineHeight: 22.5px;
+  --hairlineThickness: 1px;
+}
+
+@media screen and (min-resolution: 2x) {
+  :root {
+    --hairlineThickness: 0.5px;
+  }
+}
+
+:root {
+--backgroundColor: #000000;
+--secondaryBackgroundColor: #0A0A0A;
+
+--primaryText: #FAFBFF;
+--secondaryText: #A6B9BA;
+--tertiaryText: #A2ACAA;
+
+--accentColor: #FFFFFF;
+--selectionOpacity: 0.5;
+}
+
+::selection {
+  background-color: var(--accentColor);
+  background-color: color(from var(--accentColor) srgb r g b / var(--selectionOpacity));
+}
+
+@media (prefers-contrast: more) {
+  :root {
+  --primaryText: #FFF;
+  --secondaryText: #CCC;
+  --tertiaryText: #AAA;
+
+  --hairlineThickness: 1px;
+
+  --selectionOpacity: 0.9;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --backgroundColor: #FFFFFF;
+    --secondaryBackgroundColor: #F5F5F5;
+
+    --primaryText: #02040a;
+    --secondaryText: #343840;
+    --tertiaryText: #4D595B;
+
+    --accentColor: #000000;
+  }
+}
+
+@media (prefers-color-scheme: light) and (prefers-contrast: more) {
+  :root {
+    --primaryText: #000;
+    --secondaryText: #222;
+    --tertiaryText: #444;
+
+  }
+}
+
+html {
+  overflow-x: hidden !important;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: ui-rounded, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: var(--fontSize);
+  line-height: var(--lineHeight);
+  color: var(--secondaryText);
+
+  accent-color: var(--accentColor);
+  background-color: var(--backgroundColor);
+
+  -webkit-text-size-adjust: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+
+  max-width: calc(var(--lineHeight) * 32);
+  margin: 0 auto;
+  padding: 0 calc(var(--lineHeight) * 0.5);
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    font-weight: 450;
+  }
+}
+
+header {
+  padding: calc(var(--lineHeight) * 3) 0 calc(var(--lineHeight) * 1);
+}
+
+@page {
+  padding: calc(var(--lineHeight) * 3) 0 calc(var(--lineHeight) * 1);
+}
+
+h1, h2, h3, h4 {
+  line-height: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+h1, h2 {
+  color: var(--primaryText);
+}
+
+h1 {
+  font-size: calc(var(--fontSize) * 2.5);
+  line-height: calc(var(--lineHeight) * 1.3);
+  text-align: center;
+  margin-bottom: calc(var(--lineHeight) * 2);
+}
+
+@media screen and (max-width: 799px) {
+  h1 {
+    font-size: calc(var(--fontSize) * 2);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  h1 {
+    font-size: calc(var(--fontSize) * 3);
+  }
+}
+
+p {
+  margin-bottom: calc(var(--lineHeight) * 1.1);
+  text-wrap: pretty;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+blockquote {
+  border-left: 4px solid var(--accentColor);
+  padding-left: calc(var(--lineHeight) * 1);
+  margin: calc(var(--lineHeight) * 1.5) 0;
+  font-style: italic;
+  font-size: calc(var(--fontSize) * 1.1);
+}
+
+blockquote footer {
+  font-style: normal;
+  font-size: var(--secondaryFontSize);
+  margin-top: calc(var(--lineHeight) * 0.5);
+  color: var(--tertiaryText);
+}
+
+strong {
+  color: var(--primaryText);
+  font-weight: 500;
+}
+
+
+
+figure {
+  width: auto;
+  height: auto;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  isolation: isolate;
+  background-color: var(--secondaryBackgroundColor);
+  box-shadow: 0px 2px 8px rgba(0,0,0,0.1);
+  margin: calc(var(--lineHeight) * 3) 0;
+}
+
+figure img {
+  width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+figure::after {
+  content: " ";
+  display: block;
+  border-radius: inherit;
+  border: 1.5px solid rgba(255, 255, 255, 1);
+  mix-blend-mode: plus-lighter;
+  position: absolute;
+  top: -0.5px;
+  right: -0.5px;
+  bottom: -0.5px;
+  left: -0.5px;
+  pointer-events: none;
+  opacity: 0.15;
+  z-index: 10;
+}
+
+.content {
+  max-width: calc(var(--lineHeight) * 28);
+  margin: 0 auto;
+}
+
+@keyframes appear {
+0.000% {
+  opacity: 0.000;
+  filter: blur(4.000px);
+  transform: translateY(10.000px);
+}
+6.667% {
+  opacity: 0.618;
+  filter: blur(1.528px);
+  transform: translateY(4.932px);
+}
+13.333% {
+  opacity: 0.921;
+  filter: blur(0.317px);
+  transform: translateY(-0.524px);
+}
+20.000% {
+  opacity: 0.986;
+  filter: blur(0.055px);
+  transform: translateY(-1.568px);
+}
+26.667% {
+  opacity: 0.998;
+  filter: blur(0.009px);
+  transform: translateY(-0.552px);
+}
+33.333% {
+  opacity: 1.000;
+  filter: blur(0.001px);
+  transform: translateY(0.180px);
+}
+40.000% {
+  opacity: 1.000;
+  filter: blur(0.000px);
+  transform: translateY(0.229px);
+}
+46.667% {
+  opacity: 1.000;
+  filter: blur(0.000px);
+  transform: translateY(0.053px);
+}
+53.333% {
+  opacity: 1.000;
+  filter: blur(0.000px);
+  transform: translateY(-0.039px);
+}
+60.000% {
+  opacity: 1.000;
+  filter: blur(0.000px);
+  transform: translateY(-0.031px);
+}
+66.667% {
+  opacity: 1.000;
+  filter: blur(0.000px);
+  transform: translateY(-0.003px);
+}
+73.333% {
+  opacity: 1.000;
+  filter: blur(0.000px);
+  transform: translateY(0.007px);
+}
+80.000% {
+  opacity: 1.000;
+  filter: blur(0.000px);
+  transform: translateY(0.004px);
+}
+86.667% {
+  opacity: 1.000;
+  filter: blur(0.000px);
+  transform: translateY(-0.000px);
+}
+93.333% {
+  opacity: 1.000;
+  filter: blur(0.000px);
+  transform: translateY(-0.001px);
+}
+100.000% {
+  opacity: 1.000;
+  filter: blur(0.000px);
+  transform: translateY(-0.000px);
+}
+}
+
+@media not (prefers-reduced-motion: reduce) {
+  body.animate-appear {
+    --appearDuration: 2.495139694737313s;
+  }
+}
+
+[data-delay] {
+  --delay: 7;
+  animation: appear var(--appearDuration) linear both;
+  animation-delay: calc(0.2s + calc(var(--delay) * 0.2s));
+  will-change: transform, opacity;
+}
+
+body.did-appear [data-delay] {
+  animation: none !important;
+  animation-delay: 0;
+}
+
+@media screen and (max-width: 799px) {
+  body {
+    padding: 0 calc(var(--lineHeight) * 0.75);
+  }
+  
+  h1 {
+    font-size: calc(var(--fontSize) * 1.8);
+  }
+  
+  .content {
+    max-width: 100%;
+  }
+}
+    </style>
+  </head>
+  <body>
+    <script>
+      if (performance?.getEntriesByType("navigation")?.[0]?.type == "navigate") {
+        document.body.classList.add('animate-appear');
+
+        setTimeout(() => {
+          document.body.classList.add('did-appear');
+        }, 5000);
+      }
+    </script>
+    
+    <div class="content">
+      <header>
+        <h1 data-delay style="--delay: 0.1;">my mission.</h1>
+        
+        <figure data-delay style="--delay: 0.2;">
+          <img src="/img/applepark.jpeg" alt="Me at Apple Park, Cupertino, during WWDC25" />
+        </figure>
+        
+        <div data-delay style="--delay: 0.3;">
+          <p>
+            What's my mission? I want to create products. But not just products.
+          </p>
+          <p>
+            Nowadays, creating is not something to be taken for granted. Social media, doom scrolling, generative AI, copycats, market saturation. Many people replicate ideas or patch together products without fully understanding them, focusing on visibility or profit rather than impact. Sometimes it feels like the love for thoughtful creation is being lost. But then I see remarkable examples of craftsmanship that remind me why this work matters.
+          </p>
+          <p>
+            My obsession isn't to build apps that just add features. It's to build things that matter. To create products that are both beautiful and meaningful for people. 
+          </p>
+          <p>
+            Beautiful because people can love things only if they are beautiful. Pieces of art, things that are so beautiful you'll be sorry to call them just "apps" or "software." The intersection of technology and liberal arts, like Steve Jobs envisioned it. Meaningful because technology should make our lives better, not worse. And today's technology can contribute to our lives like never before. There's never been such a better time to use it.
+          </p>
+          <p>
+            Each year, Apple makes a video featuring people who are still alive thanks to Apple Watch. Those people laugh and cry while telling about how that little product on their wrist saved them. I want to create things like the Apple Watch. Products that solve problems, that make lives better, that people love with all their hearts and feel grateful to use.
+          </p>
+          <p>
+            I don't want to follow trends. I want to put something out there that challenges them. That helps people remember why they started, what moves them, and where they truly want to go. Today's tools risk becoming cages if we forget why we build. I believe in creating not to impress, but to inspire. Not to add noise, but to make space for what really counts. Because this isn't just about writing code. It's about vision. About questioning the obvious, caring deeply, and daring to say: we can do better. It's about design driven by curiosity, honesty, and love for what genuinely improves lives, even in small ways.
+          </p>
+          <p>
+            My mission is to create <strong>purposeful art</strong>.
+          </p>
+          <blockquote>
+            <p>"We're here to put a dent in the universe. Otherwise why else even be here?"</p>
+            <footer>— Steve Jobs</footer>
+          </blockquote>
+        </div>
+      </header>
+    </div>
+  </body>
+</html>
+
+

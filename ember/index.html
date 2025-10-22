@@ -1,0 +1,612 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <link rel="icon" href="/img/favicon.png" type="image/png">
+
+    <title>Ember — Alessio Rubicini</title>
+    <meta content="Ember — AI-powered wildfire evacuation planning for Californians" name="description">
+    <meta name="author" content="Alessio Rubicini"/>
+
+    <link rel="canonical" href="https://alessiorubicini.com/things/ember"/>
+
+    <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --fontSize: 16px;
+  --secondaryFontSize: 14.5px;
+  --lineHeight: 24px;
+  --hairlineThickness: 1px;
+}
+
+@media screen and (min-resolution: 2x) {
+  :root {
+    --hairlineThickness: 0.5px;
+  }
+}
+
+:root {
+  --backgroundColor: #000000;
+  --secondaryBackgroundColor: #0A0A0A;
+
+  --primaryText: #FAFBFF;
+  --secondaryText: #A6B9BA;
+  --tertiaryText: #A2ACAA;
+
+  --accentColor: #FFFFFF;
+  --selectionOpacity: 0.5;
+}
+
+::selection {
+  background-color: var(--accentColor);
+  background-color: color(from var(--accentColor) srgb r g b / var(--selectionOpacity));
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --primaryText: #FFF;
+    --secondaryText: #CCC;
+    --tertiaryText: #AAA;
+
+    --hairlineThickness: 1px;
+
+    --selectionOpacity: 0.9;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --backgroundColor: #FFFFFF;
+    --secondaryBackgroundColor: #F5F5F5;
+
+    --primaryText: #02040a;
+    --secondaryText: #343840;
+    --tertiaryText: #4D595B;
+
+    --accentColor: #000000;
+  }
+}
+
+@media (prefers-color-scheme: light) and (prefers-contrast: more) {
+  :root {
+    --primaryText: #000;
+    --secondaryText: #222;
+    --tertiaryText: #444;
+  }
+}
+
+html {
+  overflow-x: hidden !important;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: ui-rounded, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: var(--fontSize);
+  line-height: var(--lineHeight);
+  color: var(--secondaryText);
+
+  accent-color: var(--accentColor);
+  background-color: var(--backgroundColor);
+
+  -webkit-text-size-adjust: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+
+  max-width: calc(var(--lineHeight) * 32);
+  margin: 0 auto;
+  padding: 0 var(--lineHeight);
+}
+
+h1, h2, h3, h4 {
+  line-height: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+h1, h2 {
+  color: var(--primaryText);
+}
+
+a {
+  color: var(--primaryText);
+  text-decoration: underline;
+  text-decoration-thickness: var(--hairlineThickness);
+  text-underline-offset: 2px;
+  text-decoration-color: color(from var(--primaryText) srgb r g b / 0.5);
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--lineHeight) / 4);
+  color: var(--tertiaryText);
+  text-decoration: none;
+  font-size: var(--secondaryFontSize);
+  transition: color 0.2s ease;
+}
+
+.back-button:hover {
+  color: var(--primaryText);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: calc(var(--lineHeight) * 2);
+  height: 40px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--lineHeight) / 2);
+}
+
+.brand img {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: calc(var(--lineHeight) * 1.2);
+  padding: calc(var(--lineHeight) * 2) 0;
+}
+
+.app-icon {
+  width: 128px;
+  height: 128px;
+  border-radius: 28px;
+}
+
+.page-title {
+  font-size: 32px;
+  line-height: 1.15;
+}
+
+@media screen and (min-width: 800px) {
+  .page-title {
+    font-size: 42px;
+    line-height: 1.15;
+  }
+}
+
+.made-with {
+  color: var(--tertiaryText);
+  font-size: var(--secondaryFontSize);
+  font-style: italic;
+  margin: 0;
+}
+
+.lead {
+  color: var(--tertiaryText);
+  font-size: var(--secondaryFontSize);
+  max-width: 700px;
+  line-height: 1.6;
+}
+
+.cta-box {
+  display: inline-flex;
+  align-items: center;
+  padding: calc(var(--lineHeight) / 2) calc(var(--lineHeight));
+  font-size: var(--secondaryFontSize);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: var(--hairlineThickness) solid var(--accentColor);
+  border-radius: 24px;
+  background: transparent;
+  color: var(--accentColor);
+}
+
+.section {
+  margin-bottom: calc(var(--lineHeight) * 2.5);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--lineHeight));
+  margin-bottom: calc(var(--lineHeight) * 2);
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--primaryText);
+}
+
+.section-divider {
+  flex: 1;
+  height: var(--hairlineThickness);
+  background: var(--tertiaryText);
+  opacity: 0.3;
+}
+
+.section-content {
+  color: var(--secondaryText);
+  line-height: 1.5;
+}
+
+.section-content p {
+  margin-bottom: calc(var(--lineHeight) * 0.8);
+}
+
+.section-content ul {
+  margin-bottom: calc(var(--lineHeight) * 1.5);
+  padding-left: calc(var(--lineHeight));
+}
+
+.section-content li {
+  margin-bottom: calc(var(--lineHeight) / 2);
+  display: flex;
+  align-items: flex-start;
+  gap: calc(var(--lineHeight) / 2);
+}
+
+.section-content li::before {
+  content: "•";
+  color: var(--primaryText);
+  font-weight: 500;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.section-content strong {
+  color: var(--primaryText);
+  font-weight: 500;
+}
+
+.image-container {
+  width: 100%;
+  max-width: 800px;
+  margin: calc(var(--lineHeight) * 2) auto;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.image-container.aspect-3-1 {
+  aspect-ratio: 3/1;
+}
+
+.image-container.aspect-4-3 {
+  aspect-ratio: 4/3;
+}
+
+.image-container.aspect-3-1 img,
+.image-container.aspect-4-3 img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes appear {
+0.000% {
+  opacity: 0.000;
+  filter: blur(4.000px);
+  transform: translateY(10.000px);
+}
+6.667% {
+  opacity: 0.618;
+  filter: blur(1.528px);
+  transform: translateY(4.932px);
+}
+13.333% {
+  opacity: 0.921;
+  filter: blur(0.317px);
+  transform: translateY(-0.524px);
+}
+20.000% {
+  opacity: 0.986;
+  filter: blur(0.055px);
+  transform: translateY(-1.568px);
+}
+26.667% {
+  opacity: 0.998;
+  filter: blur(0.009px);
+  transform: translateY(-0.552px);
+}
+33.333% {
+  opacity: 1.000;
+  filter: blur(0.001px);
+  transform: translateY(0.180px);
+}
+40.000% {
+  opacity: 1.000;
+  filter: blur(0.000px);
+  transform: translateY(0.229px);
+}
+46.667% {
+  opacity: 1.000;
+  filter: blur(0.000px);
+  transform: translateY(0.053px);
+}
+53.333% {
+  opacity: 1.000;
+  filter: blur(0.000px);
+  transform: translateY(-0.039px);
+}
+60.000% {
+  opacity: 1.000;
+  filter: blur(0.000px);
+  transform: translateY(-0.031px);
+}
+66.667% {
+  opacity: 1.000;
+  filter: blur(0.000px);
+  transform: translateY(-0.003px);
+}
+73.333% {
+  opacity: 1.000;
+  filter: blur(0.000px);
+  transform: translateY(0.007px);
+}
+80.000% {
+  opacity: 1.000;
+  filter: blur(0.000px);
+  transform: translateY(0.004px);
+}
+86.667% {
+  opacity: 1.000;
+  filter: blur(0.000px);
+  transform: translateY(-0.000px);
+}
+93.333% {
+  opacity: 1.000;
+  filter: blur(0.000px);
+  transform: translateY(-0.001px);
+}
+100.000% {
+  opacity: 1.000;
+  filter: blur(0.000px);
+  transform: translateY(-0.000px);
+}
+}
+
+@keyframes appear-img {
+  0% {
+    filter: blur(5px) saturate(0.25);
+  }
+  100% {
+
+  }
+}
+
+@media not (prefers-reduced-motion: reduce) {
+  body.animate-appear:not(:has(:target)) {
+    --appearDuration: 2.495139694737313s;
+  }
+}
+
+[data-delay] {
+  --delay: 7;
+
+  animation: appear var(--appearDuration) linear both;
+  animation-delay: calc(0.2s + calc(var(--delay) * 0.2s));
+  will-change: transform, opacity;
+}
+
+[data-delay] figure {
+  animation: appear-img calc(var(--appearDuration) / 5) linear both;
+  animation-delay: calc(0.2s + calc(var(--delay) * 0.2s));
+  will-change: transform, opacity;
+}
+
+body.did-appear [data-delay] {
+  animation: none !important;
+  animation-delay: 0;
+}
+    </style>
+  </head>
+  <body>
+    <script>
+      if (performance?.getEntriesByType("navigation")?.[0]?.type == "navigate") {
+        document.body.classList.add('animate-appear');
+
+        setTimeout(() => {
+          document.body.classList.add('did-appear');
+        }, 5000);
+      }
+    </script>
+
+    <main>
+      <section class="hero" data-delay style="--delay: 0.5;">
+        <img src="/img/projects/Ember.png" alt="Ember App Icon" class="app-icon" data-delay style="--delay: 0.7;">
+        
+        <h1 class="page-title" data-delay style="--delay: 1.0;">Ember</h1>
+        
+        <p class="made-with" data-delay style="--delay: 1.2;">Made with ❤️ in Italy for California</p>
+        
+        <p class="lead" data-delay style="--delay: 1.4;">
+          Ember is an iOS app that leverages generative AI to help Californians
+          create personalized wildfire evacuation plans for their homes in a fast and private way.
+        </p>
+        
+        <div class="cta-box" data-delay style="--delay: 1.8;">COMING SOON!</div>
+      </section>
+
+      <section class="section" data-delay style="--delay: 2.8;">
+        <div class="section-header">
+          <h2 class="section-title">The Spark</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="section-content">
+          <p>
+            The idea for Ember was born in California during Apple's WWDC 2025. I had the privilege to spend time there,
+            and it left a deep impression on me. California is stunning, full of energy and creativity, but at the same
+            time it suffers every year from devastating wildfires. Seeing the contrast between its beauty and its
+            vulnerability really struck me.
+          </p>
+          <p>When I came back home, I carried two things with me: a renewed love for California and its people, and powerful new tools announced at WWDC, particularly Apple's on-device large language models.</p>
+          <p>
+            Ember was the result of putting those two together. It became a way to use cutting-edge technology in a meaningful
+            way, creating something that could genuinely help people in moments of uncertainty and fear.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" data-delay style="--delay: 3.2;">
+        <div class="section-header">
+          <h2 class="section-title">My Vision</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="section-content">
+          <p>
+            For Ember I didn't want just to write code or to make things look
+            nice, but to imagine what the app should feel like in the hands of someone who might one day rely on it.
+          </p>
+          <p>
+            The vision was clear: Ember had to be minimal, simple, and beautiful. But beauty here wasn't about showing off.
+            It was about clarity, humanity, and reassurance. The app needed to feel respectful of the user, their privacy, and
+            the stressful context in which it would be used. In other words, Ember had to earn the user's trust from the very
+            first interaction.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" data-delay style="--delay: 3.6;">
+        <div class="section-header">
+          <h2 class="section-title">Designing the Experience</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="section-content">
+          <p>
+            When designing Ember, I approached it with the same attention to detail that inspires me in Apple's own work.
+            Every element mattered:
+          </p>
+          <ul>
+            <li>The choice of colors that would feel calming rather than alarming.</li>
+            <li>Animations that were subtle, not flashy, so the user felt guided instead of distracted.</li>
+            <li>A flow that made the experience as light as possible, because in an emergency, no one has energy for complexity.</li>
+          </ul>
+          
+          <div class="image-container">
+            <img src="/img/projects/Ember/Designing-Ember.JPG" alt="Designing Ember">
+          </div>
+          
+          <p>
+            The process was designed to be incredibly straightforward: answer a few focused questions, and Ember produces a
+            complete evacuation plan tailored to your home and needs. The challenge was to make that simplicity invisible,
+            so users just felt supported, not burdened.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" data-delay style="--delay: 4.0;">
+        <div class="section-header">
+          <h2 class="section-title">Building the Core</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="section-content">
+          <p>
+            On the engineering side, Ember was an opportunity to fully embrace Apple's latest technologies. At its heart, it
+            runs on Apple Intelligence's lightweight, on-device language models, which meant two crucial things: speed and
+            privacy. Plans are generated almost instantly, and the user's personal information never leaves their device.
+          </p>
+          <p>
+            I also experimented with the new Liquid Glass design language, which gave Ember a look and feel that is
+            premium, familiar to iOS users and yet distinctly its own. Integrating this into a product that deals with emergencies was not
+            straightforward, but it gave the app a personality that feels warm rather than sterile.
+          </p>
+          
+          <div class="image-container">
+            <img src="/img/projects/Ember/Ember-Meets-LiquidGlass.png" alt="Ember meets Liquid Glass">
+          </div>
+        </div>
+      </section>
+
+      <section class="section" data-delay style="--delay: 4.4;">
+        <div class="section-header">
+          <h2 class="section-title">Challenges</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="section-content">
+          <p>Every project has hurdles, and Ember had three major ones.</p>
+          <p>
+            <strong>The first was technical.</strong> The on-device LLM, while impressive, is still relatively small compared to
+            cloud-based models. Getting it to produce high-quality evacuation plans required many iterations. I fine-tuned
+            prompts, adjusted parameters, and experimented relentlessly until I reached a balance between accuracy and usefulness, with minimal risk of hallucination. Despite this commitment, the quality of the outputs is still limited by the capacity of those early models, and as the models improve through time, this quality will improve too.
+          </p>
+          <p>
+            <strong>The second was design.</strong> Liquid Glass is expressive, almost playful, but an evacuation app needs to
+            communicate seriousness and urgency. Finding the right middle ground, where Ember could be both beautiful and
+            appropriate, required me to prototype, test, and rethink my approach several times.
+          </p>
+          <p>
+            <strong>The third challenge was finding the right mascot for Ember.</strong> Since the app was essentially an assistant, I felt it needed a recognizable presence that could represent it. I spent a lot of time exploring different directions before realizing that a smiling, friendly flame was the perfect fit. It carries warmth through its soft, calming colors, while at the same time humanizing fire. Designing Ember's mascot was not just about a single image, but about creating multiple variations that could appear in different moments of the experience, such as when no evacuation plan is yet created or when one is active. This made Ember feel dynamic, supportive, and present, like a reassuring companion guiding the user through every step.
+          </p>
+          
+          <div class="image-container aspect-3-1">
+            <img src="/img/projects/Ember/Ember-Icons.png" alt="Ember Icons">
+          </div>
+        </div>
+      </section>
+
+      <section class="section" data-delay style="--delay: 4.8;">
+        <div class="section-header">
+          <h2 class="section-title">The Result</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="section-content">
+          <p>
+            The final version of Ember is, in my eyes, the best app I have built so far. It represents the balance I always
+            aim for: advanced technology put in service of a clear human need, presented through an experience that feels
+            thoughtful and natural.
+          </p>
+          
+          <div class="image-container aspect-4-3">
+            <img src="/img/projects/Ember/Ember-FinalApp.png" alt="Ember Final App Screenshots">
+          </div>
+          
+          <p>
+            When I look at Ember, I see not just an app, but a philosophy of design and development: that tools should be
+            powerful without being overwhelming, private without being restrictive, and human without losing precision.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" data-delay style="--delay: 5.2;">
+        <div class="section-header">
+          <h2 class="section-title">What I Learned</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="section-content">
+          <p>
+            More than any project before, Ember sharpened my eye for detail and design. I learned how small things add up to
+            big differences.
+          </p>
+          <p>
+            It also taught me about the delicate balance between innovation and responsibility. Working with generative AI in
+            an emergency context forced me to think not just about what was possible, but what was appropriate. Ember reminded
+            me that design and engineering are always about people first.
+          </p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,565 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <link rel="icon" href="/img/favicon.png" type="image/png">
+
+    <title>Screenplay Genie — Alessio Rubicini</title>
+    <meta content="Screenplay Genie — An educational iPad app designed to guide users through the fundamentals of screenwriting" name="description">
+    <meta name="author" content="Alessio Rubicini"/>
+
+    <link rel="canonical" href="https://alessiorubicini.com/things/screenplay-genie"/>
+
+    <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --fontSize: 16px;
+  --secondaryFontSize: 14.5px;
+  --lineHeight: 24px;
+  --hairlineThickness: 1px;
+}
+
+@media screen and (min-resolution: 2x) {
+  :root {
+    --hairlineThickness: 0.5px;
+  }
+}
+
+:root {
+  --backgroundColor: #000000;
+  --secondaryBackgroundColor: #0A0A0A;
+
+  --primaryText: #FAFBFF;
+  --secondaryText: #A6B9BA;
+  --tertiaryText: #A2ACAA;
+
+  --accentColor: #FFFFFF;
+  --selectionOpacity: 0.5;
+}
+
+::selection {
+  background-color: var(--accentColor);
+  background-color: color(from var(--accentColor) srgb r g b / var(--selectionOpacity));
+}
+
+@media (prefers-contrast: more) {
+  :root {
+    --primaryText: #FFF;
+    --secondaryText: #CCC;
+    --tertiaryText: #AAA;
+
+    --hairlineThickness: 1px;
+
+    --selectionOpacity: 0.9;
+  }
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --backgroundColor: #FFFFFF;
+    --secondaryBackgroundColor: #F5F5F5;
+
+    --primaryText: #02040a;
+    --secondaryText: #343840;
+    --tertiaryText: #4D595B;
+
+    --accentColor: #000000;
+  }
+}
+
+@media (prefers-color-scheme: light) and (prefers-contrast: more) {
+  :root {
+    --primaryText: #000;
+    --secondaryText: #222;
+    --tertiaryText: #444;
+  }
+}
+
+html {
+  overflow-x: hidden !important;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: ui-rounded, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: var(--fontSize);
+  line-height: var(--lineHeight);
+  color: var(--secondaryText);
+
+  accent-color: var(--accentColor);
+  background-color: var(--backgroundColor);
+
+  -webkit-text-size-adjust: none;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+
+  max-width: calc(var(--lineHeight) * 32);
+  margin: 0 auto;
+  padding: 0 var(--lineHeight);
+}
+
+h1, h2, h3, h4 {
+  line-height: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+h1, h2 {
+  color: var(--primaryText);
+}
+
+a {
+  color: var(--primaryText);
+  text-decoration: underline;
+  text-decoration-thickness: var(--hairlineThickness);
+  text-underline-offset: 2px;
+  text-decoration-color: color(from var(--primaryText) srgb r g b / 0.5);
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--lineHeight) / 4);
+  color: var(--tertiaryText);
+  text-decoration: none;
+  font-size: var(--secondaryFontSize);
+  transition: color 0.2s ease;
+}
+
+.back-button:hover {
+  color: var(--primaryText);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-bottom: calc(var(--lineHeight) * 2);
+  height: 40px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--lineHeight) / 2);
+}
+
+.brand img {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+}
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: calc(var(--lineHeight) * 1.2);
+  padding: calc(var(--lineHeight) * 2) 0;
+}
+
+.app-icon {
+  width: 128px;
+  height: 128px;
+  border-radius: 28px;
+}
+
+.page-title {
+  font-size: 32px;
+  line-height: 1.15;
+}
+
+@media screen and (min-width: 800px) {
+  .page-title {
+    font-size: 42px;
+    line-height: 1.15;
+  }
+}
+
+.made-with {
+  color: var(--tertiaryText);
+  font-size: var(--secondaryFontSize);
+  font-style: italic;
+  margin: 0;
+}
+
+.lead {
+  color: var(--tertiaryText);
+  font-size: var(--secondaryFontSize);
+  max-width: 700px;
+  line-height: 1.6;
+}
+
+.cta-box {
+  display: inline-flex;
+  align-items: center;
+  padding: calc(var(--lineHeight) / 2) calc(var(--lineHeight));
+  font-size: var(--secondaryFontSize);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border: var(--hairlineThickness) solid var(--accentColor);
+  border-radius: 24px;
+  background: transparent;
+  color: var(--accentColor);
+}
+
+.section {
+  margin-bottom: calc(var(--lineHeight) * 2.5);
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--lineHeight));
+  margin-bottom: calc(var(--lineHeight) * 2);
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--primaryText);
+}
+
+.section-divider {
+  flex: 1;
+  height: var(--hairlineThickness);
+  background: var(--tertiaryText);
+  opacity: 0.3;
+}
+
+.section-content {
+  color: var(--secondaryText);
+  line-height: 1.5;
+}
+
+.section-content p {
+  margin-bottom: calc(var(--lineHeight) * 0.8);
+}
+
+.section-content ul {
+  margin-bottom: calc(var(--lineHeight) * 1.5);
+  padding-left: calc(var(--lineHeight));
+}
+
+.section-content li {
+  margin-bottom: calc(var(--lineHeight) / 2);
+  display: flex;
+  align-items: flex-start;
+  gap: calc(var(--lineHeight) / 2);
+}
+
+.section-content li::before {
+  content: "•";
+  color: var(--primaryText);
+  font-weight: 500;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.section-content strong {
+  color: var(--primaryText);
+  font-weight: 500;
+}
+
+.image-container {
+  width: 100%;
+  max-width: 800px;
+  margin: calc(var(--lineHeight) * 2) auto;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.image-container.aspect-3-1 {
+  aspect-ratio: 3/1;
+}
+
+.image-container.aspect-4-3 {
+  aspect-ratio: 4/3;
+}
+
+.image-container.aspect-3-1 img,
+.image-container.aspect-4-3 img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes appear {
+0.000% {
+  opacity: 0.000;
+  filter: blur(4.000px);
+  transform: translateY(10.000px);
+}
+6.667% {
+  opacity: 0.618;
+  filter: blur(1.528px);
+  transform: translateY(4.932px);
+}
+13.333% {
+  opacity: 0.921;
+  filter: blur(0.317px);
+  transform: translateY(-0.524px);
+}
+20.000% {
+  opacity: 0.986;
+  filter: blur(0.055px);
+  transform: translateY(-1.568px);
+}
+26.667% {
+  opacity: 0.998;
+  filter: blur(0.009px);
+  transform: translateY(-0.552px);
+}
+33.333% {
+  opacity: 1.000;
+  filter: blur(0.001px);
+  transform: translateY(0.180px);
+}
+40.000% {
+  opacity: 1.000;
+  filter: blur(0.000px);
+  transform: translateY(0.229px);
+}
+46.667% {
+  opacity: 1.000;
+  filter: blur(0.000px);
+  transform: translateY(0.053px);
+}
+53.333% {
+  opacity: 1.000;
+  filter: blur(0.000px);
+  transform: translateY(-0.039px);
+}
+60.000% {
+  opacity: 1.000;
+  filter: blur(0.000px);
+  transform: translateY(-0.031px);
+}
+66.667% {
+  opacity: 1.000;
+  filter: blur(0.000px);
+  transform: translateY(-0.003px);
+}
+73.333% {
+  opacity: 1.000;
+  filter: blur(0.000px);
+  transform: translateY(0.007px);
+}
+80.000% {
+  opacity: 1.000;
+  filter: blur(0.000px);
+  transform: translateY(0.004px);
+}
+86.667% {
+  opacity: 1.000;
+  filter: blur(0.000px);
+  transform: translateY(-0.000px);
+}
+93.333% {
+  opacity: 1.000;
+  filter: blur(0.000px);
+  transform: translateY(-0.001px);
+}
+100.000% {
+  opacity: 1.000;
+  filter: blur(0.000px);
+  transform: translateY(-0.000px);
+}
+}
+
+@keyframes appear-img {
+  0% {
+    filter: blur(5px) saturate(0.25);
+  }
+  100% {
+
+  }
+}
+
+@media not (prefers-reduced-motion: reduce) {
+  body.animate-appear:not(:has(:target)) {
+    --appearDuration: 2.495139694737313s;
+  }
+}
+
+[data-delay] {
+  --delay: 7;
+
+  animation: appear var(--appearDuration) linear both;
+  animation-delay: calc(0.2s + calc(var(--delay) * 0.2s));
+  will-change: transform, opacity;
+}
+
+[data-delay] figure {
+  animation: appear-img calc(var(--appearDuration) / 5) linear both;
+  animation-delay: calc(0.2s + calc(var(--delay) * 0.2s));
+  will-change: transform, opacity;
+}
+
+body.did-appear [data-delay] {
+  animation: none !important;
+  animation-delay: 0;
+}
+    </style>
+  </head>
+  <body>
+    <script>
+      if (performance?.getEntriesByType("navigation")?.[0]?.type == "navigate") {
+        document.body.classList.add('animate-appear');
+
+        setTimeout(() => {
+          document.body.classList.add('did-appear');
+        }, 5000);
+      }
+    </script>
+
+    <main>
+      <section class="hero" data-delay style="--delay: 0.5;">
+        <img src="/img/projects/ScreenplayGenie.png" alt="Screenplay Genie App Icon" class="app-icon" data-delay style="--delay: 0.7;">
+        
+        <h1 class="page-title" data-delay style="--delay: 1.0;">Screenplay Genie</h1>
+        
+        <p class="made-with" data-delay style="--delay: 1.2;">WWDC25 Swift Student Challenge Winner</p>
+        
+        <p class="lead" data-delay style="--delay: 1.4;">
+          An educational iPad app designed to guide users through the fundamentals of screenwriting in an interactive
+          and engaging way.
+        </p>
+      </section>
+
+      <section class="section" data-delay style="--delay: 2.8;">
+        <div class="section-header">
+          <h2 class="section-title">The Idea</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="section-content">
+          <p>
+            <strong>Ever dreamed of writing a movie?</strong> Many aspiring writers are intimidated by the complex formatting
+            rules and structure required for professional screenplays. Traditional screenwriting software can be
+            overwhelming and difficult to learn.
+          </p>
+          <p>
+            Screenplay Genie was designed to solve this problem by creating an educational experience that makes
+            learning screenwriting fundamentals accessible, interactive, and enjoyable for everyone.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" data-delay style="--delay: 3.2;">
+        <div class="section-header">
+          <h2 class="section-title">Key Features</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="section-content">
+          <ul>
+            <li>
+              <strong>Interactive Lessons:</strong> Learn screenplay formatting and structure step by step through engaging mini-lessons focused on key screenplay elements.
+            </li>
+            <li>
+              <strong>Live Preview:</strong> See your script transform into a properly formatted screenplay in real-time, helping you understand professional styling.
+            </li>
+            <li>
+              <strong>Free Playground:</strong> Apply what you've learned in an unrestricted writing environment where you can create scenes and develop dialogue.
+            </li>
+            <li>
+              <strong>Fountain Markdown:</strong> Use the industry-standard lightweight markup language for screenwriting that's both powerful and easy to learn.
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section" data-delay style="--delay: 3.6;">
+        <div class="section-header">
+          <h2 class="section-title">The Application</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="section-content">
+          <div class="image-container aspect-4-3">
+            <img src="/img/projects/screenplay-genie.png" alt="Screenplay Genie">
+          </div>
+          
+          <p>
+            Screenplay Genie guides users through a series of mini-lessons, each focusing on a key screenplay
+            element. After a quick explanation, users put their knowledge into practice by writing in Fountain
+            Markdown.
+          </p>
+          <p>
+            As users type, the Live Preview feature instantly transforms their text into a properly formatted
+            screenplay with professional styling—just like in Hollywood. This real-time feedback helps users
+            understand the connection between the markdown they write and the final formatted output.
+          </p>
+          <p>
+            Once all lessons are completed, users unlock the Playground where they can write without restrictions,
+            creating their own scenes, developing engaging dialogue, and bringing their stories to life using all
+            the skills they've learned.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" data-delay style="--delay: 4.0;">
+        <div class="section-header">
+          <h2 class="section-title">Educational Impact</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="section-content">
+          <p>
+            Screenplay Genie was created with the belief that <strong>creative skills should be accessible to everyone</strong>. By
+            breaking down the complex rules of screenwriting into manageable, interactive lessons, the app empowers
+            aspiring writers to focus on storytelling rather than getting lost in formatting details.
+          </p>
+        </div>
+      </section>
+
+      <section class="section" data-delay style="--delay: 4.4;">
+        <div class="section-header">
+          <h2 class="section-title">The Story</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="section-content">
+          <p>
+            Behind every project is a story. I created Screenplay Genie for the Swift Student Challenge to combine my passion for coding with the one for cinema. The project allowed me to explore how technology can make creative skills more accessible to beginners.
+          </p>
+          <p>
+            <a href="https://medium.com/@alessiorubicini/my-swift-student-challenge-304f9033bb09" target="_blank" rel="noopener noreferrer">Full story on Medium</a>
+          </p>
+        </div>
+      </section>
+
+      <section class="section" data-delay style="--delay: 4.8;">
+        <div class="section-header">
+          <h2 class="section-title">The Code</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="section-content">
+          <p>
+            Screenplay Genie is built with <strong>Swift</strong> and <strong>SwiftUI</strong>, the latest native technologies from Apple.
+          </p>
+          <p>
+            <a href="https://github.com/alessiorubicini/Screenplay-Genie" target="_blank" rel="noopener noreferrer">Source code on GitHub</a>
+          </p>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
