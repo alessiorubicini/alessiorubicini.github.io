@@ -11,119 +11,28 @@
     <meta name="author" content="Alessio Rubicini"/>
 
     <link rel="canonical" href="https://alessiorubicini.com/things/screenplay-genie"/>
-
+    <link rel="stylesheet" href="/styles.css">
     <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+section {
+  display: grid;
+  grid-template-columns: [start] auto 1fr [end];
+  gap: var(--lineHeight);
 }
 
-:root {
-  --fontSize: 16px;
-  --secondaryFontSize: 14.5px;
-  --lineHeight: 24px;
-  --hairlineThickness: 1px;
+section h2, section nav {
+  grid-column: start / end;
 }
 
-@media screen and (min-resolution: 2x) {
-  :root {
-    --hairlineThickness: 0.5px;
-  }
+section h2:first-child {
+  padding-top: calc(var(--lineHeight) * 2);
 }
 
-:root {
-  --backgroundColor: #000000;
-  --secondaryBackgroundColor: #0A0A0A;
-
-  --primaryText: #FAFBFF;
-  --secondaryText: #A6B9BA;
-  --tertiaryText: #A2ACAA;
-
-  --accentColor: #FFFFFF;
-  --selectionOpacity: 0.5;
+.section-header {
+  grid-column: start / end;
 }
 
-::selection {
-  background-color: var(--accentColor);
-  background-color: color(from var(--accentColor) srgb r g b / var(--selectionOpacity));
-}
-
-@media (prefers-contrast: more) {
-  :root {
-    --primaryText: #FFF;
-    --secondaryText: #CCC;
-    --tertiaryText: #AAA;
-
-    --hairlineThickness: 1px;
-
-    --selectionOpacity: 0.9;
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --backgroundColor: #FFFFFF;
-    --secondaryBackgroundColor: #F5F5F5;
-
-    --primaryText: #02040a;
-    --secondaryText: #343840;
-    --tertiaryText: #4D595B;
-
-    --accentColor: #000000;
-  }
-}
-
-@media (prefers-color-scheme: light) and (prefers-contrast: more) {
-  :root {
-    --primaryText: #000;
-    --secondaryText: #222;
-    --tertiaryText: #444;
-  }
-}
-
-html {
-  overflow-x: hidden !important;
-  overflow-y: scroll;
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: ui-rounded, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: var(--fontSize);
-  line-height: var(--lineHeight);
-  color: var(--secondaryText);
-
-  accent-color: var(--accentColor);
-  background-color: var(--backgroundColor);
-
-  -webkit-text-size-adjust: none;
-  -webkit-tap-highlight-color: rgba(0,0,0,0);
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
-  -moz-osx-font-smoothing: grayscale;
-
-  max-width: calc(var(--lineHeight) * 32);
-  margin: 0 auto;
-  padding: 0 var(--lineHeight);
-}
-
-h1, h2, h3, h4 {
-  line-height: inherit;
-  font-size: inherit;
-  font-weight: inherit;
-}
-
-h1, h2 {
-  color: var(--primaryText);
-}
-
-a {
-  color: var(--primaryText);
-  text-decoration: underline;
-  text-decoration-thickness: var(--hairlineThickness);
-  text-underline-offset: 2px;
-  text-decoration-color: color(from var(--primaryText) srgb r g b / 0.5);
+.section-content {
+  grid-column: start / end;
 }
 
 .back-button {
@@ -218,14 +127,15 @@ a {
 }
 
 .section {
-  margin-bottom: calc(var(--lineHeight) * 2.5);
+  margin-bottom: calc(var(--lineHeight) * 0.3);
 }
 
 .section-header {
   display: flex;
   align-items: center;
   gap: calc(var(--lineHeight));
-  margin-bottom: calc(var(--lineHeight) * 2);
+  margin-bottom: calc(var(--lineHeight) * 0.5);
+  width: 100%;
 }
 
 .section-title {
@@ -236,10 +146,7 @@ a {
 }
 
 .section-divider {
-  flex: 1;
-  height: var(--hairlineThickness);
-  background: var(--tertiaryText);
-  opacity: 0.3;
+  display: none;
 }
 
 .section-content {
@@ -258,17 +165,18 @@ a {
 
 .section-content li {
   margin-bottom: calc(var(--lineHeight) / 2);
-  display: flex;
-  align-items: flex-start;
-  gap: calc(var(--lineHeight) / 2);
+  position: relative;
+  padding-left: calc(var(--lineHeight));
+  display: block;
 }
 
 .section-content li::before {
   content: "•";
   color: var(--primaryText);
   font-weight: 500;
-  flex-shrink: 0;
-  margin-top: 2px;
+  position: absolute;
+  left: 0;
+  top: 0;
 }
 
 .section-content strong {
@@ -279,7 +187,7 @@ a {
 .image-container {
   width: 100%;
   max-width: 800px;
-  margin: calc(var(--lineHeight) * 2) auto;
+  margin: calc(var(--lineHeight) * 0.1) auto;
   border-radius: 16px;
   overflow: hidden;
 }
@@ -304,126 +212,9 @@ a {
   width: 100%;
   height: 100%;
 }
-
-@keyframes appear {
-0.000% {
-  opacity: 0.000;
-  filter: blur(4.000px);
-  transform: translateY(10.000px);
-}
-6.667% {
-  opacity: 0.618;
-  filter: blur(1.528px);
-  transform: translateY(4.932px);
-}
-13.333% {
-  opacity: 0.921;
-  filter: blur(0.317px);
-  transform: translateY(-0.524px);
-}
-20.000% {
-  opacity: 0.986;
-  filter: blur(0.055px);
-  transform: translateY(-1.568px);
-}
-26.667% {
-  opacity: 0.998;
-  filter: blur(0.009px);
-  transform: translateY(-0.552px);
-}
-33.333% {
-  opacity: 1.000;
-  filter: blur(0.001px);
-  transform: translateY(0.180px);
-}
-40.000% {
-  opacity: 1.000;
-  filter: blur(0.000px);
-  transform: translateY(0.229px);
-}
-46.667% {
-  opacity: 1.000;
-  filter: blur(0.000px);
-  transform: translateY(0.053px);
-}
-53.333% {
-  opacity: 1.000;
-  filter: blur(0.000px);
-  transform: translateY(-0.039px);
-}
-60.000% {
-  opacity: 1.000;
-  filter: blur(0.000px);
-  transform: translateY(-0.031px);
-}
-66.667% {
-  opacity: 1.000;
-  filter: blur(0.000px);
-  transform: translateY(-0.003px);
-}
-73.333% {
-  opacity: 1.000;
-  filter: blur(0.000px);
-  transform: translateY(0.007px);
-}
-80.000% {
-  opacity: 1.000;
-  filter: blur(0.000px);
-  transform: translateY(0.004px);
-}
-86.667% {
-  opacity: 1.000;
-  filter: blur(0.000px);
-  transform: translateY(-0.000px);
-}
-93.333% {
-  opacity: 1.000;
-  filter: blur(0.000px);
-  transform: translateY(-0.001px);
-}
-100.000% {
-  opacity: 1.000;
-  filter: blur(0.000px);
-  transform: translateY(-0.000px);
-}
-}
-
-@keyframes appear-img {
-  0% {
-    filter: blur(5px) saturate(0.25);
-  }
-  100% {
-
-  }
-}
-
-@media not (prefers-reduced-motion: reduce) {
-  body.animate-appear:not(:has(:target)) {
-    --appearDuration: 2.495139694737313s;
-  }
-}
-
-[data-delay] {
-  --delay: 7;
-
-  animation: appear var(--appearDuration) linear both;
-  animation-delay: calc(0.2s + calc(var(--delay) * 0.2s));
-  will-change: transform, opacity;
-}
-
-[data-delay] figure {
-  animation: appear-img calc(var(--appearDuration) / 5) linear both;
-  animation-delay: calc(0.2s + calc(var(--delay) * 0.2s));
-  will-change: transform, opacity;
-}
-
-body.did-appear [data-delay] {
-  animation: none !important;
-  animation-delay: 0;
-}
     </style>
   </head>
-  <body>
+  <body class="project-page">
     <script>
       if (performance?.getEntriesByType("navigation")?.[0]?.type == "navigate") {
         document.body.classList.add('animate-appear');
