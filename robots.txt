@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# Allow all search engines to crawl the main site
+Allow: /index.html
+Allow: /img/
+Allow: /ember/
+Allow: /mission/
+Allow: /monei/
+Allow: /screenplaygenie/
+
+# Disallow crawling of Google verification file
+Disallow: /google6182183c97042d14.html
+
+# Sitemap location
+Sitemap: https://alessiorubicini.github.io/sitemap.xml
