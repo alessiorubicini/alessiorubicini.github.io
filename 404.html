@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <link rel="icon" href="/img/favicon.png" type="image/png">
+
+    <title>404 - Page Not Found | Alessio Rubicini</title>
+    <meta content="Alessio Rubicini" property="og:site_name">
+    <meta content="Page not found." name="description">
+    <meta content="website" property="og:type">
+    <meta name="author" content="Alessio Rubicini"/>
+
+    <link rel="canonical" href="https://alessiorubicini.github.io/404"/>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+      .error-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 60vh;
+        text-align: center;
+        padding: calc(var(--lineHeight) * 4) 0;
+      }
+
+      .error-code {
+        font-size: calc(var(--fontSize) * 6);
+        line-height: calc(var(--lineHeight) * 4);
+        color: var(--primaryText);
+        font-weight: 600;
+        margin-bottom: calc(var(--lineHeight) * 1);
+        font-feature-settings: "ss06" 1;
+      }
+
+      .error-message {
+        font-size: calc(var(--fontSize) * 1.5);
+        line-height: calc(var(--lineHeight) * 1.5);
+        color: var(--secondaryText);
+        margin-bottom: calc(var(--lineHeight) * 2);
+        max-width: 40ch;
+      }
+
+      .error-description {
+        color: var(--tertiaryText);
+        margin-bottom: calc(var(--lineHeight) * 2);
+        max-width: 50ch;
+      }
+
+      .error-links {
+        display: flex;
+        flex-direction: column;
+        gap: calc(var(--lineHeight) / 2);
+        align-items: center;
+      }
+
+      .error-links nav {
+        display: flex;
+        flex-wrap: wrap;
+        gap: calc(var(--lineHeight) / 4);
+        justify-content: center;
+        align-items: center;
+      }
+
+      .error-links a {
+        color: var(--primaryText);
+        text-decoration: underline;
+        text-decoration-thickness: var(--hairlineThickness);
+        text-underline-offset: 2px;
+        text-decoration-color: color(from var(--primaryText) srgb r g b / 0.5);
+      }
+
+      .error-links a:hover {
+        text-decoration-color: var(--accentColor);
+      }
+
+      @media screen and (max-width: 799px) {
+        .error-code {
+          font-size: calc(var(--fontSize) * 4);
+          line-height: calc(var(--lineHeight) * 3);
+        }
+
+        .error-message {
+          font-size: calc(var(--fontSize) * 1.2);
+          line-height: calc(var(--lineHeight) * 1.2);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      if (performance?.getEntriesByType("navigation")?.[0]?.type == "navigate") {
+        document.body.classList.add('animate-appear');
+
+        setTimeout(() => {
+          document.body.classList.add('did-appear');
+        }, 5000);
+      }
+    </script>
+    <header class="vcard">
+      <img id="avatar" data-delay style="--delay: 2.4; border-radius: 50%;" src="/img/me-applepark2.png" width="44px" height="44px" alt="My Avatar">
+      <div>
+        <h1 class="fn" data-delay style="--delay: 0.0;">Hi, I'm Alessio Rubicini!</h1>
+        <p data-delay style="--delay: 1.0;">I'm an <span class="title">app developer</span> with a passion for product design and user experience. I love thinking different and crafting things that people use and enjoy. I mainly work across Apple platforms including iOS, iPadOS and macOS. <a href="/mission">Curious about why I build?</a></p>
+      </div>
+    </header>
+    <aside>
+      <nav class="local-nav">
+        <a data-delay style="--delay: 1.0;" href="/#apps">Apps</a>
+        <a data-delay style="--delay: 1.2;" href="/#packages">Packages</a>
+        <a data-delay style="--delay: 1.8;" href="/#writing">Writing</a>
+        <a data-delay style="--delay: 1.6;" href="/#now">Now</a>
+      </nav>
+      <hr data-delay style="--delay: 3.0;">
+      <nav aria-label="Social">
+        <a data-delay style="--delay: 3.6;"
+          href="https://www.threads.com/@alessiorubicini" target="_blank">Threads</a>
+        <a data-delay style="--delay: 3.2;" href="https://github.com/alessiorubicini" target="_blank">
+          GitHub</a>
+        <a data-delay style="--delay: 3.4;"
+          href="https://www.linkedin.com/in/alessiorubicini/" target="_blank">LinkedIn</a>
+        <a data-delay style="--delay: 3.6;"
+          href="mailto:alessiorubicini16@icloud.com">Email</a>
+      </nav>
+    </aside>
+    <main>
+      <div class="error-container">
+        <div class="error-code" data-delay style="--delay: 2.0;">404</div>
+        <h2 class="error-message" data-delay style="--delay: 2.2;">Page Not Found</h2>
+        <p class="error-description" data-delay style="--delay: 2.4;">
+          The page you're looking for doesn't exist or has been moved.
+        </p>
+        <div class="error-links" data-delay style="--delay: 2.6;">
+          <p>Maybe you'll find what you're looking for here:</p>
+          <nav>
+            <a href="/">Home</a>,
+            <a href="/#apps">Apps</a>,
+            <a href="/#packages">Packages</a>,
+            <a href="/#writing">Writing</a>, or
+            <a href="mailto:alessiorubicini16@icloud.com">Email me</a>
+          </nav>
+        </div>
+      </div>
+    </main>
+
+    <footer data-delay>
+    </footer>
+  </body>
+</html>
+
