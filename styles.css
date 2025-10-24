@@ -646,6 +646,10 @@ figure details figcaption time {
   width: 48px;
   height: 48px;
   border-radius: 12px;
+  transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  will-change: transform;
 }
 
 @media screen and (max-width: 799px) {
@@ -662,6 +666,25 @@ figure details figcaption time {
     height: 56px;
     border-radius: 14px;
   }
+}
+
+.glass-border {
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  overflow: hidden;
+}
+
+.glass-border::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
 }
 
 .low-contrast {
