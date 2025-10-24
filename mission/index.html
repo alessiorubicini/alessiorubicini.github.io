@@ -90,15 +90,7 @@ figure {
     </style>
   </head>
   <body>
-    <script>
-      if (performance?.getEntriesByType("navigation")?.[0]?.type == "navigate") {
-        document.body.classList.add('animate-appear');
-
-        setTimeout(() => {
-          document.body.classList.add('did-appear');
-        }, 5000);
-      }
-    </script>
+    <script src="/animations.js"></script>
     
     <div class="content">
       <header>

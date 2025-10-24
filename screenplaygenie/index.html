@@ -215,15 +215,7 @@ section h2:first-child {
     </style>
   </head>
   <body class="project-page">
-    <script>
-      if (performance?.getEntriesByType("navigation")?.[0]?.type == "navigate") {
-        document.body.classList.add('animate-appear');
-
-        setTimeout(() => {
-          document.body.classList.add('did-appear');
-        }, 5000);
-      }
-    </script>
+    <script src="/animations.js"></script>
 
     <main>
       <section class="hero" data-delay style="--delay: 0.5;">

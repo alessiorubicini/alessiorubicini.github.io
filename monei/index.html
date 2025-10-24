@@ -149,18 +149,31 @@
   color: var(--tertiaryText);
   font-size: 12px;
 }
+
+.legal-links {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  font-size: 11px;
+  color: var(--tertiaryText);
+  opacity: 0.6;
+  margin-top: calc(var(--lineHeight) * 2);
+}
+
+.legal-links a {
+  color: var(--tertiaryText);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.legal-links a:hover {
+  opacity: 1;
+  text-decoration: underline;
+}
     </style>
   </head>
   <body>
-    <script>
-      if (performance?.getEntriesByType("navigation")?.[0]?.type == "navigate") {
-        document.body.classList.add('animate-appear');
-
-        setTimeout(() => {
-          document.body.classList.add('did-appear');
-        }, 5000);
-      }
-    </script>
+    <script src="/animations.js"></script>
 
     <main>
       <section class="hero" data-delay style="--delay: 0.5;">
@@ -189,6 +202,14 @@
           <img class="phone" src="/img/projects/Monei/Monei-Mockup.png" alt="Monei App Mockup" width="340" height="600">
         </div>
       </section>
+
+      <div class="legal-links" data-delay style="--delay: 3.2;">
+        <span>© 2025 Alessio Rubicini</span>
+        <span>·</span>
+        <a href="/monei/privacy-policy.html">Privacy Policy</a>
+        <span>·</span>
+        <a href="/monei/terms-of-use.html">Terms of Use</a>
+      </div>
     </main>
   </body>
 </html>

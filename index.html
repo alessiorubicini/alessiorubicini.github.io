@@ -16,15 +16,7 @@
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <script>
-      if (performance?.getEntriesByType("navigation")?.[0]?.type == "navigate") {
-        document.body.classList.add('animate-appear');
-
-        setTimeout(() => {
-          document.body.classList.add('did-appear');
-        }, 5000);
-      }
-    </script>
+    <script src="/animations.js"></script>
     <header class="vcard">
   <img id="avatar" data-delay style="--delay: 2.4; border-radius: 50%;" src="/img/me-applepark2.png" width="44px" height="44px" alt="My Avatar">
       <div>
@@ -110,19 +102,6 @@
           <p>
             Stay safe with personalized wildfire evacuation plans. Ember uses on-device AI to generate tailored plans for your home quickly and privately, helping Californians prepare efficiently for emergencies.
 
-          </p>
-        </div>
-
-        <div class="label" data-delay style="--delay: 3.0;">
-          <img src="/img/projects/ecogpt.png" alt="EcoGPT">
-        </div>
-        <div class="content" data-delay style="--delay: 3.0;">
-          <hgroup>
-            <h3><a href="https://github.com/alessiorubicini/EcoGPT">EcoGPT</a></h3>
-            <p>Track footprint of your AI usage</p>
-          </hgroup>
-          <p>
-            Track the environmental impact of your AI usage in real-time. EcoGPT monitors your prompts in the macOS ChatGPT app and provides instant estimates on your carbon footprint, raising awareness and encouraging sustainable use.
           </p>
         </div>
 
