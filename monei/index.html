@@ -93,69 +93,55 @@
   font-size: var(--secondaryFontSize);
 }
 
-.cta-box {
-  width: 100%;
-  max-width: 400px;
-  background: linear-gradient(135deg, var(--secondaryBackgroundColor) 0%, rgba(255, 255, 255, 0.02) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 16px;
-  padding: 24px;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.cta-box::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-}
-
-.cta-box:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.16);
-  border-color: rgba(255, 255, 255, 0.12);
-}
-
-.waitlist-title {
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--primaryText);
-  margin-bottom: 8px;
-  letter-spacing: -0.01em;
-}
-
-.waitlist-subtitle {
-  color: var(--tertiaryText);
-  font-size: var(--secondaryFontSize);
-  margin-bottom: 16px;
-  line-height: 1.4;
-}
-
-.waitlist-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  background: rgba(255, 255, 255, 0.08);
-  color: var(--primaryText);
-  padding: 6px 12px;
-  border-radius: 20px;
-  font-size: 12px;
+.waitlist-button {
+  display: inline-block;
+  background: #000;
+  color: #fff;
+  padding: 14px 32px;
+  border-radius: 24px;
+  font-size: 16px;
   font-weight: 500;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
-.waitlist-badge::before {
-  content: '✨';
-  font-size: 10px;
+@media (prefers-color-scheme: dark) {
+  .waitlist-button {
+    background: #fff;
+    color: #000;
+  }
+}
+
+.waitlist-button:hover {
+  opacity: 0.8;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+@media (prefers-color-scheme: dark) {
+  .waitlist-button:hover {
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+  }
+}
+
+.waitlist-button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  background: #999;
+}
+
+@media (prefers-color-scheme: dark) {
+  .waitlist-button:disabled {
+    background: #666;
+  }
+}
+
+.waitlist-button:disabled:hover {
+  opacity: 0.4;
+  transform: none;
+  box-shadow: none;
 }
 
 .hero-media {
@@ -215,11 +201,11 @@
             Monei is a calm companion that helps you see your money with clarity and intention. Designed to be light, private, and beautifully simple, it fits naturally into your everyday life.
           </p>
 
-          <div class="cta-box" data-delay style="--delay: 2.4;">
-            <div class="waitlist-title">Join the Waitlist</div>
-            <div class="waitlist-subtitle">Be the first to experience Monei when it launches</div>
-            <div class="waitlist-badge">Coming Soon</div>
-          </div>
+		  <p data-delay style="--delay: 2.0;">
+            Waitlist opening soon! ✨
+          </p>
+
+          <button class="waitlist-button" data-delay style="--delay: 2.4;" disabled>Join the Waitlist</button>
 
           <p class="meta" data-delay style="--delay: 2.8;">Made by <a href="/">Alessio Rubicini</a> in Italy 🇮🇹</p>
         </div>
