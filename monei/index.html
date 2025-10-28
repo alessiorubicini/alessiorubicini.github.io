@@ -6,13 +6,27 @@
 
     <link rel="icon" href="/img/favicon.png" type="image/png">
 
-    <title>Monei — Alessio Rubicini</title>
+    <title>Monei • Your money. Simple.</title>
     <meta content="Monei — Minimalist iOS finance app" name="description">
     <meta name="author" content="Alessio Rubicini"/>
 
     <link rel="canonical" href="https://alessiorubicini.com/things/monei"/>
     <link rel="stylesheet" href="/styles.css">
     <style>
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  max-width: calc(var(--lineHeight) * 37) !important;
+}
+
+main {
+  flex: 1;
+}
+
 .hero {
   display: flex;
   flex-direction: column;
@@ -32,7 +46,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: calc(var(--lineHeight));
+  gap: calc(var(--lineHeight) * 1.2);
 }
 
 .brand {
@@ -138,16 +152,16 @@
   justify-content: center;
 }
 
-.phone {
-  width: 100%;
-  max-width: 340px;
-  height: auto;
-  object-fit: contain;
-}
 
 .meta {
   color: var(--tertiaryText);
   font-size: 12px;
+}
+
+footer {
+  padding: calc(var(--lineHeight) * 2) 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--primaryBackgroundColor);
 }
 
 .legal-links {
@@ -157,7 +171,6 @@
   font-size: 11px;
   color: var(--tertiaryText);
   opacity: 0.6;
-  margin-top: calc(var(--lineHeight) * 2);
 }
 
 .legal-links a {
@@ -199,10 +212,18 @@
         </div>
 
         <div class="hero-media" data-delay style="--delay: 3.0;">
-          <img class="phone" src="/img/projects/Monei/Monei-Mockup.png" alt="Monei App Mockup" width="340" height="600">
+          
+		  <video class="phone" autoplay loop muted playsinline width="340" height="600">
+			<source src="/img/projects/Monei/monei-demo.webm" type="video/webm">
+			Your browser does not support the video tag.
+		  </video>
+		  
         </div>
       </section>
+	  
+    </main>
 
+    <footer>
       <div class="legal-links" data-delay style="--delay: 3.2;">
         <span>© 2025 Alessio Rubicini</span>
         <span>·</span>
@@ -210,6 +231,6 @@
         <span>·</span>
         <a href="/monei/terms-of-use.html">Terms of Use</a>
       </div>
-    </main>
+    </footer>
   </body>
 </html>
