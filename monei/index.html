@@ -94,17 +94,30 @@
 }
 
 .waitlist-button {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
   background: #000;
   color: #fff;
   padding: 14px 32px;
-  border-radius: 24px;
+  border-radius: 16px;
   font-size: 16px;
   font-weight: 500;
   text-decoration: none;
   border: none;
   cursor: pointer;
   transition: all 0.2s ease;
+}
+
+.waitlist-button::after {
+  display: none;
+}
+
+.waitlist-button img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -203,10 +216,13 @@
           </p>
 
 		  <p data-delay style="--delay: 2.0;">
-            Waitlist opening soon! ✨
+            <i>Launching for everyone by the end of the year.</i>
           </p>
 
-          <button class="waitlist-button" data-delay style="--delay: 2.4;" disabled>Join the Waitlist</button>
+          <a href="https://alessiorubicini.notion.site/296a48513bd580c48c7dd3a50b8206db?pvs=105" target="_blank" class="waitlist-button" data-delay style="--delay: 2.4;">
+            <!--<img src="/img/apple-testflight.webp" alt="TestFlight Icon">-->
+            Join the Waitlist
+          </a>
 
           <p class="meta" data-delay style="--delay: 2.8;">Made by <a href="/">Alessio Rubicini</a> in Italy 🇮🇹</p>
         </div>
