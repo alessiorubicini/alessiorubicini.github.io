@@ -227,7 +227,7 @@
         </div>
 
         <div class="hero-media" data-delay style="--delay: 3.0;">
-          <img class="phone" src="/img/projects/Monei/Monei-Mockup.png" alt="Monei App Mockup" width="340" height="600">
+          <img class="phone" id="hero-image" src="/img/projects/Monei/Monei-Mockup.png" alt="Monei App Mockup" width="340" height="600">
         </div>
       </section>
 
@@ -239,5 +239,25 @@
         <a href="/monei/terms-of-use.html">Terms of Use</a>
       </div>
     </main>
+
+    <script>
+      // Set hero image based on date (Dec 1 - Jan 8: Christmas, otherwise default)
+      (function() {
+        const heroImage = document.getElementById('hero-image');
+        if (!heroImage) return;
+
+        const now = new Date();
+        const month = now.getMonth() + 1; // 1-12
+        const day = now.getDate();
+
+        const isChristmasSeason = 
+          (month === 12 && day >= 1) || // December 1-31
+          (month === 1 && day <= 8);    // January 1-8
+
+        if (isChristmasSeason) {
+          heroImage.src = '/img/projects/Monei/Monei-Mockup-Christmas.png';
+        }
+      })();
+    </script>
   </body>
 </html>
