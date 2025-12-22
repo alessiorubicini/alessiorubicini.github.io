@@ -157,6 +157,21 @@
   box-shadow: none;
 }
 
+.waitlist-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--secondaryBackgroundColor);
+  color: var(--tertiaryText);
+  padding: 14px 32px;
+  border-radius: 16px;
+  font-size: 16px;
+  font-weight: 500;
+  border: 1px solid var(--tertiaryText);
+  opacity: 0.6;
+}
+
 .hero-media {
   flex: 1;
   display: flex;
@@ -216,12 +231,12 @@
           </p>
 
 		  <p data-delay style="--delay: 2.0;">
-            <i>Launching for everyone by Christmas 2025 🎅🏻</i>
+            <i>Launching for everyone by the end of the year 🎉</i>
           </p>
 
-          <a href="https://alessiorubicini.notion.site/296a48513bd580c48c7dd3a50b8206db?pvs=105" target="_blank" class="waitlist-button" data-delay style="--delay: 2.4;">
-            Join the Waitlist
-          </a>
+          <div class="waitlist-badge" data-delay style="--delay: 2.4;">
+            The waitlist is now closed!
+          </div>
 
           <p class="meta" data-delay style="--delay: 2.8;">Made by <a href="/">Alessio Rubicini</a> in Italy 🇮🇹</p>
         </div>
