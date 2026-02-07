@@ -66,7 +66,7 @@ section h2:first-child {
   align-items: center;
   text-align: center;
   gap: calc(var(--lineHeight) * 1.2);
-  padding: calc(var(--lineHeight) * 2) 0;
+  padding: calc(var(--lineHeight) * 1.5) 0;
 }
 
 .app-icon {
@@ -122,7 +122,7 @@ section h2:first-child {
 .section-header {
   display: flex;
   align-items: center;
-  gap: calc(var(--lineHeight));
+  gap: calc(var(--lineHeight) * 0.3);
   margin-bottom: calc(var(--lineHeight) * 0.5);
   width: 100%;
 }
