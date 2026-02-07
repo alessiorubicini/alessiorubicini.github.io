@@ -38,12 +38,21 @@
 
 	body {
 		max-width: calc(var(--lineHeight) * 37) !important;
+		display: flex;
+		flex-direction: column;
+		min-height: 100vh;
+	}
+
+	main {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
 	}
 .hero {
   display: flex;
   flex-direction: column;
   gap: calc(var(--lineHeight) * 2.5);
-  padding: calc(var(--lineHeight) * 3) 0 calc(var(--lineHeight) * 1) 0;
+  padding: calc(var(--lineHeight) * 2.5) 0 calc(var(--lineHeight) * 0.5) 0;
 }
 
 @media screen and (min-width: 800px) {
@@ -61,12 +70,18 @@
   gap: calc(var(--lineHeight));
 }
 
+.hero-text p:not(.meta) {
+  font-size: 14.5px;
+}
+
 .brand {
   display: inline-flex;
   align-items: center;
   gap: calc(var(--lineHeight) / 2);
-  font-size: 24px;
+  font-size: 50px;
   font-weight: 600;
+  line-height: 1;
+  color: var(--primaryText);
 }
 
 .brand img {
@@ -76,14 +91,14 @@
 }
 
 .page-title {
-  font-size: 32px;
+  font-size: 20px;
   font-weight: 600;
   line-height: 1.15;
 }
 
 @media screen and (min-width: 800px) {
   .page-title {
-    font-size: 42px;
+    font-size: 26px;
     line-height: 1.15;
   }
 }
@@ -93,77 +108,32 @@
   font-size: var(--secondaryFontSize);
 }
 
-.waitlist-button {
+.app-store-button {
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  font-family: inherit;
-  background: #000;
-  color: #fff;
-  padding: 16px 36px;
-  border-radius: 24px;
-  font-size: 16px;
-  font-weight: 500;
   text-decoration: none;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  transition: opacity 0.2s ease;
+  line-height: 0;
+  padding: 0;
+  margin: 0;
+  width: fit-content;
+  align-self: flex-start;
 }
 
-.waitlist-button::after {
+.app-store-button::after {
   display: none;
 }
 
-.waitlist-button img {
-  width: 20px;
-  height: 20px;
+.app-store-button img {
+  display: block;
+  width: 150px;
+  height: auto;
   object-fit: contain;
+  padding: 0;
+  margin: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  .waitlist-button {
-    background: #fff;
-    color: #000;
-  }
-}
-
-.waitlist-button:not(:disabled):hover {
-  opacity: 0.9;
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-}
-
-@media (prefers-color-scheme: dark) {
-  .waitlist-button:not(:disabled):hover {
-    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.25);
-  }
-}
-
-.waitlist-button:not(:disabled):active {
-  transform: translateY(0px);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-}
-
-.waitlist-button:disabled {
-  cursor: not-allowed;
-  background: #1a1a1a;
-  color: var(--tertiaryText);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: none;
-}
-
-@media (prefers-color-scheme: light) {
-  .waitlist-button:disabled {
-    background: #e5e5e5;
-    border: 1px solid rgba(0, 0, 0, 0.15);
-  }
-}
-
-.waitlist-button:disabled:hover {
-  transform: none;
-  box-shadow: none;
+.app-store-button:hover {
+  opacity: 0.8;
 }
 
 .hero-media {
@@ -181,7 +151,7 @@
 
 .meta {
   color: var(--tertiaryText);
-  font-size: 13px;
+  font-size: 14px;
 }
 
 .meta + .meta {
@@ -193,15 +163,16 @@
   gap: 16px;
   justify-content: center;
   font-size: 12px;
-  color: var(--secondaryText);
+  color: var(--primaryText);
   opacity: 0.85;
-  margin-top: calc(var(--lineHeight) * 2);
+  margin-top: auto;
   margin-bottom: 0;
-  padding-bottom: calc(var(--lineHeight) * 2);
+  padding-top: calc(var(--lineHeight) * 2);
+  padding-bottom: calc(var(--lineHeight) * 1);
 }
 
 .legal-links a {
-  color: var(--secondaryText);
+  color: var(--primaryText);
   text-decoration: none;
   transition: opacity 0.2s ease, color 0.2s ease;
 }
@@ -224,19 +195,17 @@
             <span>Fynn</span>
           </div>
 
-          <h1 class="page-title" data-delay style="--delay: 1.6;">Not just another finance app.</h1>
+          <h1 class="page-title" data-delay style="--delay: 1.6;">
+			Your money, simplified.
+		  </h1>
 
           <p data-delay style="--delay: 2.0;">
             Fynn is a calm companion that helps you see your money with clarity and intention. Designed to be light, private, and beautifully simple, it fits naturally into your everyday life.
           </p>
 
-	  <p data-delay style="--delay: 2.0;">
-            <i>Launching for everyone in early 2026 🎉</i>
-          </p>
-
-          <button class="waitlist-button" disabled data-delay style="--delay: 2.4;">
-            The waitlist is now closed
-          </button>
+          <a href="https://apps.apple.com/us/app/fynn-expense-tracker/id6758525384" target="_blank" class="app-store-button" data-delay style="--delay: 2.4;">
+            <img src="/img/AppStoreBadge-US-UK.svg" alt="Download on the App Store" width="150" height="50">
+          </a>
 
           <p class="meta" data-delay style="--delay: 2.8;">Made with love by <a href="/">Alessio Rubicini</a></p>
           <p class="meta" data-delay style="--delay: 3.0;">Crafted in Europe 🇪🇺🇮🇹</p>
@@ -248,7 +217,7 @@
       </section>
 
       <div class="legal-links" data-delay style="--delay: 3.2;">
-        <span>© 2026 Alessio Rubicini</span>
+        <span>© 2026 <a href="/">Alessio Rubicini</a></span>
         <span>·</span>
         <a href="/fynn/privacy-policy.html">Privacy Policy</a>
         <span>·</span>
