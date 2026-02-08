@@ -83,6 +83,8 @@ section h2:first-child {
 .page-title {
   font-size: 32px;
   line-height: 1.15;
+  color: #de7a62;
+  font-weight: 600;
 }
 
 @media screen and (min-width: 800px) {
@@ -263,7 +265,7 @@ section h2:first-child {
 
 .footer {
   text-align: center;
-  font-size: 12px;
+  font-size: 13px;
   color: var(--primaryText);
   opacity: 0.85;
   margin-top: calc(var(--lineHeight) * 3);
