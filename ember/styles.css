@@ -1,5 +1,23 @@
 body.project-page {
-	background-color: #f6ebe5;
+	background-color: #FFEEE5;
+	--backgroundColor: #FFEEE5;
+	--secondaryBackgroundColor: #F5F5F5;
+	--primaryText: #02040a;
+	--secondaryText: #343840;
+	--tertiaryText: #4D595B;
+	--accentColor: #000000;
+}
+
+/* Force light mode colors even in dark mode */
+@media (prefers-color-scheme: dark) {
+	body.project-page {
+		--backgroundColor: #FFEEE5;
+		--secondaryBackgroundColor: #F5F5F5;
+		--primaryText: #02040a;
+		--secondaryText: #343840;
+		--tertiaryText: #4D595B;
+		--accentColor: #000000;
+	}
 }
 
 main {
