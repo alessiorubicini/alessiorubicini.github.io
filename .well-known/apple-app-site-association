@@ -1,5 +1,17 @@
 {
-	"webcredentials": {
-		"apps":["FXED6Z9HSN.it.alessiorubicini.enclv"]
-	}
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [ "FXED6Z9HSN.it.alessiorubicini.enclv" ],
+        "components": [
+          {
+            "/": "*"
+          }
+        ]
+      }
+    ]
+  },
+  "webcredentials": {
+    "apps": [ "FXED6Z9HSN.it.alessiorubicini.enclv" ]
+  }
 }
