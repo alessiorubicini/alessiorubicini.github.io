@@ -377,6 +377,24 @@ a[href^="http"]:not(:has(img)):hover::after, a[href^="mailto"]:not(:has(img)):ho
   color: var(--accentColor);
 }
 
+.app-store-icon {
+  display: inline-block;
+  width: 1.2em;
+  height: 1.2em;
+  margin-left: 0.2em;
+  vertical-align: middle;
+  text-decoration: none;
+}
+.app-store-icon img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.app-store-icon::after {
+  content: none !important;
+}
+
 hr {
   display: block;
   margin-top: calc(var(--lineHeight) - var(--hairlineThickness));
