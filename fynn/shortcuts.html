@@ -1,0 +1,405 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <link rel="icon" href="/img/projects/Monei.png" type="image/png">
+
+    <title>Apple Shortcuts Guide • Fynn</title>
+    <meta content="Learn how to automate Fynn using Apple Shortcuts." name="description">
+    <meta name="author" content="Alessio Rubicini"/>
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alessiorubicini.github.io/fynn/shortcuts">
+    <meta property="og:title" content="Apple Shortcuts Guide • Fynn">
+    <meta property="og:description" content="Learn how to automate Fynn using Apple Shortcuts. Track expenses, incomes, and transfers seamlessly in the background.">
+    <meta property="og:image" content="https://alessiorubicini.github.io/img/projects/Fynn/Fynn-Presentation.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Fynn App">
+    <meta property="og:site_name" content="Alessio Rubicini">
+    <meta property="og:locale" content="en_US">
+
+    <link rel="canonical" href="https://alessiorubicini.github.io/fynn/shortcuts"/>
+    <link rel="stylesheet" href="/styles.css">
+    
+    <style>
+	body {
+		max-width: calc(var(--lineHeight) * 37) !important;
+		display: flex;
+		flex-direction: column;
+		min-height: 100vh;
+	}
+
+	main {
+		flex: 1;
+		display: flex;
+		flex-direction: column;
+	}
+
+    .hero {
+        display: flex;
+        flex-direction: column;
+        gap: calc(var(--lineHeight) * 1.5);
+        padding: calc(var(--lineHeight) * 2.5) 0 0 0;
+    }
+
+    .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: calc(var(--lineHeight) / 2);
+        font-size: 24px;
+        font-weight: 600;
+        line-height: 1;
+        color: var(--primaryText);
+        text-decoration: none;
+        transition: opacity 0.2s;
+    }
+
+    .brand:hover {
+        opacity: 0.8;
+    }
+
+    .brand img {
+        width: 28px;
+        height: 28px;
+    }
+
+    .page-title {
+        font-size: 28px;
+        font-weight: 600;
+        line-height: 1.15;
+        margin-top: calc(var(--lineHeight) * 0.5);
+    }
+
+    @media screen and (min-width: 800px) {
+        .page-title {
+            font-size: 36px;
+        }
+    }
+
+    .content-section {
+        display: flex !important;
+        flex-direction: column;
+        gap: calc(var(--lineHeight) * 0.75);
+        padding-top: calc(var(--lineHeight) * 1.5);
+    }
+
+    .content-section:last-of-type {
+        padding-bottom: calc(var(--lineHeight) * 2);
+    }
+
+    .content-section h2 {
+        font-size: 20px;
+        font-weight: 600;
+        color: var(--primaryText);
+        padding-top: 0;
+        margin: 0;
+    }
+    
+    .content-section h3 {
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--primaryText);
+        margin: calc(var(--lineHeight) * 0.5) 0 0 0;
+    }
+
+    .manifesto-content {
+        display: flex;
+        flex-direction: column;
+        gap: calc(var(--lineHeight) * 0.75);
+    }
+
+    .manifesto-text {
+        font-size: 15px;
+        color: var(--secondaryText);
+        line-height: 1.6;
+        margin: 0;
+    }
+
+    .features-list {
+        display: flex;
+        flex-direction: column;
+        gap: calc(var(--lineHeight) * 1.5);
+        margin: calc(var(--lineHeight)) 0 0 0;
+        padding: 0;
+        list-style-type: none;
+    }
+
+    .features-list li.feature-item {
+        position: static;
+        padding: 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        background-color: var(--secondaryBackgroundColor);
+        border-radius: 20px;
+        border: 1px solid rgba(128, 128, 128, 0.15);
+    }
+
+    .features-list li.feature-item::before {
+        content: none;
+    }
+
+    .showcase-image-wrapper {
+        border-radius: 12px;
+        overflow: hidden;
+        display: flex;
+        width: 100%;
+        margin-top: calc(var(--lineHeight) * 0.5);
+        margin-bottom: calc(var(--lineHeight) * 0.5);
+    }
+
+    .showcase-image-wrapper img {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+
+    @media screen and (min-width: 700px) {
+        .features-list {
+            display: grid !important; /* Switch flex string grid layout */
+            grid-template-columns: 1fr 1fr;
+        }
+        .features-list li.feature-item:last-child {
+            grid-column: 1 / -1; /* Make the third item span beautifully across */
+        }
+    }
+
+    .feature-header {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 600;
+        color: var(--primaryText);
+    }
+
+    .feature-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        border-radius: 8px;
+        background-color: rgba(128, 128, 128, 0.1);
+        color: var(--primaryText);
+    }
+
+    .feature-icon svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .instruction-steps {
+        padding-left: 0;
+        margin: 0;
+        color: var(--secondaryText);
+        font-size: 15px;
+        line-height: 1.6;
+        list-style-type: none;
+        counter-reset: step-counter;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .instruction-steps li {
+        position: relative;
+        padding-left: 36px;
+        margin-bottom: 0;
+    }
+
+    .instruction-steps > li::before {
+        counter-increment: step-counter;
+        content: counter(step-counter);
+        position: absolute;
+        left: 0;
+        top: 2px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 22px;
+        height: 22px;
+        background-color: var(--secondaryBackgroundColor);
+        border: 1px solid rgba(128, 128, 128, 0.15);
+        color: var(--primaryText);
+        border-radius: 6px;
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    .instruction-steps ul {
+        list-style-type: disc;
+        margin-top: 10px;
+        margin-bottom: 6px;
+        padding-left: 24px;
+        display: block;
+        color: var(--secondaryText);
+    }
+
+    .instruction-steps ul li {
+        position: static;
+        padding-left: 0;
+        margin-bottom: 6px;
+    }
+
+    .instruction-steps ul li::before {
+        content: none;
+    }
+
+    .tag {
+        display: inline-block;
+        padding: 2px 6px;
+        background: rgba(128, 128, 128, 0.15);
+        border-radius: 6px;
+        font-family: monospace;
+        font-size: 13px;
+        color: var(--primaryText);
+    }
+
+    .legal-links {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        font-size: 12px;
+        color: var(--primaryText);
+        opacity: 0.85;
+        margin-top: auto;
+        margin-bottom: 0;
+        padding-top: calc(var(--lineHeight) * 2);
+        padding-bottom: calc(var(--lineHeight) * 1);
+    }
+
+    .legal-links a {
+        color: var(--primaryText);
+        text-decoration: none;
+        transition: opacity 0.2s ease, color 0.2s ease;
+    }
+
+    .legal-links a:hover {
+        opacity: 1;
+        color: var(--primaryText);
+        text-decoration: underline;
+    }
+    </style>
+  </head>
+  <body>
+    <script src="/animations.js"></script>
+
+    <main>
+      <section class="hero" data-delay style="--delay: 0.5;">
+        <div data-delay style="--delay: 1.0;">
+            <h1 class="page-title" style="margin-top: 0;">
+              Automating Fynn <img src="/img/projects/Fynn.png" alt="Fynn Icon" style="width: 32px; height: 32px; vertical-align: middle; margin: 0 4px; transform: translateY(-3px); border-radius: 8px;"> with Apple Shortcuts <img src="/img/apple-shortcuts.png" alt="Shortcuts Icon" style="width: 32px; height: 32px; vertical-align: middle; margin: 0 0 0 4px; transform: translateY(-3px); border-radius: 8px;">
+            </h1>
+            <p class="manifesto-text" style="margin-top: 12px;">
+              Fynn was built to respect your time. By integrating deeply with Apple Shortcuts, you can log expenses, incomes, and transfers without ever opening the app.
+			  Fynn provides three powerful actions inside the Shortcuts app. You can use these to build custom automations, ask Siri to log transactions, or link them to your Apple Pay.
+            </p>
+        </div>
+
+
+        <div class="showcase-image-wrapper" data-delay style="--delay: 1.5;">
+            <img src="/img/projects/Fynn/Fynn-Apple-Shortcuts.png" alt="Fynn Apple Shortcuts Actions" loading="lazy">
+        </div>
+
+        <ul class="features-list">
+          <li class="feature-item">
+            <div class="feature-header">
+                <span class="feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v20"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+                </span>
+                <span>Add Expense</span>
+            </div>
+            <p class="manifesto-text" style="font-size: 14px;">
+                Logs a new expense. You just need to provide the <strong>Amount</strong>, the <strong>Merchant</strong> name, and choose which Fynn <strong>Account</strong> to debit. You can also optionally assign a Category and add Notes.
+            </p>
+          </li>
+
+          <li class="feature-item">
+            <div class="feature-header">
+                <span class="feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12V7H5a2 2 0 0 1 0-4h14v4"/><path d="M3 5v14a2 2 0 0 0 2 2h16v-5"/><path d="M18 12a2 2 0 0 0 0 4h4v-4Z"/></svg>
+                </span>
+                <span>Add Income</span>
+            </div>
+            <p class="manifesto-text" style="font-size: 14px;">
+                Registers new incoming money. Requires the <strong>Amount</strong>, the <strong>Source</strong> (where the money came from), and the destination <strong>Account</strong>. Like expenses, categories and notes are optional.
+            </p>
+          </li>
+
+          <li class="feature-item">
+            <div class="feature-header">
+                <span class="feature-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3 4 7l4 4"/><path d="M4 7h16"/><path d="m16 21 4-4-4-4"/><path d="M20 17H4"/></svg>
+                </span>
+                <span>Add Transfer</span>
+            </div>
+            <p class="manifesto-text" style="font-size: 14px;">
+                Moves money between your existing Fynn accounts. Requires the <strong>Amount</strong>, the <strong>From Account</strong>, and the <strong>To Account</strong>. Fynn handles the double-entry bookkeeping automatically for you.
+            </p>
+          </li>
+        </ul>
+      </section>
+
+      <section class="content-section" data-delay style="--delay: 1.6;">
+        <h2>Tutorial: Automate Apple Pay Expenses</h2>
+        <div class="manifesto-content">
+          <p class="manifesto-text">
+            One of the best ways to use Fynn is to have it automatically log an expense every time you tap your phone to pay. Because Fynn runs silently in the background, your Apple Pay experience stays fast and seamless.
+          </p>
+          
+          <h3>How to set it up:</h3>
+          <ol class="instruction-steps">
+            <li>Open the <strong>Shortcuts</strong> app on your iPhone.</li>
+            <li>Tap on the <strong>Automation</strong> tab at the bottom, then tap the <strong>+</strong> button in the top right.</li>
+            <li>Scroll down and select <strong>Wallet</strong> ("When I tap a Wallet Card or Pass").</li>
+            <li>Choose the cards and categories you want to trigger this automation, make sure <em>"Run Immediately"</em> is checked, and tap <strong>Next</strong>.</li>
+            <li>Select <strong>New Blank Automation</strong>.</li>
+            <li>Open the bottom sheet, search for <strong>Fynn</strong>, and select the <span class="tag">Add Expense</span> action.</li>
+            <li>Now, map the shortcut data to Fynn:
+                <ul>
+                    <li>Tap <em>Amount</em>, select <em>Shortcut Input</em>, and choose <strong>Payment Amount</strong>.</li>
+                    <li>Tap <em>Merchant</em>, select <em>Shortcut Input</em>, and choose <strong>Merchant</strong>.</li>
+                    <li>Tap <em>Account</em> and pick the Fynn account you want the money to leave from.</li>
+                </ul>
+                <div style="margin-top: 12px; margin-bottom: 4px; padding: 12px; background-color: var(--secondaryBackgroundColor); border-radius: 8px; font-size: 14px; border: 1px solid rgba(128, 128, 128, 0.15);">
+                    <strong>💡 Tip:</strong> You can also leave these fields empty. If you do, Fynn will automatically prompt you to enter them when the shortcut runs.
+                </div>
+            </li>
+            <li>Tap <strong>Done</strong>. You're all set! Next time you pay with your iPhone, Fynn will magically log the transaction in the background without needing any confirmation.</li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="content-section" data-delay style="--delay: 1.8;">
+        <h2>Tutorial: iPhone Back Tap</h2>
+        <div class="manifesto-content">
+          <p class="manifesto-text">
+            For even faster logging, you can configure your iPhone to run a Fynn shortcut just by double-tapping or triple-tapping the back of your phone.
+          </p>
+          
+          <h3>How to set it up:</h3>
+          <ol class="instruction-steps">
+            <li>Open the <strong>Shortcuts</strong> app and create a new shortcut using one of the Fynn actions. Save it so it appears in your Shortcuts library.</li>
+            <li>Open your iPhone's <strong>Settings</strong> app.</li>
+            <li>Navigate to <strong>Accessibility</strong> > <strong>Touch</strong> > <strong>Back Tap</strong> (at the very bottom).</li>
+            <li>Choose either <strong>Double Tap</strong> or <strong>Triple Tap</strong>.</li>
+            <li>Scroll down to the <em>Shortcuts</em> section and select the shortcut you just created.</li>
+            <li>That's it! Now just tap the back of your iPhone to instantly log a transaction from anywhere.</li>
+          </ol>
+        </div>
+      </section>
+
+      <div class="legal-links" data-delay style="--delay: 2.0;">
+        <span>© 2026 <a href="/">Alessio Rubicini</a></span>
+        <span>·</span>
+        <a href="/fynn/privacy-policy.html">Privacy Policy</a>
+        <span>·</span>
+        <a href="/fynn/terms-of-use.html">Terms of Use</a>
+      </div>
+    </main>
+
+  </body>
+</html>
