@@ -9,6 +9,10 @@
   --secondaryFontSize: 13px;
   --lineHeight: 22.5px;
   --hairlineThickness: 1px;
+
+  /* Layout — homepage sections & grids */
+  --space-between-kickers: calc(var(--lineHeight) * 1.25);
+  --space-grid-gap: calc(var(--lineHeight) * 1.25);
 }
 
 /* Override for project pages that need larger fonts */
@@ -145,6 +149,145 @@ section#experiments-section {
   gap: calc(var(--lineHeight) * 1);
 }
 
+/* Featured + compact project grid (homepage) */
+section .section-kicker {
+  grid-column: start / end;
+  margin: 0;
+  padding-top: 0;
+  font-size: var(--secondaryFontSize);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--tertiaryText);
+}
+
+/* Space from nav; “More apps” / cross-section rhythm handled below */
+#apps > .section-kicker:first-of-type {
+  padding-top: calc(var(--lineHeight) * 1.5);
+}
+
+/* Same visual gap before “More apps” (grid row-gap + margin) and before “Tools & Libraries” (section padding) */
+#apps > .section-kicker:not(:first-of-type) {
+  margin-top: var(--space-between-kickers);
+}
+
+#tools {
+  padding-top: calc(var(--lineHeight) + var(--space-between-kickers));
+}
+
+@media screen and (max-width: 799px) {
+  #tools {
+    padding-top: var(--space-between-kickers);
+  }
+}
+
+/* Fynn hero: raw APNG / transparent asset — no figure card, border, or fill */
+figure.featured-showcase {
+  
+  max-width: 100%;
+  width: 100%;
+  position: relative;
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  overflow: visible;
+  isolation: auto;
+}
+
+figure.featured-showcase::after {
+  content: none !important;
+  display: none !important;
+}
+
+figure.featured-showcase img {
+  width: 100%;
+  max-width: min(80%, 920px);
+  margin-inline: auto;
+  height: auto;
+  display: block;
+  border-radius: 0;
+  box-shadow: none;
+  object-fit: contain;
+  vertical-align: bottom;
+}
+
+@supports (mask-border-width: 25px) {
+  figure.featured-showcase {
+    mask-border: none;
+    mask-border-source: none;
+    -webkit-mask-box-image: none;
+  }
+}
+
+@media screen and (max-width: 799px) {
+  figure.featured-showcase {
+    margin-top: calc(var(--lineHeight) * 1);
+  }
+}
+
+.project-grid {
+  grid-column: start / end;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-grid-gap);
+  padding-top: calc(var(--lineHeight) * 0.5);
+}
+
+@media screen and (max-width: 640px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.project-card {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  border: none;
+}
+
+.project-card__inner {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: calc(var(--lineHeight) * 0.65);
+}
+
+.project-card__icon {
+  flex-shrink: 0;
+}
+
+.project-card__icon img {
+  display: block;
+  width: 44px;
+  height: 44px;
+  border-radius: 10px;
+  object-fit: contain;
+}
+
+@media screen and (min-width: 1200px) {
+  .project-card__icon img {
+    width: 48px;
+    height: 48px;
+    border-radius: 11px;
+  }
+}
+
+.project-card__body {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--lineHeight) * 0.2);
+}
+
+.project-card__body hgroup h3 {
+  color: var(--primaryText);
+  font-weight: 580;
+  font-size: var(--fontSize);
+  line-height: 1.35;
+}
+
 footer {
   padding: calc(var(--lineHeight) * 1) 0 calc(var(--lineHeight) * 3);
 }
@@ -170,6 +313,7 @@ footer {
   #avatar {
     width: 44px;
     height: 44px;
+    border-radius: 50%;
     transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   }
 
@@ -277,8 +421,9 @@ footer {
   }
 }
 
+[data-appear],
 [data-delay] {
-  --delay: 7;
+  --delay: 0;
 
   animation: appear var(--appearDuration) linear both;
   animation-delay: calc(0.2s + calc(var(--delay) * 0.2s));
@@ -291,9 +436,20 @@ footer {
   }
 }
 
+/* Legacy project pages set --delay inline on [data-delay] */
+[data-delay]:not([data-appear]) {
+  --delay: 7;
+}
+
+body.did-appear [data-appear],
 body.did-appear [data-delay] {
   animation: none !important;
   animation-delay: 0;
+}
+
+body.did-appear [data-appear] figure,
+body.did-appear [data-delay] figure {
+  animation: none !important;
 }
 
 h1, h2, h3, h4 {
@@ -719,6 +875,13 @@ figure details figcaption time {
   font-feature-settings: "ss01" 1;
 }
 
+hgroup h3 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35em;
+}
+
 hgroup p {
   color: var(--tertiaryText);
   font-size: var(--secondaryFontSize);
@@ -1029,7 +1192,7 @@ section#playlists-section {
 }
 
 @media print {
-  footer, main nav, aside, a:has(img.preview), a:has(video), img.preview, figure {
+  footer, main nav, aside, a:has(img.preview), a:has(video), img.preview, figure:not(.featured-showcase) {
     display: none;
   }
 

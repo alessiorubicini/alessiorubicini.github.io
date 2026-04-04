@@ -44,43 +44,37 @@
 	</style>
 </head>
 <body>
-	<script src="/animations.js"></script>
 	<header class="vcard">
-		<img id="avatar" data-delay style="--delay: 2.4; border-radius: 50%;" src="/img/me-applepark2.png" width="44px" height="44px" alt="My Avatar">
+		<img id="avatar" data-appear src="/img/me-applepark2.png" width="44" height="44" alt="My Avatar">
 		<div>
-			<h1 class="fn" data-delay style="--delay: 0.0;">Hi, I'm Alessio Rubicini!</h1>
-			<p data-delay style="--delay: 1.0; margin-top: 0.3em;">I’m an app developer who loves crafting thoughtful, human-centered apps that feel right at home on Apple platforms. I care deeply about design, simplicity, and the small details that make technology feel personal. Currently based in Italy 🇮🇹🇪🇺</p>
-			<p data-delay style="--delay: 1.0; margin-top: 1em;"><a href="/mission">Curious about why I build?</a></p>
+			<h1 class="fn" data-appear>Hi, I'm Alessio Rubicini!</h1>
+			<p data-appear style="margin-top: 0.3em;">I’m an app developer who loves crafting thoughtful, human-centered apps that feel right at home on Apple platforms. I care deeply about design, simplicity, and the small details that make technology feel personal. Currently based in Italy 🇮🇹🇪🇺</p>
+			<p data-appear style="margin-top: 1em;"><a href="/mission">Curious about why I build?</a></p>
+			<p data-appear style="margin-top: 1em;">Looking for an iOS developer? <a href="mailto:alessiorubicini16@icloud.com">Contact me here</a></p>
 		</div>
 	</header>
 	<aside>
 		<nav class="local-nav">
-			<a data-delay style="--delay: 1.0;" href="#apps">Apps</a>
-			<a data-delay style="--delay: 1.2;" href="#tools">Tools</a>
-			<a data-delay style="--delay: 1.8;" href="#writing">Writing</a>
-			<a data-delay style="--delay: 1.6;" href="#now">Now</a>
+			<a data-appear href="#apps">Apps</a>
+			<a data-appear href="#tools">Tools</a>
+			<a data-appear href="#writing">Writing</a>
+			<a data-appear href="#now">Now</a>
 		</nav>
-		<hr data-delay style="--delay: 3.0;">
+		<hr data-appear>
 		<nav aria-label="Social">
-			<a data-delay style="--delay: 3.6;"
-			href="https://www.threads.com/@alessiorubicini" target="_blank">Threads</a>
-			<a data-delay style="--delay: 3.2;" href="https://github.com/alessiorubicini" target="_blank">
-				GitHub</a>
-				<a data-delay style="--delay: 3.4;"
-				href="https://www.linkedin.com/in/alessiorubicini/" target="_blank">LinkedIn</a>
-				<a data-delay style="--delay: 3.6;"
-				href="mailto:alessiorubicini16@icloud.com">Email</a>
-			</nav>
-			<hr data-delay style="--delay: 3.0;">
-			<nav aria-label="Social">
-				<a data-delay style="--delay: 3.8;"
-				href="https://buymeacoffee.com/alessiorubicini?status=1" target="_blank">Support Me</a>
-			</nav>
+			<a data-appear href="https://www.threads.com/@alessiorubicini" target="_blank">Threads</a>
+			<a data-appear href="https://github.com/alessiorubicini" target="_blank" rel="noopener noreferrer">GitHub</a>
+			<a data-appear href="https://www.linkedin.com/in/alessiorubicini/" target="_blank">LinkedIn</a>
+			<a data-appear href="mailto:alessiorubicini16@icloud.com">Email</a>
+		</nav>
+		<hr data-appear>
+		<nav aria-label="Support">
+			<a data-appear href="https://buymeacoffee.com/alessiorubicini?status=1" target="_blank">Support Me</a>
 		</nav>
 	</aside>
 	<main>
 		<section class="nav">
-			<nav class="local-nav" data-delay style="--delay: 1.5;">
+			<nav class="local-nav" data-appear>
 				Here:
 				<a href="#apps">Apps</a>,
 				<a href="#tools">Tools</a>,
@@ -88,191 +82,211 @@
 				<a href="#writing">Writing</a>,
 				<a href="#about">About</a>
 			</nav>
-			<nav aria-label="Social" data-delay style="--delay: 1.8;">
+			<nav aria-label="Social" data-appear>
 				Elsewhere:
 				<a href="https://www.threads.com/@alessiorubicini">Threads</a>
-				<a href="https://github.com/alessiorubicini">GitHub</a>,
+				<a href="https://github.com/alessiorubicini" target="_blank" rel="noopener noreferrer">GitHub</a>,
 				<a href="https://www.linkedin.com/in/alessiorubicini/">LinkedIn</a>, or
 				<a href="mailto:alessiorubicini16@icloud.com">Email</a>.
 			</nav>
-			<nav aria-label="Social" data-delay style="--delay: 1.8;">
+			<nav aria-label="Social" data-appear>
 				Support Me:
 				<a href="https://buymeacoffee.com/alessiorubicini" target="_blank">Support Me</a>
 			</nav>
 		</section>
 		
-		<section>
-			<h2 id="apps" data-delay style="--delay: 2.0;">I build <strong>apps</strong> for people <a href="https://apps.apple.com/us/developer/alessio-rubicini/id1821488857" target="_blank" rel="noopener noreferrer" class="app-store-icon" aria-label="View on App Store"><img src="/img/icon_appstore__ev0z770zyxoy_large_2x.png" alt=""></a></h2>
+		<section id="apps">
+			<p class="section-kicker" data-appear>Featured</p>
 			
-			
-			
-			<div class="label" data-delay style="--delay: 2.8;">
-				<img src="/img/projects/Ember.png" alt="Ember">
-			</div>
-			<div class="content" data-delay style="--delay: 2.8;">
-				<hgroup>
-					<h3><a href="/ember">Ember</a></h3>
-					<p>Wildfire evacuation planning app</p>
-				</hgroup>
-				<p>
-					Evacuating during wildfires is chaotic and stressful. Ember generates personalized, high-speed safety plans locally on your device, leveraging on-device generative AI for maximum speed and data privacy.
-					
-				</p>
-			</div>
-			
-			<div class="label" data-delay style="--delay: 2.4;">
+			<div class="label" data-appear>
 				<img src="/img/projects/Fynn.png" alt="Fynn">
 			</div>
-			<div class="content" data-delay style="--delay: 2.4;">
+			<div class="content" data-appear>
 				<hgroup>
 					<h3><a href="/fynn">Fynn</a></h3>
 					<p>Minimalist iOS finance app</p>
 				</hgroup>
 				<p>
-					Financial tracking is often cluttered and complex. Fynn simplifies money management by using natural language processing to log expenses instantly. Powered by AI running entirely offline for total privacy.
+					Financial tracking is often cluttered and complex. Fynn simplifies money management by using natural language processing to log expenses instantly. Powered by Apple Intelligence, running entirely offline for total privacy.
 				</p>
 			</div>
 			
-			<div class="label" data-delay style="--delay: 3.2;">
-				<img class="glass-border" src="/img/projects/ScreenplayGenie.png" alt="Screenplay Genie">
-			</div>
-			<div class="content" data-delay style="--delay: 3.2;">
-				<hgroup>
-					<h3><a href="/screenplaygenie">Screenplay Genie</a></h3>
-					<p>Educational iPad app • Swift Student Challenge Winner 2025 🏆</p>
-				</hgroup>
-				<p>
-					Screenwriting rules can be intimidating for beginners. This iPad interactive app offers live script previews and lessons, supporting Fountain Markdown for professional-grade formatting.
-				</p>
-			</div>
+			<figure class="wide featured-showcase" data-appear>
+				<img src="/img/projects/Fynn/Fynn-Images.png" alt="Fynn on three iPhones" decoding="async">
+			</figure>
 			
-			<div class="label" data-delay style="--delay: 3.4;">
-				<img src="/img/projects/digitalgarage.png" alt="Digital Garage">
-			</div>
-			<div class="content" data-delay style="--delay: 3.4;">
-				<hgroup>
-					<h3><a href="https://digitalgarage.unicam.it">digitalgarage.unicam.it</a></h3>
-					<p>Web platform for Digital Communication course</p>
-				</hgroup>
-				<p>
-					A web-based hub for the Digital Communication and Marketing course at the University of Camerino. Digital Garage lets students connect, collaborate, manage projects, and navigate the course experience efficiently.
-				</p>
-			</div>
+			<p class="section-kicker" data-appear>More apps</p>
 			
-			<div class="label" data-delay style="--delay: 2.6;">
-				<img src="/img/projects/TipicitaInTavola.png" alt="Tipicità in Tavola">
-			</div>
-			<div class="content" data-delay style="--delay: 2.6;">
-				<hgroup>
-					<h3>Tipicità in Tavola</h3>
-					<p>Marche's region local products platform</p>
-				</hgroup>
-				<p>
-					Authenticity is hard to verify in local food markets. This app connects users to Marche’s producers using blockchain to certify product origin, combined with real-time shipment tracking and anomaly detection.
-				</p>
+			<div class="project-grid">
+				<article class="project-card" data-appear>
+					<div class="project-card__inner">
+						<div class="project-card__icon">
+							<img src="/img/projects/Ember.png" alt="">
+						</div>
+						<div class="project-card__body">
+							<hgroup>
+								<h3><a href="/ember">Ember</a></h3>
+								<p>Wildfire evacuation planning app</p>
+							</hgroup>
+						</div>
+					</div>
+				</article>
+				<article class="project-card" data-appear>
+					<div class="project-card__inner">
+						<div class="project-card__icon">
+							<img src="/img/projects/ScreenplayGenie.png" alt="" class="glass-border">
+						</div>
+						<div class="project-card__body">
+							<hgroup>
+								<h3><a href="/screenplaygenie">Screenplay Genie</a></h3>
+								<p>Educational iPad app • Swift Student Challenge Winner 2025 🏆</p>
+							</hgroup>
+						</div>
+					</div>
+				</article>
+				<article class="project-card" data-appear>
+					<div class="project-card__inner">
+						<div class="project-card__icon">
+							<img src="/img/projects/digitalgarage.png" alt="">
+						</div>
+						<div class="project-card__body">
+							<hgroup>
+								<h3><a href="https://digitalgarage.unicam.it">digitalgarage.unicam.it</a></h3>
+								<p>Google Classroom-like web app</p>
+							</hgroup>
+						</div>
+					</div>
+				</article>
+				<article class="project-card" data-appear>
+					<div class="project-card__inner">
+						<div class="project-card__icon">
+							<img src="/img/projects/TipicitaInTavola.png" alt="">
+						</div>
+						<div class="project-card__body">
+							<hgroup>
+								<h3>Tipicità in Tavola</h3>
+								<p>Marche's region local products platform</p>
+							</hgroup>
+						</div>
+					</div>
+				</article>
 			</div>
 		</section>
 		
-		<section data-delay style="--delay: 4;">
-			<h2 id="tools">and <strong>tools</strong> for developers <a href="https://github.com/alessiorubicini" target="_blank" rel="noopener noreferrer" class="app-store-icon" aria-label="View on GitHub"><img src="/img/icon_github.png" alt=""></a></h2>
+		<section id="tools">
+			<p class="section-kicker" data-appear>Tools & Packages</p>
 			
-			<div class="label" data-delay style="--delay: 4.2;">
-				<img src="/img/projects/ControlCenterForSwiftUI.png" alt="Control Center for SwiftUI">
+			<div class="project-grid">
+				<article class="project-card" data-appear>
+					<div class="project-card__inner">
+						<div class="project-card__icon">
+							<img src="/img/agent-skills.png" alt="">
+						</div>
+						<div class="project-card__body">
+							<hgroup>
+								<h3><a href="https://github.com/alessiorubicini/Apple-Foundation-Models-Agent-Skill" target="_blank" rel="noopener noreferrer">Apple Foundation Models Agent Skill</a></h3>
+								<p>Agent Skill</p>
+							</hgroup>
+						</div>
+					</div>
+				</article>
+				<article class="project-card" data-appear>
+					<div class="project-card__inner">
+						<div class="project-card__icon">
+							<img src="/img/projects/SwiftSessions.png" alt="">
+						</div>
+						<div class="project-card__body">
+							<hgroup>
+								<h3><a href="https://github.com/alessiorubicini/SwiftSessions" target="_blank" rel="noopener noreferrer">Swift Sessions</a></h3>
+								<p>Swift Package</p>
+							</hgroup>
+						</div>
+					</div>
+				</article>
+				<article class="project-card" data-appear>
+					<div class="project-card__inner">
+						<div class="project-card__icon">
+							<img src="/img/projects/ControlCenterForSwiftUI.png" alt="">
+						</div>
+						<div class="project-card__body">
+							<hgroup>
+								<h3><a href="https://github.com/alessiorubicini/ControlCenterForSwiftUI" target="_blank" rel="noopener noreferrer">Control Center for SwiftUI</a></h3>
+								<p>Swift Package</p>
+							</hgroup>
+						</div>
+					</div>
+				</article>
+				<article class="project-card" data-appear>
+					<div class="project-card__inner">
+						<div class="project-card__icon">
+							<img src="/img/projects/AppleIntelligenceForSwiftUI.png" alt="">
+						</div>
+						<div class="project-card__body">
+							<hgroup>
+								<h3><a href="https://github.com/alessiorubicini/AppleIntelligenceForSwiftUI" target="_blank" rel="noopener noreferrer">Apple Intelligence for SwiftUI</a></h3>
+								<p>Swift Package</p>
+							</hgroup>
+						</div>
+					</div>
+				</article>
+				<article class="project-card" data-appear>
+					<div class="project-card__inner">
+						<div class="project-card__icon">
+							<img src="/img/projects/SFSymbolsPicker.png" alt="">
+						</div>
+						<div class="project-card__body">
+							<hgroup>
+								<h3><a href="https://github.com/alessiorubicini/SFSymbolsPickerForSwiftUI" target="_blank" rel="noopener noreferrer">SF Symbols Picker for SwiftUI</a></h3>
+								<p>Swift Package</p>
+							</hgroup>
+						</div>
+					</div>
+				</article>
+				<article class="project-card" data-appear>
+					<div class="project-card__inner">
+						<div class="project-card__icon">
+							<img src="/img/projects/LocationPicker.png" alt="">
+						</div>
+						<div class="project-card__body">
+							<hgroup>
+								<h3><a href="https://github.com/alessiorubicini/LocationPickerForSwiftUI" target="_blank" rel="noopener noreferrer">Location Picker for SwiftUI</a></h3>
+								<p>Swift Package</p>
+							</hgroup>
+						</div>
+					</div>
+				</article>
+				<article class="project-card" data-appear>
+					<div class="project-card__inner">
+						<div class="project-card__icon">
+							<img src="/img/projects/PencilDrawer.png" alt="">
+						</div>
+						<div class="project-card__body">
+							<hgroup>
+								<h3><a href="https://github.com/alessiorubicini/PencilDrawerForSwiftUI" target="_blank" rel="noopener noreferrer">Pencil Drawer for SwiftUI</a></h3>
+								<p>Swift Package</p>
+							</hgroup>
+						</div>
+					</div>
+				</article>
+				<article class="project-card" data-appear>
+					<div class="project-card__inner">
+						<div class="project-card__icon">
+							<img src="/img/projects/IslandAlerts.png" alt="">
+						</div>
+						<div class="project-card__body">
+							<hgroup>
+								<h3><a href="https://github.com/alessiorubicini/IslandAlertsForSwiftUI" target="_blank" rel="noopener noreferrer">Island Alerts for SwiftUI</a></h3>
+								<p>Swift Package</p>
+							</hgroup>
+						</div>
+					</div>
+				</article>
 			</div>
-			<div class="content" data-delay style="--delay: 4.2;">
-				<hgroup>
-					<h3><a href="https://github.com/alessiorubicini/ControlCenterForSwiftUI">Control Center for SwiftUI</a></h3>
-					<p>SwiftUI package for iOS Control Center</p>
-				</hgroup>
-				<p>
-					Bring the iOS 26 Control Center experience into your apps. Native-feeling components, smooth gestures, and responsive layouts make building elegant, familiar controls effortless in SwiftUI.
-				</p>
-			</div>
-			
-			<div class="label" data-delay style="--delay: 4.4;">
-				<img src="/img/projects/AppleIntelligenceForSwiftUI.png" alt="Apple Intelligence for SwiftUI">
-			</div>
-			<div class="content" data-delay style="--delay: 4.4;">
-				<hgroup>
-					<h3><a href="https://github.com/alessiorubicini/AppleIntelligenceForSwiftUI">Apple Intelligence for SwiftUI</a></h3>
-					<p>SwiftUI package for Apple Intelligence UI</p>
-				</hgroup>
-				<p>
-					Integrating AI often breaks the native OS feel. This package mirrors Apple Intelligence design patterns and animations, allowing developers to build human-centered AI features that feel at home on Apple platforms.
-				</p>
-			</div>
-			
-			<div class="label" data-delay style="--delay: 4.6;">
-				<img src="/img/projects/SwiftSessions.png" alt="Swift Sessions">
-			</div>
-			<div class="content" data-delay style="--delay: 4.6;">
-				<hgroup>
-					<h3><a href="https://github.com/alessiorubicini/SwiftSessions">Swift Sessions</a></h3>
-					<p>Binary session types for Swift</p>
-				</hgroup>
-				<p>
-					Concurrent programming in Swift is prone to communication errors. Based on my Bachelor's thesis, this framework implements binary session types to ensure safe, structured, and reliable interactions in concurrent systems.
-				</p>
-			</div>
-
-			<div class="label" data-delay style="--delay: 5.4;">
-				<img src="/img/projects/SFSymbolsPicker.png" alt="SF Symbols Picker for SwiftUI">
-			</div>
-			<div class="content" data-delay style="--delay: 5.4;">
-				<hgroup>
-					<h3><a href="https://github.com/alessiorubicini/SFSymbolsPickerForSwiftUI">SF Symbols Picker for SwiftUI</a></h3>
-					<p>SwiftUI package for SF Symbols selection</p>
-				</hgroup>
-				<p>
-					Users often need to choose icons from Apple’s vast library. This customizable picker simplifies SF Symbols selection for iOS and macOS apps, featuring full support for native SwiftUI bindings.
-				</p>
-			</div>
-			
-			<div class="label" data-delay style="--delay: 5.2;">
-				<img src="/img/projects/LocationPicker.png" alt="Location Picker for SwiftUI">
-			</div>
-			<div class="content" data-delay style="--delay: 5.2;">
-				<hgroup>
-					<h3><a href="https://github.com/alessiorubicini/LocationPickerForSwiftUI">Location Picker for SwiftUI</a></h3>
-					<p>SwiftUI package for location selection</p>
-				</hgroup>
-				<p>
-					Manual coordinate entry is a poor user experience. This tool provides an interactive map interface for SwiftUI, offering real-time coordinate selection and seamless integration via state bindings.
-				</p>
-			</div>
-			
-			<div class="label" data-delay style="--delay: 4.8;">
-				<img src="/img/projects/PencilDrawer.png" alt="Pencil Drawer for SwiftUI">
-			</div>
-			<div class="content" data-delay style="--delay: 4.8;">
-				<hgroup>
-					<h3><a href="https://github.com/alessiorubicini/PencilDrawerForSwiftUI">Pencil Drawer for SwiftUI</a></h3>
-					<p>SwiftUI package for drawing</p>
-				</hgroup>
-				<p>
-					Implementing drawing features usually requires complex PencilKit boilerplate. This library simplifies the process with clean SwiftUI bindings, enabling smooth, interactive drawing with minimal setup.
-				</p>
-			</div>
-			
-			<div class="label" data-delay style="--delay: 5.0;">
-				<img src="/img/projects/IslandAlerts.png" alt="Island Alerts for SwiftUI">
-			</div>
-			<div class="content" data-delay style="--delay: 5.0;">
-				<hgroup>
-					<h3><a href="https://github.com/alessiorubicini/IslandAlertsForSwiftUI">Island Alerts for SwiftUI</a></h3>
-					<p>SwiftUI package for Dynamic Island alerts</p>
-				</hgroup>
-				<p>
-					Standard alerts can be intrusive or outdated. This package brings eye-catching, customizable notifications to the Dynamic Island and Notch, blending perfectly with Apple’s modern interface language.
-				</p>
-			</div>
-			
-			
 		</section>
 		
-		<section class="writing-section" data-delay style="--delay: 5.8;">
-			<h2 id="writing">Writing</h2>
-			<div class="content">
+		<section class="writing-section">
+			<h2 id="writing" data-appear>Writing</h2>
+			<div class="content" data-appear>
 				<ul>
 					<li><a href="https://alessiorubicini.medium.com/getting-hands-on-with-apples-foundation-models-framework-2bebc059db06" target="_blank">Getting Hands-On with Apple's Foundation Models Framework</a> — <time datetime="2025-06-16">Jun 16, 2025</time></li>
 					<li><a href="https://alessiorubicini.medium.com/a-time-of-opportunities-d7ed9d7b8ffa" target="_blank">A Time of Opportunities</a> — <time datetime="2025-06-15">Jun 15, 2025</time></li>
@@ -283,9 +297,9 @@
 			</div>
 		</section>
 		
-		<section data-delay style="--delay: 5.6;">
-			<h2 id="now">Now</h2>
-			<div class="content">
+		<section>
+			<h2 id="now" data-appear>Now</h2>
+			<div class="content" data-appear>
 				<ul>
 					<li><strong>Currently</strong> finishing my master degree in Computer Science and building an app to help people keep their finances clear and stress-free.</li>
 					
@@ -296,17 +310,11 @@
 			</div>
 		</section>
 		
-		
-		
-		
-		
-		
-		
-		
 	</main>
 	
-	<div class="legal-links" data-delay style="--delay: 3.2;">
-		<span>© 2026 Alessio Rubicini</span>
+	<div class="legal-links">
+		<span data-appear>© 2026 Alessio Rubicini</span>
 	</div>
+	<script src="/animations.js"></script>
 </body>
 </html>
