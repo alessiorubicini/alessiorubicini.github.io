@@ -4,7 +4,7 @@
     <meta content="text/html; charset=utf-8" http-equiv="content-type">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <link rel="icon" href="/img/projects/Monei.png" type="image/png">
+    <link rel="icon" href="/img/projects/Fynn.png" type="image/png">
 
     <title>Fynn • Your Money, Simplified.</title>
     <meta content="Fynn • Your Money, Simplified." name="description">
@@ -33,240 +33,26 @@
     <meta name="twitter:site" content="@alessiorubicini">
 
     <link rel="canonical" href="https://alessiorubicini.github.io/fynn"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap">
     <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/subpage-styles.css">
     <style>
-
-	body {
-		max-width: calc(var(--lineHeight) * 37) !important;
-		display: flex;
-		flex-direction: column;
-		min-height: 100vh;
-	}
-
-	main {
-		flex: 1;
-		display: flex;
-		flex-direction: column;
-	}
-.hero {
-  display: flex;
-  flex-direction: column;
-  gap: calc(var(--lineHeight) * 2.5);
-  padding: calc(var(--lineHeight) * 2.5) 0 calc(var(--lineHeight) * 0.5) 0;
-}
-
-@media screen and (min-width: 800px) {
-  .hero {
-    flex-direction: row;
-    align-items: center;
-    gap: calc(var(--lineHeight) * 4);
-  }
-}
-
-.hero-text {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  gap: calc(var(--lineHeight));
-}
-
-.hero-text p:not(.meta) {
-  font-size: 14.5px;
-}
-
-.brand {
-  display: inline-flex;
-  align-items: center;
-  gap: calc(var(--lineHeight) / 2);
-  font-size: 50px;
-  font-weight: 600;
-  line-height: 1;
-  color: var(--primaryText);
-}
-
-.brand img {
-  width: 50px;
-  height: 50px;
-  
-}
-
-.page-title {
-  font-size: 20px;
-  font-weight: 600;
-  line-height: 1.15;
-}
-
-@media screen and (min-width: 800px) {
-  .page-title {
-    font-size: 26px;
-    line-height: 1.15;
-  }
-}
-
-.lead {
-  color: var(--tertiaryText);
-  font-size: var(--secondaryFontSize);
-}
-
-.app-store-button {
-  display: inline-flex;
-  text-decoration: none;
-  transition: opacity 0.2s ease;
-  line-height: 0;
-  padding: 0;
-  margin: 0;
-  width: fit-content;
-  align-self: flex-start;
-}
-
-.app-store-button::after {
-  display: none;
-}
-
-.app-store-button img {
-  display: block;
-  width: 150px;
-  height: auto;
-  object-fit: contain;
-  padding: 0;
-  margin: 0;
-}
-
-.app-store-button:hover {
-  opacity: 0.8;
-}
-
-.hero-media {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-}
-
-.phone {
-  width: 100%;
-  max-width: 340px;
-  height: auto;
-  object-fit: contain;
-}
-
-.meta {
-  color: var(--tertiaryText);
-  font-size: 14px;
-}
-
-.meta + .meta {
-  margin-top: calc(var(--lineHeight) * -0.5);
-}
-
-.legal-links {
-  display: flex;
-  gap: 16px;
-  justify-content: center;
-  font-size: 12px;
-  color: var(--primaryText);
-  opacity: 0.85;
-  margin-top: auto;
-  margin-bottom: 0;
-  padding-top: calc(var(--lineHeight) * 2);
-  padding-bottom: calc(var(--lineHeight) * 1);
-}
-
-.legal-links a {
-  color: var(--primaryText);
-  text-decoration: none;
-  transition: opacity 0.2s ease, color 0.2s ease;
-}
-
-.legal-links a:hover {
-  opacity: 1;
-  color: var(--primaryText);
-  text-decoration: underline;
-}
-
-.content-section {
-  display: flex !important;
-  flex-direction: column;
-  gap: calc(var(--lineHeight) * 0.75);
-  padding-top: calc(var(--lineHeight) * 1.5);
-}
-
-.content-section:last-of-type {
-  padding-bottom: calc(var(--lineHeight) * 2);
-}
-
-.content-section h2 {
-  font-size: 20px;
-  font-weight: 600;
-  color: var(--primaryText);
-  padding-top: 0;
-  margin: 0;
-}
-
-.manifesto-content {
-  display: flex;
-  flex-direction: column;
-  gap: calc(var(--lineHeight) * 0.75);
-}
-
-.manifesto-text {
-  font-size: 15px;
-  color: var(--secondaryText);
-  line-height: 1.6;
-  margin: 0;
-}
-
-.features-list {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: calc(var(--lineHeight));
-  list-style-type: none;
-  padding: 0;
-  margin: calc(var(--lineHeight) * 0.5) 0 0 0;
-}
-
-@media screen and (min-width: 600px) {
-  .features-list {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-
-.features-list li.feature-item {
-  position: static;
-  padding-left: 0;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.features-list li.feature-item::before {
-  content: none;
-}
-
-.feature-icon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  background-color: var(--secondaryBackgroundColor);
-  color: var(--primaryText);
-  border: 1px solid rgba(128, 128, 128, 0.15);
-}
-
-.feature-icon svg {
-  width: 18px;
-  height: 18px;
-}
-
-.feature-text {
-  font-size: var(--fontSize);
-  color: var(--primaryText);
-  font-weight: 500;
-}
+      /* Fynn: two-column desktop hero */
+      .hero {
+        text-align: left;
+        align-items: flex-start;
+        padding: calc(var(--lineHeight) * 3) 0 calc(var(--lineHeight) * 1) 0;
+      }
+      @media screen and (min-width: 800px) {
+        .hero { flex-direction: row; align-items: center; gap: calc(var(--lineHeight) * 4); }
+        .app-store-button { align-self: flex-start; }
+      }
+      .hero-text { flex: 1; display: flex; flex-direction: column; gap: calc(var(--lineHeight)); }
+      .hero-media { flex: 1; display: flex; justify-content: center; }
+      .phone { width: 100%; max-width: 300px; height: auto; object-fit: contain; }
     </style>
   </head>
-  <body>
+  <body class="project-page">
     <script src="/animations.js"></script>
 
     <main>

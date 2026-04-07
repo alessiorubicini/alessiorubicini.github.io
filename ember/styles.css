@@ -1,291 +1,76 @@
+/*
+ * Ember — Product-specific styles
+ * Editorial shared patterns live in /subpage-styles.css.
+ * This file contains only Ember's brand identity.
+ */
+
+/* ─── Brand Palette (always light/warm, even in dark mode) ── */
+
 body.project-page {
-	background-color: #FFEEE5;
-	--backgroundColor: #FFEEE5;
-	--secondaryBackgroundColor: #F5F5F5;
-	--primaryText: #02040a;
-	--secondaryText: #343840;
-	--tertiaryText: #4D595B;
-	--accentColor: #000000;
+  --backgroundColor: #FFF5EE;
+  --secondaryBackgroundColor: #EDE5DC;
+  --primaryText: #1C1410;
+  --secondaryText: #4A3D34;
+  --tertiaryText: #7A6C62;
+  --accentColor: #1C1410;
+  background-color: var(--backgroundColor);
 }
 
-/* Force light mode colors even in dark mode */
 @media (prefers-color-scheme: dark) {
-	body.project-page {
-		--backgroundColor: #FFEEE5;
-		--secondaryBackgroundColor: #F5F5F5;
-		--primaryText: #02040a;
-		--secondaryText: #343840;
-		--tertiaryText: #4D595B;
-		--accentColor: #000000;
-	}
+  body.project-page {
+    --backgroundColor: #FFF5EE;
+    --secondaryBackgroundColor: #EDE5DC;
+    --primaryText: #1C1410;
+    --secondaryText: #4A3D34;
+    --tertiaryText: #7A6C62;
+    --accentColor: #1C1410;
+    background-color: var(--backgroundColor);
+  }
 }
 
-main {
-	margin-bottom: calc(var(--lineHeight) * 1);
-}
-
-section {
-  display: grid;
-  grid-template-columns: [start] auto 1fr [end];
-  gap: calc(var(--lineHeight) * 0.25);
-}
-
-section h2, section nav {
-  grid-column: start / end;
-}
-
-section h2:first-child {
-  padding-top: calc(var(--lineHeight) * 1.2);
-}
-
-.section-header {
-  grid-column: start / end;
-}
-
-.section-content {
-  grid-column: start / end;
-}
-
-.back-button {
-  display: inline-flex;
-  align-items: center;
-  gap: calc(var(--lineHeight) / 4);
-  color: var(--tertiaryText);
-  text-decoration: none;
-  font-size: var(--secondaryFontSize);
-  transition: color 0.2s ease;
-}
-
-.back-button:hover {
-  color: var(--primaryText);
-}
-
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  margin-bottom: calc(var(--lineHeight) * 2);
-  height: 40px;
-}
-
-.brand {
-  display: inline-flex;
-  align-items: center;
-  gap: calc(var(--lineHeight) / 2);
-}
-
-.brand img {
-  width: 40px;
-  height: 40px;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.25);
-}
-
-.hero {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: calc(var(--lineHeight) * 1.2);
-  padding-top: calc(var(--lineHeight) * 1.2);
-  padding-bottom: calc(var(--lineHeight) * 0.5);
-}
+/* ─── App Icon ───────────────────────────────────────────── */
 
 .app-icon {
-  width: 128px;
-  height: 128px;
   border-radius: 28px;
+  box-shadow: 0 4px 24px rgba(220, 100, 60, 0.18);
+  border: none;
 }
 
+/* ─── Product-colored Title ──────────────────────────────── */
+
 .page-title {
-  font-size: 32px;
-  line-height: 1.15;
-  color: #de7a62;
-  font-weight: 600;
+  color: #C96B4A;
 }
 
 @media screen and (min-width: 800px) {
   .page-title {
-    font-size: 42px;
-    line-height: 1.15;
+    font-size: calc(var(--fontSize) * 2.4);
   }
 }
 
+/* ─── Ember "Made With" badge (orange) ───────────────────── */
+
 .made-with {
-  display: inline-flex;
-  align-items: center;
-  padding: calc(var(--lineHeight) / 3) calc(var(--lineHeight) * 0.75);
-  font-size: var(--secondaryFontSize);
-  font-weight: 500;
-  color: #FF6B35;
-  background: linear-gradient(135deg, rgba(255, 107, 53, 0.08) 0%, rgba(255, 107, 53, 0.12) 100%);
-  border: 1.5px solid rgba(255, 107, 53, 0.25);
-  border-radius: 20px;
-  margin: 0;
-  box-shadow: 0 2px 8px rgba(255, 107, 53, 0.15), 
-              0 0 0 1px rgba(255, 107, 53, 0.05) inset;
-  backdrop-filter: blur(10px);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: #D96030;
+  background: linear-gradient(135deg, rgba(217, 96, 48, 0.08) 0%, rgba(217, 96, 48, 0.12) 100%);
+  border: 1px solid rgba(217, 96, 48, 0.25);
+  box-shadow: 0 2px 8px rgba(217, 96, 48, 0.12);
 }
 
 .made-with:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(255, 107, 53, 0.25), 
-              0 0 0 1px rgba(255, 107, 53, 0.1) inset;
-  border-color: rgba(255, 107, 53, 0.4);
+  box-shadow: 0 4px 16px rgba(217, 96, 48, 0.22);
+  border-color: rgba(217, 96, 48, 0.4);
 }
 
-.badges-container {
-  display: flex;
-  gap: calc(var(--lineHeight) / 2);
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  margin-top: calc(var(--lineHeight) * 0.8);
-  margin-bottom: 0;
-}
-
-.badge {
-	cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  padding: calc(var(--lineHeight) / 3) calc(var(--lineHeight) * 0.75);
-  font-size: var(--secondaryFontSize);
-  font-weight: 500;
-  border-radius: 20px;
-  margin: 0;
-  backdrop-filter: blur(10px);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.challenge-badge {
-  color: #4A90E2;
-  background: linear-gradient(135deg, rgba(74, 144, 226, 0.08) 0%, rgba(74, 144, 226, 0.12) 100%);
-  border: 1.5px solid rgba(74, 144, 226, 0.25);
-  box-shadow: 0 2px 8px rgba(74, 144, 226, 0.15), 
-              0 0 0 1px rgba(74, 144, 226, 0.05) inset;
-}
-
-.challenge-badge:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 16px rgba(74, 144, 226, 0.25), 
-              0 0 0 1px rgba(74, 144, 226, 0.1) inset;
-  border-color: rgba(74, 144, 226, 0.4);
-}
-
-.lead {
-  color: var(--tertiaryText);
-  font-size: var(--fontSize);
-  max-width: 700px;
-  line-height: 1.6;
-}
-
-.cta-box {
-  display: inline-flex;
-  align-items: center;
-  padding: calc(var(--lineHeight) / 2) calc(var(--lineHeight));
-  font-size: var(--secondaryFontSize);
-  font-weight: 500;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  border: var(--hairlineThickness) solid var(--accentColor);
-  border-radius: 24px;
+/* ––– Image containers: transparent PNGs need no chrome ––– */
+.image-container {
+  border: none;
+  box-shadow: none;
   background: transparent;
-  color: var(--accentColor);
 }
 
-.section {
-  margin-bottom: calc(var(--lineHeight) * 0.1);
-}
-
-.section-header {
-  display: flex;
-  align-items: center;
-  gap: calc(var(--lineHeight) * 0.3);
-  margin-bottom: calc(var(--lineHeight) * 0.5);
-  width: 100%;
-}
-
-.section-title {
-  font-size: 24px;
-  font-weight: 500;
-  letter-spacing: -0.01em;
-  color: var(--primaryText);
-}
-
-.section-divider {
-  display: none;
-}
+/* ─── Section content line-height boost ─────────────────── */
 
 .section-content {
-  color: var(--secondaryText);
-  line-height: 1.5;
-}
-
-.section-content p {
-  margin-bottom: calc(var(--lineHeight) * 0.8);
-}
-
-.section-content ul {
-  margin-bottom: calc(var(--lineHeight) * 1.5);
-  padding-left: calc(var(--lineHeight));
-}
-
-.section-content li {
-  margin-bottom: calc(var(--lineHeight) / 2);
-  display: flex;
-  align-items: flex-start;
-  gap: calc(var(--lineHeight) / 2);
-}
-
-.section-content li::before {
-  content: "•";
-  color: var(--primaryText);
-  font-weight: 500;
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
-.section-content strong {
-  color: var(--primaryText);
-  font-weight: 500;
-}
-
-.image-container {
-  width: 100%;
-  max-width: 800px;
-  margin: calc(var(--lineHeight) * 0.8) auto;
-  border-radius: 16px;
-  overflow: hidden;
-}
-
-.image-container img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.image-container.aspect-3-1 {
-  aspect-ratio: 3/1;
-}
-
-.image-container.aspect-4-3 {
-  aspect-ratio: 4/3;
-}
-
-.image-container.aspect-3-1 img,
-.image-container.aspect-4-3 img {
-  object-fit: contain;
-  width: 100%;
-  height: 100%;
-}
-
-.footer {
-  text-align: center;
-  font-size: 13px;
-  color: var(--primaryText);
-  opacity: 0.85;
-  margin-top: calc(var(--lineHeight) * 3);
-  padding-bottom: calc(var(--lineHeight) * 0.5);
+  line-height: 1.75;
 }
