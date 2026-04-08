@@ -476,16 +476,21 @@ footer {
 [data-appear],
 [data-delay] {
   --delay: 0;
+  --stagger-step: 0.2s;
 
   animation: appear var(--appearDuration) linear both;
-  animation-delay: calc(0.2s + calc(var(--delay) * 0.2s));
+  animation-delay: calc(0.2s + calc(var(--delay) * var(--stagger-step)));
   will-change: transform, opacity;
 
   & figure {
     animation: appear-img calc(var(--appearDuration) / 5) linear both;
-    animation-delay: calc(0.2s + calc(var(--delay) * 0.2s));
+    animation-delay: calc(0.2s + calc(var(--delay) * var(--stagger-step)));
     will-change: transform, opacity;
   }
+}
+
+aside [data-appear] {
+  --stagger-step: 0.05s;
 }
 
 /* Legacy project pages set --delay inline on [data-delay] */
