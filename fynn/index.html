@@ -50,6 +50,43 @@
       .hero-text { flex: 1; display: flex; flex-direction: column; gap: calc(var(--lineHeight)); }
       .hero-media { flex: 1; display: flex; justify-content: center; }
       .phone { width: 100%; max-width: 300px; height: auto; object-fit: contain; }
+
+      .primary-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        width: fit-content;
+        margin-top: calc(var(--lineHeight) * 0.2);
+        border: none;
+        border-radius: 12px;
+        background-color: var(--primaryText);
+        color: var(--backgroundColor);
+        text-decoration: none;
+        font: inherit;
+        font-weight: 620;
+        line-height: 1;
+        padding: 13px 20px;
+        transition: transform 0.2s ease, opacity 0.2s ease;
+      }
+
+      .primary-cta:hover {
+        opacity: 0.92;
+      }
+
+      .primary-cta:active {
+        transform: translateY(1px);
+      }
+
+      .primary-cta::after {
+        content: none !important;
+      }
+
+      .primary-cta-icon {
+        width: 16px;
+        height: 16px;
+        display: inline-block;
+      }
     </style>
   </head>
   <body class="project-page">
@@ -124,6 +161,18 @@
             <span class="feature-text">Notification Reminders</span>
           </li>
         </ul>
+      </section>
+
+      <section class="content-section" data-delay style="--delay: 3.5;">
+        <h2>Share feedback</h2>
+        <p>
+          Building Fynn is an ongoing journey, and your input helps shape every release.
+          If you found a bug, have an idea, or just want to share thoughts, I would love to hear from you.
+        </p>
+        <a class="primary-cta" href="/fynn/feedback.html">
+          Open feedback form
+          
+        </a>
       </section>
 
       <div class="legal-links" data-delay style="--delay: 3.6;">
