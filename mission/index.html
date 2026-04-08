@@ -93,6 +93,29 @@ figure {
     max-width: 100%;
   }
 }
+
+.nav-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: calc(var(--lineHeight) * 1);
+}
+
+.nav-header a {
+  color: var(--secondaryText);
+  text-decoration: none;
+  font-size: var(--secondaryFontSize);
+  font-weight: 500;
+  transition: color 0.2s ease;
+  padding: calc(var(--lineHeight) / 4) calc(var(--lineHeight) / 1.5);
+  border-radius: 20px;
+  background-color: var(--secondaryBackgroundColor);
+  border: var(--hairlineThickness) solid color(from var(--primaryText) srgb r g b / 0.08);
+}
+
+.nav-header a:hover {
+  color: var(--primaryText);
+  border-color: color(from var(--primaryText) srgb r g b / 0.2);
+}
     </style>
   </head>
   <body>
@@ -100,11 +123,22 @@ figure {
     
     <div class="content">
       <header>
+        <nav class="nav-header" data-delay style="--delay: 0.0;">
+          <a href="/">&larr; Alessio Rubicini</a>
+        </nav>
+        
         <h1 data-delay style="--delay: 0.1;">my mission.</h1>
         
-        <figure data-delay style="--delay: 0.2;">
-          <img src="/img/applepark.jpeg" alt="Me at Apple Park, Cupertino, during WWDC25" />
-        </figure>
+        <div data-delay style="--delay: 0.2; margin: calc(var(--lineHeight) * 3) 0;" class="image-container">
+          <figure style="margin: 0;">
+            <img src="/img/applepark.jpeg" alt="Me at Apple Park, Cupertino, during WWDC25" class="main-photo" />
+          </figure>
+          
+          <div class="pirate-sticker-container">
+            <img src="/img/JollyRogerMac.png" alt="Apple Pirate Flag" class="pirate-sticker" />
+            <div class="pirate-tooltip">&ldquo;It's better to be a pirate than to join the Navy.&rdquo;</div>
+          </div>
+        </div>
         
         <div data-delay style="--delay: 0.3;">
           <p>
@@ -138,6 +172,12 @@ figure {
         </div>
       </header>
     </div>
+    
+    <div class="legal-links">
+      <span data-appear>© 2026 Alessio Rubicini</span>
+    </div>
+
+	
   </body>
 </html>
 

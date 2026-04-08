@@ -297,6 +297,49 @@ footer {
   padding: calc(var(--lineHeight) * 1) 0 calc(var(--lineHeight) * 3);
 }
 
+.featured-app {
+  grid-column: start / end;
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--lineHeight) / 2.5);
+}
+
+.featured-app__header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--lineHeight);
+}
+
+.featured-app__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  object-fit: contain;
+  display: block;
+}
+
+.featured-app__content {
+  padding-left: calc(48px + var(--lineHeight));
+}
+
+.featured-app__content p {
+  color: var(--secondaryText);
+  margin: 0;
+  hyphens: auto;
+  text-wrap: pretty;
+}
+
+@media screen and (min-width: 1200px) {
+  .featured-app__icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 15px;
+  }
+  .featured-app__content {
+    padding-left: calc(56px + var(--lineHeight));
+  }
+}
+
 .vcard {
   display: grid;
   grid-template-columns: [start] 44px 1fr [end];
@@ -593,7 +636,34 @@ aside nav {
 
 @media screen and (max-width: 1023px) {
   aside {
+    /* On mobile/tablet: render as a compact horizontal nav strip */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: calc(var(--lineHeight) * 0.75);
+    padding-bottom: calc(var(--lineHeight) * 1.5);
+  }
+
+  aside hr {
+    /* Hide the separating rules — replaced by visual spacing */
     display: none;
+  }
+
+  aside nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: calc(var(--lineHeight) * 0.1) calc(var(--lineHeight) * 0.75);
+  }
+
+  aside nav a {
+    white-space: nowrap;
+  }
+
+  /* Local-nav links get a slightly more prominent look */
+  aside .local-nav a {
+    color: var(--primaryText);
+    font-weight: 500;
   }
 }
 
@@ -1018,6 +1088,25 @@ sup {
     margin-bottom: calc(var(--lineHeight) * 0.5);
   }
 
+  .featured-app {
+    margin-top: calc(var(--lineHeight) * 0.5);
+  }
+
+  .featured-app__header {
+    gap: calc(var(--lineHeight) * 0.65);
+    align-items: center; /* better vertical alignment for mobile */
+  }
+  
+  .featured-app__icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 11px;
+  }
+  
+  .featured-app__content {
+    padding-left: 0;
+  }
+
   h2 + .label {
     padding-top: calc(var(--lineHeight) * 0.5);
   }
@@ -1244,5 +1333,153 @@ section#playlists-section {
 
   #experiments, .screen-only {
     display: none;
+  }
+}
+
+.legal-links {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 12px;
+  color: var(--secondaryText);
+  opacity: 0.85;
+  margin-top: calc(var(--lineHeight) * 3);
+  margin-bottom: 0;
+  padding-bottom: calc(var(--lineHeight) * 2);
+}
+
+.legal-links a {
+  color: var(--secondaryText);
+  text-decoration: none;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.legal-links a:hover {
+  opacity: 1;
+  color: var(--primaryText);
+  text-decoration: underline;
+}
+
+.legal-links a::after {
+  content: none !important;
+}
+
+/* Contenitore dell'immagine principale */
+.image-container {
+  position: relative; /* Fondamentale per posizionare lo sticker in modo assoluto rispetto a questo div */
+  display: block;
+}
+
+/* Assicura che la foto principale sia fluida */
+.main-photo {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px; /* Opzionale: smussa leggermente gli angoli della foto principale */
+}
+
+/* Effetto Sticker Bandiera Pirata Contentitore */
+.pirate-sticker-container {
+  position: absolute;
+  top: -15px;    
+  right: -15px;
+  z-index: 10;
+}
+
+/* Base Immagine Sticker */
+.pirate-sticker {
+  display: block;
+  width: 120px;     
+  height: auto;
+  transform: rotate(12deg); 
+  border: 3px solid #ffffff;
+  border-radius: 4px;
+  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.25);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.pirate-sticker-container:hover .pirate-sticker {
+  transform: rotate(4deg) scale(1.1);
+  cursor: pointer;
+}
+
+/* Tooltip personalizzato ed elegante */
+.pirate-tooltip {
+  position: absolute;
+  bottom: 100%;
+  left: 50%; 
+  transform: translateX(-50%) translateY(-5px) scale(0.95);
+  width: max-content;
+  max-width: 220px;
+  
+  background-color: var(--primaryText);
+  color: var(--backgroundColor);
+  
+  font-size: var(--secondaryFontSize);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: center;
+  text-wrap: balance;
+  
+  padding: calc(var(--lineHeight) * 0.3) calc(var(--lineHeight) * 0.6);
+  border-radius: 8px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+  
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), visibility 0.25s ease;
+  z-index: 20;
+}
+
+/* Freccia giù per il tooltip */
+.pirate-tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: var(--primaryText) transparent transparent transparent;
+}
+
+/* Apparizione tooltip all'hover */
+.pirate-sticker-container:hover .pirate-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(-15px) scale(1);
+}
+
+/* CSS per Tooltip Mobile (Responsive adjustments & Overflow prevention) */
+@media screen and (max-width: 799px) {
+  .pirate-sticker-container {
+    right: 5px; /* Evita che lo sticker strabordi fuori dallo schermo a destra */
+    top: -10px;
+    -webkit-tap-highlight-color: transparent; /* Evita l'highlight blu al tap su iOS */
+  }
+  
+  .pirate-sticker {
+    width: 80px; /* Usa una dimensione ridotta e proporzionata su schermi piccoli */
+  }
+
+  .pirate-tooltip {
+    left: auto;
+    right: -10px; /* Lo fissa sul lato destro spingendo il testo all'interno, evitando overflow laterali */
+    transform: translateY(-5px) scale(0.95); /* Rimuove lo shift X */
+    max-width: 200px; 
+  }
+  
+  .pirate-sticker-container:hover .pirate-tooltip {
+    transform: translateY(-15px) scale(1); 
+  }
+  
+  .pirate-tooltip::after {
+    left: auto;
+    right: 35px; /* Punto d'origine della freccia spostato a destra per coincidere con la bandiera ridotta */
+    transform: none;
   }
 }
