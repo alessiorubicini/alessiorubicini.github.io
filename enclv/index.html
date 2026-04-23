@@ -1,0 +1,864 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <link rel="icon" href="/img/projects/enclv/enclv-icon.png" type="image/png">
+
+    <title>Enclv · Ethereum iOS Wallet</title>
+    <meta name="description" content="A research-driven Ethereum wallet that bridges hardware-level isolation and decentralized usability. Sign transactions with FaceID, back them up with Passkeys, secured by ZK-Proofs.">
+    <meta name="author" content="Alessio Rubicini">
+
+    <!-- OpenGraph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alessiorubicini.github.io/enclv/enclv-thesis.html">
+    <meta property="og:title" content="Enclv · Ethereum iOS Wallet">
+    <meta property="og:description" content="Eliminating seed phrases with the Apple Secure Enclave. A Master's Thesis in Computer Science.">
+    <meta property="og:site_name" content="Alessio Rubicini">
+    <meta property="og:locale" content="en_US">
+
+    <link rel="canonical" href="https://alessiorubicini.github.io/enclv/enclv-thesis.html">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Sora:wght@400;600;700;800&display=swap">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/subpage-styles.css">
+
+    <style>
+      /* ─── Enclv Thesis — Brand Identity Colors (from AppColors.swift) ─── */
+      /*
+       * Primary  → Brand Indigo  : #4F46E5 (light) / #6680E6 (dark)
+       * Secondary→ Electric Cyan : #06B6D4 (light) / #33CCFF (dark)
+       * Background               : #FAFAFA (light) / System black (dark)
+       * On-Surface text          : #0F172A (light) / white (dark)
+       * Text Variant             : #64748B
+       */
+      :root {
+        /* --- Primary: Brand Indigo (dark-mode values, hoisted to :root) --- */
+        --enclv-primary:      #6680E6;   /* Brand Indigo — dark */
+        --enclv-primary-dim:  color(from #6680E6 srgb r g b / 0.15);
+        --enclv-primary-border: color(from #6680E6 srgb r g b / 0.32);
+
+        /* --- Secondary: Electric Cyan (dark-mode) --- */
+        --enclv-cyan:         #33CCFF;
+        --enclv-cyan-dim:     color(from #33CCFF srgb r g b / 0.13);
+        --enclv-cyan-border:  color(from #33CCFF srgb r g b / 0.30);
+
+        /* --- Semantic aliases pointing to brand tokens --- */
+        --enclv-blue:         var(--enclv-primary);
+        --enclv-blue-light:   var(--enclv-primary);
+        --enclv-green:        #34D399;   /* ZK / Enclave emerald */
+        --enclv-purple:       var(--enclv-primary);  /* ERC standards — use Indigo */
+        --enclv-text-variant: #64748B;
+      }
+
+      /* Light-mode overrides */
+      @media (prefers-color-scheme: light) {
+        :root {
+          --enclv-primary:       #4F46E5;
+          --enclv-primary-dim:   color(from #4F46E5 srgb r g b / 0.10);
+          --enclv-primary-border: color(from #4F46E5 srgb r g b / 0.28);
+          --enclv-cyan:          #06B6D4;
+          --enclv-cyan-dim:      color(from #06B6D4 srgb r g b / 0.10);
+          --enclv-cyan-border:   color(from #06B6D4 srgb r g b / 0.28);
+          --enclv-blue:          #4F46E5;
+          --enclv-blue-light:    #4F46E5;
+          --enclv-purple:        #4F46E5;
+        }
+      }
+
+      /* ─── Hero ────────────────────────────────────────────────────────── */
+
+      .enclv-hero {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+        gap: calc(var(--lineHeight) * 1.1);
+        padding: calc(var(--lineHeight) * 3.5) 0 calc(var(--lineHeight) * 1.5) 0;
+      }
+
+      .enclv-brand {
+        display: inline-flex;
+        align-items: center;
+        gap: calc(var(--lineHeight) * 0.55);
+        font-size: calc(var(--fontSize) * 2.6);
+        font-weight: 700;
+        letter-spacing: -0.04em;
+        line-height: 1;
+        color: var(--primaryText);
+      }
+
+      .enclv-brand img {
+        width: 54px;
+        height: 54px;
+        border-radius: calc(var(--radius-icon) * 1.3);
+        border: var(--hairlineThickness) solid color(from var(--primaryText) srgb r g b / 0.1);
+        flex-shrink: 0;
+      }
+
+      .enclv-h1 {
+        font-size: calc(var(--fontSize) * 2.1);
+        font-weight: 680;
+        line-height: 1.2;
+        letter-spacing: -0.032em;
+        color: var(--primaryText);
+        max-width: 22ch;
+      }
+
+      @media screen and (min-width: 600px) {
+        .enclv-h1 {
+          font-size: calc(var(--fontSize) * 2.5);
+        }
+      }
+
+      /* Second line of the merged h1 — slightly smaller, brand-indigo tint */
+      .enclv-h1-sub {
+        display: block;
+        font-size: calc(var(--fontSize) * 1.45);
+        font-weight: 500;
+        letter-spacing: -0.02em;
+        color: var(--enclv-primary);
+        line-height: 1.3;
+        margin-top: 0.2em;
+      }
+
+      @media screen and (min-width: 600px) {
+        .enclv-h1-sub { font-size: calc(var(--fontSize) * 1.65); }
+      }
+
+      /* Light overrides for hero subtitle, mono tokens, and section kickers are
+         handled automatically via the brand token redefinition in the
+         @media (prefers-color-scheme: light) :root block above. */
+
+      .enclv-lead {
+        color: var(--secondaryText);
+        font-size: var(--fontSize);
+        max-width: 60ch;
+        line-height: 1.7;
+        margin: 0;
+      }
+
+      .enclv-ctas {
+        display: flex;
+        flex-wrap: wrap;
+        gap: calc(var(--lineHeight) * 0.5);
+        align-items: center;
+        justify-content: center;
+        margin-top: calc(var(--lineHeight) * 0.3);
+      }
+
+      /* Disabled CTA state */
+      .cta-disabled {
+        opacity: 0.42;
+        cursor: not-allowed;
+        pointer-events: none;
+      }
+
+      .cta-soon-badge {
+        display: inline-block;
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        color: var(--tertiaryText);
+        background: color(from var(--primaryText) srgb r g b / 0.1);
+        border-radius: 100px;
+        padding: 1px 6px;
+        margin-left: 2px;
+        vertical-align: middle;
+      }
+
+      /* Primary CTA — solid blue */
+      .cta-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 12px 22px;
+        font: inherit;
+        font-size: var(--secondaryFontSize);
+        font-weight: 620;
+        line-height: 1;
+        color: #fff;
+        background: var(--enclv-blue);
+        border: none;
+        border-radius: 10px;
+        text-decoration: none;
+        cursor: pointer;
+        transition: opacity 0.18s ease, transform 0.18s ease;
+        white-space: nowrap;
+      }
+
+      .cta-primary:hover { opacity: 0.88; }
+      .cta-primary:active { transform: translateY(1px); }
+      .cta-primary::after { content: none !important; }
+
+      /* Secondary CTA — outlined */
+      .cta-secondary {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 11px 20px;
+        font: inherit;
+        font-size: var(--secondaryFontSize);
+        font-weight: 580;
+        line-height: 1;
+        color: var(--primaryText);
+        background: transparent;
+        border: var(--hairlineThickness) solid color(from var(--primaryText) srgb r g b / 0.25);
+        border-radius: 10px;
+        text-decoration: none;
+        cursor: pointer;
+        transition: border-color 0.18s ease, background 0.18s ease;
+        white-space: nowrap;
+      }
+
+      .cta-secondary:hover {
+        border-color: color(from var(--primaryText) srgb r g b / 0.5);
+        background: color(from var(--primaryText) srgb r g b / 0.04);
+      }
+      .cta-secondary::after { content: none !important; }
+
+      /* Hero App Image */
+      .hero-app-mockup {
+        width: 100%;
+        height: auto;
+        margin: calc(var(--lineHeight) * 1) 0 0 0;
+        display: block;
+        /* Image is inherently transparent, so no background or border needed */
+      }
+
+
+      /* ─── Section: The Problem ─────────────────────────────────────────── */
+
+      .problem-trilemma {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: calc(var(--lineHeight) * 0.75);
+        margin-top: calc(var(--lineHeight) * 1);
+      }
+
+      @media screen and (min-width: 560px) {
+        .problem-trilemma { grid-template-columns: repeat(3, 1fr); }
+      }
+
+      .trilemma-card {
+        padding: calc(var(--lineHeight) * 0.8) calc(var(--lineHeight) * 0.85);
+        border-radius: 12px;
+        background: var(--secondaryBackgroundColor);
+        border: var(--hairlineThickness) solid color(from var(--primaryText) srgb r g b / 0.1);
+        display: flex;
+        flex-direction: column;
+        gap: calc(var(--lineHeight) * 0.35);
+      }
+
+      .trilemma-card__icon {
+        font-size: 22px;
+        line-height: 1;
+      }
+
+      .trilemma-card__label {
+        font-size: var(--secondaryFontSize);
+        font-weight: 660;
+        color: var(--primaryText);
+        letter-spacing: -0.01em;
+      }
+
+      .trilemma-card__desc {
+        font-size: calc(var(--secondaryFontSize) - 0.5px);
+        color: var(--secondaryText);
+        line-height: 1.6;
+      }
+
+      /* ─── Section: The Solution ────────────────────────────────────────── */
+
+      .solution-pillars {
+        display: flex;
+        flex-direction: column;
+        gap: calc(var(--lineHeight) * 0.85);
+        margin-top: calc(var(--lineHeight) * 1);
+      }
+
+      .pillar {
+        display: flex;
+        flex-direction: column;
+        gap: calc(var(--lineHeight) * 0.3);
+        padding: calc(var(--lineHeight) * 0.9) calc(var(--lineHeight) * 1);
+        border-radius: 14px;
+        background: var(--secondaryBackgroundColor);
+        border: var(--hairlineThickness) solid color(from var(--primaryText) srgb r g b / 0.09);
+        position: relative;
+        overflow: hidden;
+      }
+
+      /* Accent left-border stripe */
+      .pillar::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; bottom: 0;
+        width: 3px;
+      }
+
+      /* Secure Enclave pillar → Brand Indigo */
+      .pillar--blue::before   { background: var(--enclv-primary); }
+      /* RIP-7212 pillar → Enclave emerald */
+      .pillar--green::before  { background: var(--enclv-green); }
+      /* ERC Standards pillar → Electric Cyan */
+      .pillar--purple::before { background: var(--enclv-cyan); }
+
+      .pillar__eyebrow {
+        font-size: calc(var(--secondaryFontSize) - 1px);
+        font-weight: 660;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .pillar--blue   .pillar__eyebrow { color: var(--enclv-primary); }
+      .pillar--green  .pillar__eyebrow { color: var(--enclv-green); }
+      .pillar--purple .pillar__eyebrow { color: var(--enclv-cyan); }
+
+      .pillar__title {
+        font-size: var(--fontSize);
+        font-weight: 640;
+        color: var(--primaryText);
+        letter-spacing: -0.01em;
+        line-height: 1.3;
+      }
+
+      .pillar__desc {
+        font-size: var(--secondaryFontSize);
+        color: var(--secondaryText);
+        line-height: 1.65;
+        max-width: 68ch;
+        margin: 0;
+      }
+
+      .pillar__stat {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: calc(var(--lineHeight) * 0.2);
+        font-size: calc(var(--secondaryFontSize) - 1px);
+        font-weight: 620;
+      }
+
+      .pillar--green .pillar__stat  { color: var(--enclv-green); }
+      .pillar--blue  .pillar__stat  { color: var(--enclv-primary); }
+      .pillar--purple .pillar__stat { color: var(--enclv-cyan); }
+
+      /* ─── Section: Technical Architecture ─────────────────────────────── */
+
+      .arch-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: calc(var(--lineHeight) * 0.75);
+        margin-top: calc(var(--lineHeight) * 1);
+      }
+
+      @media screen and (min-width: 560px) {
+        .arch-grid { grid-template-columns: 1fr 1fr; }
+      }
+
+      .arch-card {
+        padding: calc(var(--lineHeight) * 0.85) calc(var(--lineHeight) * 0.9);
+        border-radius: 14px;
+        background: var(--secondaryBackgroundColor);
+        border: var(--hairlineThickness) solid color(from var(--primaryText) srgb r g b / 0.09);
+        display: flex;
+        flex-direction: column;
+        gap: calc(var(--lineHeight) * 0.35);
+      }
+
+      .arch-card__label {
+        font-size: calc(var(--secondaryFontSize) - 0.5px);
+        font-weight: 660;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--tertiaryText);
+      }
+
+      .arch-card__title {
+        font-size: var(--fontSize);
+        font-weight: 640;
+        color: var(--primaryText);
+        letter-spacing: -0.01em;
+        line-height: 1.25;
+      }
+
+      .arch-card__desc {
+        font-size: var(--secondaryFontSize);
+        color: var(--secondaryText);
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      .arch-card__detail {
+        font-size: calc(var(--secondaryFontSize) - 1px);
+        font-weight: 560;
+        color: var(--tertiaryText);
+        margin: 0;
+      }
+
+      /* ─── Tech Stack bento grid (inline) ─────────────────────────────── */
+
+      .bt-grid {
+        display: grid;
+        width: 100%;
+        margin-top: calc(var(--lineHeight) * 1);
+        gap: 6px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+          "bt-chain bt-mobile"
+          "bt-contracts bt-backend"
+          "bt-attest bt-infra";
+      }
+
+      /* Single-column on narrow viewports */
+      @media screen and (max-width: 500px) {
+        .bt-grid {
+          grid-template-columns: 1fr;
+          grid-template-areas:
+            "bt-chain"
+            "bt-mobile"
+            "bt-contracts"
+            "bt-backend"
+            "bt-attest"
+            "bt-infra";
+        }
+      }
+
+      .bt-card {
+        background: var(--secondaryBackgroundColor);
+        border-radius: 14px;
+        border: var(--hairlineThickness) solid color(from var(--primaryText) srgb r g b / 0.08);
+        padding: 16px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+
+
+
+      /* Category cards */
+      .bt-card-category {
+        padding: calc(var(--lineHeight) * 0.75) calc(var(--lineHeight) * 0.85);
+      }
+
+      .bt-card-chain    { grid-area: bt-chain; }
+      .bt-card-mobile   { grid-area: bt-mobile; }
+      .bt-card-contracts{ grid-area: bt-contracts; }
+      .bt-card-backend  { grid-area: bt-backend; }
+      .bt-card-attest   { grid-area: bt-attest; }
+      .bt-card-infra    { grid-area: bt-infra; }
+
+      /* Category name — matches section kicker weight and scale */
+      .bt-category-name {
+        font-family: inherit;
+        font-size: var(--secondaryFontSize);
+        font-weight: 660;
+        letter-spacing: -0.01em;
+        margin-bottom: 4px;
+      }
+
+      /* Subtitle line under the name */
+      .bt-category-focus {
+        font-family: inherit;
+        font-size: calc(var(--secondaryFontSize) - 1px);
+        font-weight: 400;
+        color: var(--secondaryText);
+        margin-bottom: calc(var(--lineHeight) * 0.4);
+        line-height: 1.4;
+      }
+
+      .bt-pills-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0;
+      }
+
+      /* Pills — same size as the rest of the page's secondary text */
+      .bt-pill {
+        display: inline-block;
+        font-family: inherit;
+        font-size: calc(var(--secondaryFontSize) - 1.5px);
+        font-weight: 500;
+        color: var(--secondaryText);
+        background: color(from var(--primaryText) srgb r g b / 0.07);
+        border-radius: 100px;
+        padding: 2px 9px;
+        margin: 2px 3px 2px 0;
+        white-space: nowrap;
+      }
+
+
+
+      /* ─── Inline mono code tokens ──────────────────────────────────────── */
+
+      .mono-token {
+        font-family: ui-monospace, monospace;
+        font-size: 0.88em;
+        padding: 1px 5px;
+        border-radius: 5px;
+        background: color(from var(--primaryText) srgb r g b / 0.07);
+        color: var(--enclv-blue-light);
+        border: var(--hairlineThickness) solid color(from var(--primaryText) srgb r g b / 0.1);
+      }
+
+      /* mono-token light mode color via --enclv-primary brand token automatically */
+
+      /* ─── Content section normalisation ───────────────────────────────── */
+
+      .enclv-section {
+        display: block;
+        padding-top: calc(var(--lineHeight) * 2.5);
+      }
+
+      .enclv-section:last-of-type {
+        padding-bottom: calc(var(--lineHeight) * 2.5);
+      }
+
+      .enclv-section-title {
+        font-size: calc(var(--fontSize) * 1.85);
+        font-weight: 640;
+        letter-spacing: -0.025em;
+        line-height: calc(var(--lineHeight) * 1.4);
+        color: var(--primaryText);
+        margin: 0 0 calc(var(--lineHeight) * 0.4) 0;
+      }
+
+      .enclv-section-kicker {
+        font-size: var(--secondaryFontSize);
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--enclv-blue-light);
+        margin-bottom: calc(var(--lineHeight) * 0.5);
+      }
+
+      /* .enclv-section-kicker light color via --enclv-primary brand token automatically */
+
+      .enclv-body-copy {
+        font-size: var(--fontSize);
+        color: var(--secondaryText);
+        line-height: 1.7;
+        margin: 0 0 calc(var(--lineHeight) * 0.9) 0;
+        max-width: 68ch;
+      }
+
+      .enclv-body-copy:last-child { margin-bottom: 0; }
+      .enclv-body-copy strong { color: var(--primaryText); font-weight: 580; }
+
+    </style>
+  </head>
+
+  <body class="project-page">
+    <script src="/animations.js"></script>
+
+    <main>
+
+      <!-- ─── Hero ──────────────────────────────────────────────────────── -->
+
+      <section class="enclv-hero" data-delay style="--delay: 0.5;">
+
+        <div class="enclv-brand" data-delay style="--delay: 0.8;">
+          <img src="/img/projects/enclv/enclv-icon.png" alt="Enclv icon" width="54" height="54">
+          <span>Enclv</span>
+        </div>
+
+        <h1 class="enclv-h1" data-delay style="--delay: 1.1;">
+          <span class="enclv-h1-sub">
+			Hardware-Secured Account Abstraction via Apple Secure Enclave for Seed-Phrase-Free Ethereum Wallets
+		  </span>
+        </h1>
+
+        <p class="enclv-lead" data-delay style="--delay: 1.7;">
+          <em>Enclv</em> is an Ethereum wallet I built for my Master's thesis. No seed phrases.
+          Your keys live inside the Secure Enclave, transactions are signed with Face&hairsp;ID,
+          and recovery works through Passkeys and a ZK-proof of hardware provenance.
+        </p>
+
+        <div class="enclv-ctas" data-delay style="--delay: 2.0;">
+          <a id="btn-github" class="cta-primary" href="https://github.com/alessiorubicini/MSc-Thesis-Enclv" target="_blank" rel="noopener noreferrer">
+            <!-- GitHub icon -->
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.26.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.09-.744.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.31.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222 0 1.606-.015 2.898-.015 3.293 0 .319.217.694.825.576C20.565 21.796 24 17.298 24 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+            View on GitHub
+          </a>
+          <span id="btn-thesis-pdf" class="cta-secondary cta-disabled" aria-disabled="true" aria-label="Thesis PDF coming soon">
+            <!-- Clock icon -->
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+            Read Full Thesis (PDF)
+            <span class="cta-soon-badge">SOON</span>
+          </span>
+        </div>
+
+
+
+        <!-- Hero App Mockup Image -->
+        <img src="/img/projects/enclv/enclv-app.png" alt="Enclv App Preview" class="hero-app-mockup" data-delay style="--delay: 2.6;">
+
+
+
+      </section>
+
+
+      <!-- ─── The Problem ────────────────────────────────────────────────── -->
+
+      <section class="enclv-section" data-delay style="--delay: 3.2;">
+        <p class="enclv-section-kicker">The Problem</p>
+        <h2 class="enclv-section-title">Web3 has a UX Trilemma.</h2>
+
+        <p class="enclv-body-copy">
+          The biggest obstacle to Web3 adoption isn't regulation or gas fees. It's the seed phrase.
+          A sequence of 12 to 24 random words that is simultaneously your master key and your biggest
+          vulnerability. Lose it: your wallet is gone forever. Expose it: everything you own can be
+          drained in seconds. There's no support ticket, no recovery email, no reset link.
+        </p>
+        <p class="enclv-body-copy">
+          Every wallet tries to solve this, but the design space is trapped in a trilemma.
+          Pick any two of the three properties below; you always give up the third.
+        </p>
+
+        <div class="problem-trilemma">
+          <div class="trilemma-card">
+            <div class="trilemma-card__icon">🔑</div>
+            <div class="trilemma-card__label">Self-Sovereignty</div>
+            <div class="trilemma-card__desc">
+              Only you control your keys. No custodian, no escrow, no one to call if something goes wrong.
+            </div>
+          </div>
+          <div class="trilemma-card">
+            <div class="trilemma-card__icon">⚡</div>
+            <div class="trilemma-card__label">Convenience</div>
+            <div class="trilemma-card__desc">
+              Smooth onboarding, quick recovery, auth flows that don't require a cryptography textbook.
+            </div>
+          </div>
+          <div class="trilemma-card">
+            <div class="trilemma-card__icon">🛡️</div>
+            <div class="trilemma-card__label">Security</div>
+            <div class="trilemma-card__desc">
+              Strong guarantees that the private key can't be extracted or phished, even if the
+              device is fully compromised.
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ─── The Solution ───────────────────────────────────────────────── -->
+
+      <section class="enclv-section" data-delay style="--delay: 3.4;">
+        <p class="enclv-section-kicker">The Solution</p>
+        <h2 class="enclv-section-title">The "Face&hairsp;ID-to-Blockchain" Stack.</h2>
+
+        <p class="enclv-body-copy">
+          Enclv replaces the seed phrase with a stack of Apple and Ethereum primitives that,
+          taken together, cover all three sides of the trilemma at once.
+        </p>
+
+        <div class="solution-pillars">
+
+          <div class="pillar pillar--blue">
+            <span class="pillar__eyebrow">Apple Secure Enclave</span>
+            <div class="pillar__title">Keys are generated inside isolated hardware and never leave the chip.</div>
+            <p class="pillar__desc">
+              The Secure Enclave Processor is a dedicated cryptographic co-processor that sits
+              physically isolated from the main CPU. When Enclv creates a key pair, it happens
+              inside the SEP. The private key is bound to that chip and protected by Secure Boot.
+              Even a fully compromised iOS environment can't touch it. Signing is triggered by
+              Face&hairsp;ID or Touch&hairsp;ID, so the user never types a password or copies a mnemonic.
+            </p>
+            <span class="pillar__stat">Covers security and convenience without compromise.</span>
+          </div>
+
+          <div class="pillar pillar--purple">
+            <span class="pillar__eyebrow">ERC-4337 · ERC-7579</span>
+            <div class="pillar__title">Programmable smart accounts built on ERC-4337 and ERC-7579.</div>
+            <p class="pillar__desc">
+              Rather than a standard EOA tied to a single private key, each Enclv wallet is a
+              smart account. A <strong>Validator module</strong> verifies <code class="mono-token">secp256r1</code>
+              signatures from the Secure Enclave, an <strong>Executor module</strong> handles
+              intent-based transactions, and <strong>Hook modules</strong> enforce policies like
+              rate limits and timelocks. Modules can be replaced without changing your on-chain identity.
+            </p>
+            <span class="pillar__stat">Covers self-sovereignty with programmable recovery built in.</span>
+          </div>
+
+          <div class="pillar pillar--green">
+            <span class="pillar__eyebrow">RIP-7212 Precompile</span>
+            <div class="pillar__title">99% cheaper on-chain verification of Secure Enclave signatures.</div>
+            <p class="pillar__desc">
+              The Secure Enclave uses <span class="mono-token">secp256r1</span> (P-256), not
+              Ethereum's native <span class="mono-token">secp256k1</span>. Verifying a P-256
+              signature in Solidity historically cost up to 330k gas. The
+              <span class="mono-token">RIP-7212</span> precompile, now live on Polygon and other L2s,
+              brings that down to around 3,450 gas. That's the difference between a novelty
+              and something you'd actually ship.
+            </p>
+            <span class="pillar__stat">Makes hardware-native signatures economically viable.</span>
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- ─── Technical Architecture Highlights ─────────────────────────── -->
+
+      <section class="enclv-section" data-delay style="--delay: 3.6;">
+        <p class="enclv-section-kicker">Technical Architecture</p>
+        <h2 class="enclv-section-title">Research-grade engineering decisions.</h2>
+
+        <p class="enclv-body-copy">
+          These two decisions are where the real research sits, and what separates Enclv
+          from a standard smart account wallet.
+        </p>
+
+        <div class="arch-grid">
+
+          <div class="arch-card">
+            <div class="arch-card__label">ZK-Hardware Attestation</div>
+            <div class="arch-card__title">Proving hardware provenance without compromising privacy.</div>
+            <p class="arch-card__desc">
+              Apple's <strong>App Attest</strong> lets a device prove that a key pair was
+              created inside a real Secure Enclave. The problem is that the attestation
+              certificate includes identifiable metadata: device model, AAGUID, receipt.
+              To strip that without losing the proof, Enclv wraps it in a
+              <strong>ZK-SNARK circuit</strong> (built with
+              <span class="mono-token">Circom</span> and <span class="mono-token">snarkjs</span>).
+              The on-chain validator gets a cryptographic guarantee of hardware origin
+              without ever seeing the raw certificate.
+            </p>
+            <p class="arch-card__detail">
+              App Attest · snarkjs · Circom · Groth16 proof system
+            </p>
+          </div>
+
+          <div class="arch-card">
+            <div class="arch-card__label">Hybrid Recovery System</div>
+            <div class="arch-card__title">Hardware-grade time-delay security for passkey recovery.</div>
+            <p class="arch-card__desc">
+              Losing your phone shouldn't mean losing your wallet. But recovery can't just be
+              a backdoor. Enclv's recovery flow imposes a <strong>48-hour timelock</strong>
+              before any recovery request takes effect, plus a <strong>7-day quarantine window</strong>
+              where the original key can still cancel it. Passkeys, synced through iCloud Keychain,
+              act as an out-of-band second factor so you can restore access on a new device
+              with no seed phrase involved.
+            </p>
+            <p class="arch-card__detail">
+              Passkeys · WebAuthn · ERC-7579 Hook modules · 48h timelock · 7d quarantine
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- ─── Technology Stack ───────────────────────────────────────────── -->
+
+      <section class="enclv-section" data-delay style="--delay: 3.8;">
+        <p class="enclv-section-kicker">Technology Stack</p>
+        <h2 class="enclv-section-title">Three tightly integrated layers.</h2>
+
+        <p class="enclv-body-copy">
+          The project is a monorepo with three layers: a native iOS app, a backend that handles
+          ZK attestation and recovery relaying, and a set of on-chain Solidity contracts.
+        </p>
+
+        <div class="bt-grid">
+
+
+          <!-- Blockchain -->
+          <div class="bt-card bt-card-category bt-card-chain">
+            <div class="bt-category-name" style="color: var(--enclv-primary)">Blockchain</div>
+            <div class="bt-category-focus">Ethereum L2 testnet &amp; account standards</div>
+            <div class="bt-pills-wrap">
+              <span class="bt-pill">Polygon Amoy</span>
+              <span class="bt-pill">ERC-4337</span>
+              <span class="bt-pill">ERC-7579</span>
+              <span class="bt-pill">RIP-7212</span>
+            </div>
+          </div>
+
+          <!-- Mobile -->
+          <div class="bt-card bt-card-category bt-card-mobile">
+            <div class="bt-category-name" style="color: var(--enclv-cyan)">Mobile</div>
+            <div class="bt-category-focus">Native iOS wallet · SEP &amp; Apple frameworks</div>
+            <div class="bt-pills-wrap">
+              <span class="bt-pill">Swift</span>
+              <span class="bt-pill">SwiftUI</span>
+              <span class="bt-pill">CryptoKit</span>
+              <span class="bt-pill">Passkeys</span>
+              <span class="bt-pill">AuthenticationServices</span>
+              <span class="bt-pill">DeviceCheck</span>
+            </div>
+          </div>
+
+          <!-- Smart Contracts -->
+          <div class="bt-card bt-card-category bt-card-contracts">
+            <div class="bt-category-name" style="color: var(--enclv-green)">Smart contracts</div>
+            <div class="bt-category-focus">Solidity &amp; Foundry · Certora for formal checks</div>
+            <div class="bt-pills-wrap">
+              <span class="bt-pill">Solidity</span>
+              <span class="bt-pill">Foundry</span>
+              <span class="bt-pill">Certora</span>
+            </div>
+          </div>
+
+          <!-- Backend -->
+          <div class="bt-card bt-card-category bt-card-backend">
+            <div class="bt-category-name" style="color: var(--enclv-primary)">Backend</div>
+            <div class="bt-category-focus">Attestation &amp; relayer APIs</div>
+            <div class="bt-pills-wrap">
+              <span class="bt-pill">Node.js</span>
+              <span class="bt-pill">TypeScript</span>
+              <span class="bt-pill">Express</span>
+              <span class="bt-pill">viem</span>
+            </div>
+          </div>
+
+          <!-- Attestation / ZK -->
+          <div class="bt-card bt-card-category bt-card-attest">
+            <div class="bt-category-name" style="color: var(--enclv-cyan)">Attestation / ZK</div>
+            <div class="bt-category-focus">Apple attestation &amp; circuit tooling</div>
+            <div class="bt-pills-wrap">
+              <span class="bt-pill">App Attest</span>
+              <span class="bt-pill">snarkjs</span>
+              <span class="bt-pill">Circom</span>
+            </div>
+          </div>
+
+          <!-- Infra -->
+          <div class="bt-card bt-card-category bt-card-infra">
+            <div class="bt-category-name" style="color: var(--enclv-green)">Infra</div>
+            <div class="bt-category-focus">RPC, bundler &amp; deployment</div>
+            <div class="bt-pills-wrap">
+              <span class="bt-pill">Alchemy</span>
+              <span class="bt-pill">Pimlico</span>
+              <span class="bt-pill">Vercel</span>
+            </div>
+          </div>
+
+
+
+        </div>
+      </section>
+
+
+      <!-- ─── Footer ─────────────────────────────────────────────────────── -->
+
+      <div class="legal-links" data-delay style="--delay: 4.0;">
+        <span>© 2026 <a href="/">Alessio Rubicini</a></span>
+        <span>·</span>
+        <a href="/">Back to Portfolio</a>
+      </div>
+
+    </main>
+
+
+  </body>
+</html>

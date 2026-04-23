@@ -1,13 +1,16 @@
 User-agent: *
 Allow: /
 
-# Allow all search engines to crawl the main site
+# Allowed directories
 Allow: /index.html
 Allow: /img/
 Allow: /ember/
+Allow: /fynn/
 Allow: /mission/
 Allow: /monei/
 Allow: /screenplaygenie/
+Allow: /enclv/
+Allow: /unicam/
 
 # Disallow crawling of Google verification file
 Disallow: /google6182183c97042d14.html
