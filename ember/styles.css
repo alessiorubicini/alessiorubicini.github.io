@@ -74,3 +74,39 @@ body.project-page {
 .section-content {
   line-height: 1.75;
 }
+
+/* ─── Layout: Reduced Spacing ───────────────────────────── */
+
+section.section {
+  margin-bottom: 0;
+  padding-top: calc(var(--lineHeight) * 0.1);
+}
+
+.image-container {
+  margin: calc(var(--lineHeight) * 0.6) auto;
+}
+
+/* ─── GitHub Badge ───────────────────────────────────────── */
+
+.github-badge {
+  color: var(--primaryText);
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  text-decoration: none;
+  gap: 8px;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.github-badge:hover {
+  background: rgba(0, 0, 0, 0.08);
+  border-color: rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
+}
+
+.github-badge img {
+  width: 16px;
+  height: 16px;
+  opacity: 0.8;
+}

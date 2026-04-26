@@ -17,9 +17,27 @@
     });
   }
 
+  function initShimmer() {
+    var images = document.querySelectorAll("img");
+    images.forEach(function (img) {
+      if (img.complete) return;
+      img.classList.add("shimmer");
+      img.addEventListener("load", function() {
+        img.classList.remove("shimmer");
+      });
+      img.addEventListener("error", function() {
+        img.classList.remove("shimmer");
+      });
+    });
+  }
+
   if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initStagger);
+    document.addEventListener("DOMContentLoaded", function() {
+      initStagger();
+      initShimmer();
+    });
   } else {
     initStagger();
+    initShimmer();
   }
 })();

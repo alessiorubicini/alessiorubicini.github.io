@@ -376,86 +376,14 @@ footer {
 }
 
 @keyframes appear {
-0.000% {
-  opacity: 0.000;
-  filter: blur(4.000px);
-  transform: translateY(10.000px);
-}
-6.667% {
-  opacity: 0.618;
-  filter: blur(1.528px);
-  transform: translateY(4.932px);
-}
-13.333% {
-  opacity: 0.921;
-  filter: blur(0.317px);
-  transform: translateY(-0.524px);
-}
-20.000% {
-  opacity: 0.986;
-  filter: blur(0.055px);
-  transform: translateY(-1.568px);
-}
-26.667% {
-  opacity: 0.998;
-  filter: blur(0.009px);
-  transform: translateY(-0.552px);
-}
-33.333% {
-  opacity: 1.000;
-  filter: blur(0.001px);
-  transform: translateY(0.180px);
-}
-40.000% {
-  opacity: 1.000;
-  filter: blur(0.000px);
-  transform: translateY(0.229px);
-}
-46.667% {
-  opacity: 1.000;
-  filter: blur(0.000px);
-  transform: translateY(0.053px);
-}
-53.333% {
-  opacity: 1.000;
-  filter: blur(0.000px);
-  transform: translateY(-0.039px);
-}
-60.000% {
-  opacity: 1.000;
-  filter: blur(0.000px);
-  transform: translateY(-0.031px);
-}
-66.667% {
-  opacity: 1.000;
-  filter: blur(0.000px);
-  transform: translateY(-0.003px);
-}
-73.333% {
-  opacity: 1.000;
-  filter: blur(0.000px);
-  transform: translateY(0.007px);
-}
-80.000% {
-  opacity: 1.000;
-  filter: blur(0.000px);
-  transform: translateY(0.004px);
-}
-86.667% {
-  opacity: 1.000;
-  filter: blur(0.000px);
-  transform: translateY(-0.000px);
-}
-93.333% {
-  opacity: 1.000;
-  filter: blur(0.000px);
-  transform: translateY(-0.001px);
-}
-100.000% {
-  opacity: 1.000;
-  filter: blur(0.000px);
-  transform: translateY(-0.000px);
-}
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes appear-img {
@@ -469,7 +397,7 @@ footer {
 
 @media not (prefers-reduced-motion: reduce) {
   body.animate-appear:not(:has(:target)) {
-    --appearDuration: 2.495139694737313s;
+    --appearDuration: 0.8s;
   }
 }
 
@@ -478,15 +406,35 @@ footer {
   --delay: 0;
   --stagger-step: 0.2s;
 
-  animation: appear var(--appearDuration) linear both;
+  animation: appear var(--appearDuration) cubic-bezier(0.2, 0.8, 0.2, 1) both;
   animation-delay: calc(0.2s + calc(var(--delay) * var(--stagger-step)));
   will-change: transform, opacity;
 
   & figure {
-    animation: appear-img calc(var(--appearDuration) / 5) linear both;
+    animation: appear-img calc(var(--appearDuration) / 5) cubic-bezier(0.2, 0.8, 0.2, 1) both;
     animation-delay: calc(0.2s + calc(var(--delay) * var(--stagger-step)));
     will-change: transform, opacity;
   }
+}
+
+/* Shimmer loading */
+.shimmer {
+  background: linear-gradient(90deg, var(--secondaryBackgroundColor) 25%, color(from var(--secondaryBackgroundColor) srgb r g b / 0.5) 50%, var(--secondaryBackgroundColor) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite linear;
+  color: transparent !important;
+}
+
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+img {
+  transition: opacity 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+img.shimmer {
+  opacity: 0.8;
 }
 
 aside [data-appear] {
