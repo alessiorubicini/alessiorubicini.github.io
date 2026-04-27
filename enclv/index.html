@@ -22,534 +22,8 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Sora:wght@400;600;700;800&display=swap">
     <link rel="stylesheet" href="/styles.css">
     <link rel="stylesheet" href="/subpage-styles.css">
+    <link rel="stylesheet" href="styles.css">
 
-    <style>
-      /* ─── Enclv Thesis — Brand Identity Colors (from AppColors.swift) ─── */
-      /*
-       * Primary  → Brand Indigo  : #4F46E5 (light) / #6680E6 (dark)
-       * Secondary→ Electric Cyan : #06B6D4 (light) / #33CCFF (dark)
-       * Background               : #FAFAFA (light) / System black (dark)
-       * On-Surface text          : #0F172A (light) / white (dark)
-       * Text Variant             : #64748B
-       */
-      :root {
-        /* --- Primary: Brand Indigo (dark-mode values, hoisted to :root) --- */
-        --enclv-primary:      #6680E6;   /* Brand Indigo — dark */
-        --enclv-primary-dim:  color(from #6680E6 srgb r g b / 0.15);
-        --enclv-primary-border: color(from #6680E6 srgb r g b / 0.32);
-
-        /* --- Secondary: Electric Cyan (dark-mode) --- */
-        --enclv-cyan:         #33CCFF;
-        --enclv-cyan-dim:     color(from #33CCFF srgb r g b / 0.13);
-        --enclv-cyan-border:  color(from #33CCFF srgb r g b / 0.30);
-
-        /* --- Semantic aliases pointing to brand tokens --- */
-        --enclv-blue:         var(--enclv-primary);
-        --enclv-blue-light:   var(--enclv-primary);
-        --enclv-green:        #34D399;   /* ZK / Enclave emerald */
-        --enclv-purple:       var(--enclv-primary);  /* ERC standards — use Indigo */
-        --enclv-text-variant: #64748B;
-      }
-
-      /* Light-mode overrides */
-      @media (prefers-color-scheme: light) {
-        :root {
-          --enclv-primary:       #4F46E5;
-          --enclv-primary-dim:   color(from #4F46E5 srgb r g b / 0.10);
-          --enclv-primary-border: color(from #4F46E5 srgb r g b / 0.28);
-          --enclv-cyan:          #06B6D4;
-          --enclv-cyan-dim:      color(from #06B6D4 srgb r g b / 0.10);
-          --enclv-cyan-border:   color(from #06B6D4 srgb r g b / 0.28);
-          --enclv-blue:          #4F46E5;
-          --enclv-blue-light:    #4F46E5;
-          --enclv-purple:        #4F46E5;
-        }
-      }
-
-      /* ─── Hero ────────────────────────────────────────────────────────── */
-
-      .enclv-hero {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        text-align: left;
-        gap: calc(var(--lineHeight) * 1.1);
-        padding: calc(var(--lineHeight) * 3.5) 0 calc(var(--lineHeight) * 1.5) 0;
-      }
-
-      .enclv-brand {
-        display: inline-flex;
-        align-items: center;
-        gap: calc(var(--lineHeight) * 0.55);
-        font-size: calc(var(--fontSize) * 2.6);
-        font-weight: 700;
-        letter-spacing: -0.04em;
-        line-height: 1;
-        color: var(--primaryText);
-      }
-
-      .enclv-brand img {
-        width: 54px;
-        height: 54px;
-        border-radius: calc(var(--radius-icon) * 1.3);
-        border: var(--hairlineThickness) solid color(from var(--primaryText) srgb r g b / 0.1);
-        flex-shrink: 0;
-      }
-
-      .enclv-h1 {
-        font-size: calc(var(--fontSize) * 2.1);
-        font-weight: 680;
-        line-height: 1.2;
-        letter-spacing: -0.032em;
-        color: var(--primaryText);
-        max-width: 22ch;
-      }
-
-      @media screen and (min-width: 600px) {
-        .enclv-h1 {
-          font-size: calc(var(--fontSize) * 2.5);
-        }
-      }
-
-      /* Second line of the merged h1 — slightly smaller, brand-indigo tint */
-      .enclv-h1-sub {
-        display: block;
-        font-size: calc(var(--fontSize) * 1.45);
-        font-weight: 500;
-        letter-spacing: -0.02em;
-        color: var(--enclv-primary);
-        line-height: 1.3;
-        margin-top: 0.2em;
-      }
-
-      @media screen and (min-width: 600px) {
-        .enclv-h1-sub { font-size: calc(var(--fontSize) * 1.65); }
-      }
-
-      /* Light overrides for hero subtitle, mono tokens, and section kickers are
-         handled automatically via the brand token redefinition in the
-         @media (prefers-color-scheme: light) :root block above. */
-
-      .enclv-lead {
-        color: var(--secondaryText);
-        font-size: var(--fontSize);
-        max-width: 60ch;
-        line-height: 1.7;
-        margin: 0;
-      }
-
-      .enclv-ctas {
-        display: flex;
-        flex-wrap: wrap;
-        gap: calc(var(--lineHeight) * 0.5);
-        align-items: center;
-        justify-content: center;
-        margin-top: calc(var(--lineHeight) * 0.3);
-      }
-
-      /* Disabled CTA state */
-      .cta-disabled {
-        opacity: 0.42;
-        cursor: not-allowed;
-        pointer-events: none;
-      }
-
-      .cta-soon-badge {
-        display: inline-block;
-        font-size: 9px;
-        font-weight: 700;
-        letter-spacing: 0.06em;
-        color: var(--tertiaryText);
-        background: color(from var(--primaryText) srgb r g b / 0.1);
-        border-radius: 100px;
-        padding: 1px 6px;
-        margin-left: 2px;
-        vertical-align: middle;
-      }
-
-      /* Primary CTA — solid blue */
-      .cta-primary {
-        display: inline-flex;
-        align-items: center;
-        gap: 7px;
-        padding: 12px 22px;
-        font: inherit;
-        font-size: var(--secondaryFontSize);
-        font-weight: 620;
-        line-height: 1;
-        color: #fff;
-        background: var(--enclv-blue);
-        border: none;
-        border-radius: 10px;
-        text-decoration: none;
-        cursor: pointer;
-        transition: opacity 0.18s ease, transform 0.18s ease;
-        white-space: nowrap;
-      }
-
-      .cta-primary:hover { opacity: 0.88; }
-      .cta-primary:active { transform: translateY(1px); }
-      .cta-primary::after { content: none !important; }
-
-      /* Secondary CTA — outlined */
-      .cta-secondary {
-        display: inline-flex;
-        align-items: center;
-        gap: 7px;
-        padding: 11px 20px;
-        font: inherit;
-        font-size: var(--secondaryFontSize);
-        font-weight: 580;
-        line-height: 1;
-        color: var(--primaryText);
-        background: transparent;
-        border: var(--hairlineThickness) solid color(from var(--primaryText) srgb r g b / 0.25);
-        border-radius: 10px;
-        text-decoration: none;
-        cursor: pointer;
-        transition: border-color 0.18s ease, background 0.18s ease;
-        white-space: nowrap;
-      }
-
-      .cta-secondary:hover {
-        border-color: color(from var(--primaryText) srgb r g b / 0.5);
-        background: color(from var(--primaryText) srgb r g b / 0.04);
-      }
-      .cta-secondary::after { content: none !important; }
-
-      /* Hero App Image */
-      .hero-app-mockup {
-        width: 100%;
-        height: auto;
-        margin: calc(var(--lineHeight) * 1) 0 0 0;
-        display: block;
-        /* Image is inherently transparent, so no background or border needed */
-      }
-
-
-      /* ─── Section: The Problem ─────────────────────────────────────────── */
-
-      .problem-trilemma {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: calc(var(--lineHeight) * 0.75);
-        margin-top: calc(var(--lineHeight) * 1);
-      }
-
-      @media screen and (min-width: 560px) {
-        .problem-trilemma { grid-template-columns: repeat(3, 1fr); }
-      }
-
-      .trilemma-card {
-        padding: calc(var(--lineHeight) * 0.8) calc(var(--lineHeight) * 0.85);
-        border-radius: 12px;
-        background: var(--secondaryBackgroundColor);
-        border: var(--hairlineThickness) solid color(from var(--primaryText) srgb r g b / 0.1);
-        display: flex;
-        flex-direction: column;
-        gap: calc(var(--lineHeight) * 0.35);
-      }
-
-      .trilemma-card__icon {
-        font-size: 22px;
-        line-height: 1;
-      }
-
-      .trilemma-card__label {
-        font-size: var(--secondaryFontSize);
-        font-weight: 660;
-        color: var(--primaryText);
-        letter-spacing: -0.01em;
-      }
-
-      .trilemma-card__desc {
-        font-size: calc(var(--secondaryFontSize) - 0.5px);
-        color: var(--secondaryText);
-        line-height: 1.6;
-      }
-
-      /* ─── Section: The Solution ────────────────────────────────────────── */
-
-      .solution-pillars {
-        display: flex;
-        flex-direction: column;
-        gap: calc(var(--lineHeight) * 0.85);
-        margin-top: calc(var(--lineHeight) * 1);
-      }
-
-      .pillar {
-        display: flex;
-        flex-direction: column;
-        gap: calc(var(--lineHeight) * 0.3);
-        padding: calc(var(--lineHeight) * 0.9) calc(var(--lineHeight) * 1);
-        border-radius: 14px;
-        background: var(--secondaryBackgroundColor);
-        border: var(--hairlineThickness) solid color(from var(--primaryText) srgb r g b / 0.09);
-        position: relative;
-        overflow: hidden;
-      }
-
-      /* Accent left-border stripe */
-      .pillar::before {
-        content: '';
-        position: absolute;
-        top: 0; left: 0; bottom: 0;
-        width: 3px;
-      }
-
-      /* Secure Enclave pillar → Brand Indigo */
-      .pillar--blue::before   { background: var(--enclv-primary); }
-      /* RIP-7212 pillar → Enclave emerald */
-      .pillar--green::before  { background: var(--enclv-green); }
-      /* ERC Standards pillar → Electric Cyan */
-      .pillar--purple::before { background: var(--enclv-cyan); }
-
-      .pillar__eyebrow {
-        font-size: calc(var(--secondaryFontSize) - 1px);
-        font-weight: 660;
-        letter-spacing: 0.06em;
-        text-transform: uppercase;
-      }
-
-      .pillar--blue   .pillar__eyebrow { color: var(--enclv-primary); }
-      .pillar--green  .pillar__eyebrow { color: var(--enclv-green); }
-      .pillar--purple .pillar__eyebrow { color: var(--enclv-cyan); }
-
-      .pillar__title {
-        font-size: var(--fontSize);
-        font-weight: 640;
-        color: var(--primaryText);
-        letter-spacing: -0.01em;
-        line-height: 1.3;
-      }
-
-      .pillar__desc {
-        font-size: var(--secondaryFontSize);
-        color: var(--secondaryText);
-        line-height: 1.65;
-        max-width: 68ch;
-        margin: 0;
-      }
-
-      .pillar__stat {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        margin-top: calc(var(--lineHeight) * 0.2);
-        font-size: calc(var(--secondaryFontSize) - 1px);
-        font-weight: 620;
-      }
-
-      .pillar--green .pillar__stat  { color: var(--enclv-green); }
-      .pillar--blue  .pillar__stat  { color: var(--enclv-primary); }
-      .pillar--purple .pillar__stat { color: var(--enclv-cyan); }
-
-      /* ─── Section: Technical Architecture ─────────────────────────────── */
-
-      .arch-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: calc(var(--lineHeight) * 0.75);
-        margin-top: calc(var(--lineHeight) * 1);
-      }
-
-      @media screen and (min-width: 560px) {
-        .arch-grid { grid-template-columns: 1fr 1fr; }
-      }
-
-      .arch-card {
-        padding: calc(var(--lineHeight) * 0.85) calc(var(--lineHeight) * 0.9);
-        border-radius: 14px;
-        background: var(--secondaryBackgroundColor);
-        border: var(--hairlineThickness) solid color(from var(--primaryText) srgb r g b / 0.09);
-        display: flex;
-        flex-direction: column;
-        gap: calc(var(--lineHeight) * 0.35);
-      }
-
-      .arch-card__label {
-        font-size: calc(var(--secondaryFontSize) - 0.5px);
-        font-weight: 660;
-        letter-spacing: 0.05em;
-        text-transform: uppercase;
-        color: var(--tertiaryText);
-      }
-
-      .arch-card__title {
-        font-size: var(--fontSize);
-        font-weight: 640;
-        color: var(--primaryText);
-        letter-spacing: -0.01em;
-        line-height: 1.25;
-      }
-
-      .arch-card__desc {
-        font-size: var(--secondaryFontSize);
-        color: var(--secondaryText);
-        line-height: 1.6;
-        margin: 0;
-      }
-
-      .arch-card__detail {
-        font-size: calc(var(--secondaryFontSize) - 1px);
-        font-weight: 560;
-        color: var(--tertiaryText);
-        margin: 0;
-      }
-
-      /* ─── Tech Stack bento grid (inline) ─────────────────────────────── */
-
-      .bt-grid {
-        display: grid;
-        width: 100%;
-        margin-top: calc(var(--lineHeight) * 1);
-        gap: 6px;
-        grid-template-columns: 1fr 1fr;
-        grid-template-areas:
-          "bt-chain bt-mobile"
-          "bt-contracts bt-backend"
-          "bt-attest bt-infra";
-      }
-
-      /* Single-column on narrow viewports */
-      @media screen and (max-width: 500px) {
-        .bt-grid {
-          grid-template-columns: 1fr;
-          grid-template-areas:
-            "bt-chain"
-            "bt-mobile"
-            "bt-contracts"
-            "bt-backend"
-            "bt-attest"
-            "bt-infra";
-        }
-      }
-
-      .bt-card {
-        background: var(--secondaryBackgroundColor);
-        border-radius: 14px;
-        border: var(--hairlineThickness) solid color(from var(--primaryText) srgb r g b / 0.08);
-        padding: 16px 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        position: relative;
-        overflow: hidden;
-      }
-
-
-
-
-      /* Category cards */
-      .bt-card-category {
-        padding: calc(var(--lineHeight) * 0.75) calc(var(--lineHeight) * 0.85);
-      }
-
-      .bt-card-chain    { grid-area: bt-chain; }
-      .bt-card-mobile   { grid-area: bt-mobile; }
-      .bt-card-contracts{ grid-area: bt-contracts; }
-      .bt-card-backend  { grid-area: bt-backend; }
-      .bt-card-attest   { grid-area: bt-attest; }
-      .bt-card-infra    { grid-area: bt-infra; }
-
-      /* Category name — matches section kicker weight and scale */
-      .bt-category-name {
-        font-family: inherit;
-        font-size: var(--secondaryFontSize);
-        font-weight: 660;
-        letter-spacing: -0.01em;
-        margin-bottom: 4px;
-      }
-
-      /* Subtitle line under the name */
-      .bt-category-focus {
-        font-family: inherit;
-        font-size: calc(var(--secondaryFontSize) - 1px);
-        font-weight: 400;
-        color: var(--secondaryText);
-        margin-bottom: calc(var(--lineHeight) * 0.4);
-        line-height: 1.4;
-      }
-
-      .bt-pills-wrap {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0;
-      }
-
-      /* Pills — same size as the rest of the page's secondary text */
-      .bt-pill {
-        display: inline-block;
-        font-family: inherit;
-        font-size: calc(var(--secondaryFontSize) - 1.5px);
-        font-weight: 500;
-        color: var(--secondaryText);
-        background: color(from var(--primaryText) srgb r g b / 0.07);
-        border-radius: 100px;
-        padding: 2px 9px;
-        margin: 2px 3px 2px 0;
-        white-space: nowrap;
-      }
-
-
-
-      /* ─── Inline mono code tokens ──────────────────────────────────────── */
-
-      .mono-token {
-        font-family: ui-monospace, monospace;
-        font-size: 0.88em;
-        padding: 1px 5px;
-        border-radius: 5px;
-        background: color(from var(--primaryText) srgb r g b / 0.07);
-        color: var(--enclv-blue-light);
-        border: var(--hairlineThickness) solid color(from var(--primaryText) srgb r g b / 0.1);
-      }
-
-      /* mono-token light mode color via --enclv-primary brand token automatically */
-
-      /* ─── Content section normalisation ───────────────────────────────── */
-
-      .enclv-section {
-        display: block;
-        padding-top: calc(var(--lineHeight) * 2.5);
-      }
-
-      .enclv-section:last-of-type {
-        padding-bottom: calc(var(--lineHeight) * 2.5);
-      }
-
-      .enclv-section-title {
-        font-size: calc(var(--fontSize) * 1.85);
-        font-weight: 640;
-        letter-spacing: -0.025em;
-        line-height: calc(var(--lineHeight) * 1.4);
-        color: var(--primaryText);
-        margin: 0 0 calc(var(--lineHeight) * 0.4) 0;
-      }
-
-      .enclv-section-kicker {
-        font-size: var(--secondaryFontSize);
-        font-weight: 600;
-        letter-spacing: 0.05em;
-        text-transform: uppercase;
-        color: var(--enclv-blue-light);
-        margin-bottom: calc(var(--lineHeight) * 0.5);
-      }
-
-      /* .enclv-section-kicker light color via --enclv-primary brand token automatically */
-
-      .enclv-body-copy {
-        font-size: var(--fontSize);
-        color: var(--secondaryText);
-        line-height: 1.7;
-        margin: 0 0 calc(var(--lineHeight) * 0.9) 0;
-        max-width: 68ch;
-      }
-
-      .enclv-body-copy:last-child { margin-bottom: 0; }
-      .enclv-body-copy strong { color: var(--primaryText); font-weight: 580; }
-
-    </style>
   </head>
 
   <body class="project-page">
@@ -569,13 +43,15 @@
         <h1 class="enclv-h1" data-delay style="--delay: 1.1;">
           <span class="enclv-h1-sub">
 			Hardware-Secured Account Abstraction via Apple Secure Enclave for Seed-Phrase-Free Ethereum Wallets
+			<span class="enclv-author">Master's Thesis in Computer Science · By <a href="/">Alessio Rubicini</a></span>
 		  </span>
         </h1>
 
         <p class="enclv-lead" data-delay style="--delay: 1.7;">
-          <em>Enclv</em> is an Ethereum wallet I built for my Master's thesis. No seed phrases.
-          Your keys live inside the Secure Enclave, transactions are signed with Face&hairsp;ID,
-          and recovery works through Passkeys and a ZK-proof of hardware provenance.
+          <em>Enclv</em> is an iOS Ethereum wallet developed as a Master's thesis in Computer Science.
+          Private keys are generated and stored inside the Apple Secure Enclave, transactions are
+          authorised via Face&hairsp;ID, and account recovery is built on Passkeys combined with
+          a zero-knowledge proof of hardware attestation, without ever requiring a seed phrase.
         </p>
 
         <div class="enclv-ctas" data-delay style="--delay: 2.0;">
@@ -609,18 +85,20 @@
       <!-- ─── The Problem ────────────────────────────────────────────────── -->
 
       <section class="enclv-section" data-delay style="--delay: 3.2;">
-        <p class="enclv-section-kicker">The Problem</p>
-        <h2 class="enclv-section-title">Web3 has a UX Trilemma.</h2>
+        <p class="enclv-section-kicker">Motivation</p>
+        <h2 class="enclv-section-title">A persistent tension in wallet design.</h2>
 
         <p class="enclv-body-copy">
-          The biggest obstacle to Web3 adoption isn't regulation or gas fees. It's the seed phrase.
-          A sequence of 12 to 24 random words that is simultaneously your master key and your biggest
-          vulnerability. Lose it: your wallet is gone forever. Expose it: everything you own can be
-          drained in seconds. There's no support ticket, no recovery email, no reset link.
+          The mnemonic seed phrase remains one of the principal barriers to broad adoption of
+          self-custodial Ethereum wallets. A sequence of 12 to 24 randomly drawn words constitutes
+          the sole credential for an account: if lost, the wallet is permanently inaccessible;
+          if exposed, all associated assets can be transferred without recourse. There is no
+          credential-reset mechanism and no custodial fallback.
         </p>
         <p class="enclv-body-copy">
-          Every wallet tries to solve this, but the design space is trapped in a trilemma.
-          Pick any two of the three properties below; you always give up the third.
+          Existing designs navigate a three-way tension between the properties below.
+          Addressing any two tends to compromise the third, and no prior work resolves all three
+          simultaneously within a non-custodial model.
         </p>
 
         <div class="problem-trilemma">
@@ -628,22 +106,24 @@
             <div class="trilemma-card__icon">🔑</div>
             <div class="trilemma-card__label">Self-Sovereignty</div>
             <div class="trilemma-card__desc">
-              Only you control your keys. No custodian, no escrow, no one to call if something goes wrong.
+              The account owner holds exclusive control over private key material. No third-party
+              custodian, escrow service, or recovery authority is involved.
             </div>
           </div>
           <div class="trilemma-card">
             <div class="trilemma-card__icon">⚡</div>
-            <div class="trilemma-card__label">Convenience</div>
+            <div class="trilemma-card__label">Usability</div>
             <div class="trilemma-card__desc">
-              Smooth onboarding, quick recovery, auth flows that don't require a cryptography textbook.
+              Accessible onboarding, straightforward recovery, and authentication flows that do
+              not presuppose cryptographic expertise.
             </div>
           </div>
           <div class="trilemma-card">
             <div class="trilemma-card__icon">🛡️</div>
             <div class="trilemma-card__label">Security</div>
             <div class="trilemma-card__desc">
-              Strong guarantees that the private key can't be extracted or phished, even if the
-              device is fully compromised.
+              Verifiable guarantees that private key material cannot be extracted or forged, even
+              under full device compromise.
             </div>
           </div>
         </div>
@@ -653,54 +133,59 @@
       <!-- ─── The Solution ───────────────────────────────────────────────── -->
 
       <section class="enclv-section" data-delay style="--delay: 3.4;">
-        <p class="enclv-section-kicker">The Solution</p>
-        <h2 class="enclv-section-title">The "Face&hairsp;ID-to-Blockchain" Stack.</h2>
+        <p class="enclv-section-kicker">Approach</p>
+        <h2 class="enclv-section-title">Composing Apple and Ethereum primitives.</h2>
 
         <p class="enclv-body-copy">
-          Enclv replaces the seed phrase with a stack of Apple and Ethereum primitives that,
-          taken together, cover all three sides of the trilemma at once.
+          The thesis proposes eliminating the seed phrase by composing three complementary
+          primitives: hardware-backed key storage, programmable smart accounts, and an
+          efficient on-chain signature verification precompile, each addressing a distinct
+          side of the trilemma.
         </p>
 
         <div class="solution-pillars">
 
           <div class="pillar pillar--blue">
             <span class="pillar__eyebrow">Apple Secure Enclave</span>
-            <div class="pillar__title">Keys are generated inside isolated hardware and never leave the chip.</div>
+            <div class="pillar__title">Key pairs are generated inside isolated hardware and bound to the device chip.</div>
             <p class="pillar__desc">
-              The Secure Enclave Processor is a dedicated cryptographic co-processor that sits
-              physically isolated from the main CPU. When Enclv creates a key pair, it happens
-              inside the SEP. The private key is bound to that chip and protected by Secure Boot.
-              Even a fully compromised iOS environment can't touch it. Signing is triggered by
-              Face&hairsp;ID or Touch&hairsp;ID, so the user never types a password or copies a mnemonic.
+              The Apple Secure Enclave Processor (SEP) is a dedicated cryptographic co-processor
+              physically isolated from the application CPU. Key generation and all signing operations
+              occur exclusively within the SEP; the private key material is never exposed to the
+              operating system or application layer. User authorisation is delegated to Face&hairsp;ID
+              or Touch&hairsp;ID, removing the need for passwords or mnemonic transcription.
             </p>
-            <span class="pillar__stat">Covers security and convenience without compromise.</span>
+            <span class="pillar__stat">Addresses security and usability jointly.</span>
           </div>
 
           <div class="pillar pillar--purple">
             <span class="pillar__eyebrow">ERC-4337 · ERC-7579</span>
-            <div class="pillar__title">Programmable smart accounts built on ERC-4337 and ERC-7579.</div>
+            <div class="pillar__title">Modular smart account architecture based on ERC-4337 and ERC-7579.</div>
             <p class="pillar__desc">
-              Rather than a standard EOA tied to a single private key, each Enclv wallet is a
-              smart account. A <strong>Validator module</strong> verifies <code class="mono-token">secp256r1</code>
-              signatures from the Secure Enclave, an <strong>Executor module</strong> handles
-              intent-based transactions, and <strong>Hook modules</strong> enforce policies like
-              rate limits and timelocks. Modules can be replaced without changing your on-chain identity.
+              Rather than a standard externally-owned account (EOA) bound to a single key, each
+              Enclv wallet is implemented as a smart account. A <strong>Validator module</strong>
+              verifies <code class="mono-token">secp256r1</code> signatures from the Secure Enclave,
+              an <strong>Executor module</strong> handles intent-based transaction dispatch, and
+              <strong>Hook modules</strong> enforce policies such as spending rate limits and
+              recovery timelocks. The modular design allows individual components to be replaced
+              without altering the wallet's on-chain address or identity.
             </p>
-            <span class="pillar__stat">Covers self-sovereignty with programmable recovery built in.</span>
+            <span class="pillar__stat">Addresses self-sovereignty and programmable recovery.</span>
           </div>
 
           <div class="pillar pillar--green">
             <span class="pillar__eyebrow">RIP-7212 Precompile</span>
-            <div class="pillar__title">99% cheaper on-chain verification of Secure Enclave signatures.</div>
+            <div class="pillar__title">Efficient on-chain P-256 signature verification via the RIP-7212 precompile.</div>
             <p class="pillar__desc">
-              The Secure Enclave uses <span class="mono-token">secp256r1</span> (P-256), not
-              Ethereum's native <span class="mono-token">secp256k1</span>. Verifying a P-256
-              signature in Solidity historically cost up to 330k gas. The
-              <span class="mono-token">RIP-7212</span> precompile, now live on Polygon and other L2s,
-              brings that down to around 3,450 gas. That's the difference between a novelty
-              and something you'd actually ship.
+              The Secure Enclave operates over the <span class="mono-token">secp256r1</span> (P-256)
+              curve, whereas Ethereum's native ECDSA implementation uses
+              <span class="mono-token">secp256k1</span>. Pure-Solidity P-256 verification has
+              historically required around 330,000 gas per operation. The
+              <span class="mono-token">RIP-7212</span> precompile, deployed on Polygon and several
+              other L2 networks, reduces this to approximately 3,450 gas, making hardware-native
+              signatures economically feasible within a realistic fee budget.
             </p>
-            <span class="pillar__stat">Makes hardware-native signatures economically viable.</span>
+            <span class="pillar__stat">Reduces P-256 verification cost by roughly 99%.</span>
           </div>
 
         </div>
@@ -711,27 +196,27 @@
 
       <section class="enclv-section" data-delay style="--delay: 3.6;">
         <p class="enclv-section-kicker">Technical Architecture</p>
-        <h2 class="enclv-section-title">Research-grade engineering decisions.</h2>
+        <h2 class="enclv-section-title">Two design contributions beyond standard implementations.</h2>
 
         <p class="enclv-body-copy">
-          These two decisions are where the real research sits, and what separates Enclv
-          from a standard smart account wallet.
+          The following components represent the primary research contributions of the thesis,
+          distinguishing Enclv from a straightforward smart account wallet implementation.
         </p>
 
         <div class="arch-grid">
 
           <div class="arch-card">
             <div class="arch-card__label">ZK-Hardware Attestation</div>
-            <div class="arch-card__title">Proving hardware provenance without compromising privacy.</div>
+            <div class="arch-card__title">Verifying hardware provenance while preserving user privacy.</div>
             <p class="arch-card__desc">
-              Apple's <strong>App Attest</strong> lets a device prove that a key pair was
-              created inside a real Secure Enclave. The problem is that the attestation
-              certificate includes identifiable metadata: device model, AAGUID, receipt.
-              To strip that without losing the proof, Enclv wraps it in a
-              <strong>ZK-SNARK circuit</strong> (built with
-              <span class="mono-token">Circom</span> and <span class="mono-token">snarkjs</span>).
-              The on-chain validator gets a cryptographic guarantee of hardware origin
-              without ever seeing the raw certificate.
+              Apple's <strong>App Attest</strong> framework allows a device to demonstrate that a
+              given key pair was generated inside a genuine Secure Enclave. However, the resulting
+              attestation certificate contains identifiable metadata: device model, AAGUID, and
+              a receipt, that cannot be published on-chain without privacy implications. To retain
+              the cryptographic guarantee while discarding the identifying fields, Enclv wraps the
+              attestation verification inside a <strong>ZK-SNARK circuit</strong> implemented
+              with <span class="mono-token">Circom</span> and <span class="mono-token">snarkjs</span>.
+              The on-chain validator receives only the proof, not the raw certificate.
             </p>
             <p class="arch-card__detail">
               App Attest · snarkjs · Circom · Groth16 proof system
@@ -740,14 +225,15 @@
 
           <div class="arch-card">
             <div class="arch-card__label">Hybrid Recovery System</div>
-            <div class="arch-card__title">Hardware-grade time-delay security for passkey recovery.</div>
+            <div class="arch-card__title">Time-locked, passkey-based account recovery with cancellation guarantees.</div>
             <p class="arch-card__desc">
-              Losing your phone shouldn't mean losing your wallet. But recovery can't just be
-              a backdoor. Enclv's recovery flow imposes a <strong>48-hour timelock</strong>
-              before any recovery request takes effect, plus a <strong>7-day quarantine window</strong>
-              where the original key can still cancel it. Passkeys, synced through iCloud Keychain,
-              act as an out-of-band second factor so you can restore access on a new device
-              with no seed phrase involved.
+              Device loss must not result in permanent account inaccessibility, yet a recovery
+              mechanism cannot introduce an exploitable backdoor. The proposed scheme enforces
+              a <strong>48-hour timelock</strong> before any recovery transaction is executed,
+              followed by a <strong>7-day quarantine window</strong> during which the original
+              key holder can submit a cancellation. Passkeys synchronised via iCloud Keychain
+              serve as an out-of-band second factor, enabling access restoration on a new device
+              without seed phrase involvement.
             </p>
             <p class="arch-card__detail">
               Passkeys · WebAuthn · ERC-7579 Hook modules · 48h timelock · 7d quarantine
@@ -762,11 +248,12 @@
 
       <section class="enclv-section" data-delay style="--delay: 3.8;">
         <p class="enclv-section-kicker">Technology Stack</p>
-        <h2 class="enclv-section-title">Three tightly integrated layers.</h2>
+        <h2 class="enclv-section-title">A three-layer monorepo architecture.</h2>
 
         <p class="enclv-body-copy">
-          The project is a monorepo with three layers: a native iOS app, a backend that handles
-          ZK attestation and recovery relaying, and a set of on-chain Solidity contracts.
+          The implementation is structured as a monorepo comprising three layers: a native iOS
+          application, a server-side backend responsible for ZK attestation verification and
+          UserOperation relaying, and a set of on-chain Solidity smart contracts.
         </p>
 
         <div class="bt-grid">
@@ -853,8 +340,6 @@
 
       <div class="legal-links" data-delay style="--delay: 4.0;">
         <span>© 2026 <a href="/">Alessio Rubicini</a></span>
-        <span>·</span>
-        <a href="/">Back to Portfolio</a>
       </div>
 
     </main>
