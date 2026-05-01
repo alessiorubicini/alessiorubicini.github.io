@@ -1,0 +1,23 @@
+{
+  "name": "alessiorubicini-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Personal portfolio and developer blog — alessiorubicini.github.io",
+  "scripts": {
+    "start": "eleventy --serve --input=src --output=_site",
+    "build": "eleventy --input=src --output=_site",
+    "new-post": "node scripts/new-post.js"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0",
+    "@11ty/eleventy-plugin-rss": "^2.0.0",
+    "@shikijs/markdown-it": "^1.0.0",
+    "markdown-it": "^14.0.0",
+    "markdown-it-anchor": "^9.0.0",
+    "shiki": "^1.0.0"
+  },
+  "dependencies": {
+    "markdown-it-github-alerts": "^1.0.1"
+  }
+}

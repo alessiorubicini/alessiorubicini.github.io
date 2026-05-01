@@ -1,0 +1,5 @@
+export default {
+  layout: "blog-post.njk",
+  tags: ["posts"],
+  permalink: "/blog/{{ page.fileSlug }}/index.html",
+};

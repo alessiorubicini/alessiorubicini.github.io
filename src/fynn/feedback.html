@@ -1,0 +1,268 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <link rel="icon" href="/img/projects/Fynn.png" type="image/png">
+
+    <title>Feedback • Fynn</title>
+    <meta content="Share your feedback for Fynn." name="description">
+    <meta name="author" content="Alessio Rubicini">
+
+    <link rel="canonical" href="https://alessiorubicini.github.io/fynn/feedback.html">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+      body.project-page {
+        min-height: 100vh;
+      }
+
+      .feedback-main {
+        min-height: 100vh;
+        display: block;
+        padding: calc(var(--lineHeight) * 2.5) 0 calc(var(--lineHeight) * 2);
+      }
+
+      .feedback-card {
+        display: block;
+        width: 100%;
+        max-width: 720px;
+        margin: 0 auto;
+        background: color(from var(--secondaryBackgroundColor) srgb r g b / 0.72);
+        border: var(--hairlineThickness) solid color(from var(--primaryText) srgb r g b / 0.15);
+        border-radius: 18px;
+        padding: calc(var(--lineHeight) * 1.4);
+        backdrop-filter: blur(8px);
+      }
+
+      .feedback-card h1,
+      .feedback-card p,
+      .feedback-card form,
+      .feedback-card div {
+        grid-column: auto;
+      }
+
+      .feedback-title-row {
+        display: inline-flex;
+        align-items: flex-start;
+        gap: 10px;
+        margin-bottom: calc(var(--lineHeight) * 0.45);
+      }
+
+      .feedback-title-row img {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        margin-top: 2px;
+        flex-shrink: 0;
+      }
+
+      .feedback-title {
+        color: var(--primaryText);
+        font-size: calc(var(--fontSize) * 2);
+        line-height: 1.15;
+        font-weight: 650;
+        letter-spacing: -0.02em;
+        margin-bottom: 0;
+        max-width: 22ch;
+      }
+
+      .feedback-subtitle {
+        max-width: 54ch;
+        margin-bottom: calc(var(--lineHeight) * 1.1);
+      }
+
+      .feedback-form {
+        display: flex;
+        flex-direction: column;
+        gap: calc(var(--lineHeight) * 0.8);
+      }
+
+      .field-group {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .field-group label {
+        color: var(--primaryText);
+        font-size: var(--secondaryFontSize);
+        font-weight: 560;
+      }
+
+      .field-group select,
+      .field-group textarea {
+        width: 100%;
+        display: block;
+        border: var(--hairlineThickness) solid color(from var(--primaryText) srgb r g b / 0.2);
+        border-radius: 12px;
+        background-color: color(from var(--backgroundColor) srgb r g b / 0.55);
+        color: var(--primaryText);
+        font: inherit;
+        padding: 12px 14px;
+      }
+
+      .field-group textarea {
+        min-height: 210px;
+        resize: vertical;
+        line-height: 1.55;
+      }
+
+      .field-group select:focus-visible,
+      .field-group textarea:focus-visible {
+        outline: 2px solid color(from var(--accentColor) srgb r g b / 0.4);
+        outline-offset: 2px;
+      }
+
+      .feedback-submit {
+        margin-top: 6px;
+        width: 100%;
+        border: none;
+        border-radius: 28px;
+        background-color: var(--primaryText);
+        color: var(--backgroundColor);
+        font: inherit;
+        font-weight: 620;
+        padding: 13px 20px;
+        cursor: pointer;
+        transition: transform 0.2s ease, opacity 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+      }
+
+      .feedback-submit:hover {
+        opacity: 0.92;
+      }
+
+      .feedback-submit:active {
+        transform: translateY(1px);
+      }
+
+      .feedback-submit-icon {
+        width: 16px;
+        height: 16px;
+        display: inline-block;
+      }
+
+      .feedback-help {
+        margin-top: calc(var(--lineHeight) * 0.4);
+        font-size: var(--secondaryFontSize);
+        color: var(--tertiaryText);
+      }
+
+      .feedback-help a {
+        color: var(--secondaryText);
+      }
+
+      @media screen and (max-width: 799px) {
+        .feedback-main {
+          padding-top: calc(var(--lineHeight) * 1.5);
+        }
+
+        .feedback-card {
+          padding: calc(var(--lineHeight) * 1.05);
+          border-radius: 14px;
+        }
+
+        .feedback-title {
+          font-size: calc(var(--fontSize) * 1.6);
+          max-width: none;
+        }
+
+        .feedback-title-row img {
+          width: 34px;
+          height: 34px;
+          border-radius: 8px;
+        }
+
+        .feedback-subtitle {
+          margin-bottom: calc(var(--lineHeight) * 0.9);
+        }
+
+        .field-group textarea {
+          min-height: 170px;
+        }
+      }
+    </style>
+  </head>
+  <body class="project-page">
+    <main class="feedback-main">
+      <section class="feedback-card">
+        <div class="feedback-title-row">
+          <h1 class="feedback-title">Help improve Fynn</h1>
+          <img src="/img/projects/Fynn.png" alt="Fynn logo" width="40" height="40">
+        </div>
+        <p class="feedback-subtitle">I’d love to hear your thoughts about Fynn. Your feedback helps me fix issues, improve features, and make the app better for everyone. Please share any bugs, ideas, or general impressions.</p>
+
+        <form class="feedback-form" id="feedback-form">
+          <div class="field-group">
+            <label for="feedback-type">Feedback type</label>
+            <select id="feedback-type" name="feedback-type" required>
+              <option value="Bug report">Bug report</option>
+              <option value="Feature request">Feature request</option>
+              <option value="General feedback">General feedback</option>
+            </select>
+          </div>
+
+          <div class="field-group">
+            <label for="feedback-description">Description</label>
+            <textarea id="feedback-description" name="feedback-description" placeholder="Tell me what happened, what you expected, and anything useful to reproduce or understand your feedback." required></textarea>
+          </div>
+
+          <button class="feedback-submit" type="submit">
+            Send
+            <svg class="feedback-submit-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M22 2L11 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M22 2L15 22L11 13L2 9L22 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+        </form>
+
+        <p class="feedback-help">
+          Prefer writing directly? Email
+          <a href="mailto:alessiorubicini16@icloud.com">alessiorubicini16@icloud.com</a>.
+        </p>
+      </section>
+    </main>
+
+    <script>
+      (function() {
+        var form = document.getElementById("feedback-form");
+        if (!form) return;
+
+        form.addEventListener("submit", function(event) {
+          event.preventDefault();
+
+          var typeField = document.getElementById("feedback-type");
+          var descriptionField = document.getElementById("feedback-description");
+          if (!typeField || !descriptionField) return;
+
+          var feedbackType = typeField.value.trim();
+          var description = descriptionField.value.trim();
+          if (!description) {
+            descriptionField.focus();
+            return;
+          }
+
+          var recipient = "alessiorubicini16@icloud.com";
+          var subject = "[Fynn Feedback] " + feedbackType;
+          var body =
+            "Feedback Type: " + feedbackType + "\n\n" +
+            "Description:\n" + description + "\n\n" +
+            "---\n" +
+            "Sent from: Fynn feedback page";
+
+          var mailtoLink =
+            "mailto:" + encodeURIComponent(recipient) +
+            "?subject=" + encodeURIComponent(subject) +
+            "&body=" + encodeURIComponent(body);
+
+          window.location.href = mailtoLink;
+        });
+      })();
+    </script>
+  </body>
+</html>

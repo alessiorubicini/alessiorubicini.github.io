@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <link rel="icon" href="/img/favicon.png" type="image/png">
+
+  <title>{{ title or site.title }}</title>
+  <meta name="author" content="{{ site.author }}">
+  <meta name="description" content="{{ description or site.description }}">
+
+  <!-- OpenGraph -->
+  <meta property="og:type" content="{{ ogType or 'website' }}">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:title" content="{{ title or site.title }}">
+  <meta property="og:description" content="{{ description or site.description }}">
+  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:locale" content="en_US">
+  {% if ogImage %}<meta property="og:image" content="{{ site.url }}{{ ogImage }}">{% endif %}
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ title or site.title }}">
+  <meta name="twitter:description" content="{{ description or site.description }}">
+  <meta name="twitter:creator" content="@alessiorubicini">
+
+  <!-- Article structured data for blog posts -->
+  {% if ogType == "article" %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "{{ title }}",
+    "description": "{{ description }}",
+    "author": { "@type": "Person", "name": "{{ site.author }}", "url": "{{ site.url }}/" },
+    "datePublished": "{{ date | isoDate }}",
+    "url": "{{ site.url }}{{ page.url }}"
+  }
+  </script>
+  {% endif %}
+
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+  <link rel="alternate" type="application/rss+xml" title="{{ site.title }} Blog" href="{{ site.url }}/blog/feed.xml">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/subpage-styles.css">
+  <link rel="stylesheet" href="/blog-styles.css">
+
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="5b47afd2-b973-4c21-9668-a175674e4d81"></script>
+</head>
+<body class="project-page blog-post-page">
+  <script src="/animations.js"></script>
+  {{ content | safe }}
+</body>
+</html>

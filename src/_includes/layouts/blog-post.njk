@@ -1,0 +1,46 @@
+---
+layout: base.njk
+ogType: article
+---
+<main>
+  <article class="post-article" data-appear>
+
+    <header class="post-header" data-appear>
+      <nav class="post-back" aria-label="Back to home">
+        <a href="/">&larr; back</a>
+      </nav>
+
+      <h1 class="post-title">{{ title }}</h1>
+
+      <div class="post-meta">
+        <div class="post-author">
+          <img src="/img/me-applepark2.png" alt="Alessio Rubicini" class="author-avatar">
+          <span class="author-name">Alessio Rubicini</span>
+        </div>
+        <span class="post-meta-sep">·</span>
+        <time datetime="{{ date | isoDate }}">{{ date | readableDate }}</time>
+        <span class="post-meta-sep">·</span>
+        <span class="reading-time">{{ content | readingTime }} min read</span>
+      </div>
+
+      {% if tags %}
+      <div class="post-tags">
+        {% for tag in tags %}
+          {% if tag != "posts" %}
+          <span class="tag-pill">{{ tag }}</span>
+          {% endif %}
+        {% endfor %}
+      </div>
+      {% endif %}
+    </header>
+
+    <div class="post-content" data-appear>
+      {{ content | safe }}
+    </div>
+
+  </article>
+
+  <div class="legal-links" data-appear>
+    <span>© 2026 <a href="/">Alessio Rubicini</a></span>
+  </div>
+</main>

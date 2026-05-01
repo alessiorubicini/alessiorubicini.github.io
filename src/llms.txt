@@ -1,0 +1,49 @@
+# Alessio Rubicini
+
+Alessio Rubicini is an iOS/macOS app developer and Swift expert based in Italy. He specializes in building thoughtful, human-centered applications for Apple platforms, with a focus on simplicity, design excellence, and privacy-first technologies.
+
+## Profile Summary
+
+- **Role**: Software Engineer, iOS/Apple Platforms Specialist.
+- **Education**: Computer Science at University of Camerino (UNICAM). Currently completing Master's Thesis on Secure Enclave-based Web3 wallets.
+- **Achievements**: Swift Student Challenge Winner 2025 🏆.
+- **Focus**: Apple Intelligence, SwiftUI, Secure Enclave, Web3/Blockchain, Natural Language Processing.
+- **Location**: Italy. Available for relocation.
+
+## Featured Projects
+
+- **Fynn**: A minimalist iOS finance app that uses Natural Language Processing and Apple Intelligence to log expenses instantly. Runs entirely offline for total privacy.
+- **Ember**: A wildfire evacuation planning application designed for safety and efficiency.
+- **Screenplay Genie**: An educational iPad app designed to help users learn screenwriting. (Swift Student Challenge 2025 Winner).
+- **Enclv**: Master's thesis project focused on leveraging Apple's Secure Enclave for passwordless Ethereum wallets.
+- **Monei**: (Work in progress) minimalist tracking project.
+
+## Open Source & Tools
+
+Alessio maintains several Swift packages and tools for the Apple developer community:
+
+- **Apple Foundation Models Agent Skill**: An agentic tool for leveraging Apple's on-device models.
+- **Swift Sessions**: A library for session management in Swift.
+- **Control Center for SwiftUI**: UI components for mimicking Apple's Control Center.
+- **Apple Intelligence for SwiftUI**: Integration tools for Apple Intelligence features.
+- **SF Symbols Picker for SwiftUI**: A versatile picker for Apple's iconography.
+- **Location Picker for SwiftUI**: Map-based location selection component.
+- **Pencil Drawer for SwiftUI**: Drawing tool integration for iPadOS/iOS.
+- **Island Alerts for SwiftUI**: Dynamic Island-inspired alert system.
+
+## Experience & Writing
+
+Alessio shares technical insights on his personal blog:
+- *Getting Hands-On with Apple's Foundation Models Framework*: [https://alessiorubicini.github.io/blog/getting-hands-on-with-apples-foundation-models-framework/](https://alessiorubicini.github.io/blog/getting-hands-on-with-apples-foundation-models-framework/)
+- *A Time of Opportunities*: [https://alessiorubicini.github.io/blog/a-time-of-opportunities/](https://alessiorubicini.github.io/blog/a-time-of-opportunities/)
+- *My Swift Student Challenge Journey*: [https://alessiorubicini.github.io/blog/my-swift-student-challenge/](https://alessiorubicini.github.io/blog/my-swift-student-challenge/)
+- *Introducing Session Types in Swift*: [https://alessiorubicini.github.io/blog/introducing-session-types-in-swift/](https://alessiorubicini.github.io/blog/introducing-session-types-in-swift/)
+- *Stalk Your Data in SwiftUI 5 with Observable*: [https://alessiorubicini.github.io/blog/stalk-your-data-in-swiftui-5-with-observable/](https://alessiorubicini.github.io/blog/stalk-your-data-in-swiftui-5-with-observable/)
+
+## Key Links
+
+- **Main Website**: [https://alessiorubicini.github.io/](https://alessiorubicini.github.io/)
+- **GitHub**: [https://github.com/alessiorubicini](https://github.com/alessiorubicini)
+- **LinkedIn**: [https://www.linkedin.com/in/alessiorubicini/](https://www.linkedin.com/in/alessiorubicini/)
+- **Threads**: [https://www.threads.com/@alessiorubicini](https://www.threads.com/@alessiorubicini)
+- **Email**: alessiorubicini16@icloud.com

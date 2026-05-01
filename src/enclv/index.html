@@ -1,0 +1,350 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <link rel="icon" href="/img/projects/enclv/enclv-icon.png" type="image/png">
+
+    <title>Enclv · Ethereum iOS Wallet</title>
+    <meta name="description" content="A research-driven Ethereum wallet that bridges hardware-level isolation and decentralized usability. Sign transactions with FaceID, back them up with Passkeys, secured by ZK-Proofs.">
+    <meta name="author" content="Alessio Rubicini">
+
+    <!-- OpenGraph -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://alessiorubicini.github.io/enclv/enclv-thesis.html">
+    <meta property="og:title" content="Enclv · Ethereum iOS Wallet">
+    <meta property="og:description" content="Eliminating seed phrases with the Apple Secure Enclave. A Master's Thesis in Computer Science.">
+    <meta property="og:site_name" content="Alessio Rubicini">
+    <meta property="og:locale" content="en_US">
+
+    <link rel="canonical" href="https://alessiorubicini.github.io/enclv/enclv-thesis.html">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600;700&family=Sora:wght@400;600;700;800&display=swap">
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="/subpage-styles.css">
+    <link rel="stylesheet" href="styles.css">
+
+  </head>
+
+  <body class="project-page">
+    <script src="/animations.js"></script>
+
+    <main>
+
+      <!-- ─── Hero ──────────────────────────────────────────────────────── -->
+
+      <section class="enclv-hero" data-delay style="--delay: 0.5;">
+
+        <div class="enclv-brand" data-delay style="--delay: 0.8;">
+          <img src="/img/projects/enclv/enclv-icon.png" alt="Enclv icon" width="54" height="54">
+          <span>Enclv</span>
+        </div>
+
+        <h1 class="enclv-h1" data-delay style="--delay: 1.1;">
+          <span class="enclv-h1-sub">
+			Hardware-Secured Account Abstraction via Apple Secure Enclave for Seed-Phrase-Free Ethereum Wallets
+			<span class="enclv-author">Master's Thesis in Computer Science · By <a href="/">Alessio Rubicini</a></span>
+		  </span>
+        </h1>
+
+        <p class="enclv-lead" data-delay style="--delay: 1.7;">
+          <em>Enclv</em> is an iOS Ethereum wallet developed as a Master's thesis in Computer Science.
+          Private keys are generated and stored inside the Apple Secure Enclave, transactions are
+          authorised via Face&hairsp;ID, and account recovery is built on Passkeys combined with
+          a zero-knowledge proof of hardware attestation, without ever requiring a seed phrase.
+        </p>
+
+        <div class="enclv-ctas" data-delay style="--delay: 2.0;">
+          <span id="btn-github" class="cta-primary cta-disabled" aria-disabled="true" aria-label="GitHub repository coming soon">
+            <!-- GitHub icon -->
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.387.6.113.82-.26.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61-.546-1.387-1.333-1.757-1.333-1.757-1.09-.744.083-.729.083-.729 1.205.085 1.84 1.237 1.84 1.237 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.31.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.3 1.23A11.509 11.509 0 0 1 12 5.803c1.02.005 2.047.138 3.006.404 2.29-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222 0 1.606-.015 2.898-.015 3.293 0 .319.217.694.825.576C20.565 21.796 24 17.298 24 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+            View on GitHub
+            <span class="cta-soon-badge">SOON</span>
+          </span>
+          <span id="btn-thesis-pdf" class="cta-secondary cta-disabled" aria-disabled="true" aria-label="Thesis PDF coming soon">
+            <!-- Clock icon -->
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/>
+            </svg>
+            Read Full Thesis (PDF)
+            <span class="cta-soon-badge">SOON</span>
+          </span>
+        </div>
+
+
+
+        <!-- Hero App Mockup Image -->
+        <img src="/img/projects/enclv/enclv-app.png" alt="Enclv App Preview" class="hero-app-mockup" data-delay style="--delay: 2.6;">
+
+
+
+      </section>
+
+
+      <!-- ─── The Problem ────────────────────────────────────────────────── -->
+
+      <section class="enclv-section" data-delay style="--delay: 3.2;">
+        <p class="enclv-section-kicker">Motivation</p>
+        <h2 class="enclv-section-title">A persistent tension in wallet design.</h2>
+
+        <p class="enclv-body-copy">
+          The mnemonic seed phrase remains one of the principal barriers to broad adoption of
+          self-custodial Ethereum wallets. A sequence of 12 to 24 randomly drawn words constitutes
+          the sole credential for an account: if lost, the wallet is permanently inaccessible;
+          if exposed, all associated assets can be transferred without recourse. There is no
+          credential-reset mechanism and no custodial fallback.
+        </p>
+        <p class="enclv-body-copy">
+          Existing designs navigate a three-way tension between the properties below.
+          Addressing any two tends to compromise the third, and no prior work resolves all three
+          simultaneously within a non-custodial model.
+        </p>
+
+        <div class="problem-trilemma">
+          <div class="trilemma-card">
+            <div class="trilemma-card__icon">🔑</div>
+            <div class="trilemma-card__label">Self-Sovereignty</div>
+            <div class="trilemma-card__desc">
+              The account owner holds exclusive control over private key material. No third-party
+              custodian, escrow service, or recovery authority is involved.
+            </div>
+          </div>
+          <div class="trilemma-card">
+            <div class="trilemma-card__icon">⚡</div>
+            <div class="trilemma-card__label">Usability</div>
+            <div class="trilemma-card__desc">
+              Accessible onboarding, straightforward recovery, and authentication flows that do
+              not presuppose cryptographic expertise.
+            </div>
+          </div>
+          <div class="trilemma-card">
+            <div class="trilemma-card__icon">🛡️</div>
+            <div class="trilemma-card__label">Security</div>
+            <div class="trilemma-card__desc">
+              Verifiable guarantees that private key material cannot be extracted or forged, even
+              under full device compromise.
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ─── The Solution ───────────────────────────────────────────────── -->
+
+      <section class="enclv-section" data-delay style="--delay: 3.4;">
+        <p class="enclv-section-kicker">Approach</p>
+        <h2 class="enclv-section-title">Composing Apple and Ethereum primitives.</h2>
+
+        <p class="enclv-body-copy">
+          The thesis proposes eliminating the seed phrase by composing three complementary
+          primitives: hardware-backed key storage, programmable smart accounts, and an
+          efficient on-chain signature verification precompile, each addressing a distinct
+          side of the trilemma.
+        </p>
+
+        <div class="solution-pillars">
+
+          <div class="pillar pillar--blue">
+            <span class="pillar__eyebrow">Apple Secure Enclave</span>
+            <div class="pillar__title">Key pairs are generated inside isolated hardware and bound to the device chip.</div>
+            <p class="pillar__desc">
+              The Apple Secure Enclave Processor (SEP) is a dedicated cryptographic co-processor
+              physically isolated from the application CPU. Key generation and all signing operations
+              occur exclusively within the SEP; the private key material is never exposed to the
+              operating system or application layer. User authorisation is delegated to Face&hairsp;ID
+              or Touch&hairsp;ID, removing the need for passwords or mnemonic transcription.
+            </p>
+            <span class="pillar__stat">Addresses security and usability jointly.</span>
+          </div>
+
+          <div class="pillar pillar--purple">
+            <span class="pillar__eyebrow">ERC-4337 · ERC-7579</span>
+            <div class="pillar__title">Modular smart account architecture based on ERC-4337 and ERC-7579.</div>
+            <p class="pillar__desc">
+              Rather than a standard externally-owned account (EOA) bound to a single key, each
+              Enclv wallet is implemented as a smart account. A <strong>Validator module</strong>
+              verifies <code class="mono-token">secp256r1</code> signatures from the Secure Enclave,
+              an <strong>Executor module</strong> handles intent-based transaction dispatch, and
+              <strong>Hook modules</strong> enforce policies such as spending rate limits and
+              recovery timelocks. The modular design allows individual components to be replaced
+              without altering the wallet's on-chain address or identity.
+            </p>
+            <span class="pillar__stat">Addresses self-sovereignty and programmable recovery.</span>
+          </div>
+
+          <div class="pillar pillar--green">
+            <span class="pillar__eyebrow">RIP-7212 Precompile</span>
+            <div class="pillar__title">Efficient on-chain P-256 signature verification via the RIP-7212 precompile.</div>
+            <p class="pillar__desc">
+              The Secure Enclave operates over the <span class="mono-token">secp256r1</span> (P-256)
+              curve, whereas Ethereum's native ECDSA implementation uses
+              <span class="mono-token">secp256k1</span>. Pure-Solidity P-256 verification has
+              historically required around 330,000 gas per operation. The
+              <span class="mono-token">RIP-7212</span> precompile, deployed on Polygon and several
+              other L2 networks, reduces this to approximately 3,450 gas, making hardware-native
+              signatures economically feasible within a realistic fee budget.
+            </p>
+            <span class="pillar__stat">Reduces P-256 verification cost by roughly 99%.</span>
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- ─── Technical Architecture Highlights ─────────────────────────── -->
+
+      <section class="enclv-section" data-delay style="--delay: 3.6;">
+        <p class="enclv-section-kicker">Technical Architecture</p>
+        <h2 class="enclv-section-title">Two design contributions beyond standard implementations.</h2>
+
+        <p class="enclv-body-copy">
+          The following components represent the primary research contributions of the thesis,
+          distinguishing Enclv from a straightforward smart account wallet implementation.
+        </p>
+
+        <div class="arch-grid">
+
+          <div class="arch-card">
+            <div class="arch-card__label">ZK-Hardware Attestation</div>
+            <div class="arch-card__title">Verifying hardware provenance while preserving user privacy.</div>
+            <p class="arch-card__desc">
+              Apple's <strong>App Attest</strong> framework allows a device to demonstrate that a
+              given key pair was generated inside a genuine Secure Enclave. However, the resulting
+              attestation certificate contains identifiable metadata: device model, AAGUID, and
+              a receipt, that cannot be published on-chain without privacy implications. To retain
+              the cryptographic guarantee while discarding the identifying fields, Enclv wraps the
+              attestation verification inside a <strong>ZK-SNARK circuit</strong> implemented
+              with <span class="mono-token">Circom</span> and <span class="mono-token">snarkjs</span>.
+              The on-chain validator receives only the proof, not the raw certificate.
+            </p>
+            <p class="arch-card__detail">
+              App Attest · snarkjs · Circom · Groth16 proof system
+            </p>
+          </div>
+
+          <div class="arch-card">
+            <div class="arch-card__label">Hybrid Recovery System</div>
+            <div class="arch-card__title">Time-locked, passkey-based account recovery with cancellation guarantees.</div>
+            <p class="arch-card__desc">
+              Device loss must not result in permanent account inaccessibility, yet a recovery
+              mechanism cannot introduce an exploitable backdoor. The proposed scheme enforces
+              a <strong>48-hour timelock</strong> before any recovery transaction is executed,
+              followed by a <strong>7-day quarantine window</strong> during which the original
+              key holder can submit a cancellation. Passkeys synchronised via iCloud Keychain
+              serve as an out-of-band second factor, enabling access restoration on a new device
+              without seed phrase involvement.
+            </p>
+            <p class="arch-card__detail">
+              Passkeys · WebAuthn · ERC-7579 Hook modules · 48h timelock · 7d quarantine
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- ─── Technology Stack ───────────────────────────────────────────── -->
+
+      <section class="enclv-section" data-delay style="--delay: 3.8;">
+        <p class="enclv-section-kicker">Technology Stack</p>
+        <h2 class="enclv-section-title">A three-layer monorepo architecture.</h2>
+
+        <p class="enclv-body-copy">
+          The implementation is structured as a monorepo comprising three layers: a native iOS
+          application, a server-side backend responsible for ZK attestation verification and
+          UserOperation relaying, and a set of on-chain Solidity smart contracts.
+        </p>
+
+        <div class="bt-grid">
+
+
+          <!-- Blockchain -->
+          <div class="bt-card bt-card-category bt-card-chain">
+            <div class="bt-category-name" style="color: var(--enclv-primary)">Blockchain</div>
+            <div class="bt-category-focus">Ethereum L2 testnet &amp; account standards</div>
+            <div class="bt-pills-wrap">
+              <span class="bt-pill">Polygon Amoy</span>
+              <span class="bt-pill">ERC-4337</span>
+              <span class="bt-pill">ERC-7579</span>
+              <span class="bt-pill">RIP-7212</span>
+            </div>
+          </div>
+
+          <!-- Mobile -->
+          <div class="bt-card bt-card-category bt-card-mobile">
+            <div class="bt-category-name" style="color: var(--enclv-cyan)">Mobile</div>
+            <div class="bt-category-focus">Native iOS wallet · SEP &amp; Apple frameworks</div>
+            <div class="bt-pills-wrap">
+              <span class="bt-pill">Swift</span>
+              <span class="bt-pill">SwiftUI</span>
+              <span class="bt-pill">CryptoKit</span>
+              <span class="bt-pill">Passkeys</span>
+              <span class="bt-pill">AuthenticationServices</span>
+              <span class="bt-pill">DeviceCheck</span>
+            </div>
+          </div>
+
+          <!-- Smart Contracts -->
+          <div class="bt-card bt-card-category bt-card-contracts">
+            <div class="bt-category-name" style="color: var(--enclv-green)">Smart contracts</div>
+            <div class="bt-category-focus">Solidity &amp; Foundry · Certora for formal checks</div>
+            <div class="bt-pills-wrap">
+              <span class="bt-pill">Solidity</span>
+              <span class="bt-pill">Foundry</span>
+              <span class="bt-pill">Certora</span>
+            </div>
+          </div>
+
+          <!-- Backend -->
+          <div class="bt-card bt-card-category bt-card-backend">
+            <div class="bt-category-name" style="color: var(--enclv-primary)">Backend</div>
+            <div class="bt-category-focus">Attestation &amp; relayer APIs</div>
+            <div class="bt-pills-wrap">
+              <span class="bt-pill">Node.js</span>
+              <span class="bt-pill">TypeScript</span>
+              <span class="bt-pill">Express</span>
+              <span class="bt-pill">viem</span>
+            </div>
+          </div>
+
+          <!-- Attestation / ZK -->
+          <div class="bt-card bt-card-category bt-card-attest">
+            <div class="bt-category-name" style="color: var(--enclv-cyan)">Attestation / ZK</div>
+            <div class="bt-category-focus">Apple attestation &amp; circuit tooling</div>
+            <div class="bt-pills-wrap">
+              <span class="bt-pill">App Attest</span>
+              <span class="bt-pill">snarkjs</span>
+              <span class="bt-pill">Circom</span>
+            </div>
+          </div>
+
+          <!-- Infra -->
+          <div class="bt-card bt-card-category bt-card-infra">
+            <div class="bt-category-name" style="color: var(--enclv-green)">Infra</div>
+            <div class="bt-category-focus">RPC, bundler &amp; deployment</div>
+            <div class="bt-pills-wrap">
+              <span class="bt-pill">Alchemy</span>
+              <span class="bt-pill">Pimlico</span>
+              <span class="bt-pill">Vercel</span>
+            </div>
+          </div>
+
+
+
+        </div>
+      </section>
+
+
+      <!-- ─── Footer ─────────────────────────────────────────────────────── -->
+
+      <div class="legal-links" data-delay style="--delay: 4.0;">
+        <span>© 2026 <a href="/">Alessio Rubicini</a></span>
+      </div>
+
+    </main>
+
+
+  </body>
+</html>

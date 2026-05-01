@@ -1,0 +1,49 @@
+---
+layout: base.njk
+title: "Blog • Alessio Rubicini"
+description: "Thoughts on iOS development, Swift, SwiftUI, and building on Apple platforms."
+permalink: /blog/index.html
+eleventyExcludeFromCollections: true
+---
+<main>
+  <section class="hero" data-appear style="text-align: left; align-items: flex-start; padding: calc(var(--lineHeight) * 3) 0 calc(var(--lineHeight) * 1);">
+    <h1 class="page-title" data-appear>Blog</h1>
+    <p class="lead" data-appear>
+      Thoughts on iOS development, Swift, SwiftUI, and the craft of building on Apple platforms.
+    </p>
+  </section>
+
+  {% if collections.posts.length %}
+  <section class="blog-index-section" data-appear>
+    <div class="blog-post-list">
+      {% for post in collections.posts %}
+      <article class="blog-list-item" data-appear>
+        <div class="blog-list-item__meta">
+          <time datetime="{{ post.date | isoDate }}" class="blog-list-item__date">{{ post.date | readableDate }}</time>
+          {% if post.data.tags %}
+          <span class="blog-list-item__tags">
+            {% for tag in post.data.tags %}{% if tag != "posts" %}<span class="tag-pill">{{ tag }}</span>{% endif %}{% endfor %}
+          </span>
+          {% endif %}
+        </div>
+        <h2 class="blog-list-item__title">
+          <a href="{{ post.url }}">{{ post.data.title }}</a>
+        </h2>
+        {% if post.data.description %}
+        <p class="blog-list-item__excerpt">{{ post.data.description }}</p>
+        {% endif %}
+        <p class="blog-list-item__reading-time">{{ post.templateContent | readingTime }} min read</p>
+      </article>
+      {% endfor %}
+    </div>
+  </section>
+  {% else %}
+  <p class="lead" style="padding-top: calc(var(--lineHeight) * 2);">No posts yet. Check back soon.</p>
+  {% endif %}
+
+  <div class="legal-links" data-appear>
+    <span>© 2026 <a href="/">Alessio Rubicini</a></span>
+    <span>·</span>
+    <a href="/blog/feed.xml">RSS Feed</a>
+  </div>
+</main>
