@@ -48,6 +48,31 @@
   <link rel="stylesheet" href="/blog-styles.css">
 
   <script defer src="https://cloud.umami.is/script.js" data-website-id="5b47afd2-b973-4c21-9668-a175674e4d81"></script>
+  <script>
+    async function shareArticle() {
+      const url = window.location.href;
+      const title = document.title;
+      const feedback = document.getElementById('shareFeedback');
+      
+      if (navigator.share) {
+        try {
+          await navigator.share({ title, url });
+        } catch (err) {
+          if (err.name !== 'AbortError') console.error('Share failed:', err);
+        }
+      } else {
+        try {
+          await navigator.clipboard.writeText(url);
+          if (feedback) {
+            feedback.textContent = 'Copied!';
+            setTimeout(() => feedback.textContent = '', 2000);
+          }
+        } catch (err) {
+          console.error('Copy failed:', err);
+        }
+      }
+    }
+  </script>
 </head>
 <body class="project-page blog-post-page">
   <script src="/animations.js"></script>

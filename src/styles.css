@@ -115,12 +115,6 @@ code, pre, tt, kbd, samp {
   font-size-adjust: 0.505;
 }
 
-@media (prefers-color-scheme: light) {
-  body {
-    font-weight: 450;
-  }
-}
-
 header {
   padding: calc(var(--lineHeight) * 4) 0 calc(var(--lineHeight) * 2);
 }
@@ -515,12 +509,6 @@ a, footer summary {
     &:hover {
       text-decoration-color: color(from var(--accentColor) srgb r g b / 1);
     }
-  }
-}
-
-@media (prefers-color-scheme: light) {
-  a {
-    font-weight: 500;
   }
 }
 

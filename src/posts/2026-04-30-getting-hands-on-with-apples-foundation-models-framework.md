@@ -9,13 +9,13 @@ tags:
   - foundation-models
 ---
 
-The landscape of artificial intelligence is evolving quickly, and Apple’s introduction of the Foundation Models framework at WWDC25 marks a meaningful shift: generative AI is no longer confined to the cloud; it lives directly on the user’s device.
+The landscape of artificial intelligence is evolving quickly, and Apples introduction of the Foundation Models framework at WWDC25 marks a meaningful shift: generative AI is no longer confined to the cloud; it lives directly on the users device.
 
-This framework gives developers direct access to Apple’s on-device large language model through a clean, native Swift API. The model is designed for a wide spectrum of tasks—summarization, entity extraction, text understanding, and refinement—while also being capable of creative generation, such as dynamic dialogue or even producing full Swift data structures through *guided generation*. It can also act autonomously, invoking custom code (“tools”) to perform specialized tasks within an app.
+This framework gives developers direct access to Apples on-device large language model through a clean, native Swift API. The model is designed for a wide spectrum of tasks - summarization, entity extraction, text understanding, and refinement - while also being capable of creative generation, such as dynamic dialogue or even producing full Swift data structures through *guided generation*. It can also act autonomously, invoking custom code (“tools”) to perform specialized tasks within an app.
 
 ## Why on-device AI matters
 
-Apple’s approach is anchored in privacy. With Foundation Models, user data never leaves the device—there’s no round trip to external servers. This isn’t just a technical detail; it’s a design principle that fundamentally reshapes trust in AI-powered features.
+Apples approach is anchored in privacy. With Foundation Models, user data never leaves the device. There's no round trip to external servers. This isn’t just a technical detail; it’s a design principle that fundamentally reshapes trust in AI-powered features.
 
 There’s also a practical upside. On-device inference is fast, responsive, and works offline. Streaming responses further reduce perceived latency, while the integration at the OS level means zero impact on app bundle size.
 
@@ -23,9 +23,9 @@ Taken together, this suggests a long-term direction: AI as an intrinsic part of 
 
 ## The itinerary planner example
 
-A recurring reference point is Apple’s WWDC session featuring an itinerary planner. It’s a compact but rich example of what the framework enables.
+A recurring reference point is Apples WWDC session featuring an itinerary planner. It’s a compact but rich example of what the framework enables.
 
-The app generates travel plans, selects points of interest via tool calling, and streams results progressively—so users can see the itinerary take shape in real time. It’s a useful mental model for understanding how the different pieces of the framework fit together.
+The app generates travel plans, selects points of interest via tool calling, and streams results progressively, so users can see the itinerary take shape in real time. It’s a useful mental model for understanding how the different pieces of the framework fit together.
 
 ## LanguageModelSession
 
@@ -36,7 +36,7 @@ import FoundationModels
 
 let session = LanguageModelSession()
 let response = try await session.respond(to: "Tell me a joke.")
-````
+```
 
 Each session maintains a `Transcript`, which records all prompts and responses. This enables conversational continuity, debugging, and UI representation of chat history.
 
@@ -75,7 +75,7 @@ func respond(userInput: String) async throws -> String {
 
 Every session operates within a context window limit. As the transcript grows, it may eventually exceed this limit, triggering an `exceededContextWindowSize` error.
 
-This is a fundamental constraint of language models—especially on-device ones—and requires explicit handling.
+This is a fundamental constraint of language models, especially on-device ones, and requires explicit handling.
 
 ### Recovery strategies
 
@@ -108,7 +108,7 @@ For more complex scenarios, you can even summarize past interactions and feed th
 
 ## Empowering the model with tools
 
-Tools extend the model beyond text generation. They allow it to interact with real data and perform actions—securely and locally.
+Tools extend the model beyond text generation. They allow it to interact with real data and perform actions, securely and locally.
 
 A tool conforms to the `Tool` protocol and defines:
 
@@ -185,7 +185,7 @@ Also, property order in `@Generable` types matters; fields are generated sequent
 
 ## Structured output with guided generation
 
-Guided generation allows the model to produce structured Swift types directly—no parsing required.
+Guided generation allows the model to produce structured Swift types directly, no parsing required.
 
 ```swift
 @Generable
@@ -262,4 +262,4 @@ This framework changes the equation. Generative AI becomes local, private, and d
 
 The implications are hard to overstate: no network dependency, negligible latency, and full control over how intelligence is embedded into an app.
 
-The most interesting part, though, isn’t the technology itself—it’s what developers will build with it. The shift from remote AI services to on-device intelligence opens a very different design space; one that feels much closer to the user, and far more personal.
+The most interesting part, though, isn’t the technology itself. It's what developers will build with it. The shift from remote AI services to on-device intelligence opens a very different design space; one that feels much closer to the user, and far more personal.

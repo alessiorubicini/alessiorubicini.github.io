@@ -19,7 +19,7 @@ An email arrives from Apple. The subject: **“Announcing Swift Student Challeng
 
 Recalling my 2024 participation: during the submissions period, I was busy, overwhelmed, and stressed. Exams were draining my energy, project meetups were taking over my calendar, and the prospect of starting my internship as an iOS developer (along with a small dose of imposter syndrome) was haunting me.
 
-I created a playground for the challenge—a bad one. A tiny, messy, and poorly designed iPad application for simulating HTTP requests. I knew the project was poorly made and that there would be submissions far superior to mine. At the end of March, the results came out. I was rejected. Even though I expected it, the rejection still stung.
+I created a playground for the challenge. A bad one. A tiny, messy, and poorly designed iPad application for simulating HTTP requests. I knew the project was poorly made and that there would be submissions far superior to mine. At the end of March, the results came out. I was rejected. Even though I expected it, the rejection still stung.
 
 I set the car in motion (literally, I was in my car when I received the results) and told myself: **“Next year.”**
 
@@ -39,7 +39,7 @@ You might want the official certificate, the free year of the Apple Developer Pr
 
 But the biggest reason is to **challenge yourself**.
 
-You might feel confident in your coding abilities from school or self-teaching, but are you *really* that confident? The Swift Student Challenge puts that to the test. It’s not about beating others—it’s about pushing your own boundaries. There are no rankings or scoreboards. Apple looks for projects that demonstrate **creativity, innovation, and originality**.
+You might feel confident in your coding abilities from school or self-teaching, but are you *really* that confident? The Swift Student Challenge puts that to the test. It’s not about beating others - it's about pushing your own boundaries. There are no rankings or scoreboards. Apple looks for projects that demonstrate **creativity, innovation, and originality**.
 
 ### The Philosophy: Creativity First
 
@@ -56,13 +56,13 @@ Maybe your app addresses a social issue or teaches coding in a unique way. I con
 
 **In hindsight, that was a mistake.**
 
-When I’m not coding, I’m writing stories. If you have an idea for a novel that’s been told before, you should tell it anyway—because **no one has told it the way you would**. The same applies to apps. Don’t discard an idea just because it’s been done. No one has built it the way *you* would.
+When I’m not coding, I’m writing stories. If you have an idea for a novel that’s been told before, you should tell it anyway, because **no one has told it the way you would**. The same applies to apps. Don’t discard an idea just because it’s been done. No one has built it the way *you* would.
 
 ![Thinking Outside the Box](https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDFxdzc4eHdoMDJucWFrMHU0Y2Noa2w2dWVwNW5vaDk3emhoMTVjeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/mXuPwP0kxQqvu0M168/giphy.gif)
 
 ### The Idea: Screenplay Genie 💡
 
-Finding an idea that is creative, innovative, and condensed into a three-minute experience is tricky. My first few ideas didn't survive. At one point, I was working on a flat solar system app—cool, but not particularly original.
+Finding an idea that is creative, innovative, and condensed into a three-minute experience is tricky. My first few ideas didn't survive. At one point, I was working on a flat solar system app - cool, but not particularly original.
 
 Then, it clicked. I love stories. I love writing them. I thought:
 **“What if I had an app to learn how to write a screenplay?”**
@@ -88,7 +88,7 @@ Weeks passed. On March 27th, the email arrived.
 
 ![Winner Celebration](https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGo5YzN4bXE4b2hzcjV3amg1NzU4OHA0MGRhNjZ6ZXExenI0cXJsbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oKIPu1AxMWB2xlwl2/giphy.gif)
 
-Winning is exciting, but the best part is the community. I feel deeply grateful—to Apple for hosting the challenge and to myself for participating without fear.
+Winning is exciting, but the best part is the community. I feel deeply grateful to Apple for hosting the challenge and to myself for participating without fear.
 
 ### Conclusion: Don't Be Afraid to Fail
 

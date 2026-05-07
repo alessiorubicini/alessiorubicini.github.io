@@ -9,49 +9,74 @@ tags:
   - open-source
 ---
 
-Let’s face it: concurrent Swift code can either be a smooth symphony of functionality or a tangled mess of callbacks and closures. If you’ve ever gotten lost in a labyrinth of `async/await` complexity, then this article is for you.
+Let's face it, Swift code can either be a smooth symphony of functionality or a tangled mess of callbacks and closures. If you've ever gotten lost in a labyrinth of async/await hell, then this article is for you. Buckle up, because we're about to take a joyride into the world of session types with my very own (hopefully) not-at-all-convoluted library!
 
-Buckle up, because we’re about to take a joyride into the world of **Session Types** with my very own library! We’ll explore how they can tame the wild async beast and bring much-needed structure to your concurrent code, all while avoiding any metaphors involving disturbing amounts of pasta 🍝.
+In this article, we'll explore how session types can tame the wild async beast and bring some much-needed structure to your concurrent Swift code. We'll embrace the clarity of type safety, all while avoiding any metaphors that involve disturbing amounts of pasta 🍝.
 
-### What are Session Types?
+## What are session types?
 
-Concurrent programs, where multiple processes run in parallel across a single machine or a distributed system, rely heavily on communication for coordination. These interactions follow specific protocols that define the allowed sequences of message exchanges. Managing these protocols correctly is crucial, but notoriously challenging.
+Concurrent programs, where multiple processes run in parallel on a single machine or across a distributed system, rely heavily on communication for coordination. These interactions follow specific protocols that define the allowed sequences of message exchanges. Managing these protocols correctly and securely is crucial for distributed systems and network communication, and it can be challenging.
 
-**Session Types**, born from the field of process typing and rooted in π-calculus, provide a formal way to specify and verify these communication protocols. They act as a type system specifically for communication channels, ensuring messages are exchanged in the correct order and format. Think of them as **“types for protocols.”**
+Session types, born from the field of process typing and rooted in π-calculus, provide a formal way to specify and verify these communication protocols. They act as a type system specifically for communication channels, ensuring messages are exchanged in the correct order and format. Think of them as "types for protocols."
 
-Session types specify:
-1. **Message Types**: What kind of data can be sent and received?
-2. **Message Order**: In what sequence must messages be exchanged?
-3. **Session Termination**: When can a communication session be safely closed?
+Session types define the structure, flow, and behavior of communication between processes. They specify:
 
-By describing a protocol as a type, we enable verification during the usual type checking performed by the compiler. This prevents errors like type mismatching, deadlocks, and starvation.
+- **Message Types**: What kind of data can be sent and received?
+- **Message Order**: In what sequence must messages be exchanged?
+- **Session Termination**: When can a communication session be closed?
 
-#### Core Concepts
+By describing a communication protocol as a type, session types enable verification during usual type checking performed by the compiler. This upfront check helps prevent errors like type mismatching, deadlocks, livelocks or starvation, leading to more robust and reliable distributed systems.
 
-*   **Duality**: Duality ensures that for every *send* action in one party’s protocol, there is a corresponding *receive* action in the other. If Tim uses `!int.?bool.end` (Send Int, Receive Bool, End), Craig must use `?int.!bool.end`. This synchronization guarantees the protocol is followed correctly from both perspectives.
-*   **Linearity**: Linearity ensures that each communication endpoint is consumed exactly once. If this principle fails, resources could be used multiple times or not at all, leading to potential deadlocks or resource leaks.
+## I never heard of it…
 
-### Swift Sessions: A Library for Binary Session Types
+If you've never heard of session types, that's normal. This is a concept born and explored in recent decades, and reserved for a limited set of languages ​​with particular functionality. Suffice it to say that there are very few programming languages ​​that natively support session types, such as MOOL (Mini Object-Oriented Language) or ATS (Authenticated Typed Script). And existing library implementations are usually targeted at languages ​​like Haskell and OCaml.
 
-As a Swift lover, I centered my bachelor’s degree thesis on this concept. The goal was to test Swift’s type system (literally abuse it) and attempt to implement session types natively.
+## A brief example
 
-With the help of my supervisor, **prof. Luca Padovani**, I developed a library that successfully implements session types for asynchronous communications between two processes.
+Let's take two people: Tim and Craig (no pun intended). Tim wants to know if a certain integer is even. Craig is the person who can calculate whether a number is even or not. We model the communication session between the two as follows.
 
-#### Example Usage
+Tim will use an endpoint where in sequence he can send an integer, receive a boolean and terminate the communication; the type of this endpoint will be `!int.?bool.end`.
 
-Let's see how a simple "Even Checker" protocol looks using the library:
+Craig will use an endpoint where he can sequentially receive an integer, send a boolean and end communication; so the type of this endpoint will be something like `?int.!bool.end`.
+
+Here we use a minimal syntax where:
+
+- `!T.S` means Send a value of type T and proceed with the protocol described by S;
+- `?T.S` means Receive a value of type T and proceeds with the protocol described by S;
+- `end` means end of communication.
+
+Thus we described the session endpoints that Tim and Craig use to communicate as datatypes.
+
+## Duality
+
+From this example it's already possible to understand one of the fundamental properties of session types, duality. Duality establishes a correspondence between the actions performed within a session, ensuring that each party adheres to the same communication protocol from a complementary perspective. Formally, duality dictates that for every send action in one party's protocol, there is a corresponding receive action in the other party's protocol.
+
+This mutual dependence, which obviously applies not only to the sending and receiving primitives but also to all the others, guarantees that communication proceeds in a synchronized and well-defined way, and that the protocol is followed correctly.
+
+## Linearity
+
+Another fundamental concept in the context of session types is linearity, which is crucial to guarantee the correct management of resources and communication endpoints. Linearity ensures that linear resource usage is enforced, i.e. that each communication endpoint is consumed (used) exactly once during a session.
+
+If this principle were to fail, resources could be used multiple times or not used at all, causing potential errors such as deadlocks.
+
+## Swift Sessions: a library for binary session types in Swift
+
+As a crazy Swift lover, I couldn't help but center my bachelor's degree thesis on it. The goal was to test Swift's type system (literally abuse it) and attempt to implement session types into the language.
+
+In the last two months, with the help of my supervisor, prof. Luca Padovani, author of various papers on the topic as well as developer of a session types library for OCaml, I have developed a library that successfully implements session types for asynchronous communications between two processes.
+
+Without delving into implementation details (for now), Swift Session provides the primitives, endpoints and channels needed to implement such structured communication sessions. Let's see an example of how to use it:
 
 ```swift
 await Session.create { e in
-    // Client Side
+    // One side of the communication channel
     await Session.send(42, on: e) { e in
         await Session.recv(from: e) { isEven, e in
             Session.close(e)
-            print("Is 42 even? \(isEven)")
         }
     }
-} _: { e in
-    // Server Side
+} _: { c in
+    // Another side of the communication channel
     await Session.recv(from: e) { num, e in
         await Session.send(num % 2 == 0, on: e) { e in
             Session.close(e)
@@ -60,35 +85,57 @@ await Session.create { e in
 }
 ```
 
-#### The Advantage of Type Safety
+In this example, we initialize a communication session between two processes: one sends a number (42 😏) and expects to receive a boolean, then closes the communication. The other process receives the integer, and sends true or false if the number is even or not, and then closes the communication too.
 
-What happens if we violate the protocol? If we try to send a `String` where the protocol expects an `Int`:
+Where is the advantage of session types? If in the first process we send 42 as a string instead of an integer, the second one will be in a protocol violation as it is treating what it received as an integer when it is actually a string:
 
 ```swift
-await Session.send("42", on: e) { e in // Protocol violation!
-    // ...
+await Session.create { e in
+    // One side of the communication channel
+    await Session.send("42", on: e) { e in
+        await Session.recv(from: e) { isEven, e in
+            Session.close(e)
+        }
+    }
+} _: { c in
+    // Another side of the communication channel
+    await Session.recv(from: e) { num, e in
+        await Session.send(num % 2 == 0, on: e) { e in  // ERROR!
+            Session.close(e)
+        }
+    }
 }
 ```
 
-The compiler will immediately step in with a familiar error:
-`Cannot convert value of type 'String' to expected argument type 'Int'`
+Thus we'll get a compile-time error saying:
 
-The processes dictate the protocol, forcing each other to respect it by exploiting the language's own type-checking mechanisms.
+```
+Cannot convert value of type 'String' to expected argument type 'Int'
+```
 
-### Implementation Details for the Nerdy ones 🤓
+The processes dictate the protocol, forcing each other to respect it by exploiting the language type checking.
 
-*   **Communication Layer**: Built on top of Apple’s **Swift Async Algorithms** library, specifically `AsyncChannel`. This allows for secure, non-blocking data transfer between concurrent activities.
-*   **Endpoints**: The library uses `Endpoint<A, B>` objects. An endpoint can either send type `A` or receive type `B`, but never both at once, ensuring protocol compliance.
-*   **Linearity Checking**: In the current implementation, linearity is checked dynamically at runtime. Endpoints verify they are used exactly once.
-*   **Programming Styles**: The library supports both direct continuation passing and closure-based syntax. The closure-based approach (shown above) offers the benefit of **complete type inference ✨**.
 
-### The Future: Swift 6.0 and Non-copyable Types
+![I don't trust anyone](https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnA0cHB3cHdyeWZ4aDhraG80Y2I5YzBkazRyMjVsZXNrN2Uxc3FwbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l46Cgwa9YZNNrEQla/giphy.gif)
 
-You might be wondering: *"Why check linearity at runtime? Just use non-copyable types!"*
+## Some details for the nerdier ones
 
-That was exactly our goal. However, in Swift 5.10, non-copyable types had limitations regarding generic types and tuples—both of which are central to this library's architecture. 
+For those of you who are more nerdy and want to know the implementation details of this library, here they are.
 
-With the arrival of **Swift 6.0**, many of these limitations are being lifted. I am eagerly looking forward to refactoring the library to use native `~Copyable` constraints for compile-time linearity verification!
+The underlying communication channel between processes is implemented via the AsyncChannel of [Apple's Swift Async Algorithms](https://github.com/apple/swift-async-algorithms) library. It allows us to create an asynchronous channel as a means of transferring data between threads in a secure and asynchronous way, thus allowing us to send and receive values ​​between concurrent activities without blocking the threads.
 
-> [!TIP]
-> You can find the full research and the library implementation on my GitHub. Feel free to explore the code and see how far we pushed the Swift type system!
+Processes do not interface directly with the asynchronous channel but uses a series of Endpoint objects specifically designed to guarantee compliance with the protocol and linear use of resources. An endpoint is an object of the type `Endpoint<A, B>`, i.e. a session endpoint with which it's possible to send objects of type A and receive objects of type B. An endpoint never allows both operations.
+
+Linearity is dynamically checked at run-time through specific checks within the endpoints that verify whether each endpoint has been used once and only once.
+
+The library provides two different programming styles: one involves direct passing of continuation endpoints, the other uses closures (as in the example above). Each one has its own pros and cons. The main pro of closures is complete type inference ✨.
+
+Sessions can be initialized via a client/server structure so that a process can be reused multiple times with the same serve protocol.
+
+## Dear Swift 6.0
+
+Some of you may be thinking: "Why are you checking linearity dynamically? Just use noncopyable types!".
+
+You're right, and that's what we tried to do. Unfortunately, in the current version of Swift (5.10), non-copyable types still have many limitations, including a lack of support for tuples and generic types, which we make extensive use of in the library.
+
+But recently Apple held WWDC24, the annual conference for developers, and presented Swift 6.0, which includes various new features including [improvements to non-copyable types](https://developer.apple.com/wwdc24/10170). So we eagerly await its arrival!

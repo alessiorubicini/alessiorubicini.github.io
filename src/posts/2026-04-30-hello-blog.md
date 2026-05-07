@@ -1,14 +1,14 @@
 ---
-title: "Hello, Blog — Building with Swift and SwiftUI"
+title: "Hello, Blog: Building with Swift and SwiftUI"
 date: 2026-04-30
-description: "Kicking off the blog with a look at what I plan to write about — Swift, SwiftUI, Apple platform development, and the craft of building thoughtful iOS apps."
+description: "Kicking off the blog with a look at what I plan to write about: Swift, SwiftUI, Apple platform development, and the craft of building thoughtful iOS apps."
 tags:
   - swift
   - swiftui
   - meta
 ---
 
-After years of publishing on [Medium](https://alessiorubicini.medium.com/), I've decided to add a proper blog to this site. It felt right to have a space that's fully mine — no algorithm, no paywall, just writing.
+After years of publishing on [Medium](https://alessiorubicini.medium.com/), I've decided to add a proper blog to this site. It felt right to have a space that's fully mine. No algorithm, no paywall, just writing.
 
 ## What this blog is about
 
@@ -18,7 +18,7 @@ I'll write about things I'm learning, patterns I find useful, and mistakes worth
 
 ## A taste of what's coming
 
-Here's a Swift snippet to kick things off — a clean way to debounce an async task using `Task`:
+Here's a Swift snippet to kick things off: a clean way to debounce an async task using `Task`:
 
 ```swift
 import Foundation
