@@ -397,6 +397,99 @@
   font-size: 13.5px;
   line-height: 1.7;
   border: var(--hairlineThickness) solid color(from var(--primaryText) srgb r g b / 0.1);
+  position: relative;
+}
+
+/* Copy Button Container */
+.code-block-wrapper {
+  position: relative;
+}
+
+/* Copy Button */
+.copy-button {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 12px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 580;
+  color: var(--shiki-dark, #e1e4e8);
+  background: color(from var(--shiki-dark-bg, #24292e) srgb r g b / 0.8);
+  border: var(--hairlineThickness) solid color(from var(--shiki-dark, #e1e4e8) srgb r g b / 0.15);
+  border-radius: 8px;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(-4px) scale(0.95);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 10;
+}
+
+/* Show on hover (desktop) or always visible on touch */
+@media (hover: hover) {
+  .code-block-wrapper:hover .copy-button,
+  .copy-button:focus-visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@media (hover: none) {
+  .copy-button {
+    opacity: 0.7;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.copy-button:hover {
+  background: color(from var(--shiki-dark-bg, #24292e) srgb r g b / 0.95);
+  border-color: color(from var(--shiki-dark, #e1e4e8) srgb r g b / 0.3);
+}
+
+.copy-button:active {
+  transform: scale(0.96);
+}
+
+/* Success State */
+.copy-button.copied {
+  background: rgba(46, 160, 67, 0.15);
+  border-color: rgba(46, 160, 67, 0.4);
+  color: #3fb950;
+}
+
+.copy-button .icon-wrapper {
+  position: relative;
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.copy-button .copy-icon,
+.copy-button .check-icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 14px;
+  height: 14px;
+  transition: opacity 0.2s ease;
+}
+
+.copy-button .check-icon {
+  opacity: 0;
+}
+
+.copy-button.copied .copy-icon {
+  opacity: 0;
+}
+
+.copy-button.copied .check-icon {
+  opacity: 1;
 }
 
 /* Shiki code blocks - use dark theme styling for both modes */

@@ -53,7 +53,7 @@
       const url = window.location.href;
       const title = document.title;
       const feedback = document.getElementById('shareFeedback');
-      
+
       if (navigator.share) {
         try {
           await navigator.share({ title, url });
@@ -72,6 +72,80 @@
         }
       }
     }
+
+    // Copy button for code blocks
+    (function initCopyButtons() {
+      function createCopyButton() {
+        const button = document.createElement('button');
+        button.className = 'copy-button';
+        button.setAttribute('aria-label', 'Copy code to clipboard');
+        button.innerHTML = `
+          <div class="icon-wrapper">
+            <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <span class="copy-text">Copy</span>
+        `;
+        return button;
+      }
+
+      function wrapCodeBlock(pre) {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'code-block-wrapper';
+        pre.parentNode.insertBefore(wrapper, pre);
+        wrapper.appendChild(pre);
+        return wrapper;
+      }
+
+      async function copyCode(button, pre) {
+        const code = pre.querySelector('code') || pre;
+        const text = code.textContent;
+
+        try {
+          await navigator.clipboard.writeText(text);
+
+          // Add copied state
+          button.classList.add('copied');
+          const textSpan = button.querySelector('.copy-text');
+          if (textSpan) textSpan.textContent = 'Copied!';
+
+          // Reset after animation
+          setTimeout(() => {
+            button.classList.remove('copied');
+            if (textSpan) textSpan.textContent = 'Copy';
+          }, 2000);
+        } catch (err) {
+          console.error('Failed to copy:', err);
+        }
+      }
+
+      function init() {
+        const codeBlocks = document.querySelectorAll('.post-content pre');
+
+        codeBlocks.forEach(pre => {
+          // Skip if already wrapped
+          if (pre.parentElement?.classList.contains('code-block-wrapper')) return;
+
+          const wrapper = wrapCodeBlock(pre);
+          const button = createCopyButton();
+          wrapper.appendChild(button);
+
+          button.addEventListener('click', () => copyCode(button, pre));
+        });
+      }
+
+      // Initialize on DOM ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    })();
   </script>
 </head>
 <body class="project-page blog-post-page">

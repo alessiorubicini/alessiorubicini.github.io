@@ -13,7 +13,7 @@ The landscape of artificial intelligence is evolving quickly, and Apples introdu
 
 This framework gives developers direct access to Apples on-device large language model through a clean, native Swift API. The model is designed for a wide spectrum of tasks - summarization, entity extraction, text understanding, and refinement - while also being capable of creative generation, such as dynamic dialogue or even producing full Swift data structures through *guided generation*. It can also act autonomously, invoking custom code (“tools”) to perform specialized tasks within an app.
 
-## Why on-device AI matters
+## Why On-device AI matters
 
 A fundamental principle of Apple’s approach to Generative AI is its commitment to user privacy. A cornerstone of the Foundation Models framework is that all user data remains strictly on-device, never being transmitted to external servers. This design choice is critical for user trust and ensuring security in an era where data privacy is so important.
 
@@ -22,15 +22,12 @@ This strategic emphasis on privacy, coupled with the framework’s cost-free AI 
 Beyond privacy, the on-device nature of these models also delivers substantial performance advantages. The framework is characterized by low latency and high responsiveness, further enhanced by its support for streaming results. Crucially, the models operate entirely offline, eliminating any dependency on internet connectivity for their core AI functionalities. This ensures that intelligent features remain available and performant regardless of network conditions. Moreover, the on-device model is embedded directly into the operating system, which means integrating it into applications adds no additional size to the app bundle.
 
 
-## The itinerary planner example
+## The Itinerary Planner Example
 
-To illustrate the practical application of the Foundation Models framework, this article will frequently reference Apple’s WWDC sessions, in particular Code Along: Bring on-device AI to your app using the Foundation Models Framework, the one about the itinerary planner example.
+To illustrate the practical application of the Foundation Models framework, this article will frequently reference Apple’s WWDC sessions, in particular [Code-along: Bring on-device AI to your app using the Foundation Models framework - WWDC25](https://developer.apple.com/videos/play/wwdc2025/259/?source=post_page-----2bebc059db06---------------------------------------), the one about the itinerary planner example. This demonstration application serves as a compelling example of how on-device AI can be leveraged to create dynamic and intelligent user experiences.
 
-This demonstration application serves as a compelling example of how on-device AI can be leveraged to create dynamic and intelligent user experiences.
 
-[Code-along: Bring on-device AI to your app using the Foundation Models framework - WWDC25](https://developer.apple.com/videos/play/wwdc2025/259/?source=post_page-----2bebc059db06---------------------------------------).
-
-## LanguageModelSession
+## Language Model Session
 
 The `LanguageModelSession` stands as the central component for interacting with Apple's on-device LLM. It’s a stateful object that orchestrates the conversation flow and manages contextual information.
 
@@ -48,7 +45,7 @@ Each `LanguageModelSession` maintains a `Transcript`, a record of all prompts an
 The stateful nature of the session means that the model retains memory of prior interactions, allowing for more coherent and contextually aware responses over time.
 
 
-## Instructions vs prompts
+## Instructions vs Prompts
 
 To effectively guide the LLM, the Foundation Models framework differentiates between instructions and prompts, each serving a distinct purpose in shaping the model’s behavior.
 
@@ -78,7 +75,7 @@ func respond(userInput: String) async throws -> String {
 }
 ```
 
-## Sessions and context windows
+## Sessions and Context Windows
 
 The effective management of conversation flow is critical for a smooth user experience, and the `LanguageModelSession` provides mechanisms to handle this through its transcript and context window.
 
@@ -89,7 +86,7 @@ Each session operates under a context window limit, which dictates the maximum s
 This constraint is a direct reflection of the inherent resource limitations of all Large Language Models, particularly when operating on-device.
 
 
-### Recovery strategies
+### Recovery Strategies
 
 Developers must implement robust error handling for the `exceededContextWindowSize` error to ensure a resilient user experience.
 
@@ -142,7 +139,7 @@ private func newSession(previousSession: LanguageModelSession) -> LanguageModelS
 
 
 
-## Empowering the model with tools
+## Empowering the Model with Tools
 
 The Foundation Models framework significantly extends the capabilities of the on-device LLM through tools. Tools enable the model to interact with external information and perform actions autonomously, leading to highly personalized experiences within an application.
 
