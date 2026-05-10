@@ -7,7 +7,7 @@ eleventyExcludeFromCollections: true
 ---
 <main>
   <section class="hero" data-appear style="text-align: left; align-items: flex-start; padding: calc(var(--lineHeight) * 3) 0 calc(var(--lineHeight) * 1);">
-    <h1 class="page-title" data-appear>Blog</h1>
+    <h1 class="page-title font-editorial article-title" data-appear>Blog</h1>
     <p class="lead" data-appear>
       Thoughts on iOS development, Swift, SwiftUI, and the craft of building on Apple platforms.
     </p>
@@ -26,7 +26,7 @@ eleventyExcludeFromCollections: true
           </span>
           {% endif %}
         </div>
-        <h2 class="blog-list-item__title">
+        <h2 class="blog-list-item__title font-editorial heading-editorial">
           <a href="{{ post.url }}">{{ post.data.title }}</a>
         </h2>
         {% if post.data.description %}

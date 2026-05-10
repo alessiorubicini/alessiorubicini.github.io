@@ -12,9 +12,12 @@
 	<meta name="author" content="Alessio Rubicini"/>
 	<meta name="description" content="iOS developer passionate about Apple platforms, SwiftUI, and building thoughtful, human-centered apps.">
 	<meta property="og:description" content="iOS developer passionate about Apple platforms, SwiftUI, and building thoughtful, human-centered apps.">
+	<meta property="og:image" content="https://alessiorubicini.github.io/img/applepark.jpeg">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:image" content="https://alessiorubicini.github.io/img/applepark.jpeg">
 	
 	<link rel="canonical" href="https://alessiorubicini.github.io"/>
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&display=swap">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400;1,500&display=swap">
 	<link rel="stylesheet" href="styles.css">
 	<link rel="alternate" type="text/plain" title="LLM Summary" href="/llms.txt">
 	
@@ -26,7 +29,7 @@
 	  "@type": "Person",
 	  "name": "Alessio Rubicini",
 	  "url": "https://alessiorubicini.github.io/",
-	  "image": "https://alessiorubicini.github.io/img/me-applepark2.png",
+	  "image": "https://alessiorubicini.github.io/img/applepark.jpeg",
 	  "sameAs": [
 	    "https://github.com/alessiorubicini",
 	    "https://www.linkedin.com/in/alessiorubicini/",
@@ -43,10 +46,9 @@
 	<header class="vcard">
 		<img id="avatar" data-appear src="/img/me-applepark2.png" width="44" height="44" alt="My Avatar">
 		<div>
-			<h1 class="fn" data-appear>Hi, I'm Alessio Rubicini!</h1>
-			<p data-appear style="margin-top: 0.3em;">I'm an iOS developer with 5+ years building open source and shipping on the App Store. Swift Student Challenge winner at WWDC25. I push Apple platforms to their limits, from on-device AI to cryptographic security, always with the same obsession for native feel and detail. Currently based in Italy 🇮🇹🇪🇺 but always looking for opportunities somewhere else.</p>
+			<h1 class="fn font-editorial heading-editorial" data-appear>Hi, I'm Alessio Rubicini!</h1>
+			<p data-appear style="margin-top: 0.3em;">I'm an iOS Developer with 5+ years building open source and shipping on the App Store. Swift Student Challenge winner at WWDC25. I push Apple platforms to their limits, from on-device AI to cryptographic security, always with the same obsession for native feel and detail. Currently based in Italy 🇮🇹🇪🇺 and actively looking for new opportunities somewhere else!</p>
 			<p data-appear style="margin-top: 1em;"><a href="/mission">Curious about why I build?</a></p>
-			<p data-appear style="margin-top: 1em;">Looking for an iOS developer? <a href="mailto:alessiorubicini16@icloud.com">Contact me here</a></p>
 		</div>
 	</header>
 	<aside>
@@ -58,107 +60,158 @@
 		</nav>
 		<hr data-appear>
 		<nav aria-label="Social">
-			<a data-appear href="https://www.threads.com/@alessiorubicini" target="_blank">Threads</a>
 			<a data-appear href="https://github.com/alessiorubicini" target="_blank" rel="noopener noreferrer">GitHub</a>
 			<a data-appear href="https://www.linkedin.com/in/alessiorubicini/" target="_blank">LinkedIn</a>
+			<a data-appear href="https://www.threads.com/@alessiorubicini" target="_blank">Threads</a>
 			<a data-appear href="mailto:alessiorubicini16@icloud.com">Email</a>
 		</nav>
 		<hr data-appear>
 		<nav aria-label="Support">
 			<a data-appear href="https://buymeacoffee.com/alessiorubicini?status=1" target="_blank">Support Me</a>
 		</nav>
+		
+		<nav class="ai-nav" aria-label="Ask AI about Alessio">
+			<a
+				class="ai-icon-link"
+				data-appear
+				href="https://claude.ai/new?q=Tell%20me%20about%20Alessio%20Rubicini%2C%20an%20iOS%20developer.%20Based%20on%20https%3A%2F%2Falessiorubicini.github.io%2C%20discuss%20his%20background%2C%20apps%2C%20open-source%20work%2C%20writing%2C%20and%20current%20focus."
+				target="_blank"
+				rel="noopener noreferrer"
+				aria-label="Ask Claude about me">
+				<img src="/img/claude-color.svg" alt="Claude" width="28" height="28">
+				<span class="ai-tooltip" role="tooltip">Ask Claude about me</span>
+			</a>
+			<a
+				class="ai-icon-link"
+				data-appear
+				href="https://chat.openai.com/?q=Tell%20me%20about%20Alessio%20Rubicini%2C%20an%20iOS%20developer.%20Based%20on%20https%3A%2F%2Falessiorubicini.github.io%2C%20discuss%20his%20background%2C%20apps%2C%20open-source%20work%2C%20writing%2C%20and%20current%20focus."
+				target="_blank"
+				rel="noopener noreferrer"
+				aria-label="Ask ChatGPT about me">
+				<img class="ai-icon-chatgpt" src="/img/chatgpt.svg" alt="ChatGPT" width="28" height="28">
+				<span class="ai-tooltip" role="tooltip">Ask ChatGPT about me</span>
+			</a>
+		</nav>
 	</aside>
 	<main>
 
 		
 		<section id="apps">
-			<p class="section-kicker" data-appear>Featured</p>
-			
-			<div class="featured-app" data-appear>
-				<div class="featured-app__header">
-					<img src="/img/projects/Fynn.png" alt="Fynn" class="featured-app__icon">
-					<hgroup>
-						<h3><a href="/fynn">Fynn</a></h3>
-						<p>Minimalist iOS finance app</p>
-					</hgroup>
-				</div>
-				<div class="featured-app__content">
-					<p>
-						Financial tracking is often cluttered and complex. Fynn simplifies money management by using natural language processing to log expenses instantly. Powered by Apple Intelligence, running entirely offline for total privacy.
-					</p>
-				</div>
-			</div>
-			
-			<figure class="wide featured-showcase" data-appear>
-				<img src="/img/projects/Fynn/Fynn-Images.png" alt="Fynn on three iPhones" decoding="async">
-			</figure>
-			
-			<p class="section-kicker" data-appear>More apps</p>
-			
-			<div class="project-grid">
-				<article class="project-card" data-appear>
-					<div class="project-card__inner">
-						<div class="project-card__icon">
-							<img src="/img/projects/enclv/enclv-icon.png" alt="">
+			<h2 class="font-editorial heading-editorial" data-appear>Apps</h2>
+			<p class="section-intro-placeholder" data-appear>Here you can find some of the apps that I've built. I'm always looking for new challenges and opportunities to build something new and innovative.</p>
+
+			<div class="apps-showcase app-showcase-grid">
+				<article class="app-showcase-card app-showcase-card--uniform" data-appear>
+					<a class="app-showcase-link" href="/fynn">
+						<div class="app-showcase-preview app-showcase-preview--uniform">
+							<img
+								class="app-showcase-image"
+								src="/img/projects/fynn/fynn-app.png"
+								alt="Fynn app interface preview"
+								loading="lazy"
+								decoding="async">
 						</div>
-						<div class="project-card__body">
-							<hgroup>
-								<h3><a href="/enclv">Enclv</a></h3>
-								<p>Ethereum iOS Wallet</p>
-							</hgroup>
+						<div class="app-showcase-info">
+							<img class="app-showcase-icon" src="/img/projects/fynn/fynn-icon.png" alt="" aria-hidden="true">
+							<div>
+								<h3 class="app-showcase-title">Fynn</h3>
+								<p class="app-showcase-description">Minimalist iOS finance app</p>
+							</div>
 						</div>
-					</div>
+					</a>
 				</article>
-				<article class="project-card" data-appear>
-					<div class="project-card__inner">
-						<div class="project-card__icon">
-							<img src="/img/projects/Ember.png" alt="">
+
+				<article class="app-showcase-card" data-appear>
+					<a class="app-showcase-link" href="/enclv">
+						<div class="app-showcase-preview app-showcase-preview--uniform">
+							<img
+								class="app-showcase-image"
+								src="/img/projects/enclv/enclv-showcase.png"
+								alt="Enclv app interface preview"
+								loading="lazy"
+								decoding="async">
 						</div>
-						<div class="project-card__body">
-							<hgroup>
-								<h3><a href="/ember">Ember</a></h3>
-								<p>Wildfire evacuation planning app</p>
-							</hgroup>
+						<div class="app-showcase-info">
+							<img class="app-showcase-icon" src="/img/projects/enclv/enclv-icon.png" alt="" aria-hidden="true">
+							<div>
+								<h3 class="app-showcase-title">Enclv</h3>
+								<p class="app-showcase-description">Ethereum iOS Wallet</p>
+							</div>
 						</div>
-					</div>
+					</a>
 				</article>
-				<article class="project-card" data-appear>
-					<div class="project-card__inner">
-						<div class="project-card__icon">
-							<img src="/img/projects/ScreenplayGenie.png" alt="" class="glass-border">
+
+				<article class="app-showcase-card" data-appear>
+					<a class="app-showcase-link" href="/ember">
+						<div class="app-showcase-preview app-showcase-preview--uniform">
+							<img
+								class="app-showcase-image app-showcase-image--top"
+								src="/img/projects/ember/ember-showcase.png"
+								alt="Ember app interface preview"
+								loading="lazy"
+								decoding="async">
 						</div>
-						<div class="project-card__body">
-							<hgroup>
-								<h3><a href="/screenplaygenie">Screenplay Genie</a></h3>
-								<p>Educational iPad app • Swift Student Challenge Winner 2025 🏆</p>
-							</hgroup>
+						<div class="app-showcase-info">
+							<img class="app-showcase-icon" src="/img/projects/ember/ember-icon.png" alt="" aria-hidden="true">
+							<div>
+								<h3 class="app-showcase-title">Ember</h3>
+								<p class="app-showcase-description">Wildfire Evacuation AI Planner</p>
+							</div>
 						</div>
-					</div>
+					</a>
 				</article>
-				<article class="project-card" data-appear>
-					<div class="project-card__inner">
-						<div class="project-card__icon">
-							<img src="/img/projects/digitalgarage.png" alt="">
+
+				<article class="app-showcase-card" data-appear>
+					<a class="app-showcase-link" href="/screenplaygenie">
+						<div class="app-showcase-preview app-showcase-preview--uniform">
+							<img
+								class="app-showcase-image"
+								src="/img/projects/screenplay-genie.png"
+								alt="Screenplay Genie app preview"
+								loading="lazy"
+								decoding="async">
 						</div>
-						<div class="project-card__body">
-							<hgroup>
-								<h3><a href="https://digitalgarage.unicam.it">digitalgarage.unicam.it</a></h3>
-								<p>Google Classroom-like web app</p>
-							</hgroup>
+						<div class="app-showcase-info">
+							<img class="app-showcase-icon" src="/img/projects/ScreenplayGenie.png" alt="" aria-hidden="true">
+							<div>
+								<h3 class="app-showcase-title">Screenplay Genie</h3>
+								<p class="app-showcase-description">Educational iPad app • SSC 2025 🏆</p>
+							</div>
 						</div>
-					</div>
+					</a>
+				</article>
+
+				<article class="app-showcase-card" data-appear>
+					<a class="app-showcase-link" href="/digitalgarage">
+						<div class="app-showcase-preview app-showcase-preview--uniform">
+							<img
+								class="app-showcase-image"
+								src="/img/projects/digitalgarage/digitalgarage-showcase.png"
+								alt="Screenplay Genie app preview"
+								loading="lazy"
+								decoding="async">
+						</div>
+						<div class="app-showcase-info">
+							<img class="app-showcase-icon" src="/img/projects/digitalgarage/digitalgarage-icon.png" alt="" aria-hidden="true">
+							<div>
+								<h3 class="app-showcase-title">digitalgarage.unicam.it</h3>
+								<p class="app-showcase-description">Google Classroom-like web app</p>
+							</div>
+						</div>
+					</a>
 				</article>
 			</div>
 		</section>
 		
 		<section id="tools">
-			<p class="section-kicker" data-appear>Tools & Packages</p>
+			<h2 class="font-editorial heading-editorial" data-appear>Tools & Open Source</h2>
+			<p class="section-intro-placeholder" data-appear>I believe in the power of open software and community collaboration. These are some of the projects I've released for the developer community.</p>
 			
 			<div class="project-grid">
 				<article class="project-card" data-appear>
 					<div class="project-card__inner">
 						<div class="project-card__icon">
-							<img src="/img/agent-skills.png" alt="">
+							<img src="/img/agent-skill-hex-auto.svg" alt="">
 						</div>
 						<div class="project-card__body">
 							<hgroup>
@@ -263,7 +316,8 @@
 		</section>
 		
 		<section class="writing-section">
-			<h2 id="writing" data-appear>Writing</h2>
+			<h2 id="writing" class="font-editorial heading-editorial" data-appear>Writing</h2>
+			<p class="section-intro-placeholder" data-appear>Sometimes I love to get things out of my head and write about my experiences, learnings and contributions. Here you can find some of my writings.</p>
 			<div class="content" data-appear>
 				<ul>
 					<li><a href="/blog/getting-hands-on-with-apples-foundation-models-framework/">Getting Hands-On with Apple's Foundation Models Framework</a> — <time datetime="2025-06-16">Jun 16, 2025</time></li>
@@ -275,12 +329,12 @@
 		</section>
 		
 		<section>
-			<h2 id="now" data-appear>Now</h2>
+			<h2 id="now" class="font-editorial heading-editorial" data-appear>Now</h2>
 			<div class="content" data-appear>
 				<ul>
 					<li><strong>Currently</strong> working on my master's thesis, focused on leveraging Apple's Secure Enclave to implement passwordless Web3 Ethereum wallets.</li>
 					
-					<li><strong>Recently</strong> published Fynn, an app to help people keep their finances clear and stress-free.</li>
+					<li><strong>Recently</strong> shipped Fynn, an app to help people keep their finances clear and stress-free.</li>
 					
 					<li><strong>Looking forward</strong> to attending Apple WWDC 2026 in Cupertino and starting my professional career as an app developer.</li>
 				</ul>
@@ -290,7 +344,7 @@
 	</main>
 	
 	<div class="legal-links">
-		<span data-appear>© 2026 Alessio Rubicini</span>
+		<span data-appear>© 2026 Alessio Rubicini. All rights reserved.</span>
 	</div>
 	<script src="/animations.js"></script>
 </body>

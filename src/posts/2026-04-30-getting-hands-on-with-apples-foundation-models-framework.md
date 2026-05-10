@@ -3,8 +3,8 @@ title: "Getting Hands-on with Apple’s Foundation Models Framework"
 date: 2026-04-30
 description: "An in-depth exploration of Apple’s Foundation Models framework, covering on-device AI, LanguageModelSession, tools, streaming, and guided generation for building intelligent Swift apps."
 tags:
-  - swift
   - apple
+  - wwdc25
   - ai
   - foundation-models
 ---

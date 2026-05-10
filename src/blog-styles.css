@@ -227,11 +227,12 @@
 .post-content p { text-wrap: pretty; }
 
 .post-content h2 {
+  font-family: var(--font-serif-editorial);
   font-size: calc(var(--fontSize) * 1.8);
-  font-weight: 700;
-  letter-spacing: -0.03em;
+  font-weight: 500;
+  letter-spacing: -0.01em;
   color: var(--primaryText);
-  line-height: 1.2;
+  line-height: 1.15;
   margin-top: calc(var(--lineHeight) * 2.5);
   margin-bottom: calc(var(--lineHeight) * 0.8);
   padding-bottom: calc(var(--lineHeight) * 0.3);
@@ -256,6 +257,7 @@
 .post-content strong { color: var(--primaryText); font-weight: 580; }
 
 .post-content blockquote {
+  font-family: var(--font-serif-editorial);
   border-left: 2px solid color(from var(--primaryText) srgb r g b / 0.2);
   padding: calc(var(--lineHeight) * 0.5) calc(var(--lineHeight) * 1.25);
   margin: calc(var(--lineHeight) * 1.5) 0;

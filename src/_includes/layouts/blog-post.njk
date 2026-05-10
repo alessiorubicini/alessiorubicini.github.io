@@ -10,7 +10,7 @@ ogType: article
         <a href="/">&larr; back</a>
       </nav>
 
-      <h1 class="post-title">{{ title }}</h1>
+      <h1 class="post-title font-editorial article-title">{{ title }}</h1>
 
       <div class="post-meta">
         <div class="post-author">
@@ -22,21 +22,21 @@ ogType: article
         <span class="post-meta-sep">·</span>
         <span class="reading-time">{{ content | readingTime }} min read</span>
       </div>
-
-      {% if tags %}
-      <div class="post-tags">
-        {% for tag in tags %}
-          {% if tag != "posts" %}
-          <span class="tag-pill">{{ tag }}</span>
-          {% endif %}
-        {% endfor %}
-      </div>
-      {% endif %}
     </header>
 
     <div class="post-content" data-appear>
       {{ content | safe }}
     </div>
+
+    {% if tags %}
+    <div class="post-tags" data-appear style="margin-top: calc(var(--lineHeight) * 1.5);">
+      {% for tag in tags %}
+        {% if tag != "posts" %}
+        <span class="tag-pill">{{ tag }}</span>
+        {% endif %}
+      {% endfor %}
+    </div>
+    {% endif %}
 
     <div class="post-share" data-appear>
       <button class="share-button" onclick="shareArticle()" aria-label="Share this article">
@@ -44,6 +44,14 @@ ogType: article
         Share
       </button>
       <span class="share-feedback" id="shareFeedback" aria-live="polite"></span>
+    </div>
+
+    <div class="vcard post-author-footer" data-appear style="margin-top: calc(var(--lineHeight) * 2.5);">
+      <img id="avatar" src="/img/me-applepark2.png" width="44" height="44" alt="Alessio Rubicini">
+      <div>
+        <h3 class="font-editorial" style="color: var(--primaryText); font-size: calc(var(--fontSize) * 1.35); font-weight: 500; letter-spacing: -0.01em; margin-bottom: 0.3em; line-height: 1.2;">Alessio Rubicini</h3>
+        <p style="font-size: var(--secondaryFontSize); line-height: 1.6; margin: 0; color: var(--secondaryText); text-wrap: pretty;">I'm an iOS developer with 5+ years building open source and shipping on the App Store. Swift Student Challenge winner at WWDC25. I push Apple platforms to their limits, from on-device AI to cryptographic security, always with the same obsession for native feel and detail.</p>
+      </div>
     </div>
 
   </article>

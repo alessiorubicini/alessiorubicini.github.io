@@ -32,6 +32,7 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/monei");
   eleventyConfig.addPassthroughCopy("src/screenplaygenie");
   eleventyConfig.addPassthroughCopy("src/unicam");
+  eleventyConfig.addPassthroughCopy("src/digitalgarage");
 
   // ── Template engine: only .njk and .md ──────────────────────────
   eleventyConfig.setTemplateFormats(["njk", "md"]);

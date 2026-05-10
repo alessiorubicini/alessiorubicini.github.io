@@ -1,0 +1,139 @@
+/*
+ * Digital Garage - Product-specific styles
+ * Editorial shared patterns live in /subpage-styles.css.
+ */
+
+/* ─── Brand Palette (always light/cool, even in dark mode) ── */
+
+body.project-page {
+  --backgroundColor: #F7FAFC;
+  --secondaryBackgroundColor: #EDF2F7;
+  --primaryText: #1A202C;
+  --secondaryText: #4A5568;
+  --tertiaryText: #718096;
+  --accentColor: #DF4A51;
+  background-color: var(--backgroundColor);
+}
+
+@media (prefers-color-scheme: dark) {
+  body.project-page {
+    --backgroundColor: #F7FAFC;
+    --secondaryBackgroundColor: #EDF2F7;
+    --primaryText: #1A202C;
+    --secondaryText: #4A5568;
+    --tertiaryText: #718096;
+    --accentColor: #DF4A51;
+    background-color: var(--backgroundColor);
+  }
+}
+
+/* ─── App Icon ───────────────────────────────────────────── */
+
+.app-icon {
+  border-radius: 28px;
+  border: none;
+}
+
+/* ─── Product-colored Title ──────────────────────────────── */
+
+.page-title {
+  color: #DF4A51;
+}
+
+@media screen and (min-width: 800px) {
+  .page-title {
+    font-size: calc(var(--fontSize) * 2.4);
+  }
+}
+
+/* ─── Badge styles (Red) ─────────────────────────────────── */
+
+.dg-badge {
+  color: #DF4A51;
+  background: linear-gradient(135deg, rgba(223, 74, 81, 0.08) 0%, rgba(223, 74, 81, 0.12) 100%);
+  border: 1px solid rgba(223, 74, 81, 0.25);
+  box-shadow: none;
+}
+
+.dg-badge:hover {
+  box-shadow: none;
+  border-color: rgba(223, 74, 81, 0.4);
+}
+
+/* ––– Image containers: transparent PNGs need no chrome ––– */
+.image-container {
+  border: none;
+  box-shadow: none;
+  background: transparent;
+}
+
+/* ─── Section content line-height boost ─────────────────── */
+
+.section-content {
+  line-height: 1.75;
+}
+
+section.section {
+  margin-bottom: 0;
+  padding-top: 0;
+}
+
+.section-header {
+  margin-bottom: calc(var(--lineHeight) * 0.4);
+}
+
+.image-container {
+  margin: calc(var(--lineHeight) * 0.4) auto;
+}
+
+/* ─── GitHub Badge (or Link Badge) ───────────────────────── */
+
+.link-badge {
+  color: var(--primaryText);
+  background: rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  text-decoration: none;
+  gap: 8px;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.link-badge:hover {
+  background: rgba(0, 0, 0, 0.08);
+  border-color: rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
+}
+
+.link-badge img,
+.link-badge svg {
+  width: 16px;
+  height: 16px;
+  opacity: 0.8;
+}
+
+/* ─── Back Button (Nav Header) ───────────────────────────── */
+
+.nav-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: calc(var(--lineHeight) * 1);
+  padding-top: calc(var(--lineHeight) * 2);
+}
+
+.nav-header a {
+  color: var(--secondaryText);
+  text-decoration: none;
+  font-size: var(--secondaryFontSize);
+  font-weight: 500;
+  transition: color 0.2s ease;
+  padding: calc(var(--lineHeight) / 4) calc(var(--lineHeight) / 1.5);
+  border-radius: 20px;
+  background-color: var(--secondaryBackgroundColor);
+  border: var(--hairlineThickness) solid color(from var(--primaryText) srgb r g b / 0.08);
+}
+
+.nav-header a:hover {
+  color: var(--primaryText);
+  border-color: color(from var(--primaryText) srgb r g b / 0.2);
+}

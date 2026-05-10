@@ -5,15 +5,15 @@ description: "Exploring how session types can bring formal verification and type
 tags:
   - swift
   - concurrency
-  - distributed-systems
+  - session types
   - open-source
 ---
 
-Let's face it, Swift code can either be a smooth symphony of functionality or a tangled mess of callbacks and closures. If you've ever gotten lost in a labyrinth of async/await hell, then this article is for you. Buckle up, because we're about to take a joyride into the world of session types with my very own (hopefully) not-at-all-convoluted library!
+Swift async code can get messy fast. If you've struggled with callback hell or tangled async/await logic, this article should help. I built a library for session types that might actually make your concurrent code easier to reason about.
 
-In this article, we'll explore how session types can tame the wild async beast and bring some much-needed structure to your concurrent Swift code. We'll embrace the clarity of type safety, all while avoiding any metaphors that involve disturbing amounts of pasta 🍝.
+We'll look at how session types can structure your async Swift code better. The main benefit is stronger type safety, you catch bugs before runtime instead of chasing them down later.
 
-## What are session types?
+## What are Session Types?
 
 Concurrent programs, where multiple processes run in parallel on a single machine or across a distributed system, rely heavily on communication for coordination. These interactions follow specific protocols that define the allowed sequences of message exchanges. Managing these protocols correctly and securely is crucial for distributed systems and network communication, and it can be challenging.
 
@@ -27,11 +27,11 @@ Session types define the structure, flow, and behavior of communication between 
 
 By describing a communication protocol as a type, session types enable verification during usual type checking performed by the compiler. This upfront check helps prevent errors like type mismatching, deadlocks, livelocks or starvation, leading to more robust and reliable distributed systems.
 
-## I never heard of it…
+## Never Heard of It...
 
 If you've never heard of session types, that's normal. This is a concept born and explored in recent decades, and reserved for a limited set of languages ​​with particular functionality. Suffice it to say that there are very few programming languages ​​that natively support session types, such as MOOL (Mini Object-Oriented Language) or ATS (Authenticated Typed Script). And existing library implementations are usually targeted at languages ​​like Haskell and OCaml.
 
-## A brief example
+## A Brief Example
 
 Let's take two people: Tim and Craig (no pun intended). Tim wants to know if a certain integer is even. Craig is the person who can calculate whether a number is even or not. We model the communication session between the two as follows.
 
@@ -59,11 +59,11 @@ Another fundamental concept in the context of session types is linearity, which 
 
 If this principle were to fail, resources could be used multiple times or not used at all, causing potential errors such as deadlocks.
 
-## Swift Sessions: a library for binary session types in Swift
+## A Library for Binary Session Types in Swift
 
 As a crazy Swift lover, I couldn't help but center my bachelor's degree thesis on it. The goal was to test Swift's type system (literally abuse it) and attempt to implement session types into the language.
 
-In the last two months, with the help of my supervisor, prof. Luca Padovani, author of various papers on the topic as well as developer of a session types library for OCaml, I have developed a library that successfully implements session types for asynchronous communications between two processes.
+In the last two months, with the help of my supervisor, prof. Luca Padovani, author of various papers on the topic as well as developer of a session types library for OCaml, I have developed a library called [Swift Sessions](https://github.com/alessiorubicini/SwiftSessions) that successfully implements session types for asynchronous communications between two processes.
 
 Without delving into implementation details (for now), Swift Session provides the primitives, endpoints and channels needed to implement such structured communication sessions. Let's see an example of how to use it:
 

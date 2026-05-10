@@ -91,32 +91,55 @@
   <body>
     <script src="/animations.js"></script>
     <header class="vcard">
-  <img id="avatar" data-delay style="--delay: 2.4; border-radius: 50%;" src="/img/me-applepark2.png" width="44px" height="44px" alt="My Avatar">
-      <div>
-        <h1 class="fn" data-delay style="--delay: 0.0;">Hi, I'm Alessio Rubicini!</h1>
-        <p data-delay style="--delay: 1.0; margin-top: 0.3em;">I'm an iOS developer with 5+ years building open source and shipping on the App Store. Swift Student Challenge winner at WWDC25. I push Apple platforms to their limits, from on-device AI to cryptographic security, always with the same obsession for native feel and detail. Currently based in Italy 🇮🇹🇪🇺</p>
-        <p data-delay style="--delay: 1.0; margin-top: 1em;"><a href="/mission">Curious about why I build?</a></p>
-      </div>
-    </header>
-    <aside>
-      <nav class="local-nav">
-        <a data-delay style="--delay: 1.0;" href="/#apps">Apps</a>
-        <a data-delay style="--delay: 1.2;" href="/#packages">Packages</a>
-        <a data-delay style="--delay: 1.8;" href="/#writing">Writing</a>
-        <a data-delay style="--delay: 1.6;" href="/#now">Now</a>
-      </nav>
-      <hr data-delay style="--delay: 3.0;">
-      <nav aria-label="Social">
-        <a data-delay style="--delay: 3.6;"
-          href="https://www.threads.com/@alessiorubicini" target="_blank">Threads</a>
-        <a data-delay style="--delay: 3.2;" href="https://github.com/alessiorubicini" target="_blank" rel="noopener noreferrer">
-          GitHub</a>
-        <a data-delay style="--delay: 3.4;"
-          href="https://www.linkedin.com/in/alessiorubicini/" target="_blank">LinkedIn</a>
-        <a data-delay style="--delay: 3.6;"
-          href="mailto:alessiorubicini16@icloud.com">Email</a>
-      </nav>
-    </aside>
+		<img id="avatar" data-appear src="/img/me-applepark2.png" width="44" height="44" alt="My Avatar">
+		<div>
+			<h1 class="fn font-editorial heading-editorial" data-appear>Hi, I'm Alessio Rubicini!</h1>
+			<p data-appear style="margin-top: 0.3em;">I'm an iOS Developer with 5+ years building open source and shipping on the App Store. Swift Student Challenge winner at WWDC25. I push Apple platforms to their limits, from on-device AI to cryptographic security, always with the same obsession for native feel and detail. Currently based in Italy 🇮🇹🇪🇺 but always looking for opportunities somewhere else.</p>
+			<p data-appear style="margin-top: 1em;"><a href="/mission">Curious about why I build?</a></p>
+		</div>
+	</header>
+	<aside>
+		<nav class="local-nav">
+			<a data-appear href="/#apps">Apps</a>
+			<a data-appear href="/#tools">Tools</a>
+			<a data-appear href="/#writing">Writing</a>
+			<a data-appear href="/#now">Now</a>
+		</nav>
+		<hr data-appear>
+		<nav aria-label="Social">
+			<a data-appear href="https://www.threads.com/@alessiorubicini" target="_blank">Threads</a>
+			<a data-appear href="https://github.com/alessiorubicini" target="_blank" rel="noopener noreferrer">GitHub</a>
+			<a data-appear href="https://www.linkedin.com/in/alessiorubicini/" target="_blank">LinkedIn</a>
+			<a data-appear href="mailto:alessiorubicini16@icloud.com">Email</a>
+		</nav>
+		<hr data-appear>
+		<nav aria-label="Support">
+			<a data-appear href="https://buymeacoffee.com/alessiorubicini?status=1" target="_blank">Support Me</a>
+		</nav>
+		
+		<nav class="ai-nav" aria-label="Ask AI about Alessio">
+			<a
+				class="ai-icon-link"
+				data-appear
+				href="https://claude.ai/new?q=Tell%20me%20about%20Alessio%20Rubicini%2C%20an%20iOS%20developer.%20Based%20on%20https%3A%2F%2Falessiorubicini.github.io%2C%20discuss%20his%20background%2C%20apps%2C%20open-source%20work%2C%20writing%2C%20and%20current%20focus."
+				target="_blank"
+				rel="noopener noreferrer"
+				aria-label="Ask Claude about me">
+				<img src="/img/claude-color.svg" alt="Claude" width="28" height="28">
+				<span class="ai-tooltip" role="tooltip">Ask Claude about me</span>
+			</a>
+			<a
+				class="ai-icon-link"
+				data-appear
+				href="https://chat.openai.com/?q=Tell%20me%20about%20Alessio%20Rubicini%2C%20an%20iOS%20developer.%20Based%20on%20https%3A%2F%2Falessiorubicini.github.io%2C%20discuss%20his%20background%2C%20apps%2C%20open-source%20work%2C%20writing%2C%20and%20current%20focus."
+				target="_blank"
+				rel="noopener noreferrer"
+				aria-label="Ask ChatGPT about me">
+				<img class="ai-icon-chatgpt" src="/img/chatgpt.svg" alt="ChatGPT" width="28" height="28">
+				<span class="ai-tooltip" role="tooltip">Ask ChatGPT about me</span>
+			</a>
+		</nav>
+	</aside>
     <main>
       <div class="error-container">
         <div class="error-code" data-delay style="--delay: 2.0;">404</div>

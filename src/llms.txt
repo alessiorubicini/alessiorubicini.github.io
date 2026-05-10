@@ -17,6 +17,7 @@ Alessio Rubicini is an iOS/macOS app developer and Swift expert based in Italy. 
 - **Screenplay Genie**: An educational iPad app designed to help users learn screenwriting. (Swift Student Challenge 2025 Winner).
 - **Enclv**: Master's thesis project focused on leveraging Apple's Secure Enclave for passwordless Ethereum wallets.
 - **Monei**: (Work in progress) minimalist tracking project.
+- **Digital Garage**: A Google Classroom-like web application for the University of Camerino. Sole full-stack engineer managing the entire lifecycle.
 
 ## Open Source & Tools
 

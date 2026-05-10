@@ -18,6 +18,7 @@
     "shiki": "^1.0.0"
   },
   "dependencies": {
+    "@lobehub/icons-static-svg": "^1.90.0",
     "markdown-it-github-alerts": "^1.0.1"
   }
 }

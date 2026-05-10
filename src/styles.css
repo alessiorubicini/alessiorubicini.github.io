@@ -17,6 +17,28 @@
   /* Editorial border radius tokens */
   --radius-figure: 8px;
   --radius-icon: 10px;
+
+  /* Editorial Typography */
+  --font-serif-editorial: "IBM Plex Serif", ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
+
+/* Editorial Typography Utilities */
+.font-editorial {
+  font-family: var(--font-serif-editorial) !important;
+}
+
+.heading-editorial {
+  font-family: var(--font-serif-editorial) !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.15 !important;
+}
+
+.article-title {
+  font-family: var(--font-serif-editorial) !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.015em !important;
+  line-height: 1.1 !important;
 }
 
 /* Override for project pages that need larger fonts */
@@ -148,37 +170,7 @@ section#experiments-section {
   gap: calc(var(--lineHeight) * 1);
 }
 
-/* Featured + compact project grid (homepage) */
-section .section-kicker {
-  grid-column: start / end;
-  margin: 0;
-  padding-top: 0;
-  font-size: var(--secondaryFontSize);
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  text-transform: uppercase;
-  color: var(--tertiaryText);
-}
-
-/* Space from nav; "More apps" / cross-section rhythm handled below */
-#apps > .section-kicker:first-of-type {
-  padding-top: calc(var(--lineHeight) * 1.5);
-}
-
-/* Same visual gap before “More apps” (grid row-gap + margin) and before “Tools & Libraries” (section padding) */
-#apps > .section-kicker:not(:first-of-type) {
-  margin-top: var(--space-between-kickers);
-}
-
-#tools {
-  padding-top: calc(var(--lineHeight) * 2 + var(--space-between-kickers));
-}
-
-@media screen and (max-width: 799px) {
-  #tools {
-    padding-top: calc(var(--space-between-kickers) * 1.5);
-  }
-}
+/* #apps and #tools rely on the default section > h2:first-child padding for consistent spacing with Writing and Now */
 
 /* Fynn hero: raw APNG / transparent asset — no figure card, border, or fill */
 figure.featured-showcase {
@@ -231,6 +223,13 @@ figure.featured-showcase img {
   padding-top: calc(var(--lineHeight) * 0.5);
 }
 
+.section-intro-placeholder {
+  grid-column: start / end;
+  color: var(--tertiaryText);
+  max-width: 62ch;
+  margin-top: calc(var(--lineHeight) * -0.35);
+}
+
 @media screen and (max-width: 640px) {
   .project-grid {
     grid-template-columns: 1fr;
@@ -261,7 +260,7 @@ figure.featured-showcase img {
   height: 44px;
   border-radius: var(--radius-icon);
   object-fit: contain;
-  border: var(--hairlineThickness) solid color(from var(--primaryText) srgb r g b / 0.08);
+  
 }
 
 @media screen and (min-width: 1200px) {
@@ -291,11 +290,179 @@ footer {
   padding: calc(var(--lineHeight) * 1) 0 calc(var(--lineHeight) * 3);
 }
 
+#apps h2:first-child {
+  padding-top: calc(var(--lineHeight) * 1.5);
+}
+
+.apps-showcase {
+  grid-column: start / end;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-grid-gap);
+  padding-top: calc(var(--lineHeight) * 0.5);
+}
+
+.app-showcase-card {
+  margin: 0;
+}
+
+.app-showcase-card--wide {
+  grid-column: span 2;
+}
+
+@media screen and (max-width: 1023px) {
+  .apps-showcase {
+    grid-template-columns: 1fr;
+    gap: calc(var(--lineHeight) * 1.1);
+  }
+
+  .app-showcase-card--wide {
+    grid-column: auto;
+  }
+
+}
+
+/* ─── App showcase cards — Variant A: footer separato ─── */
+
+.app-showcase-link {
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  color: inherit;
+  white-space: normal;
+  background: var(--secondaryBackgroundColor);
+  border: var(--hairlineThickness) solid color(from var(--primaryText) srgb r g b / 0.08);
+  border-radius: 20px;
+  overflow: hidden;
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  min-height: 100%;
+  transition: transform 0.25s ease, border-color 0.25s ease, background-color 0.25s ease;
+}
+
+.app-showcase-link::after {
+  content: none;
+}
+
+.app-showcase-preview {
+  flex: 1;
+  position: relative;
+  border: none;
+  background: #111;
+  min-height: 0;
+  min-width: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.app-showcase-preview--uniform,
+.app-showcase-preview--placeholder {
+  min-height: 160px;
+  flex: 1;
+}
+
+.app-showcase-image {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  display: block;
+  object-fit: cover;
+  object-position: center;
+  transform: none;
+  transition: transform 0.35s ease;
+  min-width: 0;
+}
+
+.app-showcase-image--top {
+  object-position: center top;
+}
+
+.app-showcase-placeholder {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  background: color(from var(--secondaryBackgroundColor) srgb r g b / 0.6);
+  color: var(--tertiaryText);
+  font-size: var(--secondaryFontSize);
+  letter-spacing: 0.02em;
+}
+
+.app-showcase-placeholder span {
+  padding: 0.35em 0.7em;
+  border-radius: 999px;
+  border: var(--hairlineThickness) solid color(from var(--primaryText) srgb r g b / 0.12);
+  background: color(from var(--backgroundColor) srgb r g b / 0.45);
+}
+
+/* Footer separato — niente blur, niente posizione assoluta */
+.app-showcase-info {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--lineHeight) * 0.45);
+  padding: calc(var(--lineHeight) * 0.55) calc(var(--lineHeight) * 0.6);
+  border-top: var(--hairlineThickness) solid color(from var(--primaryText) srgb r g b / 0.08);
+  background: var(--secondaryBackgroundColor);
+  min-width: 0;
+}
+
+/* Rimuove il vecchio pseudo-elemento blur */
+.app-showcase-info::before {
+  content: none;
+}
+
+.app-showcase-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.app-showcase-title {
+  color: var(--primaryText);
+  font-size: var(--fontSize);
+  font-weight: 560;
+  line-height: 1.25;
+}
+
+.app-showcase-description {
+  color: var(--tertiaryText);
+  font-size: var(--secondaryFontSize);
+  line-height: 1.35;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.app-showcase-link:focus-visible {
+  outline: 2px solid color(from var(--primaryText) srgb r g b / 0.65);
+  outline-offset: 2px;
+  border-color: color(from var(--primaryText) srgb r g b / 0.22);
+}
+
+@media (hover: hover) {
+  .app-showcase-link:hover {
+    transform: translateY(-2px);
+    border-color: color(from var(--primaryText) srgb r g b / 0.16);
+    background: color(from var(--secondaryBackgroundColor) srgb r g b / 1);
+  }
+
+  .app-showcase-link:hover .app-showcase-image {
+    transform: scale(1.02);
+  }
+}
+
 .featured-app {
   grid-column: start / end;
   display: flex;
   flex-direction: column;
   gap: calc(var(--lineHeight) / 2.5);
+  background-color: var(--secondaryBackgroundColor);
+  border: var(--hairlineThickness) solid color(from var(--primaryText) srgb r g b / 0.06);
+  border-radius: 20px;
+  padding: calc(var(--lineHeight) * 1) calc(var(--lineHeight) * 1.25);
 }
 
 .featured-app__header {
@@ -331,6 +498,12 @@ footer {
   }
   .featured-app__content {
     padding-left: calc(56px + var(--lineHeight));
+  }
+
+  .app-showcase-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
   }
 }
 
@@ -575,6 +748,75 @@ aside nav {
   }
 }
 
+.ai-nav {
+  gap: calc(var(--lineHeight) * 0.45);
+}
+
+.ai-icon-link {
+  position: relative;
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  line-height: 0;
+  flex-shrink: 0;
+  text-decoration: none !important;
+  border-radius: 12px;
+  background-color: transparent;
+}
+
+.ai-icon-link img {
+  width: 28px;
+  height: 28px;
+  display: block;
+  transition: transform 0.2s ease;
+}
+
+.ai-icon-link img.ai-icon-chatgpt {
+  filter: invert(1);
+}
+
+.ai-tooltip {
+  position: absolute;
+  left: calc(100% + 10px);
+  top: 50%;
+  transform: translateY(-50%) translateX(-4px);
+  background: color(from var(--secondaryBackgroundColor) srgb r g b / 0.92);
+  color: var(--primaryText);
+  border: var(--hairlineThickness) solid color(from var(--primaryText) srgb r g b / 0.16);
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 12px;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  box-shadow: 0 6px 16px color(from black srgb r g b / 0.16);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
+  z-index: 12;
+}
+
+.ai-icon-link:hover img,
+.ai-icon-link:focus-visible img {
+  transform: scale(1.08);
+}
+
+.ai-icon-link:hover .ai-tooltip,
+.ai-icon-link:focus-visible .ai-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(-50%) translateX(0);
+}
+
+@media (prefers-color-scheme: light) {
+  .ai-icon-link img.ai-icon-chatgpt {
+    filter: none;
+  }
+}
+
 @media screen and (max-width: 1023px) {
   aside {
     /* On mobile/tablet: render as a compact horizontal nav strip */
@@ -601,6 +843,23 @@ aside nav {
     white-space: nowrap;
   }
 
+  .ai-nav {
+    flex-direction: row;
+    gap: calc(var(--lineHeight) * 0.45);
+  }
+
+  .ai-tooltip {
+    left: 50%;
+    top: auto;
+    bottom: calc(100% + 6px);
+    transform: translateX(-50%) translateY(4px);
+  }
+
+  .ai-icon-link:hover .ai-tooltip,
+  .ai-icon-link:focus-visible .ai-tooltip {
+    transform: translateX(-50%) translateY(0);
+  }
+
   /* Local-nav links get a slightly more prominent look */
   aside .local-nav a {
     color: var(--primaryText);
@@ -611,10 +870,18 @@ aside nav {
 @media screen and not (max-width: 1023px) {
   aside {
     width: calc(var(--lineHeight) * 4);
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    height: calc(100vh - calc(var(--lineHeight) * 6));
 
     position: fixed;
     top: calc(var(--lineHeight) * 4);
     left: calc(var(--lineHeight) * 2);
+  }
+
+  .ai-nav {
+    margin-top: auto;
   }
 
   main nav {
@@ -1011,6 +1278,38 @@ sup {
 }
 
 @media screen and (max-width: 799px) {
+  .apps-showcase {
+    grid-template-columns: 1fr;
+    gap: calc(var(--lineHeight) * 1.1);
+    padding-top: calc(var(--lineHeight) * 0.35);
+  }
+
+  .app-showcase-card--wide {
+    grid-column: auto;
+  }
+
+  .app-showcase-link {
+    border-radius: 16px;
+  }
+
+  .app-showcase-info {
+    padding: calc(var(--lineHeight) * 0.45) calc(var(--lineHeight) * 0.5);
+  }
+
+  .app-showcase-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+  }
+
+  .app-showcase-description {
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
   section {
     gap: calc(var(--lineHeight) * 1.5);
   }
@@ -1072,6 +1371,21 @@ sup {
   .writing-section .content {
     overflow-wrap: break-word;
     word-wrap: break-word;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .app-showcase-link,
+  .app-showcase-image {
+    transition: none;
+  }
+
+  .app-showcase-link:hover {
+    transform: none;
+  }
+
+  .app-showcase-link:hover .app-showcase-image {
+    transform: none;
   }
 }
 
@@ -1225,7 +1539,7 @@ section#playlists-section {
 }
 
 @media screen and (max-width: 799px) {
-  section {
+  section#playlists-section {
     gap: 0;
   }
 
