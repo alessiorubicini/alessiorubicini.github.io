@@ -3,36 +3,29 @@
  * Editorial shared patterns live in /subpage-styles.css.
  */
 
-/* ─── Brand Palette (always light/cool, even in dark mode) ── */
+/* ─── Brand Palette (fixed graphite, independent of OS theme) ── */
 
 body.project-page {
-  --backgroundColor: #F7FAFC;
-  --secondaryBackgroundColor: #EDF2F7;
-  --primaryText: #1A202C;
-  --secondaryText: #4A5568;
-  --tertiaryText: #718096;
+  max-width: calc(var(--lineHeight) * 32);
+  --backgroundColor: #262626;
+  --secondaryBackgroundColor: #303030;
+  --primaryText: #F7F4EF;
+  --secondaryText: #CFC7BD;
+  --tertiaryText: #948C82;
   --accentColor: #DF4A51;
+  --dg-surface: color(from var(--primaryText) srgb r g b / 0.055);
+  --dg-surface-strong: color(from var(--primaryText) srgb r g b / 0.095);
+  --dg-border: color(from var(--primaryText) srgb r g b / 0.12);
+  --dg-border-strong: color(from var(--primaryText) srgb r g b / 0.24);
+  --dg-focus: color(from var(--accentColor) srgb r g b / 0.72);
+  --imageFrameRadius: 18px;
+  --imageFrameBorder: var(--dg-border);
+  --imageFrameBackground: var(--dg-surface);
+  --imageFrameShadow: 0 1px 0 color(from white srgb r g b / 0.06) inset,
+    0 24px 70px color(from black srgb r g b / 0.24);
   background-color: var(--backgroundColor);
 }
 
-@media (prefers-color-scheme: dark) {
-  body.project-page {
-    --backgroundColor: #F7FAFC;
-    --secondaryBackgroundColor: #EDF2F7;
-    --primaryText: #1A202C;
-    --secondaryText: #4A5568;
-    --tertiaryText: #718096;
-    --accentColor: #DF4A51;
-    background-color: var(--backgroundColor);
-  }
-}
-
-/* ─── App Icon ───────────────────────────────────────────── */
-
-.app-icon {
-  border-radius: 28px;
-  border: none;
-}
 
 /* ─── Product-colored Title ──────────────────────────────── */
 
@@ -49,22 +42,15 @@ body.project-page {
 /* ─── Badge styles (Red) ─────────────────────────────────── */
 
 .dg-badge {
-  color: #DF4A51;
-  background: linear-gradient(135deg, rgba(223, 74, 81, 0.08) 0%, rgba(223, 74, 81, 0.12) 100%);
-  border: 1px solid rgba(223, 74, 81, 0.25);
-  box-shadow: none;
+  color: #F2A2A6;
+  background: color(from var(--accentColor) srgb r g b / 0.12);
+  border: var(--hairlineThickness) solid color(from var(--accentColor) srgb r g b / 0.28);
+  box-shadow: 0 1px 0 color(from white srgb r g b / 0.05) inset;
 }
 
 .dg-badge:hover {
-  box-shadow: none;
-  border-color: rgba(223, 74, 81, 0.4);
-}
-
-/* ––– Image containers: transparent PNGs need no chrome ––– */
-.image-container {
-  border: none;
-  box-shadow: none;
-  background: transparent;
+  background: color(from var(--accentColor) srgb r g b / 0.16);
+  border-color: color(from var(--accentColor) srgb r g b / 0.46);
 }
 
 /* ─── Section content line-height boost ─────────────────── */
@@ -82,6 +68,10 @@ section.section {
   margin-bottom: calc(var(--lineHeight) * 0.4);
 }
 
+.section-title {
+  color: var(--primaryText);
+}
+
 .image-container {
   margin: calc(var(--lineHeight) * 0.4) auto;
 }
@@ -90,19 +80,30 @@ section.section {
 
 .link-badge {
   color: var(--primaryText);
-  background: rgba(0, 0, 0, 0.04);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  background: var(--dg-surface);
+  border: var(--hairlineThickness) solid var(--dg-border);
+  border-radius: 999px;
   text-decoration: none;
   gap: 8px;
   display: inline-flex;
   align-items: center;
   cursor: pointer;
+  box-shadow: 0 1px 0 color(from white srgb r g b / 0.06) inset;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
 }
 
 .link-badge:hover {
-  background: rgba(0, 0, 0, 0.08);
-  border-color: rgba(0, 0, 0, 0.15);
+  background: var(--dg-surface-strong);
+  border-color: var(--dg-border-strong);
+  color: var(--primaryText);
   transform: translateY(-1px);
+}
+
+.link-badge:focus-visible,
+.nav-header a:focus-visible,
+.badge:focus-visible {
+  outline: 2px solid var(--dg-focus);
+  outline-offset: 4px;
 }
 
 .link-badge img,
@@ -126,14 +127,16 @@ section.section {
   text-decoration: none;
   font-size: var(--secondaryFontSize);
   font-weight: 500;
-  transition: color 0.2s ease;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
   padding: calc(var(--lineHeight) / 4) calc(var(--lineHeight) / 1.5);
-  border-radius: 20px;
-  background-color: var(--secondaryBackgroundColor);
-  border: var(--hairlineThickness) solid color(from var(--primaryText) srgb r g b / 0.08);
+  border-radius: 999px;
+  background-color: var(--dg-surface);
+  border: var(--hairlineThickness) solid var(--dg-border);
 }
 
 .nav-header a:hover {
   color: var(--primaryText);
-  border-color: color(from var(--primaryText) srgb r g b / 0.2);
+  background-color: var(--dg-surface-strong);
+  border-color: var(--dg-border-strong);
+  transform: translateY(-1px);
 }

@@ -33,8 +33,7 @@ main {
 .app-icon {
   width: 108px;
   height: 108px;
-  border-radius: calc(var(--radius-icon) * 2.5);
-  border: var(--hairlineThickness) solid color(from var(--primaryText) srgb r g b / 0.1);
+  
 }
 
 /* Hero brand row (icon + name side-by-side, Fynn style) */
@@ -317,12 +316,7 @@ section.section {
   display: block;
 }
 
-/* Opt-in card treatment for screenshots with solid backgrounds */
-.image-container--card {
-  border-radius: var(--radius-figure);
-  overflow: hidden;
-  border: var(--hairlineThickness) solid color(from var(--primaryText) srgb r g b / 0.1);
-}
+
 
 .image-container.aspect-3-1 {
   aspect-ratio: 3/1;
@@ -341,7 +335,15 @@ section.section {
 
 /* ─── Footer ─────────────────────────────────────────────── */
 
-.legal-links,
+.legal-links {
+  margin-top: auto;
+  padding-top: calc(var(--lineHeight) * 2);
+  padding-bottom: calc(var(--lineHeight) * 2);
+  border-top: var(--hairlineThickness) solid color(from var(--primaryText) srgb r g b / 0.08);
+  font-size: 13px;
+  color: var(--tertiaryText);
+}
+
 .footer {
   display: flex;
   gap: 16px;
