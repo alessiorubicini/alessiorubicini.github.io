@@ -17,12 +17,14 @@
   <meta property="og:description" content="{{ description or site.description }}">
   <meta property="og:site_name" content="{{ site.title }}">
   <meta property="og:locale" content="en_US">
-  {% if ogImage %}<meta property="og:image" content="{{ site.url }}{{ ogImage }}">{% endif %}
+  {% set socialImage = ogImage | resolveOgImage(image, content, site.url) %}
+  {% if socialImage %}<meta property="og:image" content="{{ socialImage }}">{% endif %}
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="{{ title or site.title }}">
   <meta name="twitter:description" content="{{ description or site.description }}">
+  {% if socialImage %}<meta name="twitter:image" content="{{ socialImage }}">{% endif %}
   <meta name="twitter:creator" content="@alessiorubicini">
 
   <!-- Article structured data for blog posts -->

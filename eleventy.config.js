@@ -99,6 +99,32 @@ export default async function (eleventyConfig) {
     return new URL(url, base).href;
   });
 
+  eleventyConfig.addFilter("resolveOgImage", (ogImage, image, content, siteUrl) => {
+    let imgUrl = ogImage || image;
+    if (imgUrl && (imgUrl.includes("IMG_7799.png") || imgUrl.includes("avatar"))) {
+      imgUrl = null;
+    }
+    if (!imgUrl && content) {
+      const imgRegex = /<img[^>]+src=["']([^"']+)["']/gi;
+      let match;
+      while ((match = imgRegex.exec(content)) !== null) {
+        const src = match[1];
+        if (!src.includes("IMG_7799.png") && !src.includes("avatar")) {
+          imgUrl = src;
+          break;
+        }
+      }
+    }
+    if (!imgUrl) {
+      return "";
+    }
+    if (imgUrl.startsWith("http://") || imgUrl.startsWith("https://")) {
+      return imgUrl;
+    }
+    const path = imgUrl.startsWith("/") ? imgUrl : `/${imgUrl}`;
+    return `${siteUrl}${path}`;
+  });
+
   // ── Return config ─────────────────────────────────────────────────
   return {
     dir: {
