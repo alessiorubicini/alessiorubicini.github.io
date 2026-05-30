@@ -170,7 +170,7 @@ section#experiments-section {
   gap: calc(var(--lineHeight) * 1);
 }
 
-/* #apps and #tools rely on the default section > h2:first-child padding for consistent spacing with Writing and Now */
+/* #work and #tools rely on the default section > h2:first-child padding for consistent spacing with Writing and Now */
 
 /* Fynn hero: raw APNG / transparent asset — no figure card, border, or fill */
 figure.featured-showcase {
@@ -290,11 +290,11 @@ footer {
   padding: calc(var(--lineHeight) * 1) 0 calc(var(--lineHeight) * 3);
 }
 
-#apps h2:first-child {
+#work h2:first-child {
   padding-top: calc(var(--lineHeight) * 1.5);
 }
 
-.apps-showcase {
+.work-showcase {
   grid-column: start / end;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -311,7 +311,7 @@ footer {
 }
 
 @media screen and (max-width: 1023px) {
-  .apps-showcase {
+  .work-showcase {
     grid-template-columns: 1fr;
     gap: calc(var(--lineHeight) * 1.1);
   }
@@ -540,6 +540,29 @@ footer {
     color: var(--primaryText);
     line-height: 1.3;
   }
+}
+
+.profile-badges {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: calc(var(--lineHeight) * 0.2);
+  margin-top: 0.8em;
+  font-size: 0.95em;
+}
+
+.profile-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+}
+
+.profile-badge__icon {
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  color: var(--tertiaryText);
+  stroke-width: 1.8;
 }
 
 @keyframes appear {
@@ -1261,6 +1284,20 @@ ul.columns {
   gap: calc(var(--lineHeight));
 }
 
+.writing-section .content ul {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--lineHeight) * 0.55);
+}
+
+.writing-section .content li p {
+  max-width: 62ch;
+  margin-top: calc(var(--lineHeight) * 0.12);
+  color: var(--tertiaryText);
+  font-size: var(--secondaryFontSize);
+  line-height: 1.45;
+}
+
 dfn {
   display: inline;
   font-style: normal;
@@ -1278,7 +1315,7 @@ sup {
 }
 
 @media screen and (max-width: 799px) {
-  .apps-showcase {
+  .work-showcase {
     grid-template-columns: 1fr;
     gap: calc(var(--lineHeight) * 1.1);
     padding-top: calc(var(--lineHeight) * 0.35);

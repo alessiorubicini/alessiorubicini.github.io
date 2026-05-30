@@ -1,7 +1,7 @@
 ---
 title: "Introducing Session Types in Swift"
 date: 2024-06-14
-description: "Exploring how session types can bring formal verification and type safety to concurrent Swift protocols, and introducing my custom implementation library."
+description: "Exploring how session types can bring formal verification and type safety to concurrent Swift protocols."
 tags:
   - swift
   - concurrency

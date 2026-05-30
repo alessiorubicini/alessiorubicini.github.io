@@ -1,7 +1,7 @@
 ---
 title: "My Swift Student Challenge Journey"
 date: 2025-04-01
-description: "A reflection on failing the 2024 challenge, the creative philosophy of Apple's student competition, and finally winning in 2025 with Screenplay Genie."
+description: "A reflection on my journey as an Apple Swift Student Challenge winner in 2025."
 tags:
   - swift studet challenge
   - wwdc

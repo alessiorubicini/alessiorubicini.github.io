@@ -1,7 +1,7 @@
 ---
 title: "Judgment is Becoming Scarce"
 date: 2026-05-20
-description: "A personal reflection on product engineering, AI, and the shifting role of software developers in 2026."
+description: "A personal reflection on product engineering and the shifting role of software developers in 2026."
 tags:
   - product engineering
   - product thinking

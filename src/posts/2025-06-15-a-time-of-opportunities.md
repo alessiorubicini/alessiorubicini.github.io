@@ -1,7 +1,7 @@
 ---
 title: "A Time of Opportunities"
 date: 2025-06-15
-description: "Reflections on how modern technology, from AI to high-performance hardware, acts as a force multiplier for learning and creativity."
+description: "Reflections on how modern technology acts as a force multiplier for learning, building and creativity."
 tags:
   - reflections
   - ai

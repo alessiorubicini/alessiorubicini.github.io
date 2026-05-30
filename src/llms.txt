@@ -1,6 +1,6 @@
 # Alessio Rubicini
 
-Alessio Rubicini is an iOS/macOS app developer and Swift expert based in Italy. He specializes in building thoughtful, human-centered applications for Apple platforms, with a focus on simplicity, design excellence, and privacy-first technologies.
+Alessio Rubicini is an iOS developer evolving toward Product Engineering and Human-Computer Interaction. Based in Italy, he specializes in building thoughtful, human-centered applications for Apple platforms, with a focus on AI interfaces, spatial computing, and designing natural ways for humans to interact with technology.
 
 ## Profile Summary
 
