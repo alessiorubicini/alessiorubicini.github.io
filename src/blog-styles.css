@@ -166,7 +166,7 @@
   font-size: calc(var(--fontSize) * 2);
   font-weight: 680;
   letter-spacing: -0.03em;
-  line-height: 1.2;
+  line-height: 1.35 !important;
   color: var(--primaryText);
   text-wrap: balance;
 }

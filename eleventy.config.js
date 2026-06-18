@@ -101,7 +101,7 @@ export default async function (eleventyConfig) {
 
   eleventyConfig.addFilter("resolveOgImage", (ogImage, image, content, siteUrl) => {
     let imgUrl = ogImage || image;
-    if (imgUrl && (imgUrl.includes("IMG_7799.png") || imgUrl.includes("avatar"))) {
+    if (imgUrl && (imgUrl.includes("profile/applepark-2026-circle.png") || imgUrl.includes("avatar"))) {
       imgUrl = null;
     }
     if (!imgUrl && content) {
@@ -109,7 +109,7 @@ export default async function (eleventyConfig) {
       let match;
       while ((match = imgRegex.exec(content)) !== null) {
         const src = match[1];
-        if (!src.includes("IMG_7799.png") && !src.includes("avatar")) {
+        if (!src.includes("profile/applepark-2026-circle.png") && !src.includes("avatar")) {
           imgUrl = src;
           break;
         }

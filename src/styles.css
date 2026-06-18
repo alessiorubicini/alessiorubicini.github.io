@@ -508,9 +508,11 @@ footer {
 }
 
 .vcard {
+  --avatarSize: 72px;
+
   display: grid;
-  grid-template-columns: [start] 44px 1fr [end];
-  gap: calc(var(--lineHeight) / 2);
+  grid-template-columns: [start] var(--avatarSize) 1fr [end];
+  gap: calc(var(--lineHeight) * 0.75);
 
   font-feature-settings: "kern" 1, "liga" 1;
   font-weight: 400;
@@ -526,10 +528,10 @@ footer {
   }
 
   #avatar {
-    width: 44px;
-    height: 44px;
+    width: var(--avatarSize);
+    height: var(--avatarSize);
     border-radius: 50%;
-    transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    object-fit: cover;
     border: var(--hairlineThickness) solid color(from var(--primaryText) srgb r g b / 0.12);
   }
 
@@ -539,6 +541,12 @@ footer {
     letter-spacing: -0.02em;
     color: var(--primaryText);
     line-height: 1.3;
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .vcard {
+    --avatarSize: 60px;
   }
 }
 
@@ -1024,7 +1032,7 @@ figure details summary {
   -webkit-backdrop-filter: blur(20px) saturate(120%) brightness(25%);
   backdrop-filter: blur(20px) saturate(120%) brightness(25%);
 
-  mask-image: url(/img/xmark.png);
+  mask-image: url(/img/brand/xmark.svg);
   mask-size: 100%;
   mask-repeat: no-repeat;
   mask-position: 50%;
