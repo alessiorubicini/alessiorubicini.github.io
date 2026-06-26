@@ -4,7 +4,7 @@ Alessio Rubicini is an iOS developer evolving toward Product Engineering and Hum
 
 ## Profile Summary
 
-- **Role**: Software Engineer, iOS/Apple Platforms Specialist.
+- **Role**: Software Engineer, iOS/Apple Platforms Specialist (Open to work).
 - **Education**: Computer Science at University of Camerino (UNICAM). Currently completing Master's Thesis on Secure Enclave-based Web3 wallets.
 - **Achievements**: Swift Student Challenge Winner 2025 🏆.
 - **Focus**: Apple Intelligence, SwiftUI, Secure Enclave, Web3/Blockchain, Natural Language Processing.
