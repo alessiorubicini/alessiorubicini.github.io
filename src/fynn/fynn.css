@@ -3,7 +3,7 @@ body.fynn-page.project-page {
 }
 
 .fynn-page {
-  font-family: "Onest", ui-sans-serif, -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   --fynn-ink: var(--primaryText);
   --fynn-paper: var(--backgroundColor);
   --fynn-muted: var(--secondaryText);
@@ -20,6 +20,7 @@ body.fynn-page.project-page {
 
 body.fynn-page.project-page .hero {
   align-items: flex-start;
+
   padding: calc(var(--lineHeight) * 3) 0 calc(var(--lineHeight) * 1);
   text-align: left;
 }
@@ -42,7 +43,6 @@ body.fynn-page.project-page .phone {
   max-width: 300px;
   height: auto;
   object-fit: contain;
-  filter: drop-shadow(0 24px 56px color(from black srgb r g b / 0.28));
 }
 
 @media screen and (min-width: 800px) {
@@ -156,7 +156,7 @@ body.fynn-page.project-page .phone {
 }
 
 .fynn-shortcuts-page .features-list li.feature-item,
-.fynn-shortcuts-page .instruction-steps > li::before,
+.fynn-shortcuts-page .instruction-steps>li::before,
 .fynn-feedback-page .feedback-card {
   border-color: var(--fynn-border);
   background: var(--fynn-surface);
