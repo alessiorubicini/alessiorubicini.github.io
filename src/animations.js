@@ -9,11 +9,8 @@
   }
 
   function initStagger() {
-    var roots = document.querySelectorAll("header.vcard, aside, main > section, .legal-links");
-    roots.forEach(function (root) {
-      root.querySelectorAll("[data-appear]").forEach(function (el, i) {
-        el.style.setProperty("--delay", String(i));
-      });
+    document.querySelectorAll("[data-appear]").forEach(function (el, i) {
+      el.style.setProperty("--delay", String(i));
     });
   }
 

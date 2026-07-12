@@ -595,22 +595,22 @@ footer {
 
 @media not (prefers-reduced-motion: reduce) {
   body.animate-appear:not(:has(:target)) {
-    --appearDuration: 0.8s;
+    --appearDuration: 0.4s;
   }
 }
 
 [data-appear],
 [data-delay] {
   --delay: 0;
-  --stagger-step: 0.2s;
+  --stagger-step: 0.04s;
 
   animation: appear var(--appearDuration) cubic-bezier(0.2, 0.8, 0.2, 1) both;
-  animation-delay: calc(0.2s + calc(var(--delay) * var(--stagger-step)));
+  animation-delay: calc(0.1s + calc(var(--delay) * var(--stagger-step)));
   will-change: transform, opacity;
 
   & figure {
     animation: appear-img calc(var(--appearDuration) / 5) cubic-bezier(0.2, 0.8, 0.2, 1) both;
-    animation-delay: calc(0.2s + calc(var(--delay) * var(--stagger-step)));
+    animation-delay: calc(0.1s + calc(var(--delay) * var(--stagger-step)));
     will-change: transform, opacity;
   }
 }
@@ -636,7 +636,7 @@ img.shimmer {
 }
 
 aside [data-appear] {
-  --stagger-step: 0.05s;
+  --stagger-step: 0.08s;
 }
 
 /* Legacy project pages set --delay inline on [data-delay] */
@@ -750,6 +750,10 @@ a[href^="http"]:not(:has(img)):hover::after, a[href^="mailto"]:not(:has(img)):ho
   content: none !important;
 }
 
+aside nav a::after {
+  content: none !important;
+}
+
 hr {
   display: block;
   margin-top: calc(var(--lineHeight) - var(--hairlineThickness));
@@ -767,7 +771,9 @@ aside nav {
   align-items: start;
 
   a {
-    display: inline;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45em;
     color: var(--secondaryText);
     text-decoration: none;
     
@@ -1292,18 +1298,64 @@ ul.columns {
   gap: calc(var(--lineHeight));
 }
 
-.writing-section .content ul {
-  display: flex;
-  flex-direction: column;
-  gap: calc(var(--lineHeight) * 0.55);
+.writing-section .content {
+  grid-column: start / end;
 }
 
-.writing-section .content li p {
-  max-width: 62ch;
-  margin-top: calc(var(--lineHeight) * 0.12);
+.writing-list {
+  list-style: none;
+  padding: 0;
+  padding-left: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.writing-list li,
+.writing-list li::marker {
+  list-style: none;
+}
+
+.writing-list li {
+  padding-left: 0;
+}
+
+.writing-list li::before {
+  content: none;
+}
+
+.writing-list__item {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  padding: calc(var(--lineHeight) * 0.45) 0;
+  border-bottom: 1px solid var(--borderColor, rgba(128,128,128,0.15));
+}
+
+.writing-list__item:first-child {
+  border-top: 1px solid var(--borderColor, rgba(128,128,128,0.15));
+}
+
+.writing-list__title {
+  flex: 1;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.writing-list__title:hover {
+  color: #5865F2;
+}
+
+.writing-list__date {
+  flex-shrink: 0;
   color: var(--tertiaryText);
   font-size: var(--secondaryFontSize);
-  line-height: 1.45;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
 }
 
 dfn {
