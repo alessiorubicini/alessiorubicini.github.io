@@ -20,9 +20,7 @@ export default async function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/.nojekyll": ".nojekyll" });
   eleventyConfig.addPassthroughCopy("src/google6182183c97042d14.html");
 
-  // ── Passthrough: Homepage & 404 (modified HTML, not templated) ──
-  eleventyConfig.addPassthroughCopy("src/index.html");
-  eleventyConfig.addPassthroughCopy("src/404.html");
+
 
   // ── Passthrough: All existing project pages verbatim ────────────
   eleventyConfig.addPassthroughCopy("src/ember");
