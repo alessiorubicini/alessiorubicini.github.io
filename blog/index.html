@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <link rel="icon" href="/img/profile/applepark-2026-circle.png" type="image/png">
+
+  <title>Blog • Alessio Rubicini</title>
+  <meta name="author" content="Alessio Rubicini">
+  <meta name="description" content="Thoughts on iOS development, Swift, SwiftUI, and building on Apple platforms.">
+
+  <!-- OpenGraph -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://alessiorubicini.github.io/blog/">
+  <meta property="og:title" content="Blog • Alessio Rubicini">
+  <meta property="og:description" content="Thoughts on iOS development, Swift, SwiftUI, and building on Apple platforms.">
+  <meta property="og:site_name" content="Alessio Rubicini">
+  <meta property="og:locale" content="en_US">
+  
+  
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Blog • Alessio Rubicini">
+  <meta name="twitter:description" content="Thoughts on iOS development, Swift, SwiftUI, and building on Apple platforms.">
+  
+  <meta name="twitter:creator" content="@alessiorubicini">
+
+  <!-- Article structured data for blog posts -->
+  
+
+  <link rel="canonical" href="https://alessiorubicini.github.io/blog/">
+  <link rel="alternate" type="application/rss+xml" title="Alessio Rubicini Blog" href="https://alessiorubicini.github.io/blog/feed.xml">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400;1,500&display=swap">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/subpage-styles.css">
+  <link rel="stylesheet" href="/blog-styles.css">
+
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="5b47afd2-b973-4c21-9668-a175674e4d81"></script>
+  <script>
+    async function shareArticle() {
+      const url = window.location.href;
+      const title = document.title;
+      const feedback = document.getElementById('shareFeedback');
+
+      if (navigator.share) {
+        try {
+          await navigator.share({ title, url });
+        } catch (err) {
+          if (err.name !== 'AbortError') console.error('Share failed:', err);
+        }
+      } else {
+        try {
+          await navigator.clipboard.writeText(url);
+          if (feedback) {
+            feedback.textContent = 'Copied!';
+            setTimeout(() => feedback.textContent = '', 2000);
+          }
+        } catch (err) {
+          console.error('Copy failed:', err);
+        }
+      }
+    }
+
+    // Copy button for code blocks
+    (function initCopyButtons() {
+      function createCopyButton() {
+        const button = document.createElement('button');
+        button.className = 'copy-button';
+        button.setAttribute('aria-label', 'Copy code to clipboard');
+        button.innerHTML = `
+          <div class="icon-wrapper">
+            <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <span class="copy-text">Copy</span>
+        `;
+        return button;
+      }
+
+      function wrapCodeBlock(pre) {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'code-block-wrapper';
+        pre.parentNode.insertBefore(wrapper, pre);
+        wrapper.appendChild(pre);
+        return wrapper;
+      }
+
+      async function copyCode(button, pre) {
+        const code = pre.querySelector('code') || pre;
+        const text = code.textContent;
+
+        try {
+          await navigator.clipboard.writeText(text);
+
+          // Add copied state
+          button.classList.add('copied');
+          const textSpan = button.querySelector('.copy-text');
+          if (textSpan) textSpan.textContent = 'Copied!';
+
+          // Reset after animation
+          setTimeout(() => {
+            button.classList.remove('copied');
+            if (textSpan) textSpan.textContent = 'Copy';
+          }, 2000);
+        } catch (err) {
+          console.error('Failed to copy:', err);
+        }
+      }
+
+      function init() {
+        const codeBlocks = document.querySelectorAll('.post-content pre');
+
+        codeBlocks.forEach(pre => {
+          // Skip if already wrapped
+          if (pre.parentElement?.classList.contains('code-block-wrapper')) return;
+
+          const wrapper = wrapCodeBlock(pre);
+          const button = createCopyButton();
+          wrapper.appendChild(button);
+
+          button.addEventListener('click', () => copyCode(button, pre));
+        });
+      }
+
+      // Initialize on DOM ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    })();
+  </script>
+</head>
+<body class="project-page blog-post-page">
+  <script src="/animations.js"></script>
+  <main>
+  <section class="hero" data-appear style="text-align: left; align-items: flex-start; padding: calc(var(--lineHeight) * 3) 0 calc(var(--lineHeight) * 1);">
+    <h1 class="page-title font-editorial article-title" data-appear>Blog</h1>
+    <p class="lead" data-appear>
+      Thoughts on iOS development, Swift, SwiftUI, and the craft of building on Apple platforms.
+    </p>
+  </section>
+
+  
+  <section class="blog-index-section" data-appear>
+    <div class="blog-post-list">
+      
+      <article class="blog-list-item" data-appear>
+        <div class="blog-list-item__meta">
+          <time datetime="2026-06-14" class="blog-list-item__date">Jun 14, 2026</time>
+          
+          <span class="blog-list-item__tags">
+            <span class="tag-pill">apple</span><span class="tag-pill">ai</span><span class="tag-pill">technology</span>
+          </span>
+          
+        </div>
+        <h2 class="blog-list-item__title font-editorial heading-editorial">
+          <a href="/blog/siri-ai-is-not-gemini/">Apple, Google, and the Most Misunderstood AI Partnership of 2026</a>
+        </h2>
+        
+        <p class="blog-list-item__excerpt">Clarifying the details of the Apple-Google partnership at WWDC 2026, Apple Foundation Models, and the architecture of the new Siri.</p>
+        
+        <p class="blog-list-item__reading-time">7 min read</p>
+      </article>
+      
+      <article class="blog-list-item" data-appear>
+        <div class="blog-list-item__meta">
+          <time datetime="2026-05-20" class="blog-list-item__date">May 20, 2026</time>
+          
+          <span class="blog-list-item__tags">
+            <span class="tag-pill">product engineering</span><span class="tag-pill">product thinking</span><span class="tag-pill">ai</span>
+          </span>
+          
+        </div>
+        <h2 class="blog-list-item__title font-editorial heading-editorial">
+          <a href="/blog/judgment-is-becoming-scarce/">Judgment is Becoming Scarce</a>
+        </h2>
+        
+        <p class="blog-list-item__excerpt">A personal reflection on product engineering and the shifting role of software developers in 2026.</p>
+        
+        <p class="blog-list-item__reading-time">11 min read</p>
+      </article>
+      
+      <article class="blog-list-item" data-appear>
+        <div class="blog-list-item__meta">
+          <time datetime="2025-06-15" class="blog-list-item__date">Jun 15, 2025</time>
+          
+          <span class="blog-list-item__tags">
+            <span class="tag-pill">reflections</span><span class="tag-pill">ai</span><span class="tag-pill">technology</span>
+          </span>
+          
+        </div>
+        <h2 class="blog-list-item__title font-editorial heading-editorial">
+          <a href="/blog/a-time-of-opportunities/">A Time of Opportunities</a>
+        </h2>
+        
+        <p class="blog-list-item__excerpt">Reflections on how modern technology acts as a force multiplier for learning, building and creativity.</p>
+        
+        <p class="blog-list-item__reading-time">4 min read</p>
+      </article>
+      
+      <article class="blog-list-item" data-appear>
+        <div class="blog-list-item__meta">
+          <time datetime="2025-04-01" class="blog-list-item__date">Apr 1, 2025</time>
+          
+          <span class="blog-list-item__tags">
+            <span class="tag-pill">swift studet challenge</span><span class="tag-pill">wwdc</span><span class="tag-pill">apple</span>
+          </span>
+          
+        </div>
+        <h2 class="blog-list-item__title font-editorial heading-editorial">
+          <a href="/blog/my-swift-student-challenge/">My Swift Student Challenge Journey</a>
+        </h2>
+        
+        <p class="blog-list-item__excerpt">A reflection on my journey as an Apple Swift Student Challenge winner in 2025.</p>
+        
+        <p class="blog-list-item__reading-time">5 min read</p>
+      </article>
+      
+      <article class="blog-list-item" data-appear>
+        <div class="blog-list-item__meta">
+          <time datetime="2024-06-14" class="blog-list-item__date">Jun 14, 2024</time>
+          
+          <span class="blog-list-item__tags">
+            <span class="tag-pill">swift</span><span class="tag-pill">concurrency</span><span class="tag-pill">session types</span><span class="tag-pill">open-source</span>
+          </span>
+          
+        </div>
+        <h2 class="blog-list-item__title font-editorial heading-editorial">
+          <a href="/blog/introducing-session-types-in-swift/">Introducing Session Types in Swift</a>
+        </h2>
+        
+        <p class="blog-list-item__excerpt">Exploring how session types can bring formal verification and type safety to concurrent Swift protocols.</p>
+        
+        <p class="blog-list-item__reading-time">7 min read</p>
+      </article>
+      
+    </div>
+  </section>
+  
+
+  <div class="legal-links" data-appear>
+    <span>© 2026 <a href="/">Alessio Rubicini</a>. All rights reserved.</span>
+    <span>·</span>
+    <a href="/blog/feed.xml">RSS Feed</a>
+  </div>
+</main>
+
+</body>
+</html>

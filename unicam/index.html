@@ -1,0 +1,253 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta content="text/html; charset=utf-8" http-equiv="content-type">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+    <link rel="icon" href="/img/profile/applepark-2026-circle.png" type="image/png">
+
+    <title>University Notes • Alessio Rubicini</title>
+    <meta content="University of Camerino Computer Science notes" name="description">
+    <meta name="author" content="Alessio Rubicini"/>
+
+    <link rel="canonical" href="https://alessiorubicini.github.io/unicam"/>
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+body {
+  max-width: calc(var(--lineHeight) * 32);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-header {
+  padding: calc(var(--lineHeight) * 3) 0 0;
+}
+
+p {
+	font-size: var(--fontSize);
+}
+
+.page-title {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.15;
+  color: var(--primaryText);
+  margin-bottom: calc(var(--lineHeight) / 2);
+}
+
+@media screen and (min-width: 800px) {
+  .page-title {
+    font-size: 26px;
+    line-height: 1.15;
+  }
+}
+
+.page-description {
+  color: var(--tertiaryText);
+  font-size: var(--fontSize);
+}
+
+.author-section {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--lineHeight) / 2);
+  margin-top: calc(var(--lineHeight));
+  margin-bottom: calc(var(--lineHeight) * 1.5);
+}
+
+.author-section img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+}
+
+.author-section p {
+  color: var(--secondaryText);
+  font-size: var(--fontSize);
+  margin: 0;
+}
+
+.disclaimer {
+  margin-bottom: calc(var(--lineHeight) * 2);
+  color: var(--tertiaryText);
+  font-size: var(--secondaryFontSize);
+  line-height: calc(var(--lineHeight) * 1.1);
+}
+
+.degree-section {
+  margin-bottom: calc(var(--lineHeight) * 0.5);
+}
+
+.degree-section h2 {
+  font-size: calc(var(--fontSize) * 1.5);
+  line-height: calc(var(--lineHeight) * 1.4);
+  color: var(--primaryText);
+  padding-top: calc(var(--lineHeight) * 1) !important;
+  margin-bottom: calc(var(--lineHeight) * 0.5);
+  font-weight: 600;
+}
+
+.years-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: calc(var(--lineHeight) * 2);
+}
+
+@media screen and (min-width: 800px) {
+  .years-container {
+    grid-template-columns: repeat(3, 1fr);
+    gap: calc(var(--lineHeight) * 1.5);
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 799px) {
+  .years-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.year-section {
+  margin-bottom: calc(var(--lineHeight) * 2);
+}
+
+.year-section h3 {
+  font-size: calc(var(--fontSize) * 1.1);
+  line-height: calc(var(--lineHeight) * 1.1);
+  color: var(--primaryText);
+  margin-bottom: calc(var(--lineHeight));
+  font-weight: 550;
+}
+
+.courses-list {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--lineHeight) / 2);
+}
+
+.courses-list li {
+  position: relative;
+  padding-left: 0;
+}
+
+.courses-list li::before {
+  content: none;
+}
+
+.courses-list a {
+  color: var(--secondaryText);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  display: block;
+}
+
+.courses-list a:hover {
+  color: var(--primaryText);
+  text-decoration: underline;
+}
+
+.legal-links {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  font-size: 12px;
+  color: var(--secondaryText);
+  opacity: 0.85;
+  margin-top: auto;
+  padding-top: calc(var(--lineHeight) * 3);
+  padding-bottom: calc(var(--lineHeight) * 2);
+}
+
+.legal-links a {
+  color: var(--secondaryText);
+  text-decoration: none;
+  transition: opacity 0.2s ease, color 0.2s ease;
+}
+
+.legal-links a:hover {
+  opacity: 1;
+  color: var(--primaryText);
+  text-decoration: underline;
+}
+    </style>
+  </head>
+  <body>
+    <script src="/animations.js"></script>
+
+    <main>
+      <div class="page-header" data-delay style="--delay: 0.5;">
+        <h1 class="page-title" data-delay style="--delay: 1.0;">Unicam Informatica • Appunti</h1>
+        
+        <div class="author-section" data-delay style="--delay: 1.2;">
+          <img src="/img/profile/applepark-2026-circle.png" alt="Alessio Rubicini" width="32" height="32">
+          <p>di Alessio Rubicini</p>
+        </div>
+        
+        <div class="disclaimer" data-delay style="--delay: 1.4;">
+          <p>Questi sono alcuni dei miei appunti dei corsi che ho seguito all'Università di Camerino.
+			Si prega di notare che <strong>non si tratta di materiale ufficiale dei corsi</strong>, solo materiale di studio che ho preparato per me stesso.
+			Alcune parti potrebbero occasionalmente essere incomplete e gli argomenti dei corsi potrebbero cambiare nel tempo.</p>
+        </div>
+      </div>
+
+      <section class="degree-section" data-delay style="--delay: 1.8;">
+        <h2>Laurea Triennale: Informatica per la Comunicazione Digitale</h2>
+        
+        <div class="years-container">
+
+          <div class="year-section">
+            <h3>2° Anno (2022/23)</h3>
+            <ul class="courses-list">
+              <li><a href="#">Basi di Dati</a></li>
+              <li><a href="#">Modellazione e Gestione della Conoscenza</a></li>
+            </ul>
+          </div>
+
+          <div class="year-section">
+            <h3>3° Anno (2023/24)</h3>
+            <ul class="courses-list">
+              <li><a href="#">Ingegneria del Software</a></li>
+              <li><a href="#">Applicazioni Web, Mobile e Cloud</a></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="degree-section" data-delay style="--delay: 2.6;">
+        <h2>Laurea Magistrale: Computer Science</h2>
+        
+        <div class="year-section">
+          <h3>1° Anno (2024/25)</h3>
+          <ul class="courses-list">
+            <li><a href="#">Fundamentals of Machine Learning</a></li>
+            <li><a href="#">Technologies for Big Data Management</a></li>
+            <li><a href="#">Business Process Modeling and Enactment</a></li>
+            <li><a href="#">Fundamentals of Software Testing</a></li>
+            <li><a href="#">Distributed Systems</a></li>
+            <li><a href="#">Process Mining</a></li>
+          </ul>
+        </div>
+
+        <div class="year-section">
+          <h3>2° Anno (2025/26)</h3>
+          <ul class="courses-list">
+            <li><a href="#">Software Project Management</a></li>
+            <li><a href="#">Blockchain and Distributed Ledger Technologies</a></li>
+            <li><a href="#">Cyber Physical Systems Design</a></li>
+          </ul>
+        </div>
+      </section>
+
+      <div class="legal-links" data-delay style="--delay: 3.0;">
+        <span>© 2026 <a href="/">Alessio Rubicini</a></span>
+      </div>
+    </main>
+  </body>
+</html>

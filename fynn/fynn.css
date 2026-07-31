@@ -1,0 +1,223 @@
+body.fynn-page.project-page {
+  max-width: calc(var(--lineHeight) * 32);
+}
+
+.fynn-page {
+  font-family: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --fynn-ink: var(--primaryText);
+  --fynn-paper: var(--backgroundColor);
+  --fynn-muted: var(--secondaryText);
+  --fynn-subtle: color(from var(--primaryText) srgb r g b / 0.56);
+  --fynn-surface: color(from var(--primaryText) srgb r g b / 0.055);
+  --fynn-surface-strong: color(from var(--primaryText) srgb r g b / 0.095);
+  --fynn-border: color(from var(--primaryText) srgb r g b / 0.12);
+  --fynn-border-strong: color(from var(--primaryText) srgb r g b / 0.24);
+  --fynn-accent: var(--primaryText);
+  --fynn-accent-contrast: var(--backgroundColor);
+  --fynn-focus: color(from var(--primaryText) srgb r g b / 0.72);
+  --fynn-frame-radius: 18px;
+}
+
+body.fynn-page.project-page .hero {
+  align-items: flex-start;
+
+  padding: calc(var(--lineHeight) * 3) 0 calc(var(--lineHeight) * 1);
+  text-align: left;
+}
+
+body.fynn-page.project-page .hero-text {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--lineHeight);
+}
+
+body.fynn-page.project-page .hero-media {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+body.fynn-page.project-page .phone {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  object-fit: contain;
+}
+
+@media screen and (min-width: 800px) {
+  body.fynn-page.project-page .hero {
+    flex-direction: row;
+    align-items: center;
+    gap: calc(var(--lineHeight) * 4);
+  }
+
+  .fynn-page .app-store-button {
+    align-self: flex-start;
+  }
+}
+
+.fynn-page .brand img {
+  background: var(--fynn-surface);
+  border-color: var(--fynn-border);
+}
+
+.fynn-page .app-store-button,
+.fynn-page .primary-cta {
+  border-radius: 12px;
+}
+
+.fynn-page .app-store-button {
+  outline: 0;
+}
+
+.fynn-page .app-store-button:hover {
+  opacity: 0.82;
+}
+
+.fynn-page .app-store-button:focus-visible,
+.fynn-page .primary-cta:focus-visible {
+  outline: 2px solid var(--fynn-focus);
+  outline-offset: 4px;
+}
+
+.fynn-page .primary-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: fit-content;
+  min-height: 44px;
+  margin-top: calc(var(--lineHeight) * 0.2);
+  padding: 12px 19px;
+  border: var(--hairlineThickness) solid var(--fynn-border);
+  border-radius: 999px;
+  background: var(--fynn-surface);
+  color: var(--fynn-ink);
+  font: inherit;
+  font-weight: 600;
+  line-height: 1;
+  text-decoration: none;
+  box-shadow: 0 1px 0 color(from var(--primaryText) srgb r g b / 0.06) inset;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, opacity 0.2s ease, transform 0.2s ease;
+}
+
+.fynn-page .primary-cta:hover {
+  background: var(--fynn-surface-strong);
+  border-color: var(--fynn-border-strong);
+  color: var(--fynn-ink);
+  transform: translateY(-1px);
+}
+
+.fynn-page .primary-cta:active {
+  transform: translateY(1px);
+}
+
+.fynn-page .primary-cta::after {
+  content: none !important;
+}
+
+.fynn-page .primary-cta-icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+}
+
+.fynn-page .feature-icon {
+  border-color: var(--fynn-border);
+  background: var(--fynn-surface);
+  color: var(--fynn-ink);
+}
+
+.fynn-page .screenshot-frame {
+  border: var(--hairlineThickness) solid var(--fynn-border);
+  border-radius: var(--fynn-frame-radius);
+  background: var(--fynn-surface);
+  overflow: hidden;
+}
+
+.fynn-page .meta,
+.fynn-page .legal-links,
+.fynn-page .legal-links a,
+.fynn-page .legal-links span {
+  color: var(--fynn-subtle);
+}
+
+.fynn-page .legal-links {
+  border-top-color: var(--fynn-border);
+}
+
+@media (prefers-contrast: more) {
+  .fynn-page {
+    --fynn-subtle: var(--secondaryText);
+    --fynn-border: color(from var(--primaryText) srgb r g b / 0.34);
+    --fynn-focus: var(--primaryText);
+  }
+}
+
+.fynn-shortcuts-page .features-list li.feature-item,
+.fynn-shortcuts-page .instruction-steps>li::before,
+.fynn-feedback-page .feedback-card {
+  border-color: var(--fynn-border);
+  background: var(--fynn-surface);
+}
+
+.fynn-shortcuts-page .showcase-image-wrapper {
+  border: var(--hairlineThickness) solid var(--fynn-border);
+  border-radius: var(--fynn-frame-radius);
+  background: var(--fynn-surface);
+}
+
+.fynn-shortcuts-page .tag {
+  border: var(--hairlineThickness) solid var(--fynn-border);
+  background: var(--fynn-surface-strong);
+  color: var(--fynn-ink);
+}
+
+.fynn-feedback-page .feedback-card {
+  max-width: calc(var(--lineHeight) * 29);
+  box-shadow: 0 1px 0 color(from var(--primaryText) srgb r g b / 0.06) inset;
+}
+
+.fynn-feedback-page .field-group select,
+.fynn-feedback-page .field-group textarea {
+  border-color: var(--fynn-border);
+  background: color(from var(--backgroundColor) srgb r g b / 0.62);
+}
+
+.fynn-feedback-page .field-group select:focus-visible,
+.fynn-feedback-page .field-group textarea:focus-visible {
+  outline-color: var(--fynn-focus);
+}
+
+.fynn-feedback-page .feedback-submit {
+  min-height: 46px;
+  border: var(--hairlineThickness) solid var(--fynn-border);
+  border-radius: 999px;
+  background: var(--fynn-surface);
+  color: var(--fynn-ink);
+  box-shadow: 0 1px 0 color(from var(--primaryText) srgb r g b / 0.06) inset;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.fynn-feedback-page .feedback-submit:hover {
+  border-color: var(--fynn-border-strong);
+  background: var(--fynn-surface-strong);
+  color: var(--fynn-ink);
+  opacity: 1;
+  transform: translateY(-1px);
+}
+
+.fynn-feedback-page .feedback-submit:focus-visible {
+  outline: 2px solid var(--fynn-focus);
+  outline-offset: 4px;
+}
+
+.fynn-policy-page .contact-info {
+  border-color: var(--fynn-border);
+  background: var(--fynn-surface);
+}
+
+.fynn-policy-page .back-link {
+  border-top-color: var(--fynn-border);
+}
