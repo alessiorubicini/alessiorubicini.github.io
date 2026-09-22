@@ -1,10 +1,10 @@
 # Alessio Rubicini
 
-Alessio Rubicini is an iOS developer evolving toward Product Engineering and Human-Computer Interaction. Based in Italy, he specializes in building thoughtful, human-centered applications for Apple platforms, with a focus on AI interfaces, spatial computing, and designing natural ways for humans to interact with technology.
+Alessio Rubicini is an iOS Developer building products for Apple platforms, with a particular interest in on-device AI and Human-AI interaction. He won the Apple Swift Student Challenge in 2025 and has worked across personal, open-source, and shipped projects. He cares about thoughtful interfaces, great user experiences, and turning new technology into products people actually want to use.
 
 ## Profile Summary
 
-- **Role**: Software Engineer, iOS/Apple Platforms Specialist (Open to work).
+- **Role**: Software Engineer, iOS/Apple Platforms Specialist.
 - **Education**: Computer Science at University of Camerino (UNICAM). Currently completing Master's Thesis on Secure Enclave-based Web3 wallets.
 - **Achievements**: Swift Student Challenge Winner 2025 🏆.
 - **Focus**: Apple Intelligence, SwiftUI, Secure Enclave, Web3/Blockchain, Natural Language Processing.
