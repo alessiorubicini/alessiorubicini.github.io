@@ -1,0 +1,383 @@
+/*
+ * Shared Subpage Styles
+ * Inherits the global editorial design system from styles.css.
+ * Product-specific colors/identity overrides belong in each subpage's own CSS.
+ */
+
+/* ─── Layout ─────────────────────────────────────────────── */
+
+body.project-page {
+  max-width: calc(var(--lineHeight) * 27);
+  display: flex;
+  flex-direction: column;
+  min-height: 100svh;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ─── Hero Section ───────────────────────────────────────── */
+
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: calc(var(--lineHeight) * 1.2);
+  padding: calc(var(--lineHeight) * 3) 0 calc(var(--lineHeight) * 1);
+}
+
+.app-icon {
+  width: 108px;
+  height: 108px;
+  
+}
+
+/* Hero brand row (icon + name side-by-side, Fynn style) */
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: calc(var(--lineHeight) / 2);
+  font-size: calc(var(--fontSize) * 2.5);
+  font-weight: 640;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  color: var(--primaryText);
+}
+
+.brand img {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-icon);
+  border: var(--hairlineThickness) solid color(from var(--primaryText) srgb r g b / 0.1);
+}
+
+/* Page title — tagline below brand */
+.page-title {
+  font-size: calc(var(--fontSize) * 1.65);
+  font-weight: 580;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: var(--primaryText);
+}
+
+@media screen and (min-width: 800px) {
+  .page-title {
+    font-size: calc(var(--fontSize) * 2);
+    letter-spacing: -0.025em;
+  }
+}
+
+/* Lead / subtitle */
+.lead {
+  color: var(--secondaryText);
+  font-size: var(--fontSize);
+  max-width: 62ch;
+  line-height: 1.65;
+}
+
+/* Meta lines (small / muted) */
+.meta {
+  color: var(--tertiaryText);
+  font-size: var(--secondaryFontSize);
+}
+
+.meta + .meta {
+  margin-top: calc(var(--lineHeight) * -0.4);
+}
+
+/* ─── Badges ─────────────────────────────────────────────── */
+
+.badges-container {
+  display: flex;
+  gap: calc(var(--lineHeight) / 2);
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-top: calc(var(--lineHeight) * 0.5);
+}
+
+.badge {
+  cursor: default;
+  display: inline-flex;
+  align-items: center;
+  padding: calc(var(--lineHeight) / 3.5) calc(var(--lineHeight) * 0.7);
+  font-size: var(--secondaryFontSize);
+  font-weight: 500;
+  border-radius: 20px;
+  margin: 0;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.badge:hover {
+  transform: translateY(-1px);
+}
+
+.challenge-badge {
+  color: #4A90E2;
+  background: linear-gradient(135deg, rgba(74, 144, 226, 0.08) 0%, rgba(74, 144, 226, 0.12) 100%);
+  border: 1px solid rgba(74, 144, 226, 0.25);
+  box-shadow: 0 2px 8px rgba(74, 144, 226, 0.12);
+}
+
+.challenge-badge:hover {
+  box-shadow: 0 4px 16px rgba(74, 144, 226, 0.22);
+  border-color: rgba(74, 144, 226, 0.4);
+}
+
+/* ─── App Store Button ───────────────────────────────────── */
+
+.app-store-button {
+  display: inline-flex;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+  line-height: 0;
+  padding: 0;
+  margin: 0;
+  width: fit-content;
+  align-self: center;
+}
+
+.app-store-button::after {
+  display: none;
+}
+
+.app-store-button img {
+  display: block;
+  width: 150px;
+  height: auto;
+  object-fit: contain;
+  padding: 0;
+  margin: 0;
+}
+
+.app-store-button:hover {
+  opacity: 0.75;
+}
+
+/* ─── Section Layout ─────────────────────────────────────── */
+
+section.section {
+  display: block;
+  margin-bottom: calc(var(--lineHeight) * 0.3);
+  padding-top: calc(var(--lineHeight) * 0.3);
+}
+
+/* Override global section grid for subpage narrative sections */
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: calc(var(--lineHeight) * 0.4);
+  margin-bottom: calc(var(--lineHeight) * 0.75);
+  width: 100%;
+}
+
+.section-divider {
+  display: none;
+}
+
+.section-title {
+  font-size: calc(var(--fontSize) * 1.85);
+  font-weight: 640;
+  letter-spacing: -0.025em;
+  line-height: calc(var(--lineHeight) * 1.5);
+  color: var(--primaryText);
+  padding: 0;
+  margin: 0;
+}
+
+.section-content {
+  color: var(--secondaryText);
+  line-height: 1.7;
+  font-size: var(--fontSize);
+}
+
+.section-content p {
+  margin-bottom: calc(var(--lineHeight) * 1);
+}
+
+.section-content p:last-child {
+  margin-bottom: 0;
+}
+
+.section-content ul {
+  margin-bottom: calc(var(--lineHeight) * 1.5);
+}
+
+.section-content strong {
+  color: var(--primaryText);
+  font-weight: 580;
+}
+
+/* ─── Inline content sections (Fynn style) ───────────────── */
+
+.content-section {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--lineHeight) * 0.75);
+  padding-top: calc(var(--lineHeight) * 0.1);
+}
+
+.content-section:last-of-type {
+  padding-bottom: calc(var(--lineHeight) * 2.5);
+}
+
+.content-section h2 {
+  font-size: calc(var(--fontSize) * 1.85);
+  font-weight: 640;
+  letter-spacing: -0.025em;
+  line-height: calc(var(--lineHeight) * 1.5);
+  color: var(--primaryText);
+  padding: 0;
+  margin: 0;
+}
+
+.manifesto-content {
+  display: flex;
+  flex-direction: column;
+  gap: calc(var(--lineHeight));
+}
+
+.manifesto-text {
+  color: var(--secondaryText);
+  line-height: 1.7;
+  margin: 0;
+  font-size: var(--fontSize);
+}
+
+/* ─── Feature Grid (Fynn "What's Inside") ───────────────── */
+
+.features-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: calc(var(--lineHeight) * 0.9);
+  list-style-type: none;
+  padding: 0;
+  margin: calc(var(--lineHeight) * 0.5) 0 0 0;
+}
+
+@media screen and (min-width: 600px) {
+  .features-list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.features-list li.feature-item {
+  position: static;
+  padding-left: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.features-list li.feature-item::before {
+  content: none;
+}
+
+.feature-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-icon);
+  background-color: var(--secondaryBackgroundColor);
+  color: var(--primaryText);
+  border: var(--hairlineThickness) solid color(from var(--primaryText) srgb r g b / 0.1);
+}
+
+.feature-icon svg {
+  width: 17px;
+  height: 17px;
+}
+
+.feature-text {
+  font-size: var(--fontSize);
+  color: var(--primaryText);
+  font-weight: 500;
+}
+
+/* Image containers — no border/shadow by default (transparent PNGs are common) */
+.image-container {
+  width: 100%;
+  max-width: 800px;
+  margin: calc(var(--lineHeight) * 1.5) auto;
+}
+
+.image-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+
+
+.image-container.aspect-3-1 {
+  aspect-ratio: 3/1;
+}
+
+.image-container.aspect-4-3 {
+  aspect-ratio: 4/3;
+}
+
+.image-container.aspect-3-1 img,
+.image-container.aspect-4-3 img {
+  object-fit: contain;
+  width: 100%;
+  height: 100%;
+}
+
+/* ─── Footer ─────────────────────────────────────────────── */
+
+.legal-links {
+  margin-top: auto;
+  padding-top: calc(var(--lineHeight) * 2);
+  padding-bottom: calc(var(--lineHeight) * 2);
+  border-top: var(--hairlineThickness) solid color(from var(--primaryText) srgb r g b / 0.08);
+  font-size: 13px;
+  color: var(--tertiaryText);
+}
+
+.footer {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: var(--tertiaryText);
+  margin-top: auto;
+  padding-top: calc(var(--lineHeight) * 2);
+  padding-bottom: calc(var(--lineHeight) * 2);
+  border-top: var(--hairlineThickness) solid color(from var(--primaryText) srgb r g b / 0.08);
+}
+
+.legal-links a,
+.footer a {
+  color: var(--tertiaryText);
+  text-decoration: none;
+  transition: color 0.15s ease;
+  white-space: nowrap;
+}
+
+.legal-links a:hover,
+.footer a:hover {
+  color: var(--primaryText);
+  text-decoration: underline;
+}
+
+.legal-links a::after,
+.footer a::after {
+  display: none !important;
+}
+
+.legal-links span,
+.footer span {
+  color: var(--tertiaryText);
+}

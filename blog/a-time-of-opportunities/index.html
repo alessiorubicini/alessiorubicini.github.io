@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <link rel="icon" href="/img/profile/applepark-2026-circle.png" type="image/png">
+
+  <title>A Time of Opportunities</title>
+  <meta name="author" content="Alessio Rubicini">
+  <meta name="description" content="Reflections on how modern technology acts as a force multiplier for learning, building and creativity.">
+
+  <!-- OpenGraph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://alessiorubicini.github.io/blog/a-time-of-opportunities/">
+  <meta property="og:title" content="A Time of Opportunities">
+  <meta property="og:description" content="Reflections on how modern technology acts as a force multiplier for learning, building and creativity.">
+  <meta property="og:site_name" content="Alessio Rubicini">
+  <meta property="og:locale" content="en_US">
+  
+  <meta property="og:image" content="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*DPL80oIK9PuSZIZvq3RPTw.jpeg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="A Time of Opportunities">
+  <meta name="twitter:description" content="Reflections on how modern technology acts as a force multiplier for learning, building and creativity.">
+  <meta name="twitter:image" content="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*DPL80oIK9PuSZIZvq3RPTw.jpeg">
+  <meta name="twitter:creator" content="@alessiorubicini">
+
+  <!-- Article structured data for blog posts -->
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "A Time of Opportunities",
+    "description": "Reflections on how modern technology acts as a force multiplier for learning, building and creativity.",
+    "author": { "@type": "Person", "name": "Alessio Rubicini", "url": "https://alessiorubicini.github.io/" },
+    "datePublished": "2025-06-15",
+    "url": "https://alessiorubicini.github.io/blog/a-time-of-opportunities/"
+  }
+  </script>
+  
+
+  <link rel="canonical" href="https://alessiorubicini.github.io/blog/a-time-of-opportunities/">
+  <link rel="alternate" type="application/rss+xml" title="Alessio Rubicini Blog" href="https://alessiorubicini.github.io/blog/feed.xml">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400;1,500&display=swap">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/subpage-styles.css">
+  <link rel="stylesheet" href="/blog-styles.css">
+
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="5b47afd2-b973-4c21-9668-a175674e4d81"></script>
+  <script>
+    async function shareArticle() {
+      const url = window.location.href;
+      const title = document.title;
+      const feedback = document.getElementById('shareFeedback');
+
+      if (navigator.share) {
+        try {
+          await navigator.share({ title, url });
+        } catch (err) {
+          if (err.name !== 'AbortError') console.error('Share failed:', err);
+        }
+      } else {
+        try {
+          await navigator.clipboard.writeText(url);
+          if (feedback) {
+            feedback.textContent = 'Copied!';
+            setTimeout(() => feedback.textContent = '', 2000);
+          }
+        } catch (err) {
+          console.error('Copy failed:', err);
+        }
+      }
+    }
+
+    // Copy button for code blocks
+    (function initCopyButtons() {
+      function createCopyButton() {
+        const button = document.createElement('button');
+        button.className = 'copy-button';
+        button.setAttribute('aria-label', 'Copy code to clipboard');
+        button.innerHTML = `
+          <div class="icon-wrapper">
+            <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <span class="copy-text">Copy</span>
+        `;
+        return button;
+      }
+
+      function wrapCodeBlock(pre) {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'code-block-wrapper';
+        pre.parentNode.insertBefore(wrapper, pre);
+        wrapper.appendChild(pre);
+        return wrapper;
+      }
+
+      async function copyCode(button, pre) {
+        const code = pre.querySelector('code') || pre;
+        const text = code.textContent;
+
+        try {
+          await navigator.clipboard.writeText(text);
+
+          // Add copied state
+          button.classList.add('copied');
+          const textSpan = button.querySelector('.copy-text');
+          if (textSpan) textSpan.textContent = 'Copied!';
+
+          // Reset after animation
+          setTimeout(() => {
+            button.classList.remove('copied');
+            if (textSpan) textSpan.textContent = 'Copy';
+          }, 2000);
+        } catch (err) {
+          console.error('Failed to copy:', err);
+        }
+      }
+
+      function init() {
+        const codeBlocks = document.querySelectorAll('.post-content pre');
+
+        codeBlocks.forEach(pre => {
+          // Skip if already wrapped
+          if (pre.parentElement?.classList.contains('code-block-wrapper')) return;
+
+          const wrapper = wrapCodeBlock(pre);
+          const button = createCopyButton();
+          wrapper.appendChild(button);
+
+          button.addEventListener('click', () => copyCode(button, pre));
+        });
+      }
+
+      // Initialize on DOM ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    })();
+  </script>
+</head>
+<body class="project-page blog-post-page">
+  <script src="/animations.js"></script>
+  <main>
+  <article class="post-article" data-appear>
+
+    <header class="post-header" data-appear>
+      
+
+      <h1 class="post-title font-editorial article-title">A Time of Opportunities</h1>
+
+      <div class="post-meta">
+        <div class="post-author">
+          <img src="/img/profile/applepark-2026-circle.png" alt="Alessio Rubicini" class="author-avatar">
+          <span class="author-name">Alessio Rubicini</span>
+        </div>
+        <span class="post-meta-sep">·</span>
+        <time datetime="2025-06-15">Jun 15, 2025</time>
+        <span class="post-meta-sep">·</span>
+        <span class="reading-time">4 min read</span>
+      </div>
+    </header>
+
+    <div class="post-content" data-appear>
+      <p><img src="https://miro.medium.com/v2/resize:fit:1400/format:webp/1*DPL80oIK9PuSZIZvq3RPTw.jpeg" alt="J.M.W. Turner, Rain, Steam and Speed. The Great Western Railway (1844)"></p>
+<p class="caption">J.M.W. Turner’s 1844 evocative painting, “Rain, Steam and Speed. The Great Western Railway.” This painting captures the raw power and transformative impact of a groundbreaking technology of its time: the steam train. It embodies a moment when a new technology reshaped the world.</p>
+<p>ChatGPT has been around for almost three years now, and despite the dozens of LLMs and AI tools released every day, it remains one of our most reliable work companions. Most importantly, we’re still discovering new ways to use it.</p>
+<p>Recently I found myself questioning how I could improve the way I follow university lectures. In a world where things like building an app from scratch in a few minutes are possible, the traditional method of listening and taking notes started to feel outdated and limiting. That line of thought led me, almost inevitably, to a familiar place: ChatGPT’s floating window was just sitting there on my screen, staring back at me with its inviting prompt: “Ask me anything.”</p>
+<p>The answer was right in front of my eyes.</p>
+<p>So, for every lecture, I started keeping ChatGPT permanently docked on one side of the screen. Every topic, every slide, every paragraph from a textbook went straight into it, and it gave me back a clear, concise, detailed explanation. A second layer of learning that, combined with the professor’s words, helped me understand things twice as well. The compounding benefit of such augmentation is hard to overstate and it’s available today to anyone with a screen and a question.</p>
+<p>That boost made me realize how lucky we are to live in such an opportunity-rich era.</p>
+<p>We live in a time where technological tools allow us to create, learn, and connect in ways that would have sounded like science fiction just a few decades ago, or even a few years ago. It’s easy to take it all for granted, especially when technology becomes part of our everyday life. But if you stop for a moment, it’s incredible to think about the power we have at our fingertips.</p>
+<p>That’s why, in the past few days, sitting down to study or work at my Mac has felt like more than just a task. It’s been a moment of wonder and gratitude.</p>
+<h3 id="the-power-at-our-fingertips" tabindex="-1">The Power at Our Fingertips <a class="header-anchor" href="#the-power-at-our-fingertips"><span aria-hidden="true">#</span></a></h3>
+<p>We often use (and overuse) the tools we have without realizing the immense power and almost unlimited possibilities they give us.</p>
+<p>A MacBook Pro with an M3 chip can perform over 25 trillion operations per second. It has a 3-nanometer processor (meaning its transistors are only 3 billionths of a meter wide), capable of handling heavy workloads like real-time 3D rendering or 8K video editing, all silently, in just a few millimeters of aluminum. Fiber networks now routinely deliver 1 Gbps speeds, allowing for global information flow with imperceptible friction. And models like ChatGPT, trained on more books, articles, and conversations than we could ever consume in a hundred lifetimes, are increasingly able to mirror, expand, and refine human thought itself.</p>
+<p>When technology advances this quickly, it becomes easy to miss the significance of the transition we’re experiencing. We criticize the tools. We focus on their gaps. We get used to them. But step back for a moment, and the perspective shifts: <strong>this is the first time in history that individuals, regardless of geography or resources, have access to this much intelligence, power, and leverage.</strong></p>
+<p>If smartphones were a radical disruption of the world and the status quo, artificial intelligence will be twice as disruptive. And we’re right in the middle of it.</p>
+<h3 id="a-force-for-inspiration" tabindex="-1">A Force for Inspiration <a class="header-anchor" href="#a-force-for-inspiration"><span aria-hidden="true">#</span></a></h3>
+<p>We can create music, write books, build software, explore human knowledge, and talk to people anywhere in the world, all from a kitchen table or a local café. It might sound like one of those overused phrases from news reports or school essays, but today it feels more real than ever.</p>
+<p>It’s a quiet, extraordinary fact of the present.</p>
+<p>I believe that feeling this kind of gratitude is a rare form of awareness. And this era, though imperfect, might be the first in which talent, curiosity, and determination matter more than initial material resources. Inequality still exists, but never before has it been so possible for so many people to turn an idea into something real.</p>
+<p>And maybe today, the word <strong>“create”</strong> carries a meaning and a weight that it never had before.</p>
+<p>Perhaps that’s why gratitude isn’t just an emotion. It’s also a call to not waste what we’ve been given, and to use it to grow, to build, to share.</p>
+
+    </div>
+
+    
+    <div class="post-tags" data-appear style="margin-top: calc(var(--lineHeight) * 1.5);">
+      
+        
+      
+        
+        <span class="tag-pill">reflections</span>
+        
+      
+        
+        <span class="tag-pill">ai</span>
+        
+      
+        
+        <span class="tag-pill">technology</span>
+        
+      
+    </div>
+    
+
+    <div class="post-share" data-appear>
+      <button class="share-button" onclick="shareArticle()" aria-label="Share this article">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+        Share
+      </button>
+      <span class="share-feedback" id="shareFeedback" aria-live="polite"></span>
+    </div>
+
+    <div class="vcard post-author-footer" data-appear style="margin-top: calc(var(--lineHeight) * 2.5);">
+      <img id="avatar" src="/img/profile/applepark-2026-circle.png" width="44" height="44" alt="Alessio Rubicini">
+      <div>
+        <h3 class="font-editorial" style="color: var(--primaryText); font-size: calc(var(--fontSize) * 1.35); font-weight: 500; letter-spacing: -0.01em; margin-bottom: 0.3em; line-height: 1.2;">Alessio Rubicini</h3>
+        <p style="font-size: var(--secondaryFontSize); line-height: 1.6; margin: 0; color: var(--secondaryText); text-wrap: pretty;">I'm an iOS developer with 5+ years building open source and shipping on the App Store. Swift Student Challenge winner at WWDC25. I push Apple platforms to their limits, from on-device AI to cryptographic security, always with the same obsession for native feel and detail.</p>
+      </div>
+    </div>
+
+  </article>
+
+  <div class="legal-links" data-appear>
+    <span>© 2026 <a href="/">Alessio Rubicini</a>. All rights reserved.</span>
+  </div>
+</main>
+
+</body>
+</html>

@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <link rel="icon" href="/img/profile/applepark-2026-circle.png" type="image/png">
+
+  <title>My Swift Student Challenge Journey</title>
+  <meta name="author" content="Alessio Rubicini">
+  <meta name="description" content="A reflection on my journey as an Apple Swift Student Challenge winner in 2025.">
+
+  <!-- OpenGraph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://alessiorubicini.github.io/blog/my-swift-student-challenge/">
+  <meta property="og:title" content="My Swift Student Challenge Journey">
+  <meta property="og:description" content="A reflection on my journey as an Apple Swift Student Challenge winner in 2025.">
+  <meta property="og:site_name" content="Alessio Rubicini">
+  <meta property="og:locale" content="en_US">
+  
+  <meta property="og:image" content="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDFxdzc4eHdoMDJucWFrMHU0Y2Noa2w2dWVwNW5vaDk3emhoMTVjeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/mXuPwP0kxQqvu0M168/giphy.gif">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="My Swift Student Challenge Journey">
+  <meta name="twitter:description" content="A reflection on my journey as an Apple Swift Student Challenge winner in 2025.">
+  <meta name="twitter:image" content="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDFxdzc4eHdoMDJucWFrMHU0Y2Noa2w2dWVwNW5vaDk3emhoMTVjeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/mXuPwP0kxQqvu0M168/giphy.gif">
+  <meta name="twitter:creator" content="@alessiorubicini">
+
+  <!-- Article structured data for blog posts -->
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "My Swift Student Challenge Journey",
+    "description": "A reflection on my journey as an Apple Swift Student Challenge winner in 2025.",
+    "author": { "@type": "Person", "name": "Alessio Rubicini", "url": "https://alessiorubicini.github.io/" },
+    "datePublished": "2025-04-01",
+    "url": "https://alessiorubicini.github.io/blog/my-swift-student-challenge/"
+  }
+  </script>
+  
+
+  <link rel="canonical" href="https://alessiorubicini.github.io/blog/my-swift-student-challenge/">
+  <link rel="alternate" type="application/rss+xml" title="Alessio Rubicini Blog" href="https://alessiorubicini.github.io/blog/feed.xml">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400;1,500&display=swap">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/subpage-styles.css">
+  <link rel="stylesheet" href="/blog-styles.css">
+
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="5b47afd2-b973-4c21-9668-a175674e4d81"></script>
+  <script>
+    async function shareArticle() {
+      const url = window.location.href;
+      const title = document.title;
+      const feedback = document.getElementById('shareFeedback');
+
+      if (navigator.share) {
+        try {
+          await navigator.share({ title, url });
+        } catch (err) {
+          if (err.name !== 'AbortError') console.error('Share failed:', err);
+        }
+      } else {
+        try {
+          await navigator.clipboard.writeText(url);
+          if (feedback) {
+            feedback.textContent = 'Copied!';
+            setTimeout(() => feedback.textContent = '', 2000);
+          }
+        } catch (err) {
+          console.error('Copy failed:', err);
+        }
+      }
+    }
+
+    // Copy button for code blocks
+    (function initCopyButtons() {
+      function createCopyButton() {
+        const button = document.createElement('button');
+        button.className = 'copy-button';
+        button.setAttribute('aria-label', 'Copy code to clipboard');
+        button.innerHTML = `
+          <div class="icon-wrapper">
+            <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <span class="copy-text">Copy</span>
+        `;
+        return button;
+      }
+
+      function wrapCodeBlock(pre) {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'code-block-wrapper';
+        pre.parentNode.insertBefore(wrapper, pre);
+        wrapper.appendChild(pre);
+        return wrapper;
+      }
+
+      async function copyCode(button, pre) {
+        const code = pre.querySelector('code') || pre;
+        const text = code.textContent;
+
+        try {
+          await navigator.clipboard.writeText(text);
+
+          // Add copied state
+          button.classList.add('copied');
+          const textSpan = button.querySelector('.copy-text');
+          if (textSpan) textSpan.textContent = 'Copied!';
+
+          // Reset after animation
+          setTimeout(() => {
+            button.classList.remove('copied');
+            if (textSpan) textSpan.textContent = 'Copy';
+          }, 2000);
+        } catch (err) {
+          console.error('Failed to copy:', err);
+        }
+      }
+
+      function init() {
+        const codeBlocks = document.querySelectorAll('.post-content pre');
+
+        codeBlocks.forEach(pre => {
+          // Skip if already wrapped
+          if (pre.parentElement?.classList.contains('code-block-wrapper')) return;
+
+          const wrapper = wrapCodeBlock(pre);
+          const button = createCopyButton();
+          wrapper.appendChild(button);
+
+          button.addEventListener('click', () => copyCode(button, pre));
+        });
+      }
+
+      // Initialize on DOM ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    })();
+  </script>
+</head>
+<body class="project-page blog-post-page">
+  <script src="/animations.js"></script>
+  <main>
+  <article class="post-article" data-appear>
+
+    <header class="post-header" data-appear>
+      
+
+      <h1 class="post-title font-editorial article-title">My Swift Student Challenge Journey</h1>
+
+      <div class="post-meta">
+        <div class="post-author">
+          <img src="/img/profile/applepark-2026-circle.png" alt="Alessio Rubicini" class="author-avatar">
+          <span class="author-name">Alessio Rubicini</span>
+        </div>
+        <span class="post-meta-sep">·</span>
+        <time datetime="2025-04-01">Apr 1, 2025</time>
+        <span class="post-meta-sep">·</span>
+        <span class="reading-time">5 min read</span>
+      </div>
+    </header>
+
+    <div class="post-content" data-appear>
+      <p>It’s October 8th, 2024. It’s 3:33 P.M. According to my iCloud calendar, I’m between an intense study session and a machine learning lecture about classification and the Perceptron Learning Algorithm. Not the best time.</p>
+<p>An email arrives from Apple. The subject: <strong>“Announcing Swift Student Challenge 2025”</strong>.</p>
+<p>“Oh, dear,” I say. I remember participating in the 2024 edition of the challenge. It didn’t go well.</p>
+<h3 id="the-stung-of-rejection" tabindex="-1">The Stung of Rejection <a class="header-anchor" href="#the-stung-of-rejection"><span aria-hidden="true">#</span></a></h3>
+<p>Recalling my 2024 participation: during the submissions period, I was busy, overwhelmed, and stressed. Exams were draining my energy, project meetups were taking over my calendar, and the prospect of starting my internship as an iOS developer (along with a small dose of imposter syndrome) was haunting me.</p>
+<p>I created a playground for the challenge. A bad one. A tiny, messy, and poorly designed iPad application for simulating HTTP requests. I knew the project was poorly made and that there would be submissions far superior to mine. At the end of March, the results came out. I was rejected. Even though I expected it, the rejection still stung.</p>
+<p>I set the car in motion (literally, I was in my car when I received the results) and told myself: <strong>“Next year.”</strong></p>
+<p>Here’s next year.</p>
+<h3 id="what-is-the-swift-student-challenge%3F" tabindex="-1">What is the Swift Student Challenge? <a class="header-anchor" href="#what-is-the-swift-student-challenge%3F"><span aria-hidden="true">#</span></a></h3>
+<p>For anyone unfamiliar, the Swift Student Challenge is an annual coding competition hosted by Apple for students worldwide. Whether you’re in middle school, high school, or college, if you’re at least 13 and passionate about coding, the challenge is for you.</p>
+<p>It’s part of Apple’s annual <strong>WWDC</strong> (Worldwide Developers Conference) and focuses on Swift. The challenge encourages students to showcase their skills by creating an interactive Swift playground project. Apple selects 350 winners, 50 of whom are designated as “Distinguished Winners.” Prizes include exclusive gear and the opportunity to join WWDC at Apple Park.</p>
+<h3 id="why-join-the-challenge%3F" tabindex="-1">Why Join the Challenge? <a class="header-anchor" href="#why-join-the-challenge%3F"><span aria-hidden="true">#</span></a></h3>
+<p>Why did I join? More importantly, why should you?</p>
+<p>You might want the official certificate, the free year of the Apple Developer Program, or the AirPods Max. Maybe you dream of visiting Apple Park and talking with Tim Cook or Apple engineers. I’ll admit, that last one is still one of my biggest dreams.</p>
+<p>But the biggest reason is to <strong>challenge yourself</strong>.</p>
+<p>You might feel confident in your coding abilities from school or self-teaching, but are you <em>really</em> that confident? The Swift Student Challenge puts that to the test. It’s not about beating others - it’s about pushing your own boundaries. There are no rankings or scoreboards. Apple looks for projects that demonstrate <strong>creativity, innovation, and originality</strong>.</p>
+<h3 id="the-philosophy%3A-creativity-first" tabindex="-1">The Philosophy: Creativity First <a class="header-anchor" href="#the-philosophy%3A-creativity-first"><span aria-hidden="true">#</span></a></h3>
+<p>Do you need to build massive, scalable applications with state-of-the-art machine learning? <strong>Nope.</strong></p>
+<p>The Swift Student Challenge is all about creativity. Apple’s prompt essentially boils down to:</p>
+<blockquote>
+<p><em>Create an interactive scene in an app playground that can be experienced within three minutes. Be creative.</em></p>
+</blockquote>
+<p>You don’t need a complex app with dozens of features. You just need something that makes Apple’s engineers say, “That’s cool!” Excellence is evaluated on innovation, creativity, social impact, or inclusivity.</p>
+<h4 id="don%E2%80%99t-be-afraid-of-existing-ideas" tabindex="-1">Don’t Be Afraid of Existing Ideas <a class="header-anchor" href="#don%E2%80%99t-be-afraid-of-existing-ideas"><span aria-hidden="true">#</span></a></h4>
+<p>Maybe your app addresses a social issue or teaches coding in a unique way. I considered an app for the blind using haptic feedback, but discarded it when I found a similar project from a previous year.</p>
+<p><strong>In hindsight, that was a mistake.</strong></p>
+<p>When I’m not coding, I’m writing stories. If you have an idea for a novel that’s been told before, you should tell it anyway, because <strong>no one has told it the way you would</strong>. The same applies to apps. Don’t discard an idea just because it’s been done. No one has built it the way <em>you</em> would.</p>
+<p><img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDFxdzc4eHdoMDJucWFrMHU0Y2Noa2w2dWVwNW5vaDk3emhoMTVjeCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/mXuPwP0kxQqvu0M168/giphy.gif" alt="Thinking Outside the Box"></p>
+<h3 id="the-idea%3A-screenplay-genie-%F0%9F%92%A1" tabindex="-1">The Idea: Screenplay Genie 💡 <a class="header-anchor" href="#the-idea%3A-screenplay-genie-%F0%9F%92%A1"><span aria-hidden="true">#</span></a></h3>
+<p>Finding an idea that is creative, innovative, and condensed into a three-minute experience is tricky. My first few ideas didn’t survive. At one point, I was working on a flat solar system app - cool, but not particularly original.</p>
+<p>Then, it clicked. I love stories. I love writing them. I thought:
+<strong>“What if I had an app to learn how to write a screenplay?”</strong></p>
+<p>The best ideas often come from that “What if…” formula.</p>
+<h3 id="the-realization-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB" tabindex="-1">The Realization 👨🏻‍💻 <a class="header-anchor" href="#the-realization-%F0%9F%91%A8%F0%9F%8F%BB%E2%80%8D%F0%9F%92%BB"><span aria-hidden="true">#</span></a></h3>
+<p>My submission, <strong>Screenplay Genie</strong>, is an iPad application that teaches the basics of screenwriting through interactive lessons. While writing in a creative playground, users can preview their screenplay formatted to industry standards in real-time.</p>
+<p>I used <strong>Swift and SwiftUI</strong>, plus a package for confetti effects (for that necessary sense of accomplishment). After a month of sporadic, intense coding sessions, I had something I was proud of.</p>
+<div class="markdown-alert markdown-alert-tip"><p class="markdown-alert-title"><svg class="octicon octicon-light-bulb mr-2" viewBox="0 0 16 16" version="1.1" width="16" height="16" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</p><p>You can find the full project on GitHub: <a href="https://github.com/alessiorubicini/Screenplay-Genie">alessiorubicini/Screenplay-Genie</a></p>
+</div>
+<h3 id="the-win-%F0%9F%8F%85" tabindex="-1">The Win 🏅 <a class="header-anchor" href="#the-win-%F0%9F%8F%85"><span aria-hidden="true">#</span></a></h3>
+<p>On February 20th, I hit ‘Submit.’ A wave of relief washed over me. Whether I won or not, I had built something I loved.</p>
+<p>Weeks passed. On March 27th, the email arrived.
+<strong>“Congratulations! We’re thrilled to announce that you’ve been selected as a Swift Student Challenge 2025 winner!”</strong></p>
+<p><img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExcGo5YzN4bXE4b2hzcjV3amg1NzU4OHA0MGRhNjZ6ZXExenI0cXJsbCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oKIPu1AxMWB2xlwl2/giphy.gif" alt="Winner Celebration"></p>
+<p>Winning is exciting, but the best part is the community. I feel deeply grateful to Apple for hosting the challenge and to myself for participating without fear.</p>
+<h3 id="conclusion%3A-don%E2%80%99t-be-afraid-to-fail" tabindex="-1">Conclusion: Don’t Be Afraid to Fail <a class="header-anchor" href="#conclusion%3A-don%E2%80%99t-be-afraid-to-fail"><span aria-hidden="true">#</span></a></h3>
+<p>I don’t believe every story needs a lesson, but this one has an important one: <strong>don’t be afraid to fail.</strong> Every attempt, even the least successful, is a brick that builds your future. If you’re thinking of joining next year, go for it. You’re laying the foundation for whatever comes next.</p>
+<hr>
+<p><strong>Update:</strong> Looking back, I was lucky enough to be selected to attend WWDC in person! I spent three amazing days in Cupertino, visited Apple Park and Infinite Loop, and met incredibly inspiring people. It was absolutely worth it.</p>
+
+    </div>
+
+    
+    <div class="post-tags" data-appear style="margin-top: calc(var(--lineHeight) * 1.5);">
+      
+        
+      
+        
+        <span class="tag-pill">swift studet challenge</span>
+        
+      
+        
+        <span class="tag-pill">wwdc</span>
+        
+      
+        
+        <span class="tag-pill">apple</span>
+        
+      
+    </div>
+    
+
+    <div class="post-share" data-appear>
+      <button class="share-button" onclick="shareArticle()" aria-label="Share this article">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+        Share
+      </button>
+      <span class="share-feedback" id="shareFeedback" aria-live="polite"></span>
+    </div>
+
+    <div class="vcard post-author-footer" data-appear style="margin-top: calc(var(--lineHeight) * 2.5);">
+      <img id="avatar" src="/img/profile/applepark-2026-circle.png" width="44" height="44" alt="Alessio Rubicini">
+      <div>
+        <h3 class="font-editorial" style="color: var(--primaryText); font-size: calc(var(--fontSize) * 1.35); font-weight: 500; letter-spacing: -0.01em; margin-bottom: 0.3em; line-height: 1.2;">Alessio Rubicini</h3>
+        <p style="font-size: var(--secondaryFontSize); line-height: 1.6; margin: 0; color: var(--secondaryText); text-wrap: pretty;">I'm an iOS developer with 5+ years building open source and shipping on the App Store. Swift Student Challenge winner at WWDC25. I push Apple platforms to their limits, from on-device AI to cryptographic security, always with the same obsession for native feel and detail.</p>
+      </div>
+    </div>
+
+  </article>
+
+  <div class="legal-links" data-appear>
+    <span>© 2026 <a href="/">Alessio Rubicini</a>. All rights reserved.</span>
+  </div>
+</main>
+
+</body>
+</html>
