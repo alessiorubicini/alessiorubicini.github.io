@@ -1,0 +1,309 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <link rel="icon" href="/img/profile/applepark-2026-circle.png" type="image/png">
+
+  <title>Introducing Session Types in Swift</title>
+  <meta name="author" content="Alessio Rubicini">
+  <meta name="description" content="Exploring how session types can bring formal verification and type safety to concurrent Swift protocols.">
+
+  <!-- OpenGraph -->
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://alessiorubicini.github.io/blog/introducing-session-types-in-swift/">
+  <meta property="og:title" content="Introducing Session Types in Swift">
+  <meta property="og:description" content="Exploring how session types can bring formal verification and type safety to concurrent Swift protocols.">
+  <meta property="og:site_name" content="Alessio Rubicini">
+  <meta property="og:locale" content="en_US">
+  
+  <meta property="og:image" content="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnA0cHB3cHdyeWZ4aDhraG80Y2I5YzBkazRyMjVsZXNrN2Uxc3FwbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l46Cgwa9YZNNrEQla/giphy.gif">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Introducing Session Types in Swift">
+  <meta name="twitter:description" content="Exploring how session types can bring formal verification and type safety to concurrent Swift protocols.">
+  <meta name="twitter:image" content="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnA0cHB3cHdyeWZ4aDhraG80Y2I5YzBkazRyMjVsZXNrN2Uxc3FwbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l46Cgwa9YZNNrEQla/giphy.gif">
+  <meta name="twitter:creator" content="@alessiorubicini">
+
+  <!-- Article structured data for blog posts -->
+  
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Introducing Session Types in Swift",
+    "description": "Exploring how session types can bring formal verification and type safety to concurrent Swift protocols.",
+    "author": { "@type": "Person", "name": "Alessio Rubicini", "url": "https://alessiorubicini.github.io/" },
+    "datePublished": "2024-06-14",
+    "url": "https://alessiorubicini.github.io/blog/introducing-session-types-in-swift/"
+  }
+  </script>
+  
+
+  <link rel="canonical" href="https://alessiorubicini.github.io/blog/introducing-session-types-in-swift/">
+  <link rel="alternate" type="application/rss+xml" title="Alessio Rubicini Blog" href="https://alessiorubicini.github.io/blog/feed.xml">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=IBM+Plex+Serif:ital,wght@0,400;0,500;1,400;1,500&display=swap">
+  <link rel="stylesheet" href="/styles.css">
+  <link rel="stylesheet" href="/subpage-styles.css">
+  <link rel="stylesheet" href="/blog-styles.css">
+
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="5b47afd2-b973-4c21-9668-a175674e4d81"></script>
+  <script>
+    async function shareArticle() {
+      const url = window.location.href;
+      const title = document.title;
+      const feedback = document.getElementById('shareFeedback');
+
+      if (navigator.share) {
+        try {
+          await navigator.share({ title, url });
+        } catch (err) {
+          if (err.name !== 'AbortError') console.error('Share failed:', err);
+        }
+      } else {
+        try {
+          await navigator.clipboard.writeText(url);
+          if (feedback) {
+            feedback.textContent = 'Copied!';
+            setTimeout(() => feedback.textContent = '', 2000);
+          }
+        } catch (err) {
+          console.error('Copy failed:', err);
+        }
+      }
+    }
+
+    // Copy button for code blocks
+    (function initCopyButtons() {
+      function createCopyButton() {
+        const button = document.createElement('button');
+        button.className = 'copy-button';
+        button.setAttribute('aria-label', 'Copy code to clipboard');
+        button.innerHTML = `
+          <div class="icon-wrapper">
+            <svg class="copy-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+            </svg>
+            <svg class="check-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+          </div>
+          <span class="copy-text">Copy</span>
+        `;
+        return button;
+      }
+
+      function wrapCodeBlock(pre) {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'code-block-wrapper';
+        pre.parentNode.insertBefore(wrapper, pre);
+        wrapper.appendChild(pre);
+        return wrapper;
+      }
+
+      async function copyCode(button, pre) {
+        const code = pre.querySelector('code') || pre;
+        const text = code.textContent;
+
+        try {
+          await navigator.clipboard.writeText(text);
+
+          // Add copied state
+          button.classList.add('copied');
+          const textSpan = button.querySelector('.copy-text');
+          if (textSpan) textSpan.textContent = 'Copied!';
+
+          // Reset after animation
+          setTimeout(() => {
+            button.classList.remove('copied');
+            if (textSpan) textSpan.textContent = 'Copy';
+          }, 2000);
+        } catch (err) {
+          console.error('Failed to copy:', err);
+        }
+      }
+
+      function init() {
+        const codeBlocks = document.querySelectorAll('.post-content pre');
+
+        codeBlocks.forEach(pre => {
+          // Skip if already wrapped
+          if (pre.parentElement?.classList.contains('code-block-wrapper')) return;
+
+          const wrapper = wrapCodeBlock(pre);
+          const button = createCopyButton();
+          wrapper.appendChild(button);
+
+          button.addEventListener('click', () => copyCode(button, pre));
+        });
+      }
+
+      // Initialize on DOM ready
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    })();
+  </script>
+</head>
+<body class="project-page blog-post-page">
+  <script src="/animations.js"></script>
+  <main>
+  <article class="post-article" data-appear>
+
+    <header class="post-header" data-appear>
+      
+
+      <h1 class="post-title font-editorial article-title">Introducing Session Types in Swift</h1>
+
+      <div class="post-meta">
+        <div class="post-author">
+          <img src="/img/profile/applepark-2026-circle.png" alt="Alessio Rubicini" class="author-avatar">
+          <span class="author-name">Alessio Rubicini</span>
+        </div>
+        <span class="post-meta-sep">·</span>
+        <time datetime="2024-06-14">Jun 14, 2024</time>
+        <span class="post-meta-sep">·</span>
+        <span class="reading-time">7 min read</span>
+      </div>
+    </header>
+
+    <div class="post-content" data-appear>
+      <p>Swift async code can get messy fast. If you’ve struggled with callback hell or tangled async/await logic, this article should help. I built a library for session types that might actually make your concurrent code easier to reason about.</p>
+<p>We’ll look at how session types can structure your async Swift code better. The main benefit is stronger type safety, you catch bugs before runtime instead of chasing them down later.</p>
+<h2 id="what-are-session-types%3F" tabindex="-1">What are Session Types? <a class="header-anchor" href="#what-are-session-types%3F"><span aria-hidden="true">#</span></a></h2>
+<p>Concurrent programs, where multiple processes run in parallel on a single machine or across a distributed system, rely heavily on communication for coordination. These interactions follow specific protocols that define the allowed sequences of message exchanges. Managing these protocols correctly and securely is crucial for distributed systems and network communication, and it can be challenging.</p>
+<p>Session types, born from the field of process typing and rooted in π-calculus, provide a formal way to specify and verify these communication protocols. They act as a type system specifically for communication channels, ensuring messages are exchanged in the correct order and format. Think of them as “types for protocols.”</p>
+<p>Session types define the structure, flow, and behavior of communication between processes. They specify:</p>
+<ul>
+<li><strong>Message Types</strong>: What kind of data can be sent and received?</li>
+<li><strong>Message Order</strong>: In what sequence must messages be exchanged?</li>
+<li><strong>Session Termination</strong>: When can a communication session be closed?</li>
+</ul>
+<p>By describing a communication protocol as a type, session types enable verification during usual type checking performed by the compiler. This upfront check helps prevent errors like type mismatching, deadlocks, livelocks or starvation, leading to more robust and reliable distributed systems.</p>
+<h2 id="never-heard-of-it%E2%80%A6" tabindex="-1">Never Heard of It… <a class="header-anchor" href="#never-heard-of-it%E2%80%A6"><span aria-hidden="true">#</span></a></h2>
+<p>If you’ve never heard of session types, that’s normal. This is a concept born and explored in recent decades, and reserved for a limited set of languages ​​with particular functionality. Suffice it to say that there are very few programming languages ​​that natively support session types, such as MOOL (Mini Object-Oriented Language) or ATS (Authenticated Typed Script). And existing library implementations are usually targeted at languages ​​like Haskell and OCaml.</p>
+<h2 id="a-brief-example" tabindex="-1">A Brief Example <a class="header-anchor" href="#a-brief-example"><span aria-hidden="true">#</span></a></h2>
+<p>Let’s take two people: Tim and Craig (no pun intended). Tim wants to know if a certain integer is even. Craig is the person who can calculate whether a number is even or not. We model the communication session between the two as follows.</p>
+<p>Tim will use an endpoint where in sequence he can send an integer, receive a boolean and terminate the communication; the type of this endpoint will be <code>!int.?bool.end</code>.</p>
+<p>Craig will use an endpoint where he can sequentially receive an integer, send a boolean and end communication; so the type of this endpoint will be something like <code>?int.!bool.end</code>.</p>
+<p>Here we use a minimal syntax where:</p>
+<ul>
+<li><code>!T.S</code> means Send a value of type T and proceed with the protocol described by S;</li>
+<li><code>?T.S</code> means Receive a value of type T and proceeds with the protocol described by S;</li>
+<li><code>end</code> means end of communication.</li>
+</ul>
+<p>Thus we described the session endpoints that Tim and Craig use to communicate as datatypes.</p>
+<h2 id="duality" tabindex="-1">Duality <a class="header-anchor" href="#duality"><span aria-hidden="true">#</span></a></h2>
+<p>From this example it’s already possible to understand one of the fundamental properties of session types, duality. Duality establishes a correspondence between the actions performed within a session, ensuring that each party adheres to the same communication protocol from a complementary perspective. Formally, duality dictates that for every send action in one party’s protocol, there is a corresponding receive action in the other party’s protocol.</p>
+<p>This mutual dependence, which obviously applies not only to the sending and receiving primitives but also to all the others, guarantees that communication proceeds in a synchronized and well-defined way, and that the protocol is followed correctly.</p>
+<h2 id="linearity" tabindex="-1">Linearity <a class="header-anchor" href="#linearity"><span aria-hidden="true">#</span></a></h2>
+<p>Another fundamental concept in the context of session types is linearity, which is crucial to guarantee the correct management of resources and communication endpoints. Linearity ensures that linear resource usage is enforced, i.e. that each communication endpoint is consumed (used) exactly once during a session.</p>
+<p>If this principle were to fail, resources could be used multiple times or not used at all, causing potential errors such as deadlocks.</p>
+<h2 id="a-library-for-binary-session-types-in-swift" tabindex="-1">A Library for Binary Session Types in Swift <a class="header-anchor" href="#a-library-for-binary-session-types-in-swift"><span aria-hidden="true">#</span></a></h2>
+<p>As a crazy Swift lover, I couldn’t help but center my bachelor’s degree thesis on it. The goal was to test Swift’s type system (literally abuse it) and attempt to implement session types into the language.</p>
+<p>In the last two months, with the help of my supervisor, prof. Luca Padovani, author of various papers on the topic as well as developer of a session types library for OCaml, I have developed a library called <a href="https://github.com/alessiorubicini/SwiftSessions">Swift Sessions</a> that successfully implements session types for asynchronous communications between two processes.</p>
+<p>Without delving into implementation details (for now), Swift Session provides the primitives, endpoints and channels needed to implement such structured communication sessions. Let’s see an example of how to use it:</p>
+<pre class="shiki shiki-themes github-light-default github-dark-default" style="background-color:#ffffff;--shiki-dark-bg:#0d1117;color:#1f2328;--shiki-dark:#e6edf3" tabindex="0"><code class="language-swift"><span class="line"><span style="color:#CF222E;--shiki-dark:#FF7B72">await</span><span style="color:#1F2328;--shiki-dark:#E6EDF3"> Session.</span><span style="color:#0550AE;--shiki-dark:#79C0FF">create</span><span style="color:#1F2328;--shiki-dark:#E6EDF3"> { e </span><span style="color:#CF222E;--shiki-dark:#FF7B72">in</span></span>
+<span class="line"><span style="color:#6E7781;--shiki-dark:#8B949E">    // One side of the communication channel</span></span>
+<span class="line"><span style="color:#CF222E;--shiki-dark:#FF7B72">    await</span><span style="color:#1F2328;--shiki-dark:#E6EDF3"> Session.</span><span style="color:#0550AE;--shiki-dark:#79C0FF">send</span><span style="color:#1F2328;--shiki-dark:#E6EDF3">(</span><span style="color:#0550AE;--shiki-dark:#79C0FF">42</span><span style="color:#1F2328;--shiki-dark:#E6EDF3">, </span><span style="color:#0550AE;--shiki-dark:#79C0FF">on</span><span style="color:#1F2328;--shiki-dark:#E6EDF3">: e) { e </span><span style="color:#CF222E;--shiki-dark:#FF7B72">in</span></span>
+<span class="line"><span style="color:#CF222E;--shiki-dark:#FF7B72">        await</span><span style="color:#1F2328;--shiki-dark:#E6EDF3"> Session.</span><span style="color:#0550AE;--shiki-dark:#79C0FF">recv</span><span style="color:#1F2328;--shiki-dark:#E6EDF3">(</span><span style="color:#0550AE;--shiki-dark:#79C0FF">from</span><span style="color:#1F2328;--shiki-dark:#E6EDF3">: e) { isEven, e </span><span style="color:#CF222E;--shiki-dark:#FF7B72">in</span></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E6EDF3">            Session.</span><span style="color:#0550AE;--shiki-dark:#79C0FF">close</span><span style="color:#1F2328;--shiki-dark:#E6EDF3">(e)</span></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E6EDF3">        }</span></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E6EDF3">    }</span></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E6EDF3">} </span><span style="color:#0550AE;--shiki-dark:#79C0FF">_</span><span style="color:#CF222E;--shiki-dark:#FF7B72">:</span><span style="color:#1F2328;--shiki-dark:#E6EDF3"> { c </span><span style="color:#CF222E;--shiki-dark:#FF7B72">in</span></span>
+<span class="line"><span style="color:#6E7781;--shiki-dark:#8B949E">    // Another side of the communication channel</span></span>
+<span class="line"><span style="color:#CF222E;--shiki-dark:#FF7B72">    await</span><span style="color:#1F2328;--shiki-dark:#E6EDF3"> Session.</span><span style="color:#0550AE;--shiki-dark:#79C0FF">recv</span><span style="color:#1F2328;--shiki-dark:#E6EDF3">(</span><span style="color:#0550AE;--shiki-dark:#79C0FF">from</span><span style="color:#1F2328;--shiki-dark:#E6EDF3">: e) { num, e </span><span style="color:#CF222E;--shiki-dark:#FF7B72">in</span></span>
+<span class="line"><span style="color:#CF222E;--shiki-dark:#FF7B72">        await</span><span style="color:#1F2328;--shiki-dark:#E6EDF3"> Session.</span><span style="color:#0550AE;--shiki-dark:#79C0FF">send</span><span style="color:#1F2328;--shiki-dark:#E6EDF3">(num </span><span style="color:#CF222E;--shiki-dark:#FF7B72">%</span><span style="color:#0550AE;--shiki-dark:#79C0FF"> 2</span><span style="color:#CF222E;--shiki-dark:#FF7B72"> ==</span><span style="color:#0550AE;--shiki-dark:#79C0FF"> 0</span><span style="color:#1F2328;--shiki-dark:#E6EDF3">, </span><span style="color:#0550AE;--shiki-dark:#79C0FF">on</span><span style="color:#1F2328;--shiki-dark:#E6EDF3">: e) { e </span><span style="color:#CF222E;--shiki-dark:#FF7B72">in</span></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E6EDF3">            Session.</span><span style="color:#0550AE;--shiki-dark:#79C0FF">close</span><span style="color:#1F2328;--shiki-dark:#E6EDF3">(e)</span></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E6EDF3">        }</span></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E6EDF3">    }</span></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E6EDF3">}</span></span></code></pre>
+<p>In this example, we initialize a communication session between two processes: one sends a number (42 😏) and expects to receive a boolean, then closes the communication. The other process receives the integer, and sends true or false if the number is even or not, and then closes the communication too.</p>
+<p>Where is the advantage of session types? If in the first process we send 42 as a string instead of an integer, the second one will be in a protocol violation as it is treating what it received as an integer when it is actually a string:</p>
+<pre class="shiki shiki-themes github-light-default github-dark-default" style="background-color:#ffffff;--shiki-dark-bg:#0d1117;color:#1f2328;--shiki-dark:#e6edf3" tabindex="0"><code class="language-swift"><span class="line"><span style="color:#CF222E;--shiki-dark:#FF7B72">await</span><span style="color:#1F2328;--shiki-dark:#E6EDF3"> Session.</span><span style="color:#0550AE;--shiki-dark:#79C0FF">create</span><span style="color:#1F2328;--shiki-dark:#E6EDF3"> { e </span><span style="color:#CF222E;--shiki-dark:#FF7B72">in</span></span>
+<span class="line"><span style="color:#6E7781;--shiki-dark:#8B949E">    // One side of the communication channel</span></span>
+<span class="line"><span style="color:#CF222E;--shiki-dark:#FF7B72">    await</span><span style="color:#1F2328;--shiki-dark:#E6EDF3"> Session.</span><span style="color:#0550AE;--shiki-dark:#79C0FF">send</span><span style="color:#1F2328;--shiki-dark:#E6EDF3">(</span><span style="color:#0A3069;--shiki-dark:#A5D6FF">"42"</span><span style="color:#1F2328;--shiki-dark:#E6EDF3">, </span><span style="color:#0550AE;--shiki-dark:#79C0FF">on</span><span style="color:#1F2328;--shiki-dark:#E6EDF3">: e) { e </span><span style="color:#CF222E;--shiki-dark:#FF7B72">in</span></span>
+<span class="line"><span style="color:#CF222E;--shiki-dark:#FF7B72">        await</span><span style="color:#1F2328;--shiki-dark:#E6EDF3"> Session.</span><span style="color:#0550AE;--shiki-dark:#79C0FF">recv</span><span style="color:#1F2328;--shiki-dark:#E6EDF3">(</span><span style="color:#0550AE;--shiki-dark:#79C0FF">from</span><span style="color:#1F2328;--shiki-dark:#E6EDF3">: e) { isEven, e </span><span style="color:#CF222E;--shiki-dark:#FF7B72">in</span></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E6EDF3">            Session.</span><span style="color:#0550AE;--shiki-dark:#79C0FF">close</span><span style="color:#1F2328;--shiki-dark:#E6EDF3">(e)</span></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E6EDF3">        }</span></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E6EDF3">    }</span></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E6EDF3">} </span><span style="color:#0550AE;--shiki-dark:#79C0FF">_</span><span style="color:#CF222E;--shiki-dark:#FF7B72">:</span><span style="color:#1F2328;--shiki-dark:#E6EDF3"> { c </span><span style="color:#CF222E;--shiki-dark:#FF7B72">in</span></span>
+<span class="line"><span style="color:#6E7781;--shiki-dark:#8B949E">    // Another side of the communication channel</span></span>
+<span class="line"><span style="color:#CF222E;--shiki-dark:#FF7B72">    await</span><span style="color:#1F2328;--shiki-dark:#E6EDF3"> Session.</span><span style="color:#0550AE;--shiki-dark:#79C0FF">recv</span><span style="color:#1F2328;--shiki-dark:#E6EDF3">(</span><span style="color:#0550AE;--shiki-dark:#79C0FF">from</span><span style="color:#1F2328;--shiki-dark:#E6EDF3">: e) { num, e </span><span style="color:#CF222E;--shiki-dark:#FF7B72">in</span></span>
+<span class="line"><span style="color:#CF222E;--shiki-dark:#FF7B72">        await</span><span style="color:#1F2328;--shiki-dark:#E6EDF3"> Session.</span><span style="color:#0550AE;--shiki-dark:#79C0FF">send</span><span style="color:#1F2328;--shiki-dark:#E6EDF3">(num </span><span style="color:#CF222E;--shiki-dark:#FF7B72">%</span><span style="color:#0550AE;--shiki-dark:#79C0FF"> 2</span><span style="color:#CF222E;--shiki-dark:#FF7B72"> ==</span><span style="color:#0550AE;--shiki-dark:#79C0FF"> 0</span><span style="color:#1F2328;--shiki-dark:#E6EDF3">, </span><span style="color:#0550AE;--shiki-dark:#79C0FF">on</span><span style="color:#1F2328;--shiki-dark:#E6EDF3">: e) { e </span><span style="color:#CF222E;--shiki-dark:#FF7B72">in</span><span style="color:#6E7781;--shiki-dark:#8B949E">  // ERROR!</span></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E6EDF3">            Session.</span><span style="color:#0550AE;--shiki-dark:#79C0FF">close</span><span style="color:#1F2328;--shiki-dark:#E6EDF3">(e)</span></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E6EDF3">        }</span></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E6EDF3">    }</span></span>
+<span class="line"><span style="color:#1F2328;--shiki-dark:#E6EDF3">}</span></span></code></pre>
+<p>Thus we’ll get a compile-time error saying:</p>
+<pre class="shiki shiki-themes github-light-default github-dark-default" style="background-color:#ffffff;--shiki-dark-bg:#0d1117;color:#1f2328;--shiki-dark:#e6edf3" tabindex="0"><code class="language-text"><span class="line"><span>Cannot convert value of type 'String' to expected argument type 'Int'</span></span></code></pre>
+<p>The processes dictate the protocol, forcing each other to respect it by exploiting the language type checking.</p>
+<p><img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnA0cHB3cHdyeWZ4aDhraG80Y2I5YzBkazRyMjVsZXNrN2Uxc3FwbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/l46Cgwa9YZNNrEQla/giphy.gif" alt="I don't trust anyone"></p>
+<h2 id="some-details-for-the-nerdier-ones" tabindex="-1">Some details for the nerdier ones <a class="header-anchor" href="#some-details-for-the-nerdier-ones"><span aria-hidden="true">#</span></a></h2>
+<p>For those of you who are more nerdy and want to know the implementation details of this library, here they are.</p>
+<p>The underlying communication channel between processes is implemented via the AsyncChannel of <a href="https://github.com/apple/swift-async-algorithms">Apple’s Swift Async Algorithms</a> library. It allows us to create an asynchronous channel as a means of transferring data between threads in a secure and asynchronous way, thus allowing us to send and receive values ​​between concurrent activities without blocking the threads.</p>
+<p>Processes do not interface directly with the asynchronous channel but uses a series of Endpoint objects specifically designed to guarantee compliance with the protocol and linear use of resources. An endpoint is an object of the type <code>Endpoint&lt;A, B&gt;</code>, i.e. a session endpoint with which it’s possible to send objects of type A and receive objects of type B. An endpoint never allows both operations.</p>
+<p>Linearity is dynamically checked at run-time through specific checks within the endpoints that verify whether each endpoint has been used once and only once.</p>
+<p>The library provides two different programming styles: one involves direct passing of continuation endpoints, the other uses closures (as in the example above). Each one has its own pros and cons. The main pro of closures is complete type inference ✨.</p>
+<p>Sessions can be initialized via a client/server structure so that a process can be reused multiple times with the same serve protocol.</p>
+<h2 id="dear-swift-6.0" tabindex="-1">Dear Swift 6.0 <a class="header-anchor" href="#dear-swift-6.0"><span aria-hidden="true">#</span></a></h2>
+<p>Some of you may be thinking: “Why are you checking linearity dynamically? Just use noncopyable types!”.</p>
+<p>You’re right, and that’s what we tried to do. Unfortunately, in the current version of Swift (5.10), non-copyable types still have many limitations, including a lack of support for tuples and generic types, which we make extensive use of in the library.</p>
+<p>But recently Apple held WWDC24, the annual conference for developers, and presented Swift 6.0, which includes various new features including <a href="https://developer.apple.com/wwdc24/10170">improvements to non-copyable types</a>. So we eagerly await its arrival!</p>
+
+    </div>
+
+    
+    <div class="post-tags" data-appear style="margin-top: calc(var(--lineHeight) * 1.5);">
+      
+        
+      
+        
+        <span class="tag-pill">swift</span>
+        
+      
+        
+        <span class="tag-pill">concurrency</span>
+        
+      
+        
+        <span class="tag-pill">session types</span>
+        
+      
+        
+        <span class="tag-pill">open-source</span>
+        
+      
+    </div>
+    
+
+    <div class="post-share" data-appear>
+      <button class="share-button" onclick="shareArticle()" aria-label="Share this article">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+        Share
+      </button>
+      <span class="share-feedback" id="shareFeedback" aria-live="polite"></span>
+    </div>
+
+    <div class="vcard post-author-footer" data-appear style="margin-top: calc(var(--lineHeight) * 2.5);">
+      <img id="avatar" src="/img/profile/applepark-2026-circle.png" width="44" height="44" alt="Alessio Rubicini">
+      <div>
+        <h3 class="font-editorial" style="color: var(--primaryText); font-size: calc(var(--fontSize) * 1.35); font-weight: 500; letter-spacing: -0.01em; margin-bottom: 0.3em; line-height: 1.2;">Alessio Rubicini</h3>
+        <p style="font-size: var(--secondaryFontSize); line-height: 1.6; margin: 0; color: var(--secondaryText); text-wrap: pretty;">I'm an iOS developer with 5+ years building open source and shipping on the App Store. Swift Student Challenge winner at WWDC25. I push Apple platforms to their limits, from on-device AI to cryptographic security, always with the same obsession for native feel and detail.</p>
+      </div>
+    </div>
+
+  </article>
+
+  <div class="legal-links" data-appear>
+    <span>© 2026 <a href="/">Alessio Rubicini</a>. All rights reserved.</span>
+  </div>
+</main>
+
+</body>
+</html>

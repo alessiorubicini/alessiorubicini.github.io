@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Alessio Rubicini's Blog</title>
+    <link>https://alessiorubicini.github.io/blog/</link>
+    <description>Thoughts on iOS development, Swift, SwiftUI, and building on Apple platforms.</description>
+    <language>en-us</language>
+    <atom:link href="https://alessiorubicini.github.io/blog/feed.xml" rel="self" type="application/rss+xml"/>
+    <lastBuildDate>Jun 14, 2026</lastBuildDate>
+    
+    <item>
+      <title>Apple, Google, and the Most Misunderstood AI Partnership of 2026</title>
+      <link>https://alessiorubicini.github.io/blog/siri-ai-is-not-gemini/</link>
+      <guid isPermaLink="true">https://alessiorubicini.github.io/blog/siri-ai-is-not-gemini/</guid>
+      <pubDate>Sun, 14 Jun 2026 00:00:00 GMT</pubDate>
+      <description>Clarifying the details of the Apple-Google partnership at WWDC 2026, Apple Foundation Models, and the architecture of the new Siri.</description>
+      
+        <category>apple</category><category>ai</category><category>technology</category>
+      
+    </item>
+    
+    <item>
+      <title>Judgment is Becoming Scarce</title>
+      <link>https://alessiorubicini.github.io/blog/judgment-is-becoming-scarce/</link>
+      <guid isPermaLink="true">https://alessiorubicini.github.io/blog/judgment-is-becoming-scarce/</guid>
+      <pubDate>Wed, 20 May 2026 00:00:00 GMT</pubDate>
+      <description>A personal reflection on product engineering and the shifting role of software developers in 2026.</description>
+      
+        <category>product engineering</category><category>product thinking</category><category>ai</category>
+      
+    </item>
+    
+    <item>
+      <title>A Time of Opportunities</title>
+      <link>https://alessiorubicini.github.io/blog/a-time-of-opportunities/</link>
+      <guid isPermaLink="true">https://alessiorubicini.github.io/blog/a-time-of-opportunities/</guid>
+      <pubDate>Sun, 15 Jun 2025 00:00:00 GMT</pubDate>
+      <description>Reflections on how modern technology acts as a force multiplier for learning, building and creativity.</description>
+      
+        <category>reflections</category><category>ai</category><category>technology</category>
+      
+    </item>
+    
+    <item>
+      <title>My Swift Student Challenge Journey</title>
+      <link>https://alessiorubicini.github.io/blog/my-swift-student-challenge/</link>
+      <guid isPermaLink="true">https://alessiorubicini.github.io/blog/my-swift-student-challenge/</guid>
+      <pubDate>Tue, 01 Apr 2025 00:00:00 GMT</pubDate>
+      <description>A reflection on my journey as an Apple Swift Student Challenge winner in 2025.</description>
+      
+        <category>swift studet challenge</category><category>wwdc</category><category>apple</category>
+      
+    </item>
+    
+    <item>
+      <title>Introducing Session Types in Swift</title>
+      <link>https://alessiorubicini.github.io/blog/introducing-session-types-in-swift/</link>
+      <guid isPermaLink="true">https://alessiorubicini.github.io/blog/introducing-session-types-in-swift/</guid>
+      <pubDate>Fri, 14 Jun 2024 00:00:00 GMT</pubDate>
+      <description>Exploring how session types can bring formal verification and type safety to concurrent Swift protocols.</description>
+      
+        <category>swift</category><category>concurrency</category><category>session types</category><category>open-source</category>
+      
+    </item>
+    
+  </channel>
+</rss>

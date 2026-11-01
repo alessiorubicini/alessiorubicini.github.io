@@ -1,0 +1,142 @@
+/*
+ * Digital Garage - Product-specific styles
+ * Editorial shared patterns live in /subpage-styles.css.
+ */
+
+/* ─── Brand Palette (fixed graphite, independent of OS theme) ── */
+
+body.project-page {
+  max-width: calc(var(--lineHeight) * 32);
+  --backgroundColor: #262626;
+  --secondaryBackgroundColor: #303030;
+  --primaryText: #F7F4EF;
+  --secondaryText: #CFC7BD;
+  --tertiaryText: #948C82;
+  --accentColor: #DF4A51;
+  --dg-surface: color(from var(--primaryText) srgb r g b / 0.055);
+  --dg-surface-strong: color(from var(--primaryText) srgb r g b / 0.095);
+  --dg-border: color(from var(--primaryText) srgb r g b / 0.12);
+  --dg-border-strong: color(from var(--primaryText) srgb r g b / 0.24);
+  --dg-focus: color(from var(--accentColor) srgb r g b / 0.72);
+  --imageFrameRadius: 18px;
+  --imageFrameBorder: var(--dg-border);
+  --imageFrameBackground: var(--dg-surface);
+  --imageFrameShadow: 0 1px 0 color(from white srgb r g b / 0.06) inset,
+    0 24px 70px color(from black srgb r g b / 0.24);
+  background-color: var(--backgroundColor);
+}
+
+
+/* ─── Product-colored Title ──────────────────────────────── */
+
+.page-title {
+  color: #DF4A51;
+}
+
+@media screen and (min-width: 800px) {
+  .page-title {
+    font-size: calc(var(--fontSize) * 2.4);
+  }
+}
+
+/* ─── Badge styles (Red) ─────────────────────────────────── */
+
+.dg-badge {
+  color: #F2A2A6;
+  background: color(from var(--accentColor) srgb r g b / 0.12);
+  border: var(--hairlineThickness) solid color(from var(--accentColor) srgb r g b / 0.28);
+  box-shadow: 0 1px 0 color(from white srgb r g b / 0.05) inset;
+}
+
+.dg-badge:hover {
+  background: color(from var(--accentColor) srgb r g b / 0.16);
+  border-color: color(from var(--accentColor) srgb r g b / 0.46);
+}
+
+/* ─── Section content line-height boost ─────────────────── */
+
+.section-content {
+  line-height: 1.75;
+}
+
+section.section {
+  margin-bottom: 0;
+  padding-top: 0;
+}
+
+.section-header {
+  margin-bottom: calc(var(--lineHeight) * 0.4);
+}
+
+.section-title {
+  color: var(--primaryText);
+}
+
+.image-container {
+  margin: calc(var(--lineHeight) * 0.4) auto;
+}
+
+/* ─── GitHub Badge (or Link Badge) ───────────────────────── */
+
+.link-badge {
+  color: var(--primaryText);
+  background: var(--dg-surface);
+  border: var(--hairlineThickness) solid var(--dg-border);
+  border-radius: 999px;
+  text-decoration: none;
+  gap: 8px;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 1px 0 color(from white srgb r g b / 0.06) inset;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.link-badge:hover {
+  background: var(--dg-surface-strong);
+  border-color: var(--dg-border-strong);
+  color: var(--primaryText);
+  transform: translateY(-1px);
+}
+
+.link-badge:focus-visible,
+.nav-header a:focus-visible,
+.badge:focus-visible {
+  outline: 2px solid var(--dg-focus);
+  outline-offset: 4px;
+}
+
+.link-badge img,
+.link-badge svg {
+  width: 16px;
+  height: 16px;
+  opacity: 0.8;
+}
+
+/* ─── Back Button (Nav Header) ───────────────────────────── */
+
+.nav-header {
+  display: flex;
+  justify-content: center;
+  margin-bottom: calc(var(--lineHeight) * 1);
+  padding-top: calc(var(--lineHeight) * 2);
+}
+
+.nav-header a {
+  color: var(--secondaryText);
+  text-decoration: none;
+  font-size: var(--secondaryFontSize);
+  font-weight: 500;
+  transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  padding: calc(var(--lineHeight) / 4) calc(var(--lineHeight) / 1.5);
+  border-radius: 999px;
+  background-color: var(--dg-surface);
+  border: var(--hairlineThickness) solid var(--dg-border);
+}
+
+.nav-header a:hover {
+  color: var(--primaryText);
+  background-color: var(--dg-surface-strong);
+  border-color: var(--dg-border-strong);
+  transform: translateY(-1px);
+}
